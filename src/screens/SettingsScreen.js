@@ -92,6 +92,17 @@ const SettingsScreen = ({ navigation }) => {
             <Text style={styles.appVersion}>v1.0.0</Text>
           </View>
         </View>
+        <TouchableOpacity onPress={()=> {navigation.navigate('Premium')}}>
+          <View style={styles.section}>
+            <View style={styles.sectionHeader}>
+              <Text style={styles.sectionTitle}>{t('settings.Premium')}</Text>
+            </View>
+
+            <View style={styles.aboutCard}>
+              <Text style={styles.appName}>{t('app.name')}</Text>
+            </View>
+          </View>
+        </TouchableOpacity>
       </ScrollView>
     </View>
   );

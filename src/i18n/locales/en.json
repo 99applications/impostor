@@ -1,6 +1,6 @@
 {
   "app": {
-    "name": "Imposter Party",
+    "name": "Fake",
     "tagline": "Find the Imposter!"
   },
   "home": {
@@ -334,7 +334,8 @@
   "settings": {
     "title": "Settings",
     "language": "Language",
-    "about": "About"
+    "about": "About",
+    "Premium": "Premium"
   },
   "playerSetup": {
     "title": "Players",
@@ -346,5 +347,51 @@
     "maxPlayersMessage": "You can add up to 20 players",
     "minPlayersTitle": "Minimum Players",
     "minPlayersMessage": "At least 3 players required"
+  },
+  "categorySelect": {
+    "title": "Categories",
+    "save": "Save",
+    "selected": "selected",
+    "words": "words",
+    "questions": "questions",
+    "selectAll": "Select All",
+    "deselectAll": "Clear Selection",
+    "hint": "Select multiple categories to add variety to the game",
+    "noneSelected": "No category selected",
+    "freeCategories": "Free Categories",
+    "premiumCategories": "Premium Categories",
+    "premiumTitle": "Premium Category",
+    "premiumMessage": "Premium membership required to access this category.",
+    "goPremium": "Go Premium"
+  },
+  "premium": {
+    "restoreTitle": "Restore",
+    "restoreMessage": "Restore purchase process started...",
+    "lifetimeBadge": "Lifetime Member",
+    "monthlyBadge": "Monthly Member",
+    "title": "Premium",
+    "heroTitle": "Unlock All Features",
+    "heroSubtitle": "Get instant access and 21 more premium categories",
+    "monthlyTitle": "Premium Access",
+    "monthlySubtitle": "Monthly",
+    "lifetimeTitle": "Premium Access",
+    "lifetimeSubtitle": "Lifetime access",
+    "purchaseButton": "Get Access",
+    "whatsIncluded": "What's included",
+    "feature1Title": "Unlimited custom categories",
+    "feature1Desc": "Create categories your friends will love",
+    "feature2Title": "22+ premium categories",
+    "feature2Desc": "2500+ curated words for endless fun",
+    "feature3Title": "Custom themes",
+    "feature3Desc": "Personalize your game",
+    "feature4Title": "Ad-free experience",
+    "feature4Desc": "Uninterrupted gameplay",
+    "tagOffice": "Office",
+    "tagFamily": "Family",
+    "tagTravel": "Travel",
+    "tagFriends": "Friends",
+    "restorePurchase": "Restore Purchase",
+    "termsOfUse": "Terms of Use",
+    "privacyPolicy": "Privacy Policy"
   }
 }

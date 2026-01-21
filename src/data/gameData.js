@@ -1,7 +1,9 @@
+// Kategori yapıları - metinler i18n'den gelecek
 export const CATEGORIES = {
   christmas: {
     id: 'christmas',
-    icon: '🎄',
+    icon: 'gift-outline',
+    isPremium: false,
     wordKeys: [
       'words.christmas.santa',
       'words.christmas.reindeer',
@@ -27,7 +29,8 @@ export const CATEGORIES = {
   },
   food: {
     id: 'food',
-    icon: '🍕',
+    icon: 'fast-food-outline',
+    isPremium: false,
     wordKeys: [
       'words.food.pizza',
       'words.food.hamburger',
@@ -51,7 +54,8 @@ export const CATEGORIES = {
   },
   animals: {
     id: 'animals',
-    icon: '🦁',
+    icon: 'paw-outline',
+    isPremium: false,
     wordKeys: [
       'words.animals.lion',
       'words.animals.tiger',
@@ -79,7 +83,8 @@ export const CATEGORIES = {
   },
   movies: {
     id: 'movies',
-    icon: '🎬',
+    icon: 'film-outline',
+    isPremium: true,
     wordKeys: [
       'words.movies.titanic',
       'words.movies.avatar',
@@ -107,7 +112,8 @@ export const CATEGORIES = {
   },
   sports: {
     id: 'sports',
-    icon: '⚽',
+    icon: 'football-outline',
+    isPremium: false,
     wordKeys: [
       'words.sports.football',
       'words.sports.basketball',
@@ -135,7 +141,8 @@ export const CATEGORIES = {
   },
   countries: {
     id: 'countries',
-    icon: '🌍',
+    icon: 'globe-outline',
+    isPremium: true,
     wordKeys: [
       'words.countries.turkey',
       'words.countries.germany',
@@ -163,7 +170,8 @@ export const CATEGORIES = {
   },
   professions: {
     id: 'professions',
-    icon: '👨‍⚕️',
+    icon: 'briefcase-outline',
+    isPremium: true,
     wordKeys: [
       'words.professions.doctor',
       'words.professions.teacher',
@@ -191,7 +199,8 @@ export const CATEGORIES = {
   },
   technology: {
     id: 'technology',
-    icon: '💻',
+    icon: 'laptop-outline',
+    isPremium: true,
     wordKeys: [
       'words.technology.iPhone',
       'words.technology.laptop',
@@ -219,8 +228,20 @@ export const CATEGORIES = {
   },
 };
 
+// Kategori listesini al
 export const getCategoryList = () => Object.keys(CATEGORIES);
 
+// Ücretsiz kategorileri al
+export const getFreeCategories = () => {
+  return Object.keys(CATEGORIES).filter(id => !CATEGORIES[id].isPremium);
+};
+
+// Premium kategorileri al
+export const getPremiumCategories = () => {
+  return Object.keys(CATEGORIES).filter(id => CATEGORIES[id].isPremium);
+};
+
+// Oyuncu sayısına göre maksimum sahtekar sayısı
 export const getMaxImposters = playerCount => {
   if (playerCount <= 4) return 1;
   if (playerCount <= 6) return 2;
@@ -228,23 +249,66 @@ export const getMaxImposters = playerCount => {
   return Math.floor(playerCount / 3);
 };
 
-export const getRandomWordKey = categoryId => {
-  const category = CATEGORIES[categoryId];
-  if (!category) return null;
-  const randomIndex = Math.floor(Math.random() * category.wordKeys.length);
-  return category.wordKeys[randomIndex];
+// Rastgele item seç
+const getRandomItem = array => {
+  if (!array || array.length === 0) return null;
+  return array[Math.floor(Math.random() * array.length)];
 };
 
-export const getRandomQuestionKey = categoryId => {
-  const category = CATEGORIES[categoryId];
-  if (!category) return null;
-  const randomIndex = Math.floor(Math.random() * category.questionKeys.length);
-  return category.questionKeys[randomIndex];
+// Rastgele kelime key'i seç (birden fazla kategoriden)
+export const getRandomWordKey = categories => {
+  if (!categories || categories.length === 0) return null;
+
+  const randomCategoryId = getRandomItem(categories);
+  const category = CATEGORIES[randomCategoryId];
+
+  if (!category || !category.wordKeys) return null;
+  return getRandomItem(category.wordKeys);
 };
 
-export const getRandomHintKey = categoryId => {
-  const category = CATEGORIES[categoryId];
+// Rastgele soru key'i seç (birden fazla kategoriden)
+export const getRandomQuestionKey = categories => {
+  if (!categories || categories.length === 0) return null;
+
+  const randomCategoryId = getRandomItem(categories);
+  const category = CATEGORIES[randomCategoryId];
+
+  if (!category || !category.questionKeys) return null;
+  return getRandomItem(category.questionKeys);
+};
+
+// Rastgele ipucu key'i seç (birden fazla kategoriden)
+export const getRandomHintKey = categories => {
+  if (!categories || categories.length === 0) return null;
+
+  const randomCategoryId = getRandomItem(categories);
+  const category = CATEGORIES[randomCategoryId];
+
   if (!category || !category.hintKeys) return null;
-  const randomIndex = Math.floor(Math.random() * category.hintKeys.length);
-  return category.hintKeys[randomIndex];
+  return getRandomItem(category.hintKeys);
+};
+
+// Kategorinin toplam içerik sayısını al
+export const getCategoryContentCount = categoryId => {
+  const category = CATEGORIES[categoryId];
+  if (!category) return { words: 0, questions: 0 };
+
+  return {
+    words: category.wordKeys?.length || 0,
+    questions: category.questionKeys?.length || 0,
+  };
+};
+
+// Seçili kategorilerin toplam içerik sayısını al
+export const getTotalContentCount = categoryIds => {
+  let totalWords = 0;
+  let totalQuestions = 0;
+
+  categoryIds.forEach(categoryId => {
+    const count = getCategoryContentCount(categoryId);
+    totalWords += count.words;
+    totalQuestions += count.questions;
+  });
+
+  return { words: totalWords, questions: totalQuestions };
 };

@@ -10,7 +10,8 @@ import PlayerTurnScreen from '../screens/PlayerTurnScreen';
 import GameEndScreen from '../screens/GameEndScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import PlayerSetupScreen from '../screens/PlayerSetupScreen';
-
+import CategorySelectScreen from '../screens/CategorySelectScreen';
+import PremiumScreen from '../screens/PremiumScreen';
 const Stack = createStackNavigator();
 
 const AppNavigator = () => {
@@ -31,6 +32,11 @@ const AppNavigator = () => {
       <Stack.Screen name="GameEnd" component={GameEndScreen} />
       <Stack.Screen name="Settings" component={SettingsScreen} />
       <Stack.Screen name="PlayerSetup" component={PlayerSetupScreen} />
+      <Stack.Screen
+        name="CategorySelect"
+        component={CategorySelectScreen}
+      />
+      <Stack.Screen name="Premium" component={PremiumScreen} />
     </Stack.Navigator>
   );
 };

@@ -1,6 +1,6 @@
 {
   "app": {
-    "name": "Betrüger Party",
+    "name": "Gefälscht",
     "tagline": "Finde den Betrüger!"
   },
   "home": {
@@ -334,7 +334,8 @@
   "settings": {
     "title": "Einstellungen",
     "language": "Sprache",
-    "about": "Über"
+    "about": "Über",
+    "Premium": "Prämie"
   },
   "playerSetup": {
     "title": "Spieler",
@@ -346,5 +347,51 @@
     "maxPlayersMessage": "Sie können bis zu 20 Spieler hinzufügen",
     "minPlayersTitle": "Mindestens Spieler",
     "minPlayersMessage": "Mindestens 3 Spieler erforderlich"
+  },
+  "categorySelect": {
+    "title": "Kategorien",
+    "save": "Speichern",
+    "selected": "ausgewählt",
+    "words": "Wörter",
+    "questions": "Fragen",
+    "selectAll": "Alle auswählen",
+    "deselectAll": "Auswahl löschen",
+    "hint": "Wählen Sie mehrere Kategorien, um das Spiel abwechslungsreicher zu gestalten",
+    "noneSelected": "Keine Kategorie ausgewählt",
+    "freeCategories": "Kostenlose Kategorien",
+    "premiumCategories": "Premium Kategorien",
+    "premiumTitle": "Premium Kategorie",
+    "premiumMessage": "Premium-Mitgliedschaft erforderlich, um auf diese Kategorie zuzugreifen.",
+    "goPremium": "Premium holen"
+  },
+  "premium": {
+    "restoreTitle": "Wiederherstellen",
+    "restoreMessage": "Wiederherstellungsprozess gestartet...",
+    "lifetimeBadge": "Lebenslang Mitglied",
+    "monthlyBadge": "Monatlich Mitglied",
+    "title": "Premium",
+    "heroTitle": "Alle Funktionen freischalten",
+    "heroSubtitle": "Sofortiger Zugang und 21 weitere Premium-Kategorien",
+    "monthlyTitle": "Premium-Zugang",
+    "monthlySubtitle": "Monatlich",
+    "lifetimeTitle": "Premium-Zugang",
+    "lifetimeSubtitle": "Lebenslanger Zugang",
+    "purchaseButton": "Zugang erhalten",
+    "whatsIncluded": "Was enthalten ist",
+    "feature1Title": "Unbegrenzte eigene Kategorien",
+    "feature1Desc": "Erstelle Kategorien, die deine Freunde lieben werden",
+    "feature2Title": "22+ Premium-Kategorien",
+    "feature2Desc": "2500+ ausgewählte Wörter für endlosen Spaß",
+    "feature3Title": "Eigene Themen",
+    "feature3Desc": "Personalisiere dein Spiel",
+    "feature4Title": "Werbefreies Erlebnis",
+    "feature4Desc": "Unterbrechungsfreies Spielen",
+    "tagOffice": "Büro",
+    "tagFamily": "Familie",
+    "tagTravel": "Reise",
+    "tagFriends": "Freunde",
+    "restorePurchase": "Käufe wiederherstellen",
+    "termsOfUse": "Nutzungsbedingungen",
+    "privacyPolicy": "Datenschutzrichtlinie"
   }
 }

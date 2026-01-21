@@ -1,6 +1,6 @@
 {
   "app": {
-    "name": "Sahtekar Partisi",
+    "name": "Sahtekar",
     "tagline": "Sahtekarı Bul!"
   },
   "home": {
@@ -23,6 +23,7 @@
     "playerCount": "Kaç oyuncu?",
     "imposterCount": "Kaç sahtekar?",
     "gameMode": "Oyun Modu",
+    "additionalSettings": "Ek Ayarlar",
     "wordGame": "Kelime Oyunu",
     "wordGameDesc": "Gizli kelimeyi bilmeyeni bul",
     "questionGame": "Soru Oyunu",
@@ -334,7 +335,8 @@
   "settings": {
     "title": "Ayarlar",
     "language": "Dil",
-    "about": "Hakkında"
+    "about": "Hakkında",
+    "Premium": "Premium"
   },
   "playerSetup": {
     "title": "Oyuncular",
@@ -346,5 +348,51 @@
     "maxPlayersMessage": "En fazla 20 oyuncu ekleyebilirsiniz",
     "minPlayersTitle": "Minimum Oyuncu",
     "minPlayersMessage": "En az 3 oyuncu olmalıdır"
+  },
+  "categorySelect": {
+    "title": "Kategoriler",
+    "save": "Kaydet",
+    "selected": "seçili",
+    "words": "kelime",
+    "questions": "soru",
+    "selectAll": "Tümünü Seç",
+    "deselectAll": "Seçimi Temizle",
+    "hint": "Birden fazla kategori seçerek oyunu çeşitlendirebilirsiniz",
+    "noneSelected": "Kategori seçilmedi",
+    "freeCategories": "Ücretsiz Kategoriler",
+    "premiumCategories": "Premium Kategoriler",
+    "premiumTitle": "Premium Kategori",
+    "premiumMessage": "Bu kategoriye erişmek için Premium üyelik gerekiyor.",
+    "goPremium": "Premium'a Geç"
+  },
+  "premium": {
+    "restoreTitle": "Geri Yükleme",
+    "restoreMessage": "Satın alma geri yükleme işlemi başlatıldı...",
+    "lifetimeBadge": "Ömür Boyu Üye",
+    "monthlyBadge": "Aylık Üye",
+    "title": "Premium",
+    "heroTitle": "Tüm Özelliklerin Kilidini Aç",
+    "heroSubtitle": "Anında erişim ve 21 premium kategori daha kazan",
+    "monthlyTitle": "Premium Erişim",
+    "monthlySubtitle": "Aylık",
+    "lifetimeTitle": "Premium Erişim",
+    "lifetimeSubtitle": "Ömür boyu erişim",
+    "purchaseButton": "Erişim Kazan",
+    "whatsIncluded": "Neler dahil",
+    "feature1Title": "Sınırsız özel kategoriler",
+    "feature1Desc": "Arkadaşlarının seveceği kategoriler oluştur",
+    "feature2Title": "22+ premium kategori",
+    "feature2Desc": "Sonsuz eğlence için 2500+ seçilmiş kelime",
+    "feature3Title": "Özel temalar",
+    "feature3Desc": "Oyununu kişiselleştir",
+    "feature4Title": "Reklamsız deneyim",
+    "feature4Desc": "Kesintisiz oyun keyfi",
+    "tagOffice": "Ofis",
+    "tagFamily": "Aile",
+    "tagTravel": "Seyahat",
+    "tagFriends": "Arkadaşlar",
+    "restorePurchase": "Satın Almaları Geri Yükle",
+    "termsOfUse": "Kullanım Şartları",
+    "privacyPolicy": "Gizlilik Politikası"
   }
 }

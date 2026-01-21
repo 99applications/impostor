@@ -12,6 +12,8 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { colors } from '../theme/colors';
 import { useGame } from '../context/GameContext';
 import { CATEGORIES, getMaxImposters } from '../data/gameData';
+import Icon from 'react-native-vector-icons/Ionicons';
+
 
 const GameSetupScreen = ({ navigation }) => {
   const { t } = useTranslation();
@@ -21,7 +23,6 @@ const GameSetupScreen = ({ navigation }) => {
     setPlayerCount,
     setImposterCount,
     setGameMode,
-    setCategory,
     toggleShowCategory,
     toggleShowHint,
     startGame,
@@ -34,11 +35,42 @@ const GameSetupScreen = ({ navigation }) => {
     navigation.navigate('PlayerTurn');
   };
 
+  const getCategoryPreview = () => {
+    const count = state.selectedCategories?.length || 0;
+    if (count === 0) return t('categorySelect.noneSelected');
+
+    const icons = state.selectedCategories
+      .slice(0, 3)
+      .map(id => CATEGORIES[id]?.icon || '📂')
+      .join(' ');
+
+    if (count > 3) {
+      return `${icons} +${count - 3}`;
+    }
+    return icons;
+  };
+
+  const getTotalContent = () => {
+    let words = 0;
+    let questions = 0;
+
+    (state.selectedCategories || []).forEach(categoryId => {
+      const category = CATEGORIES[categoryId];
+      if (category) {
+        words += category.wordKeys?.length || 0;
+        questions += category.questionKeys?.length || 0;
+      }
+    });
+
+    return { words, questions };
+  };
+
+  const totalContent = getTotalContent();
+
   const handlePlayerCountChange = delta => {
     const newCount = state.playerCount + delta;
     if (newCount >= 3 && newCount <= 20) {
       setPlayerCount(newCount);
-      // Sahtekar sayısını kontrol et
       const newMax = getMaxImposters(newCount);
       if (state.imposterCount > newMax) {
         setImposterCount(newMax);
@@ -52,6 +84,8 @@ const GameSetupScreen = ({ navigation }) => {
       setImposterCount(newCount);
     }
   };
+
+  
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
@@ -70,8 +104,6 @@ const GameSetupScreen = ({ navigation }) => {
         >
           <Text style={styles.settingsIcon}>⚙️</Text>
         </TouchableOpacity>
-
-        <View style={styles.placeholder} />
       </View>
 
       <ScrollView
@@ -82,22 +114,15 @@ const GameSetupScreen = ({ navigation }) => {
         {/* Oyuncu ve Sahtekar Sayısı */}
         <View style={styles.countersRow}>
           {/* Oyuncu Sayısı */}
-          {/* Oyuncu Sayısı */}
           <TouchableOpacity
-            onPress={() => {
-              navigation.navigate('PlayerSetup');
-            }}
-            activeOpacity={0.8} // Tıklama efektini yumuşatır
-            // style={styles.playerCard} <-- Bunu buradan kaldırıyoruz
+            onPress={() => navigation.navigate('PlayerSetup')}
+            activeOpacity={0.8}
           >
-            {/* Stili buraya array olarak ekliyoruz: Hem standart kart stili hem de aktif border stili */}
             <View style={[styles.counterCard, styles.activeCard]}>
               <View style={styles.counterIcon}>
                 <Text style={styles.counterEmoji}>👥</Text>
               </View>
               <Text style={styles.counterLabel}>{t('setup.playerCount')}</Text>
-
-              {/* ... geri kalan butonlar aynı ... */}
               <View style={styles.counterControls}>
                 <TouchableOpacity
                   style={styles.counterButton}
@@ -147,7 +172,6 @@ const GameSetupScreen = ({ navigation }) => {
             <Text style={styles.sectionTitle}>{t('setup.gameMode')}</Text>
           </View>
           <View style={styles.gameModeRow}>
-            {/* Kelime Oyunu */}
             <TouchableOpacity
               style={[
                 styles.gameModeCard,
@@ -168,7 +192,6 @@ const GameSetupScreen = ({ navigation }) => {
               <Text style={styles.gameModeDesc}>{t('setup.wordGameDesc')}</Text>
             </TouchableOpacity>
 
-            {/* Soru Oyunu */}
             <TouchableOpacity
               style={[
                 styles.gameModeCard,
@@ -194,44 +217,35 @@ const GameSetupScreen = ({ navigation }) => {
         </View>
 
         {/* Kategoriler */}
-        <View style={styles.section}>
-          <View style={styles.sectionHeader}>
-            <Text style={styles.sectionIcon}>📂</Text>
-            <Text style={styles.sectionTitle}>{t('setup.categories')}</Text>
+        <TouchableOpacity
+          style={styles.settingCard}
+          activeOpacity={0.8}
+          onPress={() => navigation.navigate('CategorySelect')}
+        >
+          <View style={styles.settingCardLeft}>
+            <View style={[styles.settingCardIcon, styles.categoryIconBg]}>
+              <Text style={styles.settingCardEmoji}>📂</Text>
+            </View>
+            <View style={styles.settingCardInfo}>
+              <Text style={styles.settingCardLabel}>
+                {t('setup.categories')}
+              </Text>
+              <Text style={styles.settingCardValue}>
+                {state.selectedCategories?.length || 0}{' '}
+                {t('categorySelect.selected')} •{' '}
+                {state.gameMode === 'word'
+                  ? `${totalContent.words} ${t('categorySelect.words')}`
+                  : `${totalContent.questions} ${t(
+                      'categorySelect.questions',
+                    )}`}
+              </Text>
+            </View>
           </View>
-          <View style={styles.categoryList}>
-            {Object.keys(CATEGORIES).map(categoryId => {
-              const category = CATEGORIES[categoryId];
-              const isSelected = state.selectedCategory === categoryId;
-              return (
-                <TouchableOpacity
-                  key={categoryId}
-                  style={[
-                    styles.categoryItem,
-                    isSelected && styles.categoryItemActive,
-                  ]}
-                  activeOpacity={0.8}
-                  onPress={() => setCategory(categoryId)}
-                >
-                  <Text style={styles.categoryIcon}>{category.icon}</Text>
-                  <Text
-                    style={[
-                      styles.categoryName,
-                      isSelected && styles.categoryNameActive,
-                    ]}
-                  >
-                    {t(`categories.${categoryId}`)}
-                  </Text>
-                  {isSelected && (
-                    <View style={styles.categoryCheck}>
-                      <Text style={styles.categoryCheckText}>✓</Text>
-                    </View>
-                  )}
-                </TouchableOpacity>
-              );
-            })}
+          <View style={styles.settingCardRight}>
+            <Text style={styles.categoryPreview}>{getCategoryPreview()}</Text>
+            <Text style={styles.settingCardArrow}>›</Text>
           </View>
-        </View>
+        </TouchableOpacity>
 
         {/* Ayarlar */}
         <View style={styles.section}>
@@ -315,8 +329,18 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: colors.textPrimary,
   },
-  placeholder: {
+  settingsButton: {
     width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: colors.bgCard,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  settingsIcon: {
+    fontSize: 20,
   },
   scrollView: {
     flex: 1,
@@ -338,6 +362,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 1,
     borderColor: colors.border,
+  },
+  activeCard: {
+    borderColor: colors.accentPrimary,
+    borderWidth: 1.5,
+    backgroundColor: 'rgba(139, 92, 246, 0.05)',
   },
   counterIcon: {
     width: 48,
@@ -439,48 +468,62 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     textAlign: 'center',
   },
-  categoryList: {
-    backgroundColor: colors.bgCard,
-    borderRadius: 16,
-    overflow: 'hidden',
-  },
-  categoryItem: {
+  // Kategori Kartı Stilleri
+  settingCard: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 14,
-    paddingHorizontal: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
+    justifyContent: 'space-between',
+    backgroundColor: colors.bgCard,
+    borderRadius: 16,
+    padding: 16,
+    marginBottom: 24,
+    borderWidth: 2,
+    borderColor: colors.accentPrimary,
   },
-  categoryItemActive: {
-    backgroundColor: 'rgba(139, 92, 246, 0.1)',
-  },
-  categoryIcon: {
-    fontSize: 22,
-    marginRight: 12,
-  },
-  categoryName: {
+  settingCardLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
     flex: 1,
-    fontSize: 16,
-    color: colors.textSecondary,
   },
-  categoryNameActive: {
-    color: colors.textPrimary,
-    fontWeight: '600',
-  },
-  categoryCheck: {
-    width: 24,
-    height: 24,
-    borderRadius: 12,
-    backgroundColor: colors.accentPrimary,
+  settingCardIcon: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
     justifyContent: 'center',
     alignItems: 'center',
+    marginRight: 14,
   },
-  categoryCheckText: {
+  categoryIconBg: {
+    backgroundColor: colors.success,
+  },
+  settingCardEmoji: {
+    fontSize: 24,
+  },
+  settingCardInfo: {
+    flex: 1,
+  },
+  settingCardLabel: {
     fontSize: 14,
-    color: colors.textPrimary,
-    fontWeight: '700',
+    color: colors.textSecondary,
+    marginBottom: 2,
   },
+  settingCardValue: {
+    fontSize: 13,
+    color: colors.textMuted,
+  },
+  settingCardRight: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  categoryPreview: {
+    fontSize: 22,
+  },
+  settingCardArrow: {
+    fontSize: 24,
+    color: colors.textMuted,
+  },
+  // Toggle Ayarları
   settingItem: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -524,30 +567,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '700',
     color: colors.textPrimary,
-  },
-  settingsButton: {
-    position: 'absolute',
-    top: 15,
-    right: 20,
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: colors.bgCard,
-    justifyContent: 'center',
-    alignItems: 'center',
-    zIndex: 10,
-    borderWidth: 1,
-    borderColor: colors.border,
-  },
-  activeCard: {
-    borderColor: colors.accentPrimary, // Tema rengin (mor)
-    borderWidth: 1.5, // Biraz daha belirgin olması için 1.5 veya 2 yapabilirsin
-    backgroundColor: 'rgba(139, 92, 246, 0.05)', // (Opsiyonel) Çok hafif bir mor arka plan
-    shadowColor: colors.accentPrimary, // (Opsiyonel) Hafif bir parlama efekti
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
   },
 });
 
