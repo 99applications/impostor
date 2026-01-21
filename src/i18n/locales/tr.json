@@ -1,0 +1,350 @@
+{
+  "app": {
+    "name": "Sahtekar Partisi",
+    "tagline": "Sahtekarı Bul!"
+  },
+  "home": {
+    "playGame": "Oyuna Başla",
+    "howToPlay": "Nasıl Oynanır?"
+  },
+  "howToPlay": {
+    "title": "Nasıl Oynanır?",
+    "step1Title": "Oyuncuları Belirle",
+    "step1Desc": "Oyuncu sayısını ve kaç kişinin sahtekar olacağını seç.",
+    "step2Title": "Kategori Seç",
+    "step2Desc": "Oynamak istediğin kategoriyi seç.",
+    "step3Title": "Sırayla Bak",
+    "step3Desc": "Her oyuncu sırayla telefonuna bakarak kelimesini/sorusunu görür.",
+    "step4Title": "Sahtekarı Bul",
+    "step4Desc": "Tartışın ve sahtekarın kim olduğunu bulmaya çalışın!",
+    "gotIt": "Anladım!"
+  },
+  "setup": {
+    "playerCount": "Kaç oyuncu?",
+    "imposterCount": "Kaç sahtekar?",
+    "gameMode": "Oyun Modu",
+    "wordGame": "Kelime Oyunu",
+    "wordGameDesc": "Gizli kelimeyi bilmeyeni bul",
+    "questionGame": "Soru Oyunu",
+    "questionGameDesc": "Farklı soru alanı bul",
+    "categories": "Kategoriler",
+    "showCategoryToImposter": "Sahtekara kategoriyi göster",
+    "showHintToImposter": "Sahtekara ipucu göster",
+    "startGame": "Oyunu Başlat"
+  },
+  "game": {
+    "player": "Oyuncu",
+    "tapToReveal": "Görmek için dokun",
+    "tapToHide": "Gizlemek için dokun",
+    "yourWord": "Senin Kelimen",
+    "yourQuestion": "Senin Sorun",
+    "youAreImposter": "Sen Sahtekarsın!",
+    "imposterHint": "İpucu",
+    "category": "Kategori",
+    "next": "Sonraki",
+    "ready": "Hazır mısın?",
+    "passPhone": "Telefonu diğer oyuncuya ver"
+  },
+  "reveal": {
+    "title": "Oyun Bitti!",
+    "impostersWere": "Sahtekarlar",
+    "theWordWas": "Kelime şuydu",
+    "theQuestionWas": "Soru şuydu",
+    "playAgain": "Tekrar Oyna",
+    "backToMenu": "Ana Menü"
+  },
+  "categories": {
+    "christmas": "Noel",
+    "food": "Yiyecekler",
+    "animals": "Hayvanlar",
+    "movies": "Filmler",
+    "sports": "Sporlar",
+    "countries": "Ülkeler",
+    "professions": "Meslekler",
+    "technology": "Teknoloji"
+  },
+  "words": {
+    "christmas": {
+      "santa": "Noel Baba",
+      "reindeer": "Ren Geyiği",
+      "snowflake": "Kar Tanesi",
+      "christmasTree": "Çam Ağacı",
+      "giftBox": "Hediye Kutusu",
+      "stocking": "Noel Çorabı",
+      "snowman": "Kardan Adam",
+      "sleigh": "Kızak",
+      "lights": "Işık Süsleri",
+      "gingerbread": "Zencefilli Kurabiye"
+    },
+    "food": {
+      "pizza": "Pizza",
+      "hamburger": "Hamburger",
+      "doner": "Döner",
+      "lahmacun": "Lahmacun",
+      "pide": "Pide",
+      "kofte": "Köfte",
+      "pasta": "Makarna",
+      "sushi": "Sushi",
+      "kebab": "Kebap",
+      "manti": "Mantı",
+      "borek": "Börek",
+      "baklava": "Baklava"
+    },
+    "animals": {
+      "lion": "Aslan",
+      "tiger": "Kaplan",
+      "elephant": "Fil",
+      "giraffe": "Zürafa",
+      "penguin": "Penguen",
+      "kangaroo": "Kanguru",
+      "koala": "Koala",
+      "panda": "Panda",
+      "wolf": "Kurt",
+      "bear": "Ayı",
+      "crocodile": "Timsah",
+      "dolphin": "Yunus"
+    },
+    "movies": {
+      "titanic": "Titanik",
+      "avatar": "Avatar",
+      "matrix": "Matrix",
+      "inception": "Başlangıç",
+      "interstellar": "Yıldızlararası",
+      "gladiator": "Gladyatör",
+      "forrestGump": "Forrest Gump",
+      "godfather": "Baba",
+      "lordOfRings": "Yüzüklerin Efendisi",
+      "harryPotter": "Harry Potter",
+      "starWars": "Yıldız Savaşları",
+      "jurassicPark": "Jurassic Park"
+    },
+    "sports": {
+      "football": "Futbol",
+      "basketball": "Basketbol",
+      "volleyball": "Voleybol",
+      "tennis": "Tenis",
+      "swimming": "Yüzme",
+      "boxing": "Boks",
+      "wrestling": "Güreş",
+      "athletics": "Atletizm",
+      "cycling": "Bisiklet",
+      "skiing": "Kayak",
+      "golf": "Golf",
+      "baseball": "Beyzbol"
+    },
+    "countries": {
+      "turkey": "Türkiye",
+      "germany": "Almanya",
+      "france": "Fransa",
+      "italy": "İtalya",
+      "spain": "İspanya",
+      "japan": "Japonya",
+      "brazil": "Brezilya",
+      "mexico": "Meksika",
+      "egypt": "Mısır",
+      "india": "Hindistan",
+      "china": "Çin",
+      "russia": "Rusya"
+    },
+    "professions": {
+      "doctor": "Doktor",
+      "teacher": "Öğretmen",
+      "engineer": "Mühendis",
+      "lawyer": "Avukat",
+      "pilot": "Pilot",
+      "chef": "Aşçı",
+      "police": "Polis",
+      "firefighter": "İtfaiyeci",
+      "nurse": "Hemşire",
+      "architect": "Mimar",
+      "accountant": "Muhasebeci",
+      "waiter": "Garson"
+    },
+    "technology": {
+      "iPhone": "iPhone",
+      "laptop": "Laptop",
+      "tablet": "Tablet",
+      "smartwatch": "Akıllı Saat",
+      "drone": "Drone",
+      "robot": "Robot",
+      "ai": "Yapay Zeka",
+      "blockchain": "Blockchain",
+      "metaverse": "Metaverse",
+      "instagram": "Instagram",
+      "tiktok": "TikTok",
+      "youtube": "YouTube"
+    }
+  },
+  "hints": {
+    "christmas": {
+      "hint1": "Kış mevsimi ile ilgili",
+      "hint2": "Kutlama zamanı",
+      "hint3": "Aralık ayında olur"
+    },
+    "food": {
+      "hint1": "Yenir içilir",
+      "hint2": "Mutfakta yapılır",
+      "hint3": "Lezzetli bir şey"
+    },
+    "animals": {
+      "hint1": "Canlı bir varlık",
+      "hint2": "Doğada yaşar",
+      "hint3": "Hayvanat bahçesinde görürsün"
+    },
+    "movies": {
+      "hint1": "Sinemada izlenir",
+      "hint2": "Hollywood yapımı olabilir",
+      "hint3": "Ekranda görürsün"
+    },
+    "sports": {
+      "hint1": "Fiziksel aktivite",
+      "hint2": "Yarışmalarda yapılır",
+      "hint3": "Spor salonu veya saha"
+    },
+    "countries": {
+      "hint1": "Haritada bulunur",
+      "hint2": "Bir bayrağı var",
+      "hint3": "İnsanlar orada yaşar"
+    },
+    "professions": {
+      "hint1": "Bir iş/meslek",
+      "hint2": "Para kazanmak için yapılır",
+      "hint3": "Eğitim gerektirir"
+    },
+    "technology": {
+      "hint1": "Dijital dünya",
+      "hint2": "Elektronik bir şey",
+      "hint3": "Modern çağ icadı"
+    }
+  },
+  "questions": {
+    "christmas": {
+      "q1": {
+        "normal": "En sevdiğin Noel filmi hangisi?",
+        "imposter": "En sevdiğin korku filmi hangisi?"
+      },
+      "q2": {
+        "normal": "Noel'de en çok ne yemeyi seversin?",
+        "imposter": "Yazın en çok ne yemeyi seversin?"
+      },
+      "q3": {
+        "normal": "Noel ağacına ne süslersin?",
+        "imposter": "Doğum günü pastasına ne koyarsın?"
+      }
+    },
+    "food": {
+      "q1": {
+        "normal": "Pizzaya hangi malzemeyi koyarsın?",
+        "imposter": "Salataya hangi malzemeyi koyarsın?"
+      },
+      "q2": {
+        "normal": "En sevdiğin fast food restoranı hangisi?",
+        "imposter": "En sevdiğin kıyafet mağazası hangisi?"
+      },
+      "q3": {
+        "normal": "Kahvaltıda ne yersin?",
+        "imposter": "Akşam yemeğinde ne yersin?"
+      }
+    },
+    "animals": {
+      "q1": {
+        "normal": "Hangi hayvanı evcil beslersin?",
+        "imposter": "Hangi arabayı sürersin?"
+      },
+      "q2": {
+        "normal": "Hayvanat bahçesinde ilk neyi görürsün?",
+        "imposter": "AVM'de ilk neyi görürsün?"
+      },
+      "q3": {
+        "normal": "Hangi hayvan olmak isterdin?",
+        "imposter": "Hangi süper kahraman olmak isterdin?"
+      }
+    },
+    "movies": {
+      "q1": {
+        "normal": "En sevdiğin film türü hangisi?",
+        "imposter": "En sevdiğin müzik türü hangisi?"
+      },
+      "q2": {
+        "normal": "Sinemada ne atıştırırsın?",
+        "imposter": "Parkta ne atıştırırsın?"
+      },
+      "q3": {
+        "normal": "Hangi film karakteri olmak isterdin?",
+        "imposter": "Hangi tarihi kişi olmak isterdin?"
+      }
+    },
+    "sports": {
+      "q1": {
+        "normal": "Hangi takımı tutuyorsun?",
+        "imposter": "Hangi şehirde yaşamak istersin?"
+      },
+      "q2": {
+        "normal": "En sevdiğin sporcu kim?",
+        "imposter": "En sevdiğin şarkıcı kim?"
+      },
+      "q3": {
+        "normal": "Hangi sporu yapmayı seversin?",
+        "imposter": "Hangi enstrümanı çalmayı seversin?"
+      }
+    },
+    "countries": {
+      "q1": {
+        "normal": "Hangi ülkeyi ziyaret etmek istersin?",
+        "imposter": "Hangi gezegeni ziyaret etmek istersin?"
+      },
+      "q2": {
+        "normal": "Hangi ülkenin yemeklerini seversin?",
+        "imposter": "Hangi rengi seversin?"
+      },
+      "q3": {
+        "normal": "Hangi ülkede yaşamak istersin?",
+        "imposter": "Hangi dönemde yaşamak istersin?"
+      }
+    },
+    "professions": {
+      "q1": {
+        "normal": "Çocukken ne olmak istiyordun?",
+        "imposter": "Çocukken ne yemek istiyordun?"
+      },
+      "q2": {
+        "normal": "Hangi meslekte çalışmak istersin?",
+        "imposter": "Hangi ülkede tatil yapmak istersin?"
+      },
+      "q3": {
+        "normal": "İdeal iş ortamın nasıl olmalı?",
+        "imposter": "İdeal tatil yerin nasıl olmalı?"
+      }
+    },
+    "technology": {
+      "q1": {
+        "normal": "En çok hangi uygulamayı kullanıyorsun?",
+        "imposter": "En çok hangi yemeği yapıyorsun?"
+      },
+      "q2": {
+        "normal": "Hangi teknolojik aleti almak istersin?",
+        "imposter": "Hangi kıyafeti almak istersin?"
+      },
+      "q3": {
+        "normal": "Sosyal medyada ne paylaşırsın?",
+        "imposter": "Arkadaşlarınla ne yaparsın?"
+      }
+    }
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "language": "Dil",
+    "about": "Hakkında"
+  },
+  "playerSetup": {
+    "title": "Oyuncular",
+    "players": "oyuncu",
+    "addPlayer": "Oyuncu Ekle",
+    "save": "Kaydet",
+    "hint": "Oyuncu isimlerine tıklayarak değiştirebilirsiniz",
+    "maxPlayersTitle": "Maksimum Oyuncu",
+    "maxPlayersMessage": "En fazla 20 oyuncu ekleyebilirsiniz",
+    "minPlayersTitle": "Minimum Oyuncu",
+    "minPlayersMessage": "En az 3 oyuncu olmalıdır"
+  }
+}

@@ -1,0 +1,350 @@
+{
+  "app": {
+    "name": "Betrüger Party",
+    "tagline": "Finde den Betrüger!"
+  },
+  "home": {
+    "playGame": "Spiel starten",
+    "howToPlay": "Wie spielt man?"
+  },
+  "howToPlay": {
+    "title": "Wie spielt man?",
+    "step1Title": "Spieler festlegen",
+    "step1Desc": "Wähle die Anzahl der Spieler und Betrüger.",
+    "step2Title": "Kategorie wählen",
+    "step2Desc": "Wähle die Kategorie, die du spielen möchtest.",
+    "step3Title": "Abwechselnd schauen",
+    "step3Desc": "Jeder Spieler schaut auf sein Handy, um sein Wort/Frage zu sehen.",
+    "step4Title": "Betrüger finden",
+    "step4Desc": "Diskutiert und versucht herauszufinden, wer der Betrüger ist!",
+    "gotIt": "Verstanden!"
+  },
+  "setup": {
+    "playerCount": "Wie viele Spieler?",
+    "imposterCount": "Wie viele Betrüger?",
+    "gameMode": "Spielmodus",
+    "wordGame": "Wortspiel",
+    "wordGameDesc": "Finde wer das Wort nicht kennt",
+    "questionGame": "Fragenspiel",
+    "questionGameDesc": "Finde die andere Frage",
+    "categories": "Kategorien",
+    "showCategoryToImposter": "Kategorie dem Betrüger zeigen",
+    "showHintToImposter": "Hinweis dem Betrüger zeigen",
+    "startGame": "Spiel starten"
+  },
+  "game": {
+    "player": "Spieler",
+    "tapToReveal": "Tippe zum Anzeigen",
+    "tapToHide": "Tippe zum Verstecken",
+    "yourWord": "Dein Wort",
+    "yourQuestion": "Deine Frage",
+    "youAreImposter": "Du bist der Betrüger!",
+    "imposterHint": "Hinweis",
+    "category": "Kategorie",
+    "next": "Weiter",
+    "ready": "Bist du bereit?",
+    "passPhone": "Gib das Handy dem nächsten Spieler"
+  },
+  "reveal": {
+    "title": "Spiel vorbei!",
+    "impostersWere": "Betrüger waren",
+    "theWordWas": "Das Wort war",
+    "theQuestionWas": "Die Frage war",
+    "playAgain": "Nochmal spielen",
+    "backToMenu": "Hauptmenü"
+  },
+  "categories": {
+    "christmas": "Weihnachten",
+    "food": "Essen",
+    "animals": "Tiere",
+    "movies": "Filme",
+    "sports": "Sport",
+    "countries": "Länder",
+    "professions": "Berufe",
+    "technology": "Technologie"
+  },
+  "words": {
+    "christmas": {
+      "santa": "Weihnachtsmann",
+      "reindeer": "Rentier",
+      "snowflake": "Schneeflocke",
+      "christmasTree": "Weihnachtsbaum",
+      "giftBox": "Geschenkbox",
+      "stocking": "Weihnachtsstrumpf",
+      "snowman": "Schneemann",
+      "sleigh": "Schlitten",
+      "lights": "Weihnachtslichter",
+      "gingerbread": "Lebkuchen"
+    },
+    "food": {
+      "pizza": "Pizza",
+      "hamburger": "Hamburger",
+      "doner": "Döner",
+      "lahmacun": "Lahmacun",
+      "pide": "Pide",
+      "kofte": "Frikadellen",
+      "pasta": "Pasta",
+      "sushi": "Sushi",
+      "kebab": "Kebab",
+      "manti": "Türkische Teigtaschen",
+      "borek": "Börek",
+      "baklava": "Baklava"
+    },
+    "animals": {
+      "lion": "Löwe",
+      "tiger": "Tiger",
+      "elephant": "Elefant",
+      "giraffe": "Giraffe",
+      "penguin": "Pinguin",
+      "kangaroo": "Känguru",
+      "koala": "Koala",
+      "panda": "Panda",
+      "wolf": "Wolf",
+      "bear": "Bär",
+      "crocodile": "Krokodil",
+      "dolphin": "Delfin"
+    },
+    "movies": {
+      "titanic": "Titanic",
+      "avatar": "Avatar",
+      "matrix": "Matrix",
+      "inception": "Inception",
+      "interstellar": "Interstellar",
+      "gladiator": "Gladiator",
+      "forrestGump": "Forrest Gump",
+      "godfather": "Der Pate",
+      "lordOfRings": "Herr der Ringe",
+      "harryPotter": "Harry Potter",
+      "starWars": "Krieg der Sterne",
+      "jurassicPark": "Jurassic Park"
+    },
+    "sports": {
+      "football": "Fußball",
+      "basketball": "Basketball",
+      "volleyball": "Volleyball",
+      "tennis": "Tennis",
+      "swimming": "Schwimmen",
+      "boxing": "Boxen",
+      "wrestling": "Ringen",
+      "athletics": "Leichtathletik",
+      "cycling": "Radfahren",
+      "skiing": "Skifahren",
+      "golf": "Golf",
+      "baseball": "Baseball"
+    },
+    "countries": {
+      "turkey": "Türkei",
+      "germany": "Deutschland",
+      "france": "Frankreich",
+      "italy": "Italien",
+      "spain": "Spanien",
+      "japan": "Japan",
+      "brazil": "Brasilien",
+      "mexico": "Mexiko",
+      "egypt": "Ägypten",
+      "india": "Indien",
+      "china": "China",
+      "russia": "Russland"
+    },
+    "professions": {
+      "doctor": "Arzt",
+      "teacher": "Lehrer",
+      "engineer": "Ingenieur",
+      "lawyer": "Anwalt",
+      "pilot": "Pilot",
+      "chef": "Koch",
+      "police": "Polizist",
+      "firefighter": "Feuerwehrmann",
+      "nurse": "Krankenschwester",
+      "architect": "Architekt",
+      "accountant": "Buchhalter",
+      "waiter": "Kellner"
+    },
+    "technology": {
+      "iPhone": "iPhone",
+      "laptop": "Laptop",
+      "tablet": "Tablet",
+      "smartwatch": "Smartwatch",
+      "drone": "Drohne",
+      "robot": "Roboter",
+      "ai": "Künstliche Intelligenz",
+      "blockchain": "Blockchain",
+      "metaverse": "Metaverse",
+      "instagram": "Instagram",
+      "tiktok": "TikTok",
+      "youtube": "YouTube"
+    }
+  },
+  "hints": {
+    "christmas": {
+      "hint1": "Mit Winter verbunden",
+      "hint2": "Feierzeit",
+      "hint3": "Passiert im Dezember"
+    },
+    "food": {
+      "hint1": "Etwas zum Essen oder Trinken",
+      "hint2": "In der Küche gemacht",
+      "hint3": "Etwas Leckeres"
+    },
+    "animals": {
+      "hint1": "Ein Lebewesen",
+      "hint2": "Lebt in der Natur",
+      "hint3": "Im Zoo zu sehen"
+    },
+    "movies": {
+      "hint1": "Im Kino geschaut",
+      "hint2": "Könnte Hollywood sein",
+      "hint3": "Auf dem Bildschirm"
+    },
+    "sports": {
+      "hint1": "Körperliche Aktivität",
+      "hint2": "Bei Wettkämpfen",
+      "hint3": "Fitnessstudio oder Feld"
+    },
+    "countries": {
+      "hint1": "Auf der Karte",
+      "hint2": "Hat eine Flagge",
+      "hint3": "Menschen leben dort"
+    },
+    "professions": {
+      "hint1": "Ein Beruf",
+      "hint2": "Um Geld zu verdienen",
+      "hint3": "Erfordert Ausbildung"
+    },
+    "technology": {
+      "hint1": "Digitale Welt",
+      "hint2": "Etwas Elektronisches",
+      "hint3": "Moderne Erfindung"
+    }
+  },
+  "questions": {
+    "christmas": {
+      "q1": {
+        "normal": "Was ist dein Lieblings-Weihnachtsfilm?",
+        "imposter": "Was ist dein Lieblings-Horrorfilm?"
+      },
+      "q2": {
+        "normal": "Was isst du am liebsten zu Weihnachten?",
+        "imposter": "Was isst du am liebsten im Sommer?"
+      },
+      "q3": {
+        "normal": "Womit schmückst du den Weihnachtsbaum?",
+        "imposter": "Was kommt auf die Geburtstagstorte?"
+      }
+    },
+    "food": {
+      "q1": {
+        "normal": "Welchen Belag magst du auf Pizza?",
+        "imposter": "Welche Zutaten magst du im Salat?"
+      },
+      "q2": {
+        "normal": "Was ist dein Lieblings-Fastfood-Restaurant?",
+        "imposter": "Was ist dein Lieblings-Bekleidungsgeschäft?"
+      },
+      "q3": {
+        "normal": "Was isst du zum Frühstück?",
+        "imposter": "Was isst du zum Abendessen?"
+      }
+    },
+    "animals": {
+      "q1": {
+        "normal": "Welches Tier würdest du als Haustier halten?",
+        "imposter": "Welches Auto würdest du fahren?"
+      },
+      "q2": {
+        "normal": "Was siehst du zuerst im Zoo?",
+        "imposter": "Was siehst du zuerst im Einkaufszentrum?"
+      },
+      "q3": {
+        "normal": "Welches Tier möchtest du sein?",
+        "imposter": "Welcher Superheld möchtest du sein?"
+      }
+    },
+    "movies": {
+      "q1": {
+        "normal": "Was ist dein Lieblings-Filmgenre?",
+        "imposter": "Was ist dein Lieblings-Musikgenre?"
+      },
+      "q2": {
+        "normal": "Was naschst du im Kino?",
+        "imposter": "Was naschst du im Park?"
+      },
+      "q3": {
+        "normal": "Welche Filmfigur möchtest du sein?",
+        "imposter": "Welche historische Figur möchtest du sein?"
+      }
+    },
+    "sports": {
+      "q1": {
+        "normal": "Welches Team unterstützt du?",
+        "imposter": "In welcher Stadt möchtest du leben?"
+      },
+      "q2": {
+        "normal": "Wer ist dein Lieblingssportler?",
+        "imposter": "Wer ist dein Lieblingssänger?"
+      },
+      "q3": {
+        "normal": "Welchen Sport machst du gerne?",
+        "imposter": "Welches Instrument spielst du gerne?"
+      }
+    },
+    "countries": {
+      "q1": {
+        "normal": "Welches Land möchtest du besuchen?",
+        "imposter": "Welchen Planeten möchtest du besuchen?"
+      },
+      "q2": {
+        "normal": "Welches Länderküche magst du?",
+        "imposter": "Welche Farbe magst du?"
+      },
+      "q3": {
+        "normal": "In welchem Land möchtest du leben?",
+        "imposter": "In welcher Epoche möchtest du leben?"
+      }
+    },
+    "professions": {
+      "q1": {
+        "normal": "Was wolltest du als Kind werden?",
+        "imposter": "Was wolltest du als Kind essen?"
+      },
+      "q2": {
+        "normal": "In welchem Beruf möchtest du arbeiten?",
+        "imposter": "In welchem Land möchtest du Urlaub machen?"
+      },
+      "q3": {
+        "normal": "Wie sollte deine ideale Arbeitsumgebung sein?",
+        "imposter": "Wie sollte dein idealer Urlaubsort sein?"
+      }
+    },
+    "technology": {
+      "q1": {
+        "normal": "Welche App benutzt du am meisten?",
+        "imposter": "Welches Essen kochst du am meisten?"
+      },
+      "q2": {
+        "normal": "Welches Tech-Gadget möchtest du kaufen?",
+        "imposter": "Welches Kleidungsstück möchtest du kaufen?"
+      },
+      "q3": {
+        "normal": "Was teilst du in sozialen Medien?",
+        "imposter": "Was machst du mit deinen Freunden?"
+      }
+    }
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "language": "Sprache",
+    "about": "Über"
+  },
+  "playerSetup": {
+    "title": "Spieler",
+    "players": "Spieler",
+    "addPlayer": "Spieler hinzufügen",
+    "save": "Speichern",
+    "hint": "Tippen Sie auf Spielernamen, um sie zu bearbeiten",
+    "maxPlayersTitle": "Maximale Spieler",
+    "maxPlayersMessage": "Sie können bis zu 20 Spieler hinzufügen",
+    "minPlayersTitle": "Mindestens Spieler",
+    "minPlayersMessage": "Mindestens 3 Spieler erforderlich"
+  }
+}

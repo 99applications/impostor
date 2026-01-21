@@ -1,0 +1,350 @@
+{
+  "app": {
+    "name": "Imposter Party",
+    "tagline": "Find the Imposter!"
+  },
+  "home": {
+    "playGame": "Play Game",
+    "howToPlay": "How to Play?"
+  },
+  "howToPlay": {
+    "title": "How to Play?",
+    "step1Title": "Set Players",
+    "step1Desc": "Choose the number of players and imposters.",
+    "step2Title": "Pick Category",
+    "step2Desc": "Select the category you want to play.",
+    "step3Title": "Take Turns",
+    "step3Desc": "Each player looks at their phone to see their word/question.",
+    "step4Title": "Find Imposter",
+    "step4Desc": "Discuss and try to find who the imposter is!",
+    "gotIt": "Got it!"
+  },
+  "setup": {
+    "playerCount": "How many players?",
+    "imposterCount": "How many imposters?",
+    "gameMode": "Game Mode",
+    "wordGame": "Word Game",
+    "wordGameDesc": "Find who doesn't know the word",
+    "questionGame": "Question Game",
+    "questionGameDesc": "Find the different question",
+    "categories": "Categories",
+    "showCategoryToImposter": "Show category to imposter",
+    "showHintToImposter": "Show hint to imposter",
+    "startGame": "Start Game"
+  },
+  "game": {
+    "player": "Player",
+    "tapToReveal": "Tap to reveal",
+    "tapToHide": "Tap to hide",
+    "yourWord": "Your Word",
+    "yourQuestion": "Your Question",
+    "youAreImposter": "You are the Imposter!",
+    "imposterHint": "Hint",
+    "category": "Category",
+    "next": "Next",
+    "ready": "Are you ready?",
+    "passPhone": "Pass the phone to the next player"
+  },
+  "reveal": {
+    "title": "Game Over!",
+    "impostersWere": "Imposters were",
+    "theWordWas": "The word was",
+    "theQuestionWas": "The question was",
+    "playAgain": "Play Again",
+    "backToMenu": "Main Menu"
+  },
+  "categories": {
+    "christmas": "Christmas",
+    "food": "Food",
+    "animals": "Animals",
+    "movies": "Movies",
+    "sports": "Sports",
+    "countries": "Countries",
+    "professions": "Professions",
+    "technology": "Technology"
+  },
+  "words": {
+    "christmas": {
+      "santa": "Santa Claus",
+      "reindeer": "Reindeer",
+      "snowflake": "Snowflake",
+      "christmasTree": "Christmas Tree",
+      "giftBox": "Gift Box",
+      "stocking": "Christmas Stocking",
+      "snowman": "Snowman",
+      "sleigh": "Sleigh",
+      "lights": "Christmas Lights",
+      "gingerbread": "Gingerbread"
+    },
+    "food": {
+      "pizza": "Pizza",
+      "hamburger": "Hamburger",
+      "doner": "Doner Kebab",
+      "lahmacun": "Turkish Pizza",
+      "pide": "Pide",
+      "kofte": "Meatballs",
+      "pasta": "Pasta",
+      "sushi": "Sushi",
+      "kebab": "Kebab",
+      "manti": "Turkish Dumplings",
+      "borek": "Borek",
+      "baklava": "Baklava"
+    },
+    "animals": {
+      "lion": "Lion",
+      "tiger": "Tiger",
+      "elephant": "Elephant",
+      "giraffe": "Giraffe",
+      "penguin": "Penguin",
+      "kangaroo": "Kangaroo",
+      "koala": "Koala",
+      "panda": "Panda",
+      "wolf": "Wolf",
+      "bear": "Bear",
+      "crocodile": "Crocodile",
+      "dolphin": "Dolphin"
+    },
+    "movies": {
+      "titanic": "Titanic",
+      "avatar": "Avatar",
+      "matrix": "The Matrix",
+      "inception": "Inception",
+      "interstellar": "Interstellar",
+      "gladiator": "Gladiator",
+      "forrestGump": "Forrest Gump",
+      "godfather": "The Godfather",
+      "lordOfRings": "Lord of the Rings",
+      "harryPotter": "Harry Potter",
+      "starWars": "Star Wars",
+      "jurassicPark": "Jurassic Park"
+    },
+    "sports": {
+      "football": "Football",
+      "basketball": "Basketball",
+      "volleyball": "Volleyball",
+      "tennis": "Tennis",
+      "swimming": "Swimming",
+      "boxing": "Boxing",
+      "wrestling": "Wrestling",
+      "athletics": "Athletics",
+      "cycling": "Cycling",
+      "skiing": "Skiing",
+      "golf": "Golf",
+      "baseball": "Baseball"
+    },
+    "countries": {
+      "turkey": "Turkey",
+      "germany": "Germany",
+      "france": "France",
+      "italy": "Italy",
+      "spain": "Spain",
+      "japan": "Japan",
+      "brazil": "Brazil",
+      "mexico": "Mexico",
+      "egypt": "Egypt",
+      "india": "India",
+      "china": "China",
+      "russia": "Russia"
+    },
+    "professions": {
+      "doctor": "Doctor",
+      "teacher": "Teacher",
+      "engineer": "Engineer",
+      "lawyer": "Lawyer",
+      "pilot": "Pilot",
+      "chef": "Chef",
+      "police": "Police Officer",
+      "firefighter": "Firefighter",
+      "nurse": "Nurse",
+      "architect": "Architect",
+      "accountant": "Accountant",
+      "waiter": "Waiter"
+    },
+    "technology": {
+      "iPhone": "iPhone",
+      "laptop": "Laptop",
+      "tablet": "Tablet",
+      "smartwatch": "Smartwatch",
+      "drone": "Drone",
+      "robot": "Robot",
+      "ai": "Artificial Intelligence",
+      "blockchain": "Blockchain",
+      "metaverse": "Metaverse",
+      "instagram": "Instagram",
+      "tiktok": "TikTok",
+      "youtube": "YouTube"
+    }
+  },
+  "hints": {
+    "christmas": {
+      "hint1": "Related to winter season",
+      "hint2": "Celebration time",
+      "hint3": "Happens in December"
+    },
+    "food": {
+      "hint1": "Something you eat or drink",
+      "hint2": "Made in the kitchen",
+      "hint3": "Something delicious"
+    },
+    "animals": {
+      "hint1": "A living creature",
+      "hint2": "Lives in nature",
+      "hint3": "You see it at the zoo"
+    },
+    "movies": {
+      "hint1": "Watched in cinema",
+      "hint2": "Could be Hollywood",
+      "hint3": "You see it on screen"
+    },
+    "sports": {
+      "hint1": "Physical activity",
+      "hint2": "Done in competitions",
+      "hint3": "Gym or field"
+    },
+    "countries": {
+      "hint1": "Found on a map",
+      "hint2": "Has a flag",
+      "hint3": "People live there"
+    },
+    "professions": {
+      "hint1": "A job/occupation",
+      "hint2": "Done to earn money",
+      "hint3": "Requires education"
+    },
+    "technology": {
+      "hint1": "Digital world",
+      "hint2": "Something electronic",
+      "hint3": "Modern invention"
+    }
+  },
+  "questions": {
+    "christmas": {
+      "q1": {
+        "normal": "What's your favorite Christmas movie?",
+        "imposter": "What's your favorite horror movie?"
+      },
+      "q2": {
+        "normal": "What do you like to eat most at Christmas?",
+        "imposter": "What do you like to eat most in summer?"
+      },
+      "q3": {
+        "normal": "What do you decorate the Christmas tree with?",
+        "imposter": "What do you put on a birthday cake?"
+      }
+    },
+    "food": {
+      "q1": {
+        "normal": "What toppings do you put on pizza?",
+        "imposter": "What ingredients do you put in salad?"
+      },
+      "q2": {
+        "normal": "What's your favorite fast food restaurant?",
+        "imposter": "What's your favorite clothing store?"
+      },
+      "q3": {
+        "normal": "What do you eat for breakfast?",
+        "imposter": "What do you eat for dinner?"
+      }
+    },
+    "animals": {
+      "q1": {
+        "normal": "What animal would you keep as a pet?",
+        "imposter": "What car would you drive?"
+      },
+      "q2": {
+        "normal": "What do you see first at the zoo?",
+        "imposter": "What do you see first at the mall?"
+      },
+      "q3": {
+        "normal": "What animal would you like to be?",
+        "imposter": "What superhero would you like to be?"
+      }
+    },
+    "movies": {
+      "q1": {
+        "normal": "What's your favorite movie genre?",
+        "imposter": "What's your favorite music genre?"
+      },
+      "q2": {
+        "normal": "What do you snack on at the cinema?",
+        "imposter": "What do you snack on at the park?"
+      },
+      "q3": {
+        "normal": "Which movie character would you like to be?",
+        "imposter": "Which historical figure would you like to be?"
+      }
+    },
+    "sports": {
+      "q1": {
+        "normal": "Which team do you support?",
+        "imposter": "Which city would you like to live in?"
+      },
+      "q2": {
+        "normal": "Who's your favorite athlete?",
+        "imposter": "Who's your favorite singer?"
+      },
+      "q3": {
+        "normal": "Which sport do you like to play?",
+        "imposter": "Which instrument do you like to play?"
+      }
+    },
+    "countries": {
+      "q1": {
+        "normal": "Which country would you like to visit?",
+        "imposter": "Which planet would you like to visit?"
+      },
+      "q2": {
+        "normal": "Which country's cuisine do you like?",
+        "imposter": "Which color do you like?"
+      },
+      "q3": {
+        "normal": "Which country would you like to live in?",
+        "imposter": "Which era would you like to live in?"
+      }
+    },
+    "professions": {
+      "q1": {
+        "normal": "What did you want to be when you were a kid?",
+        "imposter": "What did you want to eat when you were a kid?"
+      },
+      "q2": {
+        "normal": "What profession would you like to work in?",
+        "imposter": "Which country would you like to vacation in?"
+      },
+      "q3": {
+        "normal": "What should your ideal work environment be like?",
+        "imposter": "What should your ideal vacation spot be like?"
+      }
+    },
+    "technology": {
+      "q1": {
+        "normal": "Which app do you use the most?",
+        "imposter": "Which food do you cook the most?"
+      },
+      "q2": {
+        "normal": "Which tech gadget would you like to buy?",
+        "imposter": "Which clothing item would you like to buy?"
+      },
+      "q3": {
+        "normal": "What do you share on social media?",
+        "imposter": "What do you do with your friends?"
+      }
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "about": "About"
+  },
+  "playerSetup": {
+    "title": "Players",
+    "players": "players",
+    "addPlayer": "Add Player",
+    "save": "Save",
+    "hint": "Tap on player names to edit them",
+    "maxPlayersTitle": "Maximum Players",
+    "maxPlayersMessage": "You can add up to 20 players",
+    "minPlayersTitle": "Minimum Players",
+    "minPlayersMessage": "At least 3 players required"
+  }
+}
