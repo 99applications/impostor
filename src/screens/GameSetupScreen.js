@@ -9,11 +9,10 @@ import {
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { colors } from '../theme/colors';
 import { useGame } from '../context/GameContext';
 import { CATEGORIES, getMaxImposters } from '../data/gameData';
-import Icon from 'react-native-vector-icons/Ionicons';
-
 
 const GameSetupScreen = ({ navigation }) => {
   const { t } = useTranslation();
@@ -23,9 +22,11 @@ const GameSetupScreen = ({ navigation }) => {
     setPlayerCount,
     setImposterCount,
     setGameMode,
+    setGameDuration,
     toggleShowCategory,
     toggleShowHint,
     startGame,
+    toggleTrollMode
   } = useGame();
 
   const maxImposters = getMaxImposters(state.playerCount);
@@ -39,15 +40,15 @@ const GameSetupScreen = ({ navigation }) => {
     const count = state.selectedCategories?.length || 0;
     if (count === 0) return t('categorySelect.noneSelected');
 
-    const icons = state.selectedCategories
-      .slice(0, 3)
-      .map(id => CATEGORIES[id]?.icon || '📂')
-      .join(' ');
+    const categoryIcons = state.selectedCategories.slice(0, 3).map(id => {
+      const cat = CATEGORIES[id];
+      return cat ? cat.icon : 'folder-outline';
+    });
 
     if (count > 3) {
-      return `${icons} +${count - 3}`;
+      return `${count} ${t('categorySelect.selected')}`;
     }
-    return icons;
+    return `${count} ${t('categorySelect.selected')}`;
   };
 
   const getTotalContent = () => {
@@ -85,7 +86,11 @@ const GameSetupScreen = ({ navigation }) => {
     }
   };
 
-  
+  const formatDuration = duration => {
+    if (duration === 0) return t('setup.noLimit');
+    if (duration < 60) return `${duration}s`;
+    return `${duration / 60} ${t('setup.minutes')}`;
+  };
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
@@ -95,14 +100,18 @@ const GameSetupScreen = ({ navigation }) => {
           style={styles.backButton}
           onPress={() => navigation.goBack()}
         >
-          <Text style={styles.backIcon}>←</Text>
+          <Icon name="chevron-back" size={24} color={colors.textPrimary} />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>{t('app.name')}</Text>
         <TouchableOpacity
           style={styles.settingsButton}
           onPress={() => navigation.navigate('Settings')}
         >
-          <Text style={styles.settingsIcon}>⚙️</Text>
+          <Icon
+            name="settings-outline"
+            size={22}
+            color={colors.textSecondary}
+          />
         </TouchableOpacity>
       </View>
 
@@ -117,10 +126,11 @@ const GameSetupScreen = ({ navigation }) => {
           <TouchableOpacity
             onPress={() => navigation.navigate('PlayerSetup')}
             activeOpacity={0.8}
+            style={styles.counterCardWrapper}
           >
             <View style={[styles.counterCard, styles.activeCard]}>
               <View style={styles.counterIcon}>
-                <Text style={styles.counterEmoji}>👥</Text>
+                <Icon name="people" size={24} color={colors.textPrimary} />
               </View>
               <Text style={styles.counterLabel}>{t('setup.playerCount')}</Text>
               <View style={styles.counterControls}>
@@ -128,39 +138,43 @@ const GameSetupScreen = ({ navigation }) => {
                   style={styles.counterButton}
                   onPress={() => handlePlayerCountChange(-1)}
                 >
-                  <Text style={styles.counterButtonText}>−</Text>
+                  <Icon name="remove" size={20} color={colors.textPrimary} />
                 </TouchableOpacity>
                 <Text style={styles.counterValue}>{state.playerCount}</Text>
                 <TouchableOpacity
                   style={styles.counterButton}
                   onPress={() => handlePlayerCountChange(1)}
                 >
-                  <Text style={styles.counterButtonText}>+</Text>
+                  <Icon name="add" size={20} color={colors.textPrimary} />
                 </TouchableOpacity>
               </View>
             </View>
           </TouchableOpacity>
 
           {/* Sahtekar Sayısı */}
-          <View style={styles.counterCard}>
-            <View style={[styles.counterIcon, styles.imposterIcon]}>
-              <Text style={styles.counterEmoji}>🔍</Text>
-            </View>
-            <Text style={styles.counterLabel}>{t('setup.imposterCount')}</Text>
-            <View style={styles.counterControls}>
-              <TouchableOpacity
-                style={styles.counterButton}
-                onPress={() => handleImposterCountChange(-1)}
-              >
-                <Text style={styles.counterButtonText}>−</Text>
-              </TouchableOpacity>
-              <Text style={styles.counterValue}>{state.imposterCount}</Text>
-              <TouchableOpacity
-                style={styles.counterButton}
-                onPress={() => handleImposterCountChange(1)}
-              >
-                <Text style={styles.counterButtonText}>+</Text>
-              </TouchableOpacity>
+          <View style={styles.counterCardWrapper}>
+            <View style={styles.counterCard}>
+              <View style={[styles.counterIcon, styles.imposterIcon]}>
+                <Icon name="eye" size={24} color={colors.textPrimary} />
+              </View>
+              <Text style={styles.counterLabel}>
+                {t('setup.imposterCount')}
+              </Text>
+              <View style={styles.counterControls}>
+                <TouchableOpacity
+                  style={styles.counterButton}
+                  onPress={() => handleImposterCountChange(-1)}
+                >
+                  <Icon name="remove" size={20} color={colors.textPrimary} />
+                </TouchableOpacity>
+                <Text style={styles.counterValue}>{state.imposterCount}</Text>
+                <TouchableOpacity
+                  style={styles.counterButton}
+                  onPress={() => handleImposterCountChange(1)}
+                >
+                  <Icon name="add" size={20} color={colors.textPrimary} />
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
         </View>
@@ -168,7 +182,11 @@ const GameSetupScreen = ({ navigation }) => {
         {/* Oyun Modu */}
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
-            <Text style={styles.sectionIcon}>🎲</Text>
+            <Icon
+              name="game-controller-outline"
+              size={18}
+              color={colors.textSecondary}
+            />
             <Text style={styles.sectionTitle}>{t('setup.gameMode')}</Text>
           </View>
           <View style={styles.gameModeRow}>
@@ -180,7 +198,15 @@ const GameSetupScreen = ({ navigation }) => {
               activeOpacity={0.8}
               onPress={() => setGameMode('word')}
             >
-              <Text style={styles.gameModeIcon}>Tт</Text>
+              <Icon
+                name="text"
+                size={28}
+                color={
+                  state.gameMode === 'word'
+                    ? colors.accentPrimary
+                    : colors.textMuted
+                }
+              />
               <Text
                 style={[
                   styles.gameModeTitle,
@@ -200,7 +226,15 @@ const GameSetupScreen = ({ navigation }) => {
               activeOpacity={0.8}
               onPress={() => setGameMode('question')}
             >
-              <Text style={styles.gameModeIcon}>❓</Text>
+              <Icon
+                name="help-circle-outline"
+                size={28}
+                color={
+                  state.gameMode === 'question'
+                    ? colors.accentPrimary
+                    : colors.textMuted
+                }
+              />
               <Text
                 style={[
                   styles.gameModeTitle,
@@ -216,21 +250,68 @@ const GameSetupScreen = ({ navigation }) => {
           </View>
         </View>
 
+        {/* Süre Seçimi */}
+        <View style={styles.section}>
+          <View style={styles.sectionHeader}>
+            <Icon name="timer-outline" size={18} color={colors.textSecondary} />
+            <Text style={styles.sectionTitle}>{t('setup.duration')}</Text>
+          </View>
+          <View style={styles.durationRow}>
+            {[60, 120, 180, 300, 0].map(duration => {
+              const isSelected = state.gameDuration === duration;
+              let label;
+              if (duration === 0) {
+                label = t('setup.noLimit');
+              } else if (duration < 60) {
+                label = `${duration}s`;
+              } else {
+                label = `${duration / 60}dk`;
+              }
+
+              return (
+                <TouchableOpacity
+                  key={duration}
+                  style={[
+                    styles.durationCard,
+                    isSelected && styles.durationCardActive,
+                  ]}
+                  activeOpacity={0.8}
+                  onPress={() => setGameDuration(duration)}
+                >
+                  <Icon
+                    name={duration === 0 ? 'infinite-outline' : 'time-outline'}
+                    size={18}
+                    color={isSelected ? colors.accentPrimary : colors.textMuted}
+                  />
+                  <Text
+                    style={[
+                      styles.durationText,
+                      isSelected && styles.durationTextActive,
+                    ]}
+                  >
+                    {label}
+                  </Text>
+                </TouchableOpacity>
+              );
+            })}
+          </View>
+        </View>
+
         {/* Kategoriler */}
         <TouchableOpacity
-          style={styles.settingCard}
+          style={styles.categoryCard}
           activeOpacity={0.8}
           onPress={() => navigation.navigate('CategorySelect')}
         >
-          <View style={styles.settingCardLeft}>
-            <View style={[styles.settingCardIcon, styles.categoryIconBg]}>
-              <Text style={styles.settingCardEmoji}>📂</Text>
+          <View style={styles.categoryCardLeft}>
+            <View style={styles.categoryCardIcon}>
+              <Icon name="folder-open" size={24} color={colors.textPrimary} />
             </View>
-            <View style={styles.settingCardInfo}>
-              <Text style={styles.settingCardLabel}>
+            <View style={styles.categoryCardInfo}>
+              <Text style={styles.categoryCardLabel}>
                 {t('setup.categories')}
               </Text>
-              <Text style={styles.settingCardValue}>
+              <Text style={styles.categoryCardValue}>
                 {state.selectedCategories?.length || 0}{' '}
                 {t('categorySelect.selected')} •{' '}
                 {state.gameMode === 'word'
@@ -241,17 +322,40 @@ const GameSetupScreen = ({ navigation }) => {
               </Text>
             </View>
           </View>
-          <View style={styles.settingCardRight}>
-            <Text style={styles.categoryPreview}>{getCategoryPreview()}</Text>
-            <Text style={styles.settingCardArrow}>›</Text>
-          </View>
+          <Icon name="chevron-forward" size={22} color={colors.textMuted} />
         </TouchableOpacity>
+        <View style={styles.settingItem}>
+          <View style={styles.settingLeft}>
+            <Icon name="skull-outline" size={20} color={colors.danger} />
+            <View style={styles.settingTextWrapper}>
+              <Text style={styles.settingText}>{t('setup.trollMode')}</Text>
+              <Text style={styles.settingHint}>{t('setup.trollModeHint')}</Text>
+            </View>
+          </View>
+          <Switch
+            value={state.trollModeEnabled}
+            onValueChange={toggleTrollMode}
+            trackColor={{ false: colors.bgCardLight, true: colors.danger }}
+            thumbColor={colors.textPrimary}
+          />
+        </View>
 
-        {/* Ayarlar */}
+        {/* Ek Ayarlar */}
         <View style={styles.section}>
+          <View style={styles.sectionHeader}>
+            <Icon
+              name="options-outline"
+              size={18}
+              color={colors.textSecondary}
+            />
+            <Text style={styles.sectionTitle}>
+              {t('setup.additionalSettings')}
+            </Text>
+          </View>
+
           <View style={styles.settingItem}>
             <View style={styles.settingLeft}>
-              <Text style={styles.settingIcon}>👁️</Text>
+              <Icon name="eye-outline" size={20} color={colors.textSecondary} />
               <Text style={styles.settingText}>
                 {t('setup.showCategoryToImposter')}
               </Text>
@@ -266,9 +370,14 @@ const GameSetupScreen = ({ navigation }) => {
               thumbColor={colors.textPrimary}
             />
           </View>
+
           <View style={styles.settingItem}>
             <View style={styles.settingLeft}>
-              <Text style={styles.settingIcon}>💡</Text>
+              <Icon
+                name="bulb-outline"
+                size={20}
+                color={colors.textSecondary}
+              />
               <Text style={styles.settingText}>
                 {t('setup.showHintToImposter')}
               </Text>
@@ -293,6 +402,7 @@ const GameSetupScreen = ({ navigation }) => {
           activeOpacity={0.8}
           onPress={handleStartGame}
         >
+          <Icon name="play" size={22} color={colors.textPrimary} />
           <Text style={styles.startButtonText}>{t('setup.startGame')}</Text>
         </TouchableOpacity>
       </View>
@@ -320,10 +430,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  backIcon: {
-    fontSize: 20,
-    color: colors.textPrimary,
-  },
   headerTitle: {
     fontSize: 20,
     fontWeight: '700',
@@ -339,9 +445,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.border,
   },
-  settingsIcon: {
-    fontSize: 20,
-  },
   scrollView: {
     flex: 1,
   },
@@ -354,8 +457,10 @@ const styles = StyleSheet.create({
     gap: 12,
     marginBottom: 24,
   },
-  counterCard: {
+  counterCardWrapper: {
     flex: 1,
+  },
+  counterCard: {
     backgroundColor: colors.bgCard,
     borderRadius: 16,
     padding: 16,
@@ -380,9 +485,6 @@ const styles = StyleSheet.create({
   imposterIcon: {
     backgroundColor: colors.danger,
   },
-  counterEmoji: {
-    fontSize: 24,
-  },
   counterLabel: {
     fontSize: 14,
     color: colors.textSecondary,
@@ -402,11 +504,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  counterButtonText: {
-    fontSize: 20,
-    color: colors.textPrimary,
-    fontWeight: '600',
-  },
   counterValue: {
     fontSize: 28,
     fontWeight: '700',
@@ -422,9 +519,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 8,
     marginBottom: 12,
-  },
-  sectionIcon: {
-    fontSize: 18,
   },
   sectionTitle: {
     fontSize: 16,
@@ -448,15 +542,11 @@ const styles = StyleSheet.create({
     borderColor: colors.accentPrimary,
     backgroundColor: 'rgba(139, 92, 246, 0.1)',
   },
-  gameModeIcon: {
-    fontSize: 28,
-    marginBottom: 8,
-    color: colors.textSecondary,
-  },
   gameModeTitle: {
     fontSize: 14,
     fontWeight: '700',
     color: colors.textSecondary,
+    marginTop: 8,
     marginBottom: 4,
     textAlign: 'center',
   },
@@ -468,8 +558,37 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     textAlign: 'center',
   },
-  // Kategori Kartı Stilleri
-  settingCard: {
+  durationRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 10,
+  },
+  durationCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.bgCard,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: 12,
+    borderWidth: 1.5,
+    borderColor: colors.border,
+    gap: 6,
+    minWidth: 70,
+  },
+  durationCardActive: {
+    borderColor: colors.accentPrimary,
+    backgroundColor: 'rgba(139, 92, 246, 0.1)',
+  },
+  durationText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: colors.textMuted,
+  },
+  durationTextActive: {
+    color: colors.accentPrimary,
+  },
+  categoryCard: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -480,50 +599,40 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: colors.accentPrimary,
   },
-  settingCardLeft: {
+  categoryCardLeft: {
     flexDirection: 'row',
     alignItems: 'center',
     flex: 1,
   },
-  settingCardIcon: {
+  settingTextWrapper: {
+    flex: 1,
+  },
+  settingHint: {
+    fontSize: 12,
+    color: colors.textMuted,
+    marginTop: 2,
+  },
+  categoryCardIcon: {
     width: 48,
     height: 48,
     borderRadius: 24,
+    backgroundColor: colors.success,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 14,
   },
-  categoryIconBg: {
-    backgroundColor: colors.success,
-  },
-  settingCardEmoji: {
-    fontSize: 24,
-  },
-  settingCardInfo: {
+  categoryCardInfo: {
     flex: 1,
   },
-  settingCardLabel: {
+  categoryCardLabel: {
     fontSize: 14,
     color: colors.textSecondary,
     marginBottom: 2,
   },
-  settingCardValue: {
+  categoryCardValue: {
     fontSize: 13,
     color: colors.textMuted,
   },
-  settingCardRight: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  categoryPreview: {
-    fontSize: 22,
-  },
-  settingCardArrow: {
-    fontSize: 24,
-    color: colors.textMuted,
-  },
-  // Toggle Ayarları
   settingItem: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -538,10 +647,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     flex: 1,
-  },
-  settingIcon: {
-    fontSize: 18,
-    marginRight: 12,
+    gap: 12,
   },
   settingText: {
     fontSize: 14,
@@ -553,10 +659,13 @@ const styles = StyleSheet.create({
     paddingTop: 16,
   },
   startButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: colors.accentPrimary,
     paddingVertical: 18,
     borderRadius: 16,
-    alignItems: 'center',
+    gap: 10,
     shadowColor: colors.accentPrimary,
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,

@@ -38,8 +38,24 @@ const CategorySelectScreen = ({ navigation }) => {
   const toggleCategory = categoryId => {
     const category = CATEGORIES[categoryId];
 
+    // Custom kategori ise premium kontrolü yap
+    if (!category) {
+      const customCategory = state.customCategories?.[categoryId];
+      if (customCategory) {
+        setLocalSelectedCategories(prev => {
+          if (prev.includes(categoryId)) {
+            if (prev.length === 1) return prev;
+            return prev.filter(id => id !== categoryId);
+          } else {
+            return [...prev, categoryId];
+          }
+        });
+        return;
+      }
+    }
+
     // Premium kategori kontrolü
-    if (category.isPremium && !isPremium) {
+    if (category?.isPremium && !isPremium) {
       Alert.alert(
         t('categorySelect.premiumTitle'),
         t('categorySelect.premiumMessage'),
@@ -72,7 +88,16 @@ const CategorySelectScreen = ({ navigation }) => {
     const accessibleCategories = Object.keys(CATEGORIES).filter(
       id => !CATEGORIES[id].isPremium || isPremium,
     );
-    setLocalSelectedCategories(accessibleCategories);
+    // Custom kategorileri de ekle (premium ise)
+    if (isPremium) {
+      const customCategoryIds = Object.keys(state.customCategories || {});
+      setLocalSelectedCategories([
+        ...accessibleCategories,
+        ...customCategoryIds,
+      ]);
+    } else {
+      setLocalSelectedCategories(accessibleCategories);
+    }
   };
 
   // Tümünü kaldır (ilk ücretsiz kategori hariç)
@@ -92,9 +117,16 @@ const CategorySelectScreen = ({ navigation }) => {
     let totalQuestions = 0;
 
     selectedCategories.forEach(categoryId => {
-      const count = getCategoryContentCount(categoryId);
-      totalWords += count.words;
-      totalQuestions += count.questions;
+      // Custom kategori mi kontrol et
+      if (state.customCategories?.[categoryId]) {
+        totalWords += state.customCategories[categoryId].words?.length || 0;
+        totalQuestions +=
+          state.customCategories[categoryId].questions?.length || 0;
+      } else {
+        const count = getCategoryContentCount(categoryId);
+        totalWords += count.words;
+        totalQuestions += count.questions;
+      }
     });
 
     return { words: totalWords, questions: totalQuestions };
@@ -103,11 +135,15 @@ const CategorySelectScreen = ({ navigation }) => {
   const totalCount = getTotalCount();
 
   // Erişilebilir kategori sayısı
-  const accessibleCount = Object.keys(CATEGORIES).filter(
-    id => !CATEGORIES[id].isPremium || isPremium,
-  ).length;
+  const accessibleCount =
+    Object.keys(CATEGORIES).filter(id => !CATEGORIES[id].isPremium || isPremium)
+      .length +
+    (isPremium ? Object.keys(state.customCategories || {}).length : 0);
 
   const allSelected = selectedCategories.length === accessibleCount;
+
+  // Custom kategori sayısı
+  const customCategoryCount = Object.keys(state.customCategories || {}).length;
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
@@ -175,14 +211,154 @@ const CategorySelectScreen = ({ navigation }) => {
         </TouchableOpacity>
       </View>
 
+      {/* Kategorilerim Butonu */}
+      <TouchableOpacity
+        style={styles.myCategoriesButton}
+        activeOpacity={0.8}
+        onPress={() => navigation.navigate('MyCategories')}
+      >
+        <View style={styles.myCategoriesLeft}>
+          <View
+            style={[
+              styles.myCategoriesIcon,
+              !isPremium && styles.myCategoriesIconLocked,
+            ]}
+          >
+            <Icon
+              name="folder-open"
+              size={24}
+              color={isPremium ? colors.accentPrimary : colors.textMuted}
+            />
+          </View>
+          <View style={styles.myCategoriesInfo}>
+            <View style={styles.myCategoriesTitleRow}>
+              <Text
+                style={[
+                  styles.myCategoriesTitle,
+                  !isPremium && styles.myCategoriesTitleLocked,
+                ]}
+              >
+                {t('categorySelect.myCategories')}
+              </Text>
+              {!isPremium && (
+                <View style={styles.proBadge}>
+                  <Icon name="diamond" size={10} color={colors.warning} />
+                  <Text style={styles.proBadgeText}>PRO</Text>
+                </View>
+              )}
+            </View>
+            <Text
+              style={[
+                styles.myCategoriesDesc,
+                !isPremium && styles.myCategoriesDescLocked,
+              ]}
+            >
+              {isPremium
+                ? customCategoryCount > 0
+                  ? `${customCategoryCount} ${t(
+                      'categorySelect.customCategoriesCount',
+                    )}`
+                  : t('categorySelect.noCustomCategories')
+                : t('categorySelect.createOwnCategories')}
+            </Text>
+          </View>
+        </View>
+        <Icon
+          name="chevron-forward"
+          size={20}
+          color={isPremium ? colors.textSecondary : colors.textMuted}
+        />
+      </TouchableOpacity>
+
       {/* Category List */}
       <ScrollView
         style={styles.scrollView}
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
+        {/* Custom Kategoriler (Premium ve kategori varsa) */}
+        {isPremium && customCategoryCount > 0 && (
+          <>
+            <View style={styles.sectionHeader}>
+              <Icon
+                name="create-outline"
+                size={20}
+                color={colors.accentPrimary}
+              />
+              <Text style={styles.sectionTitle}>
+                {t('categorySelect.customCategories')}
+              </Text>
+            </View>
+
+            {Object.values(state.customCategories).map(category => {
+              const isSelected = selectedCategories.includes(category.id);
+              return (
+                <TouchableOpacity
+                  key={category.id}
+                  style={[
+                    styles.categoryCard,
+                    isSelected && styles.categoryCardActive,
+                  ]}
+                  activeOpacity={0.7}
+                  onPress={() => toggleCategory(category.id)}
+                >
+                  <View style={styles.categoryLeft}>
+                    <View
+                      style={[
+                        styles.categoryIcon,
+                        isSelected && styles.categoryIconActive,
+                      ]}
+                    >
+                      <Icon
+                        name={category.icon || 'folder'}
+                        size={26}
+                        color={
+                          isSelected ? colors.textPrimary : colors.textSecondary
+                        }
+                      />
+                    </View>
+                    <View style={styles.categoryInfo}>
+                      <Text
+                        style={[
+                          styles.categoryName,
+                          isSelected && styles.categoryNameActive,
+                        ]}
+                      >
+                        {category.name}
+                      </Text>
+                      <Text style={styles.categoryStat}>
+                        {category.words?.length || 0}{' '}
+                        {t('categorySelect.words')}
+                      </Text>
+                    </View>
+                  </View>
+                  <View
+                    style={[
+                      styles.checkbox,
+                      isSelected && styles.checkboxActive,
+                    ]}
+                  >
+                    {isSelected && (
+                      <Icon
+                        name="checkmark"
+                        size={18}
+                        color={colors.textPrimary}
+                      />
+                    )}
+                  </View>
+                </TouchableOpacity>
+              );
+            })}
+          </>
+        )}
+
         {/* Free Categories Section */}
-        <View style={styles.sectionHeader}>
+        <View
+          style={[
+            styles.sectionHeader,
+            customCategoryCount > 0 && isPremium && { marginTop: 24 },
+          ]}
+        >
           <Icon name="gift-outline" size={20} color={colors.success} />
           <Text style={styles.sectionTitle}>
             {t('categorySelect.freeCategories')}
@@ -401,7 +577,7 @@ const styles = StyleSheet.create({
   },
   quickActions: {
     paddingHorizontal: 20,
-    marginBottom: 16,
+    marginBottom: 12,
   },
   quickButton: {
     flexDirection: 'row',
@@ -426,6 +602,75 @@ const styles = StyleSheet.create({
   },
   quickButtonTextActive: {
     color: colors.accentPrimary,
+  },
+  // Kategorilerim Butonu
+  myCategoriesButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginHorizontal: 20,
+    marginBottom: 20,
+    backgroundColor: colors.bgCard,
+    borderRadius: 16,
+    padding: 16,
+    borderWidth: 2,
+    borderColor: colors.accentPrimary,
+    borderStyle: 'dashed',
+  },
+  myCategoriesLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+  },
+  myCategoriesIcon: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: 'rgba(139, 92, 246, 0.15)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 14,
+  },
+  myCategoriesIconLocked: {
+    backgroundColor: colors.bgCardLight,
+  },
+  myCategoriesInfo: {
+    flex: 1,
+  },
+  myCategoriesTitleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginBottom: 4,
+  },
+  myCategoriesTitle: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: colors.textPrimary,
+  },
+  myCategoriesTitleLocked: {
+    color: colors.textSecondary,
+  },
+  myCategoriesDesc: {
+    fontSize: 13,
+    color: colors.textSecondary,
+  },
+  myCategoriesDescLocked: {
+    color: colors.textMuted,
+  },
+  proBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(251, 191, 36, 0.15)',
+    paddingVertical: 3,
+    paddingHorizontal: 8,
+    borderRadius: 10,
+    gap: 4,
+  },
+  proBadgeText: {
+    fontSize: 10,
+    fontWeight: '700',
+    color: colors.warning,
   },
   scrollView: {
     flex: 1,

@@ -18,10 +18,10 @@ const GameEndScreen = ({ navigation }) => {
 
   const imposters = state.players.filter(p => p.isImposter);
 
-  const handlePlayAgain = () => {
-    resetGame();
-    navigation.replace('PlayerTurn');
-  };
+ const handlePlayAgain = () => {
+   resetGame();
+   navigation.replace('PlayerTurn');
+ };
 
   const handleBackToMenu = () => {
     fullReset();

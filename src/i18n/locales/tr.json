@@ -31,7 +31,44 @@
     "categories": "Kategoriler",
     "showCategoryToImposter": "Sahtekara kategoriyi göster",
     "showHintToImposter": "Sahtekara ipucu göster",
-    "startGame": "Oyunu Başlat"
+    "startGame": "Oyunu Başlat",
+    "duration": "Süre",
+    "noLimit": "Süresiz",
+    "trollMode": "Trol Modu",
+    "trollModeHint": "Çok düşük ihtimalle herkes sahtekar olur"
+  },
+  "customCategory": {
+    "title": "Kategori Oluştur",
+    "editTitle": "Kategori Düzenle",
+    "name": "Kategori Adı",
+    "namePlaceholder": "Örn: Ofis Kelimeleri",
+    "icon": "İkon",
+    "selectIcon": "İkon seç",
+    "words": "Kelimeler",
+    "wordsHint": "Her satıra bir kelime yazın (minimum 5)",
+    "wordsPlaceholder": "Bilgisayar\nToplantı\nKahve\nE-posta\nDeadline",
+    "wordsCount": "kelime",
+    "preview": "Önizleme",
+    "save": "Kaydet",
+    "update": "Güncelle",
+    "error": "Hata",
+    "nameRequired": "Kategori adı zorunludur",
+    "minWords": "En az 5 kelime eklemelisiniz",
+    "saveFailed": "Kategori kaydedilemedi",
+    "deleteTitle": "Kategoriyi Sil",
+    "deleteMessage": "Bu kategoriyi silmek istediğinize emin misiniz?",
+    "premiumRequired": "Premium Gerekli",
+    "premiumDesc": "Özel kategori oluşturmak için Premium üyelik gerekiyor",
+    "getPremium": "Premium'a Geç"
+  },
+  "myCategories": {
+    "title": "Kategorilerim",
+    "premiumTitle": "Premium ile Sınırsız Kategori",
+    "premiumDesc": "Kendi kategorilerinizi oluşturun",
+    "emptyTitle": "Henüz kategori yok",
+    "emptyDesc": "Arkadaşlarınızla oynamak için kendi kelime listelerinizi oluşturun",
+    "create": "Kategori Oluştur"
+    
   },
   "game": {
     "player": "Oyuncu",
@@ -44,7 +81,18 @@
     "category": "Kategori",
     "next": "Sonraki",
     "ready": "Hazır mısın?",
-    "passPhone": "Telefonu diğer oyuncuya ver"
+    "passPhone": "Telefonu diğer oyuncuya ver",
+    "players": "oyuncu",
+    "mode": "Mod",
+    "imposters": "Sahtekar",
+    "discussTitle": "Tartışma Zamanı!",
+    "discussSubtitle": "Sahtekarı bulmak için sorular sorun ve tartışın",
+    "startDiscussion": "Tartışmayı Başlat",
+    "endGame": "Oyunu Bitir",
+    "tips": "İpuçları",
+    "tip1": "Herkes sırayla konuşsun",
+    "tip2": "Şüpheli cevaplara dikkat edin",
+    "tip3": "Oylama ile sahtekarı belirleyin"
   },
   "reveal": {
     "title": "Oyun Bitti!",
@@ -336,7 +384,24 @@
     "title": "Ayarlar",
     "language": "Dil",
     "about": "Hakkında",
-    "Premium": "Premium"
+    "Premium": "Premium",
+    "support": "Destek",
+    "legal": "Yasal",
+    "premium": "Premium",
+    "premiumActive": "Premium Üyelik",
+    "getPremium": "Premium'a geçin",
+    "lifetimeMember": "Ömür boyu üye",
+    "daysLeft": "{{days}} gün kaldı",
+    "rateApp": "Uygulamayı Puanla",
+    "shareApp": "Arkadaşlarınla Paylaş",
+    "feedback": "Geri Bildirim Gönder",
+    "privacy": "Gizlilik Politikası",
+    "terms": "Kullanım Şartları",
+    "error": "Hata",
+    "cantOpenStore": "Mağaza açılamadı",
+    "cantOpenEmail": "E-posta uygulaması açılamadı",
+    "cantOpenLink": "Bağlantı açılamadı",
+    "shareMessage": "Sahtekar Partisi - Arkadaşlarınla oyna! {{url}}"
   },
   "playerSetup": {
     "title": "Oyuncular",
@@ -349,9 +414,14 @@
     "minPlayersTitle": "Minimum Oyuncu",
     "minPlayersMessage": "En az 3 oyuncu olmalıdır"
   },
+  "common": {
+    "delete": "Sil"
+  },
+  
   "categorySelect": {
     "title": "Kategoriler",
     "save": "Kaydet",
+    "customCategories": "Özel Kategorilerim",
     "selected": "seçili",
     "words": "kelime",
     "questions": "soru",
@@ -363,7 +433,11 @@
     "premiumCategories": "Premium Kategoriler",
     "premiumTitle": "Premium Kategori",
     "premiumMessage": "Bu kategoriye erişmek için Premium üyelik gerekiyor.",
-    "goPremium": "Premium'a Geç"
+    "goPremium": "Premium'a Geç",
+    "myCategories": "Kategorilerim",
+    "customCategoriesCount": "özel kategori",
+    "noCustomCategories": "Henüz kategori oluşturmadınız",
+    "createOwnCategories": "Kendi kategorilerinizi oluşturun"
   },
   "premium": {
     "restoreTitle": "Geri Yükleme",

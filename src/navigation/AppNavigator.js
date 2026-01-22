@@ -12,6 +12,9 @@ import SettingsScreen from '../screens/SettingsScreen';
 import PlayerSetupScreen from '../screens/PlayerSetupScreen';
 import CategorySelectScreen from '../screens/CategorySelectScreen';
 import PremiumScreen from '../screens/PremiumScreen';
+
+import CustomCategoryScreen from '../screens/CustomCategoryScreen';
+import MyCategoriesScreen from '../screens/MyCategoriesScreen';
 const Stack = createStackNavigator();
 
 const AppNavigator = () => {
@@ -32,11 +35,10 @@ const AppNavigator = () => {
       <Stack.Screen name="GameEnd" component={GameEndScreen} />
       <Stack.Screen name="Settings" component={SettingsScreen} />
       <Stack.Screen name="PlayerSetup" component={PlayerSetupScreen} />
-      <Stack.Screen
-        name="CategorySelect"
-        component={CategorySelectScreen}
-      />
+      <Stack.Screen name="CategorySelect" component={CategorySelectScreen} />
       <Stack.Screen name="Premium" component={PremiumScreen} />
+      <Stack.Screen name="CustomCategory" component={CustomCategoryScreen} />
+      <Stack.Screen name="MyCategories" component={MyCategoriesScreen} />
     </Stack.Navigator>
   );
 };
