@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 // Screens
 import SplashScreen from '../screens/SplashScreen';
+import OnboardingScreen from '../screens/Onboardingscreen';
 import HomeScreen from '../screens/HomeScreen';
 import HowToPlayScreen from '../screens/HowToPlayScreen';
 import GameSetupScreen from '../screens/GameSetupScreen';
@@ -12,9 +13,9 @@ import SettingsScreen from '../screens/SettingsScreen';
 import PlayerSetupScreen from '../screens/PlayerSetupScreen';
 import CategorySelectScreen from '../screens/CategorySelectScreen';
 import PremiumScreen from '../screens/PremiumScreen';
-
 import CustomCategoryScreen from '../screens/CustomCategoryScreen';
 import MyCategoriesScreen from '../screens/MyCategoriesScreen';
+
 const Stack = createStackNavigator();
 
 const AppNavigator = () => {
@@ -28,6 +29,7 @@ const AppNavigator = () => {
       }}
     >
       <Stack.Screen name="Splash" component={SplashScreen} />
+      <Stack.Screen name="Onboarding" component={OnboardingScreen} />
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="HowToPlay" component={HowToPlayScreen} />
       <Stack.Screen name="GameSetup" component={GameSetupScreen} />

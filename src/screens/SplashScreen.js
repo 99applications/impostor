@@ -1,42 +1,67 @@
+
+
+import { checkOnboardingStatus } from './Onboardingscreen';
+
+const checkAndNavigate = async () => {
+  const hasCompletedOnboarding = await checkOnboardingStatus();
+
+  if (hasCompletedOnboarding) {
+    navigation.replace('Home');
+  } else {
+    navigation.replace('Onboarding');
+  }
+};
+
+// Animasyonunuz bittiğinde checkAndNavigate() çağırın
+
+// ============================================
+// TAM ÖRNEK SPLASHSCREEN
+// ============================================
+// Eğer mevcut SplashScreen'iniz basitse, aşağıdaki gibi güncelleyebilirsiniz:
+
 import React, { useEffect, useRef } from 'react';
-import { View, Text, StyleSheet, Animated } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { View, Text, StyleSheet, Animated, Dimensions } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { colors } from '../theme/colors';
 
+const { width, height } = Dimensions.get('window');
+
 const SplashScreen = ({ navigation }) => {
-  const { t } = useTranslation();
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const scaleAnim = useRef(new Animated.Value(0.5)).current;
 
   useEffect(() => {
-    // Animasyonu başlat
+    // Animasyonları başlat
     Animated.parallel([
       Animated.timing(fadeAnim, {
         toValue: 1,
-        duration: 1000,
+        duration: 800,
         useNativeDriver: true,
       }),
       Animated.spring(scaleAnim, {
         toValue: 1,
         friction: 4,
+        tension: 40,
         useNativeDriver: true,
       }),
     ]).start();
 
-    // 2.5 saniye sonra Home'a git
-    const timer = setTimeout(() => {
-      navigation.replace('Home');
-    }, 2500);
+    // 2 saniye sonra kontrol et ve yönlendir
+    const timer = setTimeout(async () => {
+      const hasCompletedOnboarding = await checkOnboardingStatus();
+
+      if (hasCompletedOnboarding) {
+        navigation.replace('Home');
+      } else {
+        navigation.replace('Onboarding');
+      }
+    }, 2000);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [navigation]);
 
   return (
     <View style={styles.container}>
-      {/* Arka plan efektleri */}
-      <View style={styles.bgCircle1} />
-      <View style={styles.bgCircle2} />
-
       <Animated.View
         style={[
           styles.content,
@@ -46,23 +71,11 @@ const SplashScreen = ({ navigation }) => {
           },
         ]}
       >
-        {/* Logo/İkon */}
-        <View style={styles.logoContainer}>
-          <Text style={styles.logoEmoji}>🎭</Text>
+        <View style={styles.iconContainer}>
+          <Icon name="search" size={48} color={colors.textPrimary} />
         </View>
-
-        {/* Başlık */}
-        <Text style={styles.title}>{t('app.name')}</Text>
-        <Text style={styles.tagline}>{t('app.tagline')}</Text>
-      </Animated.View>
-
-      {/* Alt kısım */}
-      <Animated.View style={[styles.footer, { opacity: fadeAnim }]}>
-        <View style={styles.loadingDots}>
-          <View style={[styles.dot, styles.dot1]} />
-          <View style={[styles.dot, styles.dot2]} />
-          <View style={[styles.dot, styles.dot3]} />
-        </View>
+        <Text style={styles.title}>Imposter Party</Text>
+        <Text style={styles.subtitle}>Sahtekarı Bul!</Text>
       </Animated.View>
     </View>
   );
@@ -75,78 +88,32 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  bgCircle1: {
-    position: 'absolute',
-    width: 300,
-    height: 300,
-    borderRadius: 150,
-    backgroundColor: colors.accentGlow,
-    top: -50,
-    right: -100,
-  },
-  bgCircle2: {
-    position: 'absolute',
-    width: 200,
-    height: 200,
-    borderRadius: 100,
-    backgroundColor: 'rgba(139, 92, 246, 0.15)',
-    bottom: 100,
-    left: -50,
-  },
   content: {
     alignItems: 'center',
   },
-  logoContainer: {
-    width: 120,
-    height: 120,
-    borderRadius: 60,
+  iconContainer: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
     backgroundColor: colors.accentPrimary,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 24,
     shadowColor: colors.accentPrimary,
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.5,
-    shadowRadius: 20,
-    elevation: 10,
-  },
-  logoEmoji: {
-    fontSize: 60,
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.4,
+    shadowRadius: 16,
+    elevation: 12,
   },
   title: {
-    fontSize: 36,
+    fontSize: 32,
     fontWeight: '800',
     color: colors.textPrimary,
     marginBottom: 8,
-    textAlign: 'center',
   },
-  tagline: {
-    fontSize: 18,
+  subtitle: {
+    fontSize: 16,
     color: colors.textSecondary,
-    textAlign: 'center',
-  },
-  footer: {
-    position: 'absolute',
-    bottom: 60,
-  },
-  loadingDots: {
-    flexDirection: 'row',
-    gap: 8,
-  },
-  dot: {
-    width: 10,
-    height: 10,
-    borderRadius: 5,
-    backgroundColor: colors.accentPrimary,
-  },
-  dot1: {
-    opacity: 0.4,
-  },
-  dot2: {
-    opacity: 0.7,
-  },
-  dot3: {
-    opacity: 1,
   },
 });
 

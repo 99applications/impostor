@@ -94,6 +94,36 @@
     "tip2": "Şüpheli cevaplara dikkat edin",
     "tip3": "Oylama ile sahtekarı belirleyin"
   },
+  "onboarding": {
+    "skip": "Atla",
+    "next": "Devam",
+    "start": "Oyuna Başla",
+    "slide1": {
+      "title": "Imposter Party'ye Hoş Geldin! 🎉",
+      "description": "Arkadaşlarınla oynayabileceğin en eğlenceli sosyal dedektiflik oyunu! Sahtekarı bul veya sahtekar olarak hayatta kal.",
+      "highlight": "3-10 kişiyle oynayabilirsin!"
+    },
+    "slide2": {
+      "title": "Sahtekar Kim? 🕵️",
+      "description": "Oyunculardan biri gizli kelimeyi bilmiyor - o sahtekar! Diğer herkes aynı kelimeyi görür ama sahtekar sadece kategoriyi bilir.",
+      "highlight": "Sahtekar yakalanmamak için blöf yapmalı!"
+    },
+    "slide3": {
+      "title": "Soru-Cevap Turu 💬",
+      "description": "Sırayla birbirinize sorular sorun. Sorular kelimeyle ilgili olmalı ama çok açık olmamalı - sahtekar kelimeyi tahmin edebilir!",
+      "highlight": "Örnek: 'Bunu ne sıklıkla yaparsın?'"
+    },
+    "slide4": {
+      "title": "Oylama Zamanı ✋",
+      "description": "Tartışma bittikten sonra herkes sahtekar olduğunu düşündüğü kişiye oy verir. En çok oy alan elenir!",
+      "highlight": "Beraberliklerde kimse elenmez!"
+    },
+    "slide5": {
+      "title": "Hazır mısın? 🏆",
+      "description": "Sahtekarı bul ve puanları topla! Farklı kategoriler, özel modlar ve daha fazlası seni bekliyor.",
+      "highlight": "Trol Modu: Bazen herkes sahtekar olabilir! 😈"
+    }
+  },
   "reveal": {
     "title": "Oyun Bitti!",
     "impostersWere": "Sahtekarlar",

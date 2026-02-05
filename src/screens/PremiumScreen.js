@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -7,6 +7,7 @@ import {
   ScrollView,
   Linking,
   Alert,
+  ActivityIndicator,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -18,28 +19,36 @@ const PremiumScreen = ({ navigation }) => {
   const { t } = useTranslation();
   const insets = useSafeAreaInsets();
   const [selectedPlan, setSelectedPlan] = useState('monthly');
+  const [isPurchasing, setIsPurchasing] = useState(false);
 
-  // clearPremium fonksiyonunu buradan aldık
   const {
     isPremium,
     premiumType,
-    activatePremium,
+    isLoading,
+    packages,
+    purchaseProduct,
+    restorePurchases,
     getDaysRemaining,
-    clearPremium,
+    getPrices,
+    PRODUCT_IDS,
   } = usePremium();
+
+  const prices = getPrices();
 
   const plans = [
     {
       id: 'monthly',
+      productId: PRODUCT_IDS.monthly,
       titleKey: 'premium.monthlyTitle',
       subtitleKey: 'premium.monthlySubtitle',
-      price: '₺129,99',
+      price: prices.monthly || '₺129,99',
     },
     {
       id: 'lifetime',
+      productId: PRODUCT_IDS.lifetime,
       titleKey: 'premium.lifetimeTitle',
       subtitleKey: 'premium.lifetimeSubtitle',
-      price: '₺399,99',
+      price: prices.lifetime || '₺399,99',
     },
   ];
 
@@ -72,58 +81,84 @@ const PremiumScreen = ({ navigation }) => {
     },
   ];
 
-  // Abonelik iptal fonksiyonu
-  const handleCancelSubscription = () => {
-    Alert.alert(
-      t('premium.cancelTitle') || 'Aboneliği İptal Et',
-      t('premium.cancelMessage') ||
-        'Premium özelliklerini kaybetmek istediğine emin misin?',
-      [
-        {
-          text: t('common.cancel'),
-          style: 'cancel',
-        },
-        {
-          text: t('common.confirm'),
-          style: 'destructive',
-          onPress: async () => {
-            await clearPremium();
-            Alert.alert('Bilgi', 'Abonelik iptal edildi.');
-          },
-        },
-      ],
-    );
-  };
-
+  // Satın alma işlemi
   const handlePurchase = async () => {
-    Alert.alert(t('premium.confirmTitle'), t('premium.confirmMessage'), [
-      {
-        text: t('common.cancel'),
-        style: 'cancel',
-      },
-      {
-        text: t('common.confirm'),
-        onPress: async () => {
-          const success = await activatePremium(selectedPlan);
-          if (success) {
-            Alert.alert(
-              t('premium.successTitle'),
-              t('premium.successMessage'),
-              [{ text: t('common.ok'), onPress: () => navigation.goBack() }],
-            );
-          }
-        },
-      },
-    ]);
+    const selectedPlanData = plans.find(p => p.id === selectedPlan);
+
+    if (!selectedPlanData) {
+      Alert.alert(t('common.error'), t('premium.planNotFound'));
+      return;
+    }
+
+    setIsPurchasing(true);
+
+    const result = await purchaseProduct(selectedPlanData.productId);
+
+    setIsPurchasing(false);
+
+    if (result.success) {
+      Alert.alert(t('premium.successTitle'), t('premium.successMessage'), [
+        { text: t('common.ok'), onPress: () => navigation.goBack() },
+      ]);
+    } else if (result.cancelled) {
+      // Kullanıcı iptal etti, bir şey yapma
+    } else {
+      Alert.alert(
+        t('common.error'),
+        result.error || t('premium.purchaseFailed'),
+      );
+    }
   };
 
-  const handleRestorePurchase = () => {
-    Alert.alert(t('premium.restoreTitle'), t('premium.restoreMessage'));
+  // Geri yükleme işlemi
+  const handleRestorePurchase = async () => {
+    setIsPurchasing(true);
+
+    const result = await restorePurchases();
+
+    setIsPurchasing(false);
+
+    if (result.success) {
+      Alert.alert(
+        result.restored
+          ? t('premium.restoreSuccessTitle')
+          : t('premium.restoreTitle'),
+        result.message,
+      );
+    } else {
+      Alert.alert(t('common.error'), result.error);
+    }
+  };
+
+  // Aboneliği yönet (App Store / Play Store'a yönlendir)
+  const handleManageSubscription = () => {
+    const url =
+      Platform.OS === 'ios'
+        ? 'https://apps.apple.com/account/subscriptions'
+        : 'https://play.google.com/store/account/subscriptions';
+
+    Linking.openURL(url);
   };
 
   const selectedPlanData = plans.find(p => p.id === selectedPlan);
 
-  // Eğer zaten premium ise farklı UI göster
+  // Loading state
+  if (isLoading && !isPremium) {
+    return (
+      <View
+        style={[
+          styles.container,
+          styles.loadingContainer,
+          { paddingTop: insets.top },
+        ]}
+      >
+        <ActivityIndicator size="large" color={colors.accentPrimary} />
+        <Text style={styles.loadingText}>{t('common.loading')}</Text>
+      </View>
+    );
+  }
+
+  // Premium aktif ise
   if (isPremium) {
     return (
       <View style={[styles.container, { paddingTop: insets.top }]}>
@@ -183,21 +218,28 @@ const PremiumScreen = ({ navigation }) => {
             ))}
           </View>
 
-          {/* İPTAL BUTONU */}
-          <TouchableOpacity
-            style={styles.cancelSubscriptionButton}
-            onPress={handleCancelSubscription}
-          >
-            <Text style={styles.cancelSubscriptionText}>
-              Aboneliği İptal Et (Test)
-            </Text>
-          </TouchableOpacity>
+          {/* Aboneliği Yönet Butonu (sadece aylık için) */}
+          {premiumType === 'monthly' && (
+            <TouchableOpacity
+              style={styles.manageButton}
+              onPress={handleManageSubscription}
+            >
+              <Icon
+                name="settings-outline"
+                size={18}
+                color={colors.textSecondary}
+              />
+              <Text style={styles.manageButtonText}>
+                {t('premium.manageSubscription')}
+              </Text>
+            </TouchableOpacity>
+          )}
         </View>
       </View>
     );
   }
 
-  // Normal Premium Screen (henüz premium değil)
+  // Premium değilse - Satın alma ekranı
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
       {/* Background Effects */}
@@ -286,13 +328,21 @@ const PremiumScreen = ({ navigation }) => {
 
         {/* Purchase Button */}
         <TouchableOpacity
-          style={styles.purchaseButton}
+          style={[
+            styles.purchaseButton,
+            isPurchasing && styles.purchaseButtonDisabled,
+          ]}
           activeOpacity={0.8}
           onPress={handlePurchase}
+          disabled={isPurchasing}
         >
-          <Text style={styles.purchaseButtonText}>
-            {t('premium.purchaseButton')} • {selectedPlanData?.price}
-          </Text>
+          {isPurchasing ? (
+            <ActivityIndicator size="small" color={colors.textPrimary} />
+          ) : (
+            <Text style={styles.purchaseButtonText}>
+              {t('premium.purchaseButton')} • {selectedPlanData?.price}
+            </Text>
+          )}
         </TouchableOpacity>
 
         {/* Features Section */}
@@ -324,22 +374,28 @@ const PremiumScreen = ({ navigation }) => {
             </View>
           ))}
         </View>
+
+        {/* Legal Text */}
+        <Text style={styles.legalText}>{t('premium.legalText')}</Text>
       </ScrollView>
 
       {/* Footer Links */}
       <View style={[styles.footer, { paddingBottom: insets.bottom + 16 }]}>
-        <TouchableOpacity onPress={handleRestorePurchase}>
+        <TouchableOpacity
+          onPress={handleRestorePurchase}
+          disabled={isPurchasing}
+        >
           <Text style={styles.footerLink}>{t('premium.restorePurchase')}</Text>
         </TouchableOpacity>
         <View style={styles.footerDivider} />
         <TouchableOpacity
-          onPress={() => Linking.openURL('https://example.com/terms')}
+          onPress={() => Linking.openURL('https://yourapp.com/terms')}
         >
           <Text style={styles.footerLink}>{t('premium.termsOfUse')}</Text>
         </TouchableOpacity>
         <View style={styles.footerDivider} />
         <TouchableOpacity
-          onPress={() => Linking.openURL('https://example.com/privacy')}
+          onPress={() => Linking.openURL('https://yourapp.com/privacy')}
         >
           <Text style={styles.footerLink}>{t('premium.privacyPolicy')}</Text>
         </TouchableOpacity>
@@ -352,6 +408,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.bgPrimary,
+  },
+  loadingContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loadingText: {
+    marginTop: 16,
+    fontSize: 16,
+    color: colors.textSecondary,
   },
   bgGradient: {
     position: 'absolute',
@@ -503,12 +568,17 @@ const styles = StyleSheet.create({
     paddingVertical: 18,
     borderRadius: 16,
     alignItems: 'center',
+    justifyContent: 'center',
     marginBottom: 32,
     shadowColor: colors.accentPrimary,
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 8,
     elevation: 5,
+    minHeight: 56,
+  },
+  purchaseButtonDisabled: {
+    opacity: 0.7,
   },
   purchaseButtonText: {
     fontSize: 17,
@@ -521,6 +591,7 @@ const styles = StyleSheet.create({
     padding: 20,
     borderWidth: 1,
     borderColor: colors.border,
+    marginBottom: 16,
   },
   featuresTitle: {
     fontSize: 18,
@@ -572,6 +643,13 @@ const styles = StyleSheet.create({
     color: colors.textSecondary,
     fontWeight: '500',
   },
+  legalText: {
+    fontSize: 12,
+    color: colors.textMuted,
+    textAlign: 'center',
+    lineHeight: 18,
+    paddingHorizontal: 10,
+  },
   footer: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -589,6 +667,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.border,
     marginHorizontal: 12,
   },
+  // Premium Active
   premiumActiveContainer: {
     flex: 1,
     justifyContent: 'center',
@@ -655,20 +734,21 @@ const styles = StyleSheet.create({
     color: colors.textPrimary,
     fontWeight: '500',
   },
-  // Yeni eklenen stil
-  cancelSubscriptionButton: {
+  manageButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
     marginTop: 24,
     paddingVertical: 12,
-    paddingHorizontal: 24,
+    paddingHorizontal: 20,
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: colors.danger,
-    backgroundColor: 'transparent',
+    borderColor: colors.border,
+    gap: 8,
   },
-  cancelSubscriptionText: {
-    color: colors.danger,
+  manageButtonText: {
     fontSize: 14,
-    fontWeight: '600',
+    color: colors.textSecondary,
+    fontWeight: '500',
   },
 });
 

@@ -366,6 +366,36 @@
     "cantOpenLink": "Link konnte nicht geöffnet werden",
     "shareMessage": "Imposter Party - Spiele mit deinen Freunden! {{url}}"
   },
+  "onboarding": {
+    "skip": "Überspringen",
+    "next": "Weiter",
+    "start": "Spiel starten",
+    "slide1": {
+      "title": "Willkommen bei Imposter Party! 🎉",
+      "description": "Das lustigste soziale Deduktionsspiel mit Freunden! Finde den Betrüger oder überlebe als einer.",
+      "highlight": "Spiele mit 3-10 Spielern!"
+    },
+    "slide2": {
+      "title": "Wer ist der Betrüger? 🕵️",
+      "description": "Ein Spieler kennt das geheime Wort nicht - das ist der Betrüger! Alle anderen sehen das gleiche Wort, aber der Betrüger kennt nur die Kategorie.",
+      "highlight": "Der Betrüger muss bluffen um zu überleben!"
+    },
+    "slide3": {
+      "title": "Frage-Antwort Runde 💬",
+      "description": "Stellt euch abwechselnd Fragen. Die Fragen sollten zum Wort passen, aber nicht zu offensichtlich sein - der Betrüger könnte es erraten!",
+      "highlight": "Beispiel: 'Wie oft machst du das?'"
+    },
+    "slide4": {
+      "title": "Abstimmungszeit ✋",
+      "description": "Nach der Diskussion stimmt jeder für den, den er für den Betrüger hält. Der Spieler mit den meisten Stimmen scheidet aus!",
+      "highlight": "Bei Gleichstand scheidet niemand aus!"
+    },
+    "slide5": {
+      "title": "Bereit zu spielen? 🏆",
+      "description": "Finde den Betrüger und sammle Punkte! Verschiedene Kategorien, Spezialmodi und mehr erwarten dich.",
+      "highlight": "Troll-Modus: Manchmal ist jeder der Betrüger! 😈"
+    }
+  },
   "playerSetup": {
     "title": "Spieler",
     "players": "Spieler",

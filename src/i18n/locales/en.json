@@ -19,6 +19,36 @@
     "step4Desc": "Discuss and try to find who the imposter is!",
     "gotIt": "Got it!"
   },
+   "onboarding": {
+    "skip": "Skip",
+    "next": "Next",
+    "start": "Start Playing",
+    "slide1": {
+      "title": "Welcome to Imposter Party! 🎉",
+      "description": "The most fun social deduction game to play with friends! Find the imposter or survive as one.",
+      "highlight": "Play with 3-10 players!"
+    },
+    "slide2": {
+      "title": "Who's the Imposter? 🕵️",
+      "description": "One player doesn't know the secret word - they're the imposter! Everyone else sees the same word, but the imposter only knows the category.",
+      "highlight": "The imposter must bluff to survive!"
+    },
+    "slide3": {
+      "title": "Q&A Round 💬",
+      "description": "Take turns asking each other questions. Questions should relate to the word but not be too obvious - the imposter might guess it!",
+      "highlight": "Example: 'How often do you do this?'"
+    },
+    "slide4": {
+      "title": "Voting Time ✋",
+      "description": "After discussion, everyone votes for who they think is the imposter. The player with the most votes is eliminated!",
+      "highlight": "Ties mean no one is eliminated!"
+    },
+    "slide5": {
+      "title": "Ready to Play? 🏆",
+      "description": "Find the imposter and collect points! Different categories, special modes and more await you.",
+      "highlight": "Troll Mode: Sometimes everyone is the imposter! 😈"
+    }
+  },
   "setup": {
     "playerCount": "How many players?",
     "imposterCount": "How many imposters?",
