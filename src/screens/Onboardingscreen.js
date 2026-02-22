@@ -194,9 +194,9 @@ const OnboardingScreen = ({ navigation }) => {
             (index + 1) * width,
           ];
 
-          const dotWidth = scrollX.interpolate({
+          const dotScale = scrollX.interpolate({
             inputRange,
-            outputRange: [8, 24, 8],
+            outputRange: [8 / 24, 1, 8 / 24],
             extrapolate: 'clamp',
           });
 
@@ -212,7 +212,7 @@ const OnboardingScreen = ({ navigation }) => {
               style={[
                 styles.dot,
                 {
-                  width: dotWidth,
+                  transform: [{ scaleX: dotScale }],
                   opacity: dotOpacity,
                   backgroundColor:
                     index === currentIndex
