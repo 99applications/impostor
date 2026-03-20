@@ -1,0 +1,494 @@
+{
+  "app": {
+    "name": "Fake",
+    "tagline": "Find the Imposter!"
+  },
+  "home": {
+    "playGame": "Play Game",
+    "howToPlay": "How to Play?"
+  },
+  "howToPlay": {
+    "title": "How to Play?",
+    "step1Title": "Set Players",
+    "step1Desc": "Choose the number of players and imposters.",
+    "step2Title": "Pick Category",
+    "step2Desc": "Select the category you want to play.",
+    "step3Title": "Take Turns",
+    "step3Desc": "Each player looks at their phone to see their word/question.",
+    "step4Title": "Find Imposter",
+    "step4Desc": "Discuss and try to find who the imposter is!",
+    "gotIt": "Got it!"
+  },
+   "onboarding": {
+    "skip": "Skip",
+    "next": "Next",
+    "start": "Start Playing",
+    "slide1": {
+      "title": "Welcome to Imposter Party! 🎉",
+      "description": "The most fun social deduction game to play with friends! Find the imposter or survive as one.",
+      "highlight": "Play with 3-10 players!"
+    },
+    "slide2": {
+      "title": "Who's the Imposter? 🕵️",
+      "description": "One player doesn't know the secret word - they're the imposter! Everyone else sees the same word, but the imposter only knows the category.",
+      "highlight": "The imposter must bluff to survive!"
+    },
+    "slide3": {
+      "title": "Q&A Round 💬",
+      "description": "Take turns asking each other questions. Questions should relate to the word but not be too obvious - the imposter might guess it!",
+      "highlight": "Example: 'How often do you do this?'"
+    },
+    "slide4": {
+      "title": "Voting Time ✋",
+      "description": "After discussion, everyone votes for who they think is the imposter. The player with the most votes is eliminated!",
+      "highlight": "Ties mean no one is eliminated!"
+    },
+    "slide5": {
+      "title": "Ready to Play? 🏆",
+      "description": "Find the imposter and collect points! Different categories, special modes and more await you.",
+      "highlight": "Troll Mode: Sometimes everyone is the imposter! 😈"
+    }
+  },
+  "setup": {
+    "playerCount": "How many players?",
+    "imposterCount": "How many imposters?",
+    "trollMode": "Troll Mode",
+    "trollModeHint": "7% chance everyone is the imposter!",
+    "gameMode": "Game Mode",
+    "wordGame": "Word Game",
+    "wordGameDesc": "Find who doesn't know the word",
+    "questionGame": "Question Game",
+    "questionGameDesc": "Find the different question",
+    "categories": "Categories",
+    "showCategoryToImposter": "Show category to imposter",
+    "showHintToImposter": "Show hint to imposter",
+    "startGame": "Start Game",
+    "noLimit": "Indefinite"
+  },
+  "game": {
+    "players": "players",
+    "mode": "Mode",
+    "imposters": "Imposters",
+    "discussTitle": "Discussion Time!",
+    "discussSubtitle": "Ask questions and discuss to find the imposter",
+    "startDiscussion": "Start Discussion",
+    "endGame": "End Game",
+    "tips": "Tips",
+    "tip1": "Let everyone speak in turn",
+    "tip2": "Pay attention to suspicious answers",
+    "tip3": "Vote to determine the imposter",
+    "player": "Player",
+    "tapToReveal": "Tap to reveal",
+    "tapToHide": "Tap to hide",
+    "yourWord": "Your Word",
+    "yourQuestion": "Your Question",
+    "youAreImposter": "You are the Imposter!",
+    "imposterHint": "Hint",
+    "category": "Category",
+    "next": "Next",
+    "ready": "Are you ready?",
+    "passPhone": "Pass the phone to the next player"
+  },
+  "reveal": {
+    "title": "Game Over!",
+    "impostersWere": "Imposters were",
+    "theWordWas": "The word was",
+    "theQuestionWas": "The question was",
+    "playAgain": "Play Again",
+    "backToMenu": "Main Menu"
+  },
+  "categories": {
+    "christmas": "Christmas",
+    "food": "Food",
+    "animals": "Animals",
+    "movies": "Movies",
+    "sports": "Sports",
+    "countries": "Countries",
+    "professions": "Professions",
+    "technology": "Technology"
+  },
+  "words": {
+    "christmas": {
+      "santa": "Santa Claus",
+      "reindeer": "Reindeer",
+      "snowflake": "Snowflake",
+      "christmasTree": "Christmas Tree",
+      "giftBox": "Gift Box",
+      "stocking": "Christmas Stocking",
+      "snowman": "Snowman",
+      "sleigh": "Sleigh",
+      "lights": "Christmas Lights",
+      "gingerbread": "Gingerbread"
+    },
+    "food": {
+      "pizza": "Pizza",
+      "hamburger": "Hamburger",
+      "doner": "Doner Kebab",
+      "lahmacun": "Turkish Pizza",
+      "pide": "Pide",
+      "kofte": "Meatballs",
+      "pasta": "Pasta",
+      "sushi": "Sushi",
+      "kebab": "Kebab",
+      "manti": "Turkish Dumplings",
+      "borek": "Borek",
+      "baklava": "Baklava"
+    },
+    "animals": {
+      "lion": "Lion",
+      "tiger": "Tiger",
+      "elephant": "Elephant",
+      "giraffe": "Giraffe",
+      "penguin": "Penguin",
+      "kangaroo": "Kangaroo",
+      "koala": "Koala",
+      "panda": "Panda",
+      "wolf": "Wolf",
+      "bear": "Bear",
+      "crocodile": "Crocodile",
+      "dolphin": "Dolphin"
+    },
+    "movies": {
+      "titanic": "Titanic",
+      "avatar": "Avatar",
+      "matrix": "The Matrix",
+      "inception": "Inception",
+      "interstellar": "Interstellar",
+      "gladiator": "Gladiator",
+      "forrestGump": "Forrest Gump",
+      "godfather": "The Godfather",
+      "lordOfRings": "Lord of the Rings",
+      "harryPotter": "Harry Potter",
+      "starWars": "Star Wars",
+      "jurassicPark": "Jurassic Park"
+    },
+    "sports": {
+      "football": "Football",
+      "basketball": "Basketball",
+      "volleyball": "Volleyball",
+      "tennis": "Tennis",
+      "swimming": "Swimming",
+      "boxing": "Boxing",
+      "wrestling": "Wrestling",
+      "athletics": "Athletics",
+      "cycling": "Cycling",
+      "skiing": "Skiing",
+      "golf": "Golf",
+      "baseball": "Baseball"
+    },
+    "countries": {
+      "turkey": "Turkey",
+      "germany": "Germany",
+      "france": "France",
+      "italy": "Italy",
+      "spain": "Spain",
+      "japan": "Japan",
+      "brazil": "Brazil",
+      "mexico": "Mexico",
+      "egypt": "Egypt",
+      "india": "India",
+      "china": "China",
+      "russia": "Russia"
+    },
+    "professions": {
+      "doctor": "Doctor",
+      "teacher": "Teacher",
+      "engineer": "Engineer",
+      "lawyer": "Lawyer",
+      "pilot": "Pilot",
+      "chef": "Chef",
+      "police": "Police Officer",
+      "firefighter": "Firefighter",
+      "nurse": "Nurse",
+      "architect": "Architect",
+      "accountant": "Accountant",
+      "waiter": "Waiter"
+    },
+    "technology": {
+      "iPhone": "iPhone",
+      "laptop": "Laptop",
+      "tablet": "Tablet",
+      "smartwatch": "Smartwatch",
+      "drone": "Drone",
+      "robot": "Robot",
+      "ai": "Artificial Intelligence",
+      "blockchain": "Blockchain",
+      "metaverse": "Metaverse",
+      "instagram": "Instagram",
+      "tiktok": "TikTok",
+      "youtube": "YouTube"
+    }
+  },
+  "hints": {
+    "christmas": {
+      "hint1": "Related to winter season",
+      "hint2": "Celebration time",
+      "hint3": "Happens in December"
+    },
+    "food": {
+      "hint1": "Something you eat or drink",
+      "hint2": "Made in the kitchen",
+      "hint3": "Something delicious"
+    },
+    "animals": {
+      "hint1": "A living creature",
+      "hint2": "Lives in nature",
+      "hint3": "You see it at the zoo"
+    },
+    "movies": {
+      "hint1": "Watched in cinema",
+      "hint2": "Could be Hollywood",
+      "hint3": "You see it on screen"
+    },
+    "sports": {
+      "hint1": "Physical activity",
+      "hint2": "Done in competitions",
+      "hint3": "Gym or field"
+    },
+    "countries": {
+      "hint1": "Found on a map",
+      "hint2": "Has a flag",
+      "hint3": "People live there"
+    },
+    "professions": {
+      "hint1": "A job/occupation",
+      "hint2": "Done to earn money",
+      "hint3": "Requires education"
+    },
+    "technology": {
+      "hint1": "Digital world",
+      "hint2": "Something electronic",
+      "hint3": "Modern invention"
+    }
+  },
+  "questions": {
+    "christmas": {
+      "q1": {
+        "normal": "What's your favorite Christmas movie?",
+        "imposter": "What's your favorite horror movie?"
+      },
+      "q2": {
+        "normal": "What do you like to eat most at Christmas?",
+        "imposter": "What do you like to eat most in summer?"
+      },
+      "q3": {
+        "normal": "What do you decorate the Christmas tree with?",
+        "imposter": "What do you put on a birthday cake?"
+      }
+    },
+    "food": {
+      "q1": {
+        "normal": "What toppings do you put on pizza?",
+        "imposter": "What ingredients do you put in salad?"
+      },
+      "q2": {
+        "normal": "What's your favorite fast food restaurant?",
+        "imposter": "What's your favorite clothing store?"
+      },
+      "q3": {
+        "normal": "What do you eat for breakfast?",
+        "imposter": "What do you eat for dinner?"
+      }
+    },
+    "animals": {
+      "q1": {
+        "normal": "What animal would you keep as a pet?",
+        "imposter": "What car would you drive?"
+      },
+      "q2": {
+        "normal": "What do you see first at the zoo?",
+        "imposter": "What do you see first at the mall?"
+      },
+      "q3": {
+        "normal": "What animal would you like to be?",
+        "imposter": "What superhero would you like to be?"
+      }
+    },
+    "movies": {
+      "q1": {
+        "normal": "What's your favorite movie genre?",
+        "imposter": "What's your favorite music genre?"
+      },
+      "q2": {
+        "normal": "What do you snack on at the cinema?",
+        "imposter": "What do you snack on at the park?"
+      },
+      "q3": {
+        "normal": "Which movie character would you like to be?",
+        "imposter": "Which historical figure would you like to be?"
+      }
+    },
+    "sports": {
+      "q1": {
+        "normal": "Which team do you support?",
+        "imposter": "Which city would you like to live in?"
+      },
+      "q2": {
+        "normal": "Who's your favorite athlete?",
+        "imposter": "Who's your favorite singer?"
+      },
+      "q3": {
+        "normal": "Which sport do you like to play?",
+        "imposter": "Which instrument do you like to play?"
+      }
+    },
+    "countries": {
+      "q1": {
+        "normal": "Which country would you like to visit?",
+        "imposter": "Which planet would you like to visit?"
+      },
+      "q2": {
+        "normal": "Which country's cuisine do you like?",
+        "imposter": "Which color do you like?"
+      },
+      "q3": {
+        "normal": "Which country would you like to live in?",
+        "imposter": "Which era would you like to live in?"
+      }
+    },
+    "professions": {
+      "q1": {
+        "normal": "What did you want to be when you were a kid?",
+        "imposter": "What did you want to eat when you were a kid?"
+      },
+      "q2": {
+        "normal": "What profession would you like to work in?",
+        "imposter": "Which country would you like to vacation in?"
+      },
+      "q3": {
+        "normal": "What should your ideal work environment be like?",
+        "imposter": "What should your ideal vacation spot be like?"
+      }
+    },
+    "technology": {
+      "q1": {
+        "normal": "Which app do you use the most?",
+        "imposter": "Which food do you cook the most?"
+      },
+      "q2": {
+        "normal": "Which tech gadget would you like to buy?",
+        "imposter": "Which clothing item would you like to buy?"
+      },
+      "q3": {
+        "normal": "What do you share on social media?",
+        "imposter": "What do you do with your friends?"
+      }
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "about": "About",
+    "Premium": "Premium",
+    "support": "Support",
+    "legal": "Legal",
+    "premium": "Premium",
+    "premiumActive": "Premium Membership",
+    "getPremium": "Get Premium",
+    "lifetimeMember": "Lifetime member",
+    "daysLeft": "{{days}} days left",
+    "rateApp": "Rate App",
+    "shareApp": "Share with Friends",
+    "feedback": "Send Feedback",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "error": "Error",
+    "cantOpenStore": "Could not open store",
+    "cantOpenEmail": "Could not open email app",
+    "cantOpenLink": "Could not open link",
+    "shareMessage": "Imposter Party - Play with your friends! {{url}}"
+  },
+  "customCategory": {
+    "title": "Create Category",
+    "editTitle": "Edit Category",
+    "name": "Category Name",
+    "namePlaceholder": "E.g. Office Words",
+    "icon": "Icon",
+    "selectIcon": "Select icon",
+    "words": "Words",
+    "wordsHint": "Write one word per line (minimum 5)",
+    "wordsPlaceholder": "Computer\nMeeting\nCoffee\nEmail\nDeadline",
+    "wordsCount": "words",
+    "preview": "Preview",
+    "save": "Save",
+    "update": "Update",
+    "error": "Error",
+    "nameRequired": "Category name is required",
+    "minWords": "You must add at least 5 words",
+    "saveFailed": "Could not save category",
+    "deleteTitle": "Delete Category",
+    "deleteMessage": "Are you sure you want to delete this category?",
+    "premiumRequired": "Premium Required",
+    "premiumDesc": "Premium membership required to create custom categories",
+    "getPremium": "Get Premium"
+  },
+  "myCategories": {
+    "title": "My Categories",
+    "premiumTitle": "Unlimited Categories with Premium",
+    "premiumDesc": "Create your own categories",
+    "emptyTitle": "No categories yet",
+    "emptyDesc": "Create your own word lists to play with friends",
+    "create": "Create Category"
+  },
+  "common": {
+    "delete": "Delete"
+  },
+  "playerSetup": {
+    "title": "Players",
+    "players": "players",
+    "addPlayer": "Add Player",
+    "save": "Save",
+    "hint": "Tap on player names to edit them",
+    "maxPlayersTitle": "Maximum Players",
+    "maxPlayersMessage": "You can add up to 20 players",
+    "minPlayersTitle": "Minimum Players",
+    "minPlayersMessage": "At least 3 players required"
+  },
+  "categorySelect": {
+    "title": "Categories",
+    "customCategories": "My Custom Categories",
+    "save": "Save",
+    "selected": "selected",
+    "words": "words",
+    "questions": "questions",
+    "selectAll": "Select All",
+    "deselectAll": "Clear Selection",
+    "hint": "Select multiple categories to add variety to the game",
+    "noneSelected": "No category selected",
+    "freeCategories": "Free Categories",
+    "premiumCategories": "Premium Categories",
+    "premiumTitle": "Premium Category",
+    "premiumMessage": "Premium membership required to access this category.",
+    "goPremium": "Go Premium"
+  },
+  "premium": {
+    "restoreTitle": "Restore",
+    "restoreMessage": "Restore purchase process started...",
+    "lifetimeBadge": "Lifetime Member",
+    "monthlyBadge": "Monthly Member",
+    "title": "Premium",
+    "heroTitle": "Unlock All Features",
+    "heroSubtitle": "Get instant access and 21 more premium categories",
+    "monthlyTitle": "Premium Access",
+    "monthlySubtitle": "Monthly",
+    "lifetimeTitle": "Premium Access",
+    "lifetimeSubtitle": "Lifetime access",
+    "purchaseButton": "Get Access",
+    "whatsIncluded": "What's included",
+    "feature1Title": "Unlimited custom categories",
+    "feature1Desc": "Create categories your friends will love",
+    "feature2Title": "22+ premium categories",
+    "feature2Desc": "2500+ curated words for endless fun",
+    "feature3Title": "Custom themes",
+    "feature3Desc": "Personalize your game",
+    "feature4Title": "Ad-free experience",
+    "feature4Desc": "Uninterrupted gameplay",
+    "tagOffice": "Office",
+    "tagFamily": "Family",
+    "tagTravel": "Travel",
+    "tagFriends": "Friends",
+    "restorePurchase": "Restore Purchase",
+    "termsOfUse": "Terms of Use",
+    "privacyPolicy": "Privacy Policy"
+  }
+}
