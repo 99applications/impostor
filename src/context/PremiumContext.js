@@ -5,8 +5,8 @@ import Purchases, { LOG_LEVEL } from 'react-native-purchases';
 const PremiumContext = createContext();
 
 // RevenueCat API Keys - Kendi key'lerinizi buraya ekleyin
-const REVENUECAT_API_KEY_IOS = 'test_BvhppRfpKJgDBaArpgSYNqRHPfP';
-const REVENUECAT_API_KEY_ANDROID = 'test_BvhppRfpKJgDBaArpgSYNqRHPfP';
+const REVENUECAT_API_KEY_IOS = 'goog_QGHGUshxZfTDzSvGAZvbJnBCxUc';
+const REVENUECAT_API_KEY_ANDROID = 'goog_QGHGUshxZfTDzSvGAZvbJnBCxUc';
 
 // Product IDs - RevenueCat Dashboard'da oluşturduğunuz ürün ID'leri
 const PRODUCT_IDS = {
