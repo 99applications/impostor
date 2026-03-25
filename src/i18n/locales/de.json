@@ -1,6 +1,6 @@
 {
   "app": {
-    "name": "Gefälscht",
+    "name": "Imposter",
     "tagline": "Finde den Betrüger!"
   },
   "home": {
@@ -19,9 +19,41 @@
     "step4Desc": "Diskutiert und versucht herauszufinden, wer der Betrüger ist!",
     "gotIt": "Verstanden!"
   },
+  "onboarding": {
+    "skip": "Überspringen",
+    "next": "Weiter",
+    "start": "Spiel starten",
+    "slide1": {
+      "title": "Willkommen bei Imposter Party! 🎉",
+      "description": "Das lustigste soziale Deduktionsspiel mit Freunden! Finde den Betrüger oder überlebe als einer.",
+      "highlight": "Spiele mit 3-10 Spielern!"
+    },
+    "slide2": {
+      "title": "Wer ist der Betrüger? 🕵️",
+      "description": "Ein Spieler kennt das geheime Wort nicht - das ist der Betrüger! Alle anderen sehen das gleiche Wort, aber der Betrüger kennt nur die Kategorie.",
+      "highlight": "Der Betrüger muss bluffen um zu überleben!"
+    },
+    "slide3": {
+      "title": "Frage-Antwort Runde 💬",
+      "description": "Stellt euch abwechselnd Fragen. Die Fragen sollten zum Wort passen, aber nicht zu offensichtlich sein - der Betrüger könnte es erraten!",
+      "highlight": "Beispiel: 'Wie oft machst du das?'"
+    },
+    "slide4": {
+      "title": "Abstimmungszeit ✋",
+      "description": "Nach der Diskussion stimmt jeder für den, den er für den Betrüger hält. Der Spieler mit den meisten Stimmen scheidet aus!",
+      "highlight": "Bei Gleichstand scheidet niemand aus!"
+    },
+    "slide5": {
+      "title": "Bereit zu spielen? 🏆",
+      "description": "Finde den Betrüger und sammle Punkte! Verschiedene Kategorien, Spezialmodi und mehr erwarten dich.",
+      "highlight": "Troll-Modus: Manchmal ist jeder der Betrüger! 😈"
+    }
+  },
   "setup": {
     "playerCount": "Wie viele Spieler?",
     "imposterCount": "Wie viele Betrüger?",
+    "trollMode": "Troll-Modus",
+    "trollModeHint": "7% Chance, dass jeder der Betrüger ist!",
     "gameMode": "Spielmodus",
     "wordGame": "Wortspiel",
     "wordGameDesc": "Finde wer das Wort nicht kennt",
@@ -31,8 +63,10 @@
     "showCategoryToImposter": "Kategorie dem Betrüger zeigen",
     "showHintToImposter": "Hinweis dem Betrüger zeigen",
     "startGame": "Spiel starten",
+    "noLimit": "Unbestimmt",
     "duration": "Dauer",
-    "noLimit": "Unbestimmt"
+    "minutes": "Min.",
+    "additionalSettings": "Zusätzliche Einstellungen"
   },
   "game": {
     "players": "Spieler",
@@ -87,7 +121,47 @@
       "snowman": "Schneemann",
       "sleigh": "Schlitten",
       "lights": "Weihnachtslichter",
-      "gingerbread": "Lebkuchen"
+      "gingerbread": "Lebkuchen",
+      "elf": "Elf",
+      "caroling": "Sternsingen",
+      "mistletoe": "Mistelzweig",
+      "wreath": "Kranz",
+      "nutcracker": "Nussknacker",
+      "ornament": "Christbaumkugel",
+      "bells": "Glocken",
+      "holly": "Stechpalme",
+      "tinsel": "Lametta",
+      "candles": "Kerzen",
+      "chimney": "Schornstein",
+      "fireplace": "Kamin",
+      "eggnog": "Eierpunsch",
+      "cookie": "Keks",
+      "star": "Stern",
+      "angel": "Engel",
+      "nativity": "Weihnachtskrippe",
+      "christmasCard": "Weihnachtskarte",
+      "christmasEve": "Heiligabend",
+      "winter": "Winter",
+      "snowball": "Schneeball",
+      "iceSkating": "Schlittschuhlaufen",
+      "hotChocolate": "Heiße Schokolade",
+      "scarf": "Schal",
+      "hat": "Mütze",
+      "mittens": "Fäustlinge",
+      "boots": "Stiefel",
+      "christmasSong": "Weihnachtslied",
+      "turkey": "Truthahn",
+      "gingerbreadHouse": "Lebkuchenhaus",
+      "candyCane": "Zuckerstange",
+      "mulledWine": "Glühwein",
+      "advent": "Adventskalender",
+      "christmasShopping": "Weihnachtseinkauf",
+      "presents": "Geschenke",
+      "familyGathering": "Familienfest",
+      "christmasDinner": "Weihnachtsessen",
+      "snowglobe": "Schneekugel",
+      "christmasMarket": "Weihnachtsmarkt",
+      "sleighBells": "Schlittenglocken"
     },
     "food": {
       "pizza": "Pizza",
@@ -101,7 +175,45 @@
       "kebab": "Kebab",
       "manti": "Türkische Teigtaschen",
       "borek": "Börek",
-      "baklava": "Baklava"
+      "baklava": "Baklava",
+      "steak": "Steak",
+      "tacos": "Tacos",
+      "curry": "Curry",
+      "ramen": "Ramen",
+      "salad": "Salat",
+      "soup": "Suppe",
+      "sandwich": "Sandwich",
+      "croissant": "Croissant",
+      "waffle": "Waffel",
+      "pancake": "Pfannkuchen",
+      "iceCream": "Eiscreme",
+      "chocolate": "Schokolade",
+      "cake": "Kuchen",
+      "cookie": "Keks",
+      "bread": "Brot",
+      "cheese": "Käse",
+      "eggs": "Eier",
+      "bacon": "Speck",
+      "fish": "Fisch",
+      "shrimp": "Garnele",
+      "orange": "Orange",
+      "apple": "Apfel",
+      "banana": "Banane",
+      "strawberry": "Erdbeere",
+      "coffee": "Kaffee",
+      "tea": "Tee",
+      "juice": "Saft",
+      "yogurt": "Joghurt",
+      "rice": "Reis",
+      "noodles": "Nudeln",
+      "avocado": "Avocado",
+      "hummus": "Hummus",
+      "burrito": "Burrito",
+      "shawarma": "Schawarma",
+      "hotdog": "Hot Dog",
+      "fries": "Pommes Frites",
+      "popcorn": "Popcorn",
+      "peanut": "Erdnussbutter"
     },
     "animals": {
       "lion": "Löwe",
@@ -115,7 +227,45 @@
       "wolf": "Wolf",
       "bear": "Bär",
       "crocodile": "Krokodil",
-      "dolphin": "Delfin"
+      "dolphin": "Delfin",
+      "eagle": "Adler",
+      "parrot": "Papagei",
+      "flamingo": "Flamingo",
+      "peacock": "Pfau",
+      "rabbit": "Hase",
+      "fox": "Fuchs",
+      "deer": "Hirsch",
+      "horse": "Pferd",
+      "cat": "Katze",
+      "dog": "Hund",
+      "shark": "Hai",
+      "whale": "Wal",
+      "octopus": "Oktopus",
+      "butterfly": "Schmetterling",
+      "bee": "Biene",
+      "snake": "Schlange",
+      "lizard": "Eidechse",
+      "turtle": "Schildkröte",
+      "frog": "Frosch",
+      "monkey": "Affe",
+      "gorilla": "Gorilla",
+      "cheetah": "Gepard",
+      "zebra": "Zebra",
+      "rhinoceros": "Nashorn",
+      "hippopotamus": "Nilpferd",
+      "camel": "Kamel",
+      "polarBear": "Eisbär",
+      "jaguar": "Jaguar",
+      "owl": "Eule",
+      "bat": "Fledermaus",
+      "crow": "Krähe",
+      "salmon": "Lachs",
+      "seahorse": "Seepferdchen",
+      "lobster": "Hummer",
+      "crab": "Krabbe",
+      "ant": "Ameise",
+      "spider": "Spinne",
+      "lemur": "Lemur"
     },
     "movies": {
       "titanic": "Titanic",
@@ -129,7 +279,45 @@
       "lordOfRings": "Herr der Ringe",
       "harryPotter": "Harry Potter",
       "starWars": "Krieg der Sterne",
-      "jurassicPark": "Jurassic Park"
+      "jurassicPark": "Jurassic Park",
+      "shawshank": "Die Verurteilten",
+      "darkKnight": "The Dark Knight",
+      "schindlersList": "Schindlers Liste",
+      "pulpFiction": "Pulp Fiction",
+      "fightClub": "Fight Club",
+      "goodfellas": "Goodfellas",
+      "silenceOfLambs": "Das Schweigen der Lämmer",
+      "americanBeauty": "American Beauty",
+      "savePrivateRyan": "Der Soldat James Ryan",
+      "braveheart": "Braveheart",
+      "theMatrix": "Matrix Reloaded",
+      "terminator": "Terminator",
+      "alien": "Alien",
+      "predator": "Predator",
+      "dieHard": "Stirb langsam",
+      "rocky": "Rocky",
+      "scarface": "Scarface",
+      "casablanca": "Casablanca",
+      "rearWindow": "Das Fenster zum Hof",
+      "psycho": "Psycho",
+      "shinning": "Shining",
+      "exorcist": "Der Exorzist",
+      "jaws": "Der weiße Hai",
+      "eT": "E.T.",
+      "backToFuture": "Zurück in die Zukunft",
+      "indianaJones": "Indiana Jones",
+      "spiderMan": "Spider-Man",
+      "ironMan": "Iron Man",
+      "avengers": "The Avengers",
+      "blackPanther": "Black Panther",
+      "wonderWoman": "Wonder Woman",
+      "joker": "Joker",
+      "parasite": "Parasite",
+      "oldboy": "Oldboy",
+      "cityOfGod": "City of God",
+      "amelie": "Die fabelhafte Welt der Amélie",
+      "lifeIsBeautiful": "Das Leben ist schön",
+      "spiritedAway": "Chihiros Reise ins Zauberland"
     },
     "sports": {
       "football": "Fußball",
@@ -143,7 +331,45 @@
       "cycling": "Radfahren",
       "skiing": "Skifahren",
       "golf": "Golf",
-      "baseball": "Baseball"
+      "baseball": "Baseball",
+      "rugby": "Rugby",
+      "cricket": "Cricket",
+      "tabletennis": "Tischtennis",
+      "badminton": "Badminton",
+      "archery": "Bogenschießen",
+      "fencing": "Fechten",
+      "judo": "Judo",
+      "karate": "Karate",
+      "taekwondo": "Taekwondo",
+      "gymnastics": "Turnen",
+      "rowing": "Rudern",
+      "sailing": "Segeln",
+      "surfing": "Surfen",
+      "skateboarding": "Skateboarding",
+      "snowboarding": "Snowboarding",
+      "icehockey": "Eishockey",
+      "figureskating": "Eiskunstlauf",
+      "biathlon": "Biathlon",
+      "triathlon": "Triathlon",
+      "marathon": "Marathon",
+      "weightlifting": "Gewichtheben",
+      "shooting": "Schießen",
+      "horseriding": "Reiten",
+      "handball": "Handball",
+      "waterpolo": "Wasserball",
+      "diving": "Turmspringen",
+      "canoeing": "Kanu",
+      "climbing": "Klettern",
+      "mma": "MMA",
+      "esports": "E-Sport",
+      "chess": "Schach",
+      "bowling": "Bowling",
+      "billiards": "Billard",
+      "darts": "Dart",
+      "lacrosse": "Lacrosse",
+      "softball": "Softball",
+      "polo": "Polo",
+      "curling": "Curling"
     },
     "countries": {
       "turkey": "Türkei",
@@ -157,7 +383,45 @@
       "egypt": "Ägypten",
       "india": "Indien",
       "china": "China",
-      "russia": "Russland"
+      "russia": "Russland",
+      "usa": "Vereinigte Staaten",
+      "uk": "Großbritannien",
+      "canada": "Kanada",
+      "australia": "Australien",
+      "argentina": "Argentinien",
+      "southKorea": "Südkorea",
+      "netherlands": "Niederlande",
+      "portugal": "Portugal",
+      "greece": "Griechenland",
+      "sweden": "Schweden",
+      "norway": "Norwegen",
+      "switzerland": "Schweiz",
+      "austria": "Österreich",
+      "belgium": "Belgien",
+      "poland": "Polen",
+      "ukraine": "Ukraine",
+      "iran": "Iran",
+      "saudiArabia": "Saudi-Arabien",
+      "uae": "VAE",
+      "thailand": "Thailand",
+      "vietnam": "Vietnam",
+      "indonesia": "Indonesien",
+      "malaysia": "Malaysia",
+      "singapore": "Singapur",
+      "southAfrica": "Südafrika",
+      "nigeria": "Nigeria",
+      "kenya": "Kenia",
+      "morocco": "Marokko",
+      "ethiopia": "Äthiopien",
+      "colombia": "Kolumbien",
+      "chile": "Chile",
+      "peru": "Peru",
+      "newZealand": "Neuseeland",
+      "cuba": "Kuba",
+      "iraq": "Irak",
+      "pakistan": "Pakistan",
+      "bangladesh": "Bangladesch",
+      "philippines": "Philippinen"
     },
     "professions": {
       "doctor": "Arzt",
@@ -171,7 +435,45 @@
       "nurse": "Krankenschwester",
       "architect": "Architekt",
       "accountant": "Buchhalter",
-      "waiter": "Kellner"
+      "waiter": "Kellner",
+      "dentist": "Zahnarzt",
+      "pharmacist": "Apotheker",
+      "psychologist": "Psychologe",
+      "judge": "Richter",
+      "scientist": "Wissenschaftler",
+      "programmer": "Programmierer",
+      "designer": "Designer",
+      "journalist": "Journalist",
+      "photographer": "Fotograf",
+      "musician": "Musiker",
+      "actor": "Schauspieler",
+      "director": "Regisseur",
+      "writer": "Schriftsteller",
+      "painter": "Maler",
+      "sculptor": "Bildhauer",
+      "dancer": "Tänzer",
+      "veterinarian": "Tierarzt",
+      "biologist": "Biologe",
+      "chemist": "Chemiker",
+      "physicist": "Physiker",
+      "mathematician": "Mathematiker",
+      "economist": "Ökonom",
+      "sociologist": "Soziologe",
+      "historian": "Historiker",
+      "archaeologist": "Archäologe",
+      "geologist": "Geologe",
+      "astronaut": "Astronaut",
+      "soldier": "Soldat",
+      "sailor": "Matrose",
+      "farmer": "Bauer",
+      "electrician": "Elektriker",
+      "plumber": "Klempner",
+      "carpenter": "Schreiner",
+      "mechanic": "Mechaniker",
+      "barber": "Barbier",
+      "tailor": "Schneider",
+      "librarian": "Bibliothekar",
+      "translator": "Übersetzer"
     },
     "technology": {
       "iPhone": "iPhone",
@@ -185,7 +487,45 @@
       "metaverse": "Metaverse",
       "instagram": "Instagram",
       "tiktok": "TikTok",
-      "youtube": "YouTube"
+      "youtube": "YouTube",
+      "internet": "Internet",
+      "wifi": "WLAN",
+      "bluetooth": "Bluetooth",
+      "gps": "GPS",
+      "cloud": "Cloud-Computing",
+      "database": "Datenbank",
+      "cybersecurity": "Cybersicherheit",
+      "virtualReality": "Virtual Reality",
+      "augmentedReality": "Augmented Reality",
+      "quantumComputing": "Quantencomputer",
+      "selfDrivingCar": "Selbstfahrendes Auto",
+      "electricCar": "Elektroauto",
+      "solarPanel": "Solarpanel",
+      "threeD": "3D-Technologie",
+      "printer3d": "3D-Drucker",
+      "smartHome": "Smart Home",
+      "alexa": "Alexa",
+      "chatgpt": "ChatGPT",
+      "netflix": "Netflix",
+      "spotify": "Spotify",
+      "facebook": "Facebook",
+      "twitter": "Twitter/X",
+      "whatsapp": "WhatsApp",
+      "zoom": "Zoom",
+      "google": "Google",
+      "amazon": "Amazon",
+      "tesla": "Tesla",
+      "spacex": "SpaceX",
+      "satellite": "Satellit",
+      "nuclear": "Kernenergie",
+      "biotech": "Biotechnologie",
+      "nanotech": "Nanotechnologie",
+      "semiconductor": "Halbleiter",
+      "processor": "Prozessor",
+      "gameConsole": "Spielekonsole",
+      "vr": "VR-Brille",
+      "cryptocurrency": "Kryptowährung",
+      "nft": "NFT"
     }
   },
   "hints": {
@@ -243,6 +583,194 @@
       "q3": {
         "normal": "Womit schmückst du den Weihnachtsbaum?",
         "imposter": "Was kommt auf die Geburtstagstorte?"
+      },
+      "q4": {
+        "normal": "Welches Geschenk würdest du am liebsten erhalten?",
+        "imposter": "Welchen Artikel würdest du am liebsten kaufen?"
+      },
+      "q5": {
+        "normal": "Wie verbringst du Heiligabend?",
+        "imposter": "Wie verbringst du Silvester?"
+      },
+      "q6": {
+        "normal": "Welches Weihnachtslied magst du am meisten?",
+        "imposter": "Welchen Popsong magst du am meisten?"
+      },
+      "q7": {
+        "normal": "Was ist das Beste an Weihnachten?",
+        "imposter": "Was ist das Beste am Sommer?"
+      },
+      "q8": {
+        "normal": "Machst du lieber Geschenke oder bekommst du lieber welche?",
+        "imposter": "Kochst du lieber oder bestellst du lieber Essen?"
+      },
+      "q9": {
+        "normal": "Was sind deine Lieblings-Weihnachtsplätzchen?",
+        "imposter": "Was ist dein Lieblings-Geburtstagsdessert?"
+      },
+      "q10": {
+        "normal": "Wo verbringst du Weihnachten?",
+        "imposter": "Wo verbringst du deinen Urlaub?"
+      },
+      "q11": {
+        "normal": "Welche Weihnachtstradition liebst du?",
+        "imposter": "Welche Sommertradition liebst du?"
+      },
+      "q12": {
+        "normal": "Wie früh hängst du die Weihnachtsdekoration auf?",
+        "imposter": "Wie früh planst du deinen Urlaub?"
+      },
+      "q13": {
+        "normal": "Was schreibst du in eine Weihnachtskarte?",
+        "imposter": "Was schreibst du in eine Geburtstagskarte?"
+      },
+      "q14": {
+        "normal": "Wie fühlst du dich, wenn es an Weihnachten schneit?",
+        "imposter": "Wie fühlst du dich, wenn es beim Picknick regnet?"
+      },
+      "q15": {
+        "normal": "Was lieben Kinder an Weihnachten am meisten?",
+        "imposter": "Was lieben Kinder am Sommer am meisten?"
+      },
+      "q16": {
+        "normal": "Was war das schlechteste Weihnachtsgeschenk, das du je bekommen hast?",
+        "imposter": "Was war das schlechteste Geburtstagsgeschenk, das du je bekommen hast?"
+      },
+      "q17": {
+        "normal": "Glaubst du an den Weihnachtsmann?",
+        "imposter": "Glaubst du an den Osterhasen?"
+      },
+      "q18": {
+        "normal": "Ohne welches Weihnachtsessen könntest du nicht leben?",
+        "imposter": "Ohne welches Sommeressen könntest du nicht leben?"
+      },
+      "q19": {
+        "normal": "Wie packst du Geschenke ein?",
+        "imposter": "Wie packst du für eine Reise?"
+      },
+      "q20": {
+        "normal": "Um wie viel Uhr packst du Geschenke aus?",
+        "imposter": "Um wie viel Uhr isst du Geburtstagstorte?"
+      },
+      "q21": {
+        "normal": "Wie sieht dein Weihnachtsbaum aus?",
+        "imposter": "Wie sieht dein Garten aus?"
+      },
+      "q22": {
+        "normal": "Gehst du an Weihnachten in die Kirche?",
+        "imposter": "Gehst du am Wochenende in den Park?"
+      },
+      "q23": {
+        "normal": "Was ist deine beste Weihnachtserinnerung?",
+        "imposter": "Was ist deine beste Sommererinnerung?"
+      },
+      "q24": {
+        "normal": "Schreibst du vor Weihnachten einen Wunschzettel?",
+        "imposter": "Schreibst du vor dem Einkaufen einen Einkaufszettel?"
+      },
+      "q25": {
+        "normal": "Wie viele Personen kommen zum Weihnachtsessen zusammen?",
+        "imposter": "Wie viele Personen kommen zu deiner Geburtstagsparty?"
+      },
+      "q26": {
+        "normal": "Was trinkst du am Weihnachtsmorgen?",
+        "imposter": "Was trinkst du an einem faulen Sonntagmorgen?"
+      },
+      "q27": {
+        "normal": "Was ist der lustigste Weihnachtsmoment, an den du dich erinnerst?",
+        "imposter": "Was ist der lustigste Partymoment, an den du dich erinnerst?"
+      },
+      "q28": {
+        "normal": "Setzt du einen Engel oder einen Stern auf die Baumspitze?",
+        "imposter": "Bevorzugst du eine Torte mit Kerzen oder Wunderkerzen?"
+      },
+      "q29": {
+        "normal": "Welchen Weihnachtsfilm schaust du jedes Jahr?",
+        "imposter": "Welche Fernsehsendung schaust du jedes Jahr?"
+      },
+      "q30": {
+        "normal": "Gehst du früh oder in letzter Minute Weihnachtsgeschenke einkaufen?",
+        "imposter": "Buchst du Urlaub früh oder in letzter Minute?"
+      },
+      "q31": {
+        "normal": "Was ist deine Lieblings-Weihnachtssüßigkeit?",
+        "imposter": "Was ist deine Lieblings-Halloween-Süßigkeit?"
+      },
+      "q32": {
+        "normal": "Was hältst du davon, Weihnachtsgeschenke weiterzuschenken?",
+        "imposter": "Was hältst du davon, gekaufte Artikel zurückzugeben?"
+      },
+      "q33": {
+        "normal": "Was ist eine Weihnachtstradition aus deiner Kindheit?",
+        "imposter": "Was ist eine Sommertradition aus deiner Kindheit?"
+      },
+      "q34": {
+        "normal": "Hättest du lieber weiße oder grüne Weihnachten?",
+        "imposter": "Hättest du lieber einen heißen oder kalten Sommer?"
+      },
+      "q35": {
+        "normal": "Was ist das teuerste Geschenk, das du je zu Weihnachten gemacht hast?",
+        "imposter": "Was ist das teuerste Geschenk, das du je zu einem Geburtstag gemacht hast?"
+      },
+      "q36": {
+        "normal": "Verschickst du Weihnachtskarten per Post oder digital?",
+        "imposter": "Verschickst du Geburtstagswünsche per Karte oder Nachricht?"
+      },
+      "q37": {
+        "normal": "Was machst du nach dem Weihnachtsessen?",
+        "imposter": "Was machst du nach einem großen Familienessen?"
+      },
+      "q38": {
+        "normal": "Was macht für dich das perfekte Weihnachtsfest aus?",
+        "imposter": "Was macht für dich den perfekten Urlaub aus?"
+      },
+      "q39": {
+        "normal": "Wie fühlst du dich am 26. Dezember?",
+        "imposter": "Wie fühlst du dich am Tag nach einer großen Party?"
+      },
+      "q40": {
+        "normal": "Welche Weihnachtsdekoration liebst du am meisten?",
+        "imposter": "Welche Heimdekoration liebst du am meisten?"
+      },
+      "q41": {
+        "normal": "Bevorzugst du einen echten oder künstlichen Weihnachtsbaum?",
+        "imposter": "Bevorzugst du echte oder künstliche Blumen?"
+      },
+      "q42": {
+        "normal": "Welche Adventskalender-Tradition pflegst du?",
+        "imposter": "Welche Morgenroutine befolgst du?"
+      },
+      "q43": {
+        "normal": "Welches Weihnachtsgeschenk hast du nie vergessen?",
+        "imposter": "Welches Geburtstagsgeschenk hast du nie vergessen?"
+      },
+      "q44": {
+        "normal": "Wie fühlst du dich, wenn Weihnachten vorbei ist?",
+        "imposter": "Wie fühlst du dich, wenn ein Urlaub endet?"
+      },
+      "q45": {
+        "normal": "Welchen Weihnachtsgeruch liebst du am meisten?",
+        "imposter": "Welchen Geruch in der Küche liebst du am meisten?"
+      },
+      "q46": {
+        "normal": "Bevorzugst du selbstgemachte oder gekaufte Weihnachtsgeschenke?",
+        "imposter": "Bevorzugst du selbstgekochtes Essen oder Restaurantessen?"
+      },
+      "q47": {
+        "normal": "Welche Weihnachtsaktivität macht dir am meisten Spaß?",
+        "imposter": "Welche Wochenendaktivität macht dir am meisten Spaß?"
+      },
+      "q48": {
+        "normal": "Wie viele Geschenke machst du normalerweise?",
+        "imposter": "Wie viele Geburtstagsgeschenke machst du normalerweise?"
+      },
+      "q49": {
+        "normal": "Was wäre Weihnachten ohne den Baum?",
+        "imposter": "Was wäre ein Geburtstag ohne Kuchen?"
+      },
+      "q50": {
+        "normal": "Wie sieht deine Morgenroutine an Weihnachten aus?",
+        "imposter": "Wie sieht deine normale Morgenroutine am Wochenende aus?"
       }
     },
     "food": {
@@ -256,7 +784,195 @@
       },
       "q3": {
         "normal": "Was isst du zum Frühstück?",
-        "imposter": "Was isst du zum Abendessen?"
+        "imposter": "Was machst du als Erstes am Morgen?"
+      },
+      "q4": {
+        "normal": "Was ist dein absolutes Wohlfühlessen (Comfort Food)?",
+        "imposter": "Was ist deine absolute Wohlfühlaktivität?"
+      },
+      "q5": {
+        "normal": "Wie magst du dein Steak gebraten?",
+        "imposter": "Wie magst du deinen Kaffee?"
+      },
+      "q6": {
+        "normal": "Welche Küche liebst du am meisten?",
+        "imposter": "Welches Musikgenre liebst du am meisten?"
+      },
+      "q7": {
+        "normal": "Was kochst du, wenn du jemanden beeindrucken willst?",
+        "imposter": "Was ziehst du an, wenn du jemanden beeindrucken willst?"
+      },
+      "q8": {
+        "normal": "Was ist die seltsamste Lebensmittelkombination, die du magst?",
+        "imposter": "Was ist das seltsamste Hobby, das du hast?"
+      },
+      "q9": {
+        "normal": "Bevorzugst du süßes oder herzhaftes Essen?",
+        "imposter": "Bevorzugst du Berge oder Meer?"
+      },
+      "q10": {
+        "normal": "Welches Essen könntest du jeden Tag essen?",
+        "imposter": "Welchen Song könntest du jeden Tag hören?"
+      },
+      "q11": {
+        "normal": "Was ist das beste Essen auf einer Party?",
+        "imposter": "Was ist die beste Aktivität auf einer Party?"
+      },
+      "q12": {
+        "normal": "Kochst du lieber zu Hause oder gehst du essen?",
+        "imposter": "Arbeitest du lieber von zu Hause oder im Büro?"
+      },
+      "q13": {
+        "normal": "Welches Essen hast du als Kind gehasst, liebst es aber jetzt?",
+        "imposter": "Welche Aktivität hast du als Kind gehasst, liebst sie aber jetzt?"
+      },
+      "q14": {
+        "normal": "Was ist dein Lieblingsdessert?",
+        "imposter": "Was ist deine Lieblingsjahreszeit?"
+      },
+      "q15": {
+        "normal": "Welches Essen würdest du an deinem letzten Tag auf der Erde essen?",
+        "imposter": "Was würdest du an deinem letzten Tag auf der Erde tun?"
+      },
+      "q16": {
+        "normal": "Bevorzugst du scharfes oder mildes Essen?",
+        "imposter": "Bevorzugst du heißes oder kaltes Wetter?"
+      },
+      "q17": {
+        "normal": "Was ist das schwerste Gericht, das du je gekocht hast?",
+        "imposter": "Was ist die schwerste Aufgabe, die du je erledigt hast?"
+      },
+      "q18": {
+        "normal": "Was ist dein Lieblings-Mitternachtssnack?",
+        "imposter": "Was ist deine Lieblings-Spätabendaktivität?"
+      },
+      "q19": {
+        "normal": "Welches Lebensmittel hast du immer im Kühlschrank?",
+        "imposter": "Welchen Gegenstand hast du immer in deiner Tasche?"
+      },
+      "q20": {
+        "normal": "Was ist dein Lieblingsgetränk zum Essen?",
+        "imposter": "Was ist dein Lieblingsfilmgenre?"
+      },
+      "q21": {
+        "normal": "Was isst du, wenn du gestresst bist?",
+        "imposter": "Was machst du, wenn du gestresst bist?"
+      },
+      "q22": {
+        "normal": "Was war die teuerste Mahlzeit, die du je hattest?",
+        "imposter": "Was war der teuerste Gegenstand, den du gekauft hast?"
+      },
+      "q23": {
+        "normal": "Welches Essen erinnert dich an deine Kindheit?",
+        "imposter": "Welcher Song erinnert dich an deine Kindheit?"
+      },
+      "q24": {
+        "normal": "Wie denkst du darüber, alleine in einem Restaurant zu essen?",
+        "imposter": "Wie denkst du darüber, alleine zu reisen?"
+      },
+      "q25": {
+        "normal": "Auf welches selbstgekochte Essen bist du am stolzesten?",
+        "imposter": "Auf welche Fähigkeit bist du am stolzesten?"
+      },
+      "q26": {
+        "normal": "Probierst du leicht neue Lebensmittel aus?",
+        "imposter": "Probierst du leicht neue Aktivitäten aus?"
+      },
+      "q27": {
+        "normal": "Welches Essen würdest du niemals essen?",
+        "imposter": "Welche Aktivität würdest du niemals tun?"
+      },
+      "q28": {
+        "normal": "Was ist besser: Hausgemachtes oder Restaurantessen?",
+        "imposter": "Was ist besser: Zuhause oder Hotel?"
+      },
+      "q29": {
+        "normal": "Was ist dein liebstes Streetfood?",
+        "imposter": "Was ist deine liebste Straßenmusik?"
+      },
+      "q30": {
+        "normal": "Wie wichtig ist die Präsentation beim Essen?",
+        "imposter": "Wie wichtig ist das Aussehen in der Mode?"
+      },
+      "q31": {
+        "normal": "Ohne welches Gewürz kannst du nicht kochen?",
+        "imposter": "Ohne welches Werkzeug kannst du nicht arbeiten?"
+      },
+      "q32": {
+        "normal": "Was ist das beste Essen für ein Picknick?",
+        "imposter": "Was ist die beste Aktivität für einen Picknicktag?"
+      },
+      "q33": {
+        "normal": "Was hältst du von vegetarischem Essen?",
+        "imposter": "Was hältst du von Elektroautos?"
+      },
+      "q34": {
+        "normal": "Für welches Gericht bist du am bekanntesten?",
+        "imposter": "Für welche Fähigkeit bist du am bekanntesten?"
+      },
+      "q35": {
+        "normal": "Was isst du nach dem Training?",
+        "imposter": "Was machst du nach dem Training?"
+      },
+      "q36": {
+        "normal": "Was ist das beste Essen für einen kalten Tag?",
+        "imposter": "Was ist die beste Aktivität für einen kalten Tag?"
+      },
+      "q37": {
+        "normal": "Befolgst du Rezepte oder improvisierst du?",
+        "imposter": "Befolgst du Pläne oder improvisierst du?"
+      },
+      "q38": {
+        "normal": "Was ist deine heimliche Essens-Leidenschaft (Guilty Pleasure)?",
+        "imposter": "Was ist deine heimliche Unterhaltungs-Leidenschaft (Guilty Pleasure)?"
+      },
+      "q39": {
+        "normal": "Was war dein größtes Koch-Desaster?",
+        "imposter": "Was war dein größter Fehler?"
+      },
+      "q40": {
+        "normal": "Wie sieht deine perfekte Mahlzeit aus?",
+        "imposter": "Wie sieht dein perfekter Tag aus?"
+      },
+      "q41": {
+        "normal": "Was ist das beste Essen für ein Date?",
+        "imposter": "Was ist die beste Aktivität für ein Date?"
+      },
+      "q42": {
+        "normal": "Wie oft in der Woche kochst du?",
+        "imposter": "Wie oft in der Woche trainierst du?"
+      },
+      "q43": {
+        "normal": "Welches Essen gibt dir die meiste Energie?",
+        "imposter": "Welche Aktivität gibt dir die meiste Energie?"
+      },
+      "q44": {
+        "normal": "Was ist deine liebste Essenserinnerung?",
+        "imposter": "Was ist deine liebste Reiseerinnerung?"
+      },
+      "q45": {
+        "normal": "Isst du jeden Tag Frühstück?",
+        "imposter": "Trainierst du jeden Tag?"
+      },
+      "q46": {
+        "normal": "Welches Essen bringst du zu Mitbring-Partys mit?",
+        "imposter": "Welches Geschenk bringst du zu Einweihungspartys mit?"
+      },
+      "q47": {
+        "normal": "Was ist das Gesündeste, das du regelmäßig isst?",
+        "imposter": "Was ist deine gesündeste Gewohnheit?"
+      },
+      "q48": {
+        "normal": "Was ist dein Lieblingsessen aus einer anderen Kultur?",
+        "imposter": "Was ist deine Lieblingstradition aus einer anderen Kultur?"
+      },
+      "q49": {
+        "normal": "Wie entscheidest du, was du isst?",
+        "imposter": "Wie entscheidest du, was du anziehst?"
+      },
+      "q50": {
+        "normal": "Was ist dein größter kulinarischer Luxus?",
+        "imposter": "Was ist dein größter Shopping-Luxus?"
       }
     },
     "animals": {
@@ -271,6 +987,194 @@
       "q3": {
         "normal": "Welches Tier möchtest du sein?",
         "imposter": "Welcher Superheld möchtest du sein?"
+      },
+      "q4": {
+        "normal": "Was ist dein liebstes wildes Tier?",
+        "imposter": "Was ist deine liebste wilde Landschaft?"
+      },
+      "q5": {
+        "normal": "Vor welchem Tier hast du am meisten Angst?",
+        "imposter": "Vor welcher Aktivität hast du am meisten Angst?"
+      },
+      "q6": {
+        "normal": "Welches Tier ähnelt dir am meisten?",
+        "imposter": "Welche Automarke passt am besten zu deiner Persönlichkeit?"
+      },
+      "q7": {
+        "normal": "Welches Tier würdest du gerne erforschen?",
+        "imposter": "Welches Fach würdest du gerne studieren?"
+      },
+      "q8": {
+        "normal": "Was ist das gefährlichste Tier, das du kennst?",
+        "imposter": "Was ist der gefährlichste Sport, den du kennst?"
+      },
+      "q9": {
+        "normal": "Was ist deiner Meinung nach das klügste Tier?",
+        "imposter": "Was ist deiner Meinung nach die klügste Erfindung?"
+      },
+      "q10": {
+        "normal": "Wenn du ein wildes Tier zähmen müsstest, welches würdest du wählen?",
+        "imposter": "Wenn du eine neue Fähigkeit erlernen müsstest, welche würdest du wählen?"
+      },
+      "q11": {
+        "normal": "Was ist das süßeste Tierbaby?",
+        "imposter": "Was ist der süßeste Babyname?"
+      },
+      "q12": {
+        "normal": "Welches Tier lebt am längsten?",
+        "imposter": "Welches Gebäude hält am längsten?"
+      },
+      "q13": {
+        "normal": "Welches Tier ist der beste Wächter?",
+        "imposter": "Welche Person ist der beste Wächter?"
+      },
+      "q14": {
+        "normal": "Würdest du jemals ein exotisches Tier essen?",
+        "imposter": "Würdest du jemals einen Extremsport ausprobieren?"
+      },
+      "q15": {
+        "normal": "Welches Geräusch macht dein Lieblingstier?",
+        "imposter": "Welches Geräusch macht dein Lieblingsinstrument?"
+      },
+      "q16": {
+        "normal": "Welches Tier ist dein Krafttier (Spirit Animal)?",
+        "imposter": "Welches Element ist dein spirituelles Element?"
+      },
+      "q17": {
+        "normal": "Glaubst du, dass Tiere Emotionen haben?",
+        "imposter": "Glaubst du, dass Roboter Emotionen haben?"
+      },
+      "q18": {
+        "normal": "Welches Tier würdest du auf eine einsame Insel mitnehmen?",
+        "imposter": "Welche Person würdest du auf eine einsame Insel mitnehmen?"
+      },
+      "q19": {
+        "normal": "Was ist das lustigste tierische Verhalten, das du je gesehen hast?",
+        "imposter": "Was ist das lustigste menschliche Verhalten, das du je gesehen hast?"
+      },
+      "q20": {
+        "normal": "Welches Tier wäre das schlechteste Haustier?",
+        "imposter": "Welches Auto wäre das schlechteste Pendlerauto?"
+      },
+      "q21": {
+        "normal": "Glaubst du, wir sollten Tiere in Zoos halten?",
+        "imposter": "Glaubst du, wir sollten Museen lange geöffnet lassen?"
+      },
+      "q22": {
+        "normal": "Welches Tier hat das beste Gedächtnis?",
+        "imposter": "Welche Person, die du kennst, hat das beste Gedächtnis?"
+      },
+      "q23": {
+        "normal": "Für welches Tier hast du das meiste Mitleid?",
+        "imposter": "Für welche Situation empfindest du das meiste Mitleid?"
+      },
+      "q24": {
+        "normal": "Die Begegnung mit welchem wilden Tier würde dich am meisten aufregen?",
+        "imposter": "Die Begegnung mit welchem Prominenten würde dich am meisten aufregen?"
+      },
+      "q25": {
+        "normal": "Welches Tier ist für dich am faszinierendsten?",
+        "imposter": "Welches Land ist für dich am faszinierendsten?"
+      },
+      "q26": {
+        "normal": "Was ist das bunteste Tier, das du kennst?",
+        "imposter": "Was ist die bunteste Stadt, die du kennst?"
+      },
+      "q27": {
+        "normal": "Welches Tier ist das schnellste?",
+        "imposter": "Welches Fahrzeug ist das schnellste?"
+      },
+      "q28": {
+        "normal": "Welches Meerestier ist das gruseligste?",
+        "imposter": "Welcher Wassersport ist der gruseligste?"
+      },
+      "q29": {
+        "normal": "Welches Tier lebt am kältesten Ort?",
+        "imposter": "Welche Person, die du kennst, lebt am kältesten Ort?"
+      },
+      "q30": {
+        "normal": "Wenn Tiere sprechen könnten, welches wäre am interessantesten?",
+        "imposter": "Wenn Gemälde sprechen könnten, welches wäre am interessantesten?"
+      },
+      "q31": {
+        "normal": "Welches Tier hat die beste Tarnung?",
+        "imposter": "Welche Person kann am besten in der Menge untertauchen?"
+      },
+      "q32": {
+        "normal": "Was fütterst du Enten im Park?",
+        "imposter": "Was nimmst du zu einem Picknick mit?"
+      },
+      "q33": {
+        "normal": "Was ist das am stärksten bedrohte Tier, das du kennst?",
+        "imposter": "Was ist die am stärksten bedrohte Tradition, die du kennst?"
+      },
+      "q34": {
+        "normal": "Welches Tier jagt in Rudeln?",
+        "imposter": "Welcher Mannschaftssport erfordert das meiste Teamwork?"
+      },
+      "q35": {
+        "normal": "Was ist das giftigste Tier?",
+        "imposter": "Was ist die giftigste Pflanze?"
+      },
+      "q36": {
+        "normal": "Welches Tier hält Winterschlaf?",
+        "imposter": "Welche Aktivität machen Menschen im Winter häufiger?"
+      },
+      "q37": {
+        "normal": "Welches Tier findet man in der Wüste?",
+        "imposter": "Welche Aktivität kann man in der Wüste machen?"
+      },
+      "q38": {
+        "normal": "Was ist das größte Tier, das je gelebt hat?",
+        "imposter": "Was ist das größte Schiff, das je gebaut wurde?"
+      },
+      "q39": {
+        "normal": "Welches Tier hat die beste Nachtsicht?",
+        "imposter": "Welche Kamera hat den besten Nachtmodus?"
+      },
+      "q40": {
+        "normal": "Würdest du Insekten als Proteinquelle essen?",
+        "imposter": "Würdest du extreme Diäten ausprobieren?"
+      },
+      "q41": {
+        "normal": "Welches Tier wird mit Glück in Verbindung gebracht?",
+        "imposter": "Welcher Gegenstand wird mit Glück in Verbindung gebracht?"
+      },
+      "q42": {
+        "normal": "Welche tierische Eigenschaft hättest du gerne?",
+        "imposter": "Welche Superkraft hättest du gerne?"
+      },
+      "q43": {
+        "normal": "Welches Tier würde einen Beliebtheitswettbewerb gewinnen?",
+        "imposter": "Welcher Prominente würde einen Beliebtheitswettbewerb gewinnen?"
+      },
+      "q44": {
+        "normal": "Welches Tier ist am treuesten?",
+        "imposter": "Welche Eigenschaft macht eine Person am treuesten?"
+      },
+      "q45": {
+        "normal": "Was hältst du von Tierversuchen?",
+        "imposter": "Was hältst du von Produkttests?"
+      },
+      "q46": {
+        "normal": "Welches Tier ist am besten für das Stadtleben geeignet?",
+        "imposter": "Welcher Personentyp ist am besten für das Stadtleben geeignet?"
+      },
+      "q47": {
+        "normal": "Welches Tier ist am geheimnisvollsten?",
+        "imposter": "Welcher Beruf ist am geheimnisvollsten?"
+      },
+      "q48": {
+        "normal": "Welcher Vogel fliegt am höchsten?",
+        "imposter": "Welches Flugzeug fliegt am höchsten?"
+      },
+      "q49": {
+        "normal": "Welches Tier wäre der beste Komiker?",
+        "imposter": "Welche Person wäre deiner Meinung nach der beste Komiker?"
+      },
+      "q50": {
+        "normal": "Welches Tier lebt am tiefsten im Ozean?",
+        "imposter": "Welches U-Boot taucht am tiefsten im Ozean?"
       }
     },
     "movies": {
@@ -285,6 +1189,194 @@
       "q3": {
         "normal": "Welche Filmfigur möchtest du sein?",
         "imposter": "Welche historische Figur möchtest du sein?"
+      },
+      "q4": {
+        "normal": "Bei welchem Film hast du zuletzt geweint?",
+        "imposter": "Bei welchem Song hast du zuletzt geweint?"
+      },
+      "q5": {
+        "normal": "Wer ist dein Lieblingsschauspieler?",
+        "imposter": "Wer ist dein Lieblingsmusiker?"
+      },
+      "q6": {
+        "normal": "Schaust du Filme lieber zu Hause oder im Kino?",
+        "imposter": "Liest du lieber zu Hause oder im Café?"
+      },
+      "q7": {
+        "normal": "Welchen Film kannst du immer wieder schauen?",
+        "imposter": "Welchen Song kannst du immer wieder hören?"
+      },
+      "q8": {
+        "normal": "Was ist der gruseligste Film, den du je gesehen hast?",
+        "imposter": "Was ist die gruseligste Achterbahn, die du je gefahren bist?"
+      },
+      "q9": {
+        "normal": "Welcher Film hat den besten Soundtrack?",
+        "imposter": "Welcher Künstler hat die beste Diskografie?"
+      },
+      "q10": {
+        "normal": "Welcher Film hat dich am meisten enttäuscht?",
+        "imposter": "Welches Produkt hat dich am meisten enttäuscht?"
+      },
+      "q11": {
+        "normal": "Für welchen Film wünschst du dir eine Fortsetzung?",
+        "imposter": "Für welche Serie wünschst du dir mehr Staffeln?"
+      },
+      "q12": {
+        "normal": "Welcher Film hat die besten Spezialeffekte?",
+        "imposter": "Welches Videospiel hat die beste Grafik?"
+      },
+      "q13": {
+        "normal": "Was ist der lustigste Film, den du je gesehen hast?",
+        "imposter": "Was ist der lustigste Komiker, den du je gesehen hast?"
+      },
+      "q14": {
+        "normal": "Was ist der romantischste Film?",
+        "imposter": "Was ist die romantischste Stadt?"
+      },
+      "q15": {
+        "normal": "Liest du Kritiken, bevor du einen Film anschaust?",
+        "imposter": "Liest du Bewertungen, bevor du etwas kaufst?"
+      },
+      "q16": {
+        "normal": "Welches Filmzitat sagst du am häufigsten?",
+        "imposter": "Welche Songzeile singst du am häufigsten?"
+      },
+      "q17": {
+        "normal": "Welchen Filmbösewicht findest du am interessantesten?",
+        "imposter": "Welchen historischen Bösewicht findest du am interessantesten?"
+      },
+      "q18": {
+        "normal": "Welchen Animationsfilm liebst du?",
+        "imposter": "Welche Zeichentrickserie liebst du?"
+      },
+      "q19": {
+        "normal": "Welcher Film hat die beste unerwartete Wendung (Plot Twist)?",
+        "imposter": "Welches Buch hat die beste unerwartete Wendung?"
+      },
+      "q20": {
+        "normal": "Welchen Regisseur bewunderst du am meisten?",
+        "imposter": "Welchen Architekten bewunderst du am meisten?"
+      },
+      "q21": {
+        "normal": "Welches Filmset würdest du gerne besuchen?",
+        "imposter": "Welchen historischen Ort würdest du gerne besuchen?"
+      },
+      "q22": {
+        "normal": "Welcher fremdsprachige Film hat dir gefallen?",
+        "imposter": "Welches fremde Land hat dir am besten gefallen?"
+      },
+      "q23": {
+        "normal": "Welcher Film hat dich am meisten zum Nachdenken gebracht?",
+        "imposter": "Welches Buch hat dich am meisten zum Nachdenken gebracht?"
+      },
+      "q24": {
+        "normal": "Was ist der längste Film, den du je durchgehalten hast?",
+        "imposter": "Was ist das längste Buch, das du gelesen hast?"
+      },
+      "q25": {
+        "normal": "Welches Filmende liebst du?",
+        "imposter": "Welches Urlaubsende liebst du?"
+      },
+      "q26": {
+        "normal": "Bevorzugst du Filme nach Büchern oder originelle Drehbücher?",
+        "imposter": "Bevorzugst du Coverversionen oder Originalsongs?"
+      },
+      "q27": {
+        "normal": "Was ist der beste Superheldenfilm?",
+        "imposter": "Welche Superkraft würdest du wählen?"
+      },
+      "q28": {
+        "normal": "Was ist der actionreichste Film?",
+        "imposter": "Was ist der actionreichste Sport?"
+      },
+      "q29": {
+        "normal": "Welchen Filmklassiker sollte jeder gesehen haben?",
+        "imposter": "Welchen Buchklassiker sollte jeder gelesen haben?"
+      },
+      "q30": {
+        "normal": "Welcher Film hat die beste Eröffnungsszene?",
+        "imposter": "Welcher Song hat das beste Intro?"
+      },
+      "q31": {
+        "normal": "Bevorzugst du Untertitel oder Synchronisation?",
+        "imposter": "Liest du Bücher lieber übersetzt oder im Original?"
+      },
+      "q32": {
+        "normal": "Welcher Film hat dir als Kind Angst gemacht?",
+        "imposter": "Welches Erlebnis hat dir als Kind Angst gemacht?"
+      },
+      "q33": {
+        "normal": "Welchen Film würdest du Außerirdischen zeigen?",
+        "imposter": "Welches Essen würdest du Außerirdischen zeigen?"
+      },
+      "q34": {
+        "normal": "Welcher Film hätte mehr Oscars gewinnen sollen?",
+        "imposter": "Welcher Song hätte mehr Auszeichnungen gewinnen sollen?"
+      },
+      "q35": {
+        "normal": "Welches Jahrzehnt hatte die besten Filme?",
+        "imposter": "Welches Jahrzehnt hatte die beste Musik?"
+      },
+      "q36": {
+        "normal": "Welcher Film hat die beste Verfolgungsjagd?",
+        "imposter": "Welches Videospiel hat die besten Rennen?"
+      },
+      "q37": {
+        "normal": "Was macht einen Film wirklich großartig?",
+        "imposter": "Was macht einen Song wirklich großartig?"
+      },
+      "q38": {
+        "normal": "Welcher Film wird am meisten überschätzt?",
+        "imposter": "Welche Touristenattraktion wird am meisten überschätzt?"
+      },
+      "q39": {
+        "normal": "Welches Filmende hat dich frustriert?",
+        "imposter": "Welches Serienende hat dich frustriert?"
+      },
+      "q40": {
+        "normal": "Was ist das beste Film-Franchise?",
+        "imposter": "Was ist das beste Serien-Franchise?"
+      },
+      "q41": {
+        "normal": "Würdest du einen Film lieber alleine oder mit anderen schauen?",
+        "imposter": "Würdest du lieber alleine oder mit anderen essen?"
+      },
+      "q42": {
+        "normal": "Welcher nicht-englischsprachige Film hat dich umgehauen?",
+        "imposter": "Welcher nicht-englischsprachige Song hat dich umgehauen?"
+      },
+      "q43": {
+        "normal": "Mit welcher Filmfigur kannst du dich am meisten identifizieren?",
+        "imposter": "Mit welcher Buchfigur kannst du dich am meisten identifizieren?"
+      },
+      "q44": {
+        "normal": "Was fehlt dem Kino heute?",
+        "imposter": "Was fehlt der Musik heute?"
+      },
+      "q45": {
+        "normal": "Was ist der beste Film, der auf einer wahren Begebenheit beruht?",
+        "imposter": "Was ist der beste Dokumentarfilm?"
+      },
+      "q46": {
+        "normal": "Welcher Film hat deine Sicht aufs Leben verändert?",
+        "imposter": "Welches Buch hat deine Sicht aufs Leben verändert?"
+      },
+      "q47": {
+        "normal": "Auf welchen kommenden Film freust du dich am meisten?",
+        "imposter": "Auf welche kommende Reise freust du dich am meisten?"
+      },
+      "q48": {
+        "normal": "Schaust du dir Trailer vor dem Film an?",
+        "imposter": "Liest du dir Speisekarten durch, bevor du ins Restaurant gehst?"
+      },
+      "q49": {
+        "normal": "Welcher Film hat die besten Kostüme?",
+        "imposter": "Welcher Modedesigner hat die besten Kostüme?"
+      },
+      "q50": {
+        "normal": "Welchen Titel hätte deine Film-Autobiografie?",
+        "imposter": "Welchen Titel hätte dein autobiografisches Buch?"
       }
     },
     "sports": {
@@ -299,6 +1391,194 @@
       "q3": {
         "normal": "Welchen Sport machst du gerne?",
         "imposter": "Welches Instrument spielst du gerne?"
+      },
+      "q4": {
+        "normal": "Welchen Sport würdest du ausprobieren, wenn du könntest?",
+        "imposter": "Welches Hobby würdest du ausprobieren, wenn du könntest?"
+      },
+      "q5": {
+        "normal": "Welcher Sport ist am spannendsten live zu sehen?",
+        "imposter": "Welches Konzert ist am spannendsten live zu besuchen?"
+      },
+      "q6": {
+        "normal": "Bevorzugst du Team- oder Einzelsportarten?",
+        "imposter": "Bevorzugst du Gruppen- oder Alleinreisen?"
+      },
+      "q7": {
+        "normal": "Welchen Sport hast du als Kind gemacht?",
+        "imposter": "Welches Hobby hattest du als Kind?"
+      },
+      "q8": {
+        "normal": "Was ist der gefährlichste Sport?",
+        "imposter": "Was ist der gefährlichste Beruf?"
+      },
+      "q9": {
+        "normal": "Schaust du lieber Sport oder machst du ihn lieber selbst?",
+        "imposter": "Schaust du lieber Filme oder machst du sie lieber selbst?"
+      },
+      "q10": {
+        "normal": "Welcher Sport ist am schwersten zu meistern?",
+        "imposter": "Welches Instrument ist am schwersten zu meistern?"
+      },
+      "q11": {
+        "normal": "Welchen Sport sollte dein Kind machen?",
+        "imposter": "Welches Hobby sollte dein Kind haben?"
+      },
+      "q12": {
+        "normal": "Welche Sportverletzung hattest du schon?",
+        "imposter": "Welche arbeitsbedingte Verletzung hattest du schon?"
+      },
+      "q13": {
+        "normal": "Welcher Sport wird am meisten unterschätzt?",
+        "imposter": "Welche Stadt wird am meisten unterschätzt?"
+      },
+      "q14": {
+        "normal": "Wer ist der größte Sportler aller Zeiten?",
+        "imposter": "Wer ist der größte Musiker aller Zeiten?"
+      },
+      "q15": {
+        "normal": "Welche Sportausrüstung ist am wichtigsten?",
+        "imposter": "Welche Küchenausstattung ist am wichtigsten?"
+      },
+      "q16": {
+        "normal": "Würdest du jemals Extremsport betreiben?",
+        "imposter": "Würdest du jemals extremes Kochen betreiben?"
+      },
+      "q17": {
+        "normal": "Welcher Sport hat die besten Trikots?",
+        "imposter": "Welches Land hat die besten Nationaltrachten?"
+      },
+      "q18": {
+        "normal": "Stehst du für Sportereignisse früh auf?",
+        "imposter": "Stehst du für Schlussverkäufe früh auf?"
+      },
+      "q19": {
+        "normal": "Welchen Sport würdest du den Olympischen Spielen hinzufügen?",
+        "imposter": "Welche Aktivität würdest du dem Lehrplan hinzufügen?"
+      },
+      "q20": {
+        "normal": "Welches ist das beste Land für eine bestimmte Sportart?",
+        "imposter": "Welches ist das beste Land für eine bestimmte Küche?"
+      },
+      "q21": {
+        "normal": "Wie gehst du damit um, im Sport zu verlieren?",
+        "imposter": "Wie gehst du damit um, bei der Arbeit zu versagen?"
+      },
+      "q22": {
+        "normal": "Welcher Sport hat die leidenschaftlichsten Fans?",
+        "imposter": "Welches Musikgenre hat die leidenschaftlichsten Fans?"
+      },
+      "q23": {
+        "normal": "Bevorzugst du Sommer- oder Wintersport?",
+        "imposter": "Bevorzugst du Sommer- oder Winterurlaub?"
+      },
+      "q24": {
+        "normal": "Was ist das beste Stadion, in dem du je warst?",
+        "imposter": "Was ist der beste Konzertsaal, in dem du je warst?"
+      },
+      "q25": {
+        "normal": "Welcher Sport erfordert deiner Meinung nach das meiste Geschick?",
+        "imposter": "Welche Kunstform erfordert deiner Meinung nach das meiste Geschick?"
+      },
+      "q26": {
+        "normal": "Was ist das längste Sportereignis, das du je gesehen hast?",
+        "imposter": "Was ist der längste Film, den du je gesehen hast?"
+      },
+      "q27": {
+        "normal": "In welchem Sport steckt die meiste Strategie?",
+        "imposter": "In welchem Brettspiel steckt die meiste Strategie?"
+      },
+      "q28": {
+        "normal": "Treibst du Sport, um zu gewinnen, oder zum Spaß?",
+        "imposter": "Spielst du Spiele, um zu gewinnen, oder zum Spaß?"
+      },
+      "q29": {
+        "normal": "Welches Sportidol hattest du in deiner Jugend?",
+        "imposter": "Welches Musikidol hattest du in deiner Jugend?"
+      },
+      "q30": {
+        "normal": "Welchen Sport würdest du in einem anderen Leben meistern wollen?",
+        "imposter": "Welches Instrument würdest du in einem anderen Leben meistern wollen?"
+      },
+      "q31": {
+        "normal": "Was ist der beste Sport für die Fitness?",
+        "imposter": "Was ist die beste Diät für die Fitness?"
+      },
+      "q32": {
+        "normal": "Welcher Sport ist am schönsten anzusehen?",
+        "imposter": "Welche Kunstform ist am schönsten anzusehen?"
+      },
+      "q33": {
+        "normal": "Welchen Sport kann man bei jedem Wetter ausüben?",
+        "imposter": "Welches Hobby kann man bei jedem Wetter ausüben?"
+      },
+      "q34": {
+        "normal": "Welcher Sport hat die lustigsten Momente?",
+        "imposter": "Welche TV-Show hat die lustigsten Momente?"
+      },
+      "q35": {
+        "normal": "Welchen Sportrekord würdest du am liebsten brechen?",
+        "imposter": "Welchen Weltrekord würdest du am liebsten brechen?"
+      },
+      "q36": {
+        "normal": "Welcher Sport bringt Familien am meisten zusammen?",
+        "imposter": "Welche Aktivität bringt Familien am meisten zusammen?"
+      },
+      "q37": {
+        "normal": "Welchen Sport verfolgst du mit dem größten Interesse?",
+        "imposter": "Welches Nachrichtenthema verfolgst du mit dem größten Interesse?"
+      },
+      "q38": {
+        "normal": "Was ist wichtiger: Talent oder Training im Sport?",
+        "imposter": "Was ist wichtiger: Talent oder Training in der Musik?"
+      },
+      "q39": {
+        "normal": "Welcher Sport hat die beste Rivalität?",
+        "imposter": "Welche TV-Show hat die beste Rivalität?"
+      },
+      "q40": {
+        "normal": "Was war der denkwürdigste Sportmoment, den du je gesehen hast?",
+        "imposter": "Was war der denkwürdigste Konzertmoment, den du je gesehen hast?"
+      },
+      "q41": {
+        "normal": "Was würde deinen Lieblingssport verbessern?",
+        "imposter": "Was würde deine Lieblings-TV-Show verbessern?"
+      },
+      "q42": {
+        "normal": "Welcher Sport ist in deinem Land am beliebtesten?",
+        "imposter": "Welches Essen ist in deinem Land am beliebtesten?"
+      },
+      "q43": {
+        "normal": "Verfolgst du Sportnachrichten täglich?",
+        "imposter": "Verfolgst du Unterhaltungsnachrichten täglich?"
+      },
+      "q44": {
+        "normal": "Was ist das größte Sportereignis der Welt?",
+        "imposter": "Was ist das größte Musikereignis der Welt?"
+      },
+      "q45": {
+        "normal": "Wärst du gerne ein Profisportler?",
+        "imposter": "Wärst du gerne ein professioneller Musiker?"
+      },
+      "q46": {
+        "normal": "Welcher Sport lehrt dich am meisten über das Leben?",
+        "imposter": "Welches Buch lehrt dich am meisten über das Leben?"
+      },
+      "q47": {
+        "normal": "Was ist der körperlich anspruchsvollste Sport?",
+        "imposter": "Was ist der mental anspruchsvollste Beruf?"
+      },
+      "q48": {
+        "normal": "Welcher Sport wird deiner Meinung nach überschätzt?",
+        "imposter": "Welche Art von Restaurant wird deiner Meinung nach überschätzt?"
+      },
+      "q49": {
+        "normal": "Was ist das Beste an deinem Lieblingssport?",
+        "imposter": "Was ist das Beste an deinem Lieblingshobby?"
+      },
+      "q50": {
+        "normal": "Welchen Sport würdest du in deiner Freizeit schauen?",
+        "imposter": "Welche Serie würdest du in deiner Freizeit am Stück schauen (binge-watchen)?"
       }
     },
     "countries": {
@@ -313,6 +1593,194 @@
       "q3": {
         "normal": "In welchem Land möchtest du leben?",
         "imposter": "In welcher Epoche möchtest du leben?"
+      },
+      "q4": {
+        "normal": "Welches Land hat die schönste Landschaft?",
+        "imposter": "Welches Gemälde hat die schönste Landschaft?"
+      },
+      "q5": {
+        "normal": "Welches Land hat das beste Essen?",
+        "imposter": "Welches Restaurant hat das beste Essen?"
+      },
+      "q6": {
+        "normal": "Welches Land hat die beste Musik?",
+        "imposter": "Welche Streaming-Plattform hat die beste Musik?"
+      },
+      "q7": {
+        "normal": "In welchem Land fühlst du dich am meisten zu Hause?",
+        "imposter": "In welcher Jahreszeit fühlst du dich am meisten zu Hause?"
+      },
+      "q8": {
+        "normal": "Welche Sprache würdest du gerne sprechen?",
+        "imposter": "Welches Instrument würdest du gerne spielen?"
+      },
+      "q9": {
+        "normal": "Welches Land hat die freundlichsten Menschen?",
+        "imposter": "Welche Nachbarschaft hat die freundlichsten Menschen?"
+      },
+      "q10": {
+        "normal": "Welches Land hältst du für das geheimnisvollste?",
+        "imposter": "Welchen Beruf hältst du für den geheimnisvollsten?"
+      },
+      "q11": {
+        "normal": "Die Geschichte welches Landes ist am faszinierendsten?",
+        "imposter": "Welche Biografie ist am faszinierendsten?"
+      },
+      "q12": {
+        "normal": "Welches Land hat die besten Strände?",
+        "imposter": "Welche Stadt hat die besten Parks?"
+      },
+      "q13": {
+        "normal": "Der Besuch welches Landes würde dich am meisten überraschen?",
+        "imposter": "Der Geschmack welchen Essens würde dich am meisten überraschen?"
+      },
+      "q14": {
+        "normal": "Welches Land hat die einzigartigste Kultur?",
+        "imposter": "Welche Band hat den einzigartigsten Stil?"
+      },
+      "q15": {
+        "normal": "Die Architektur welches Landes liebst du am meisten?",
+        "imposter": "Welchen Einrichtungsstil liebst du am meisten?"
+      },
+      "q16": {
+        "normal": "Welches Land hat den besten öffentlichen Nahverkehr?",
+        "imposter": "Welche Stadt hat die beste Fahrradinfrastruktur?"
+      },
+      "q17": {
+        "normal": "Welches Land hat die beste Lebensqualität?",
+        "imposter": "Welche Stadt hat die beste Lebensqualität?"
+      },
+      "q18": {
+        "normal": "Welches Land würdest du niemals besuchen?",
+        "imposter": "Welches Essen würdest du niemals probieren?"
+      },
+      "q19": {
+        "normal": "Welches Land hat die reichste Geschichte?",
+        "imposter": "Welches Museum hat die reichste Sammlung?"
+      },
+      "q20": {
+        "normal": "Die Mode welches Landes liebst du?",
+        "imposter": "Die Mode welches Jahrzehnts liebst du?"
+      },
+      "q21": {
+        "normal": "Welches Land hat den besten Nationalpark?",
+        "imposter": "Welche Stadt hat den besten Zoo?"
+      },
+      "q22": {
+        "normal": "Welches Land machte die wichtigsten Erfindungen?",
+        "imposter": "Welche Person machte die wichtigsten Erfindungen?"
+      },
+      "q23": {
+        "normal": "Über welches Land weißt du am wenigsten?",
+        "imposter": "Über welches Thema weißt du am wenigsten?"
+      },
+      "q24": {
+        "normal": "Welches Land hat die interessanteste Tierwelt?",
+        "imposter": "Welche Stadt hat die interessanteste Straßenkunst?"
+      },
+      "q25": {
+        "normal": "Was würdest du aus deinem Heimatland am meisten vermissen?",
+        "imposter": "Was würdest du aus deiner Heimatstadt am meisten vermissen?"
+      },
+      "q26": {
+        "normal": "Welches Land wird deiner Meinung nach in 50 Jahren am mächtigsten sein?",
+        "imposter": "Welche Technologie wird deiner Meinung nach in 50 Jahren am mächtigsten sein?"
+      },
+      "q27": {
+        "normal": "Welches Land hat das beste Bildungssystem?",
+        "imposter": "Welche Stadt hat die besten Universitäten?"
+      },
+      "q28": {
+        "normal": "Auf welches Länder-Festival würdest du gehen?",
+        "imposter": "Auf welches Musik-Festival würdest du gehen?"
+      },
+      "q29": {
+        "normal": "Welches Land hat dich am meisten überrascht?",
+        "imposter": "Welcher Film hat dich am meisten überrascht?"
+      },
+      "q30": {
+        "normal": "Welches Land hat das beste Nachtleben?",
+        "imposter": "Welche Stadt hat das beste Nachtleben?"
+      },
+      "q31": {
+        "normal": "Welches Land hat die atemberaubendsten Sonnenuntergänge?",
+        "imposter": "Welches Gemälde hat die atemberaubendsten Farben?"
+      },
+      "q32": {
+        "normal": "Welches Land ist deinem am ähnlichsten?",
+        "imposter": "Welche Person ist dir am ähnlichsten?"
+      },
+      "q33": {
+        "normal": "Welches Land würdest du einem Freund empfehlen?",
+        "imposter": "Welches Restaurant würdest du einem Freund empfehlen?"
+      },
+      "q34": {
+        "normal": "Welches Land hat die besten Winteraktivitäten?",
+        "imposter": "Welche Stadt hat die besten Wintermärkte?"
+      },
+      "q35": {
+        "normal": "Aus welchem Land stammen deine Lieblingsautoren?",
+        "imposter": "Aus welchem Land stammen deine Lieblingsmusiker?"
+      },
+      "q36": {
+        "normal": "Welches Land verbindest du mit Abenteuer?",
+        "imposter": "Welchen Sport verbindest du mit Abenteuer?"
+      },
+      "q37": {
+        "normal": "Welches Land hat die beste Kaffeekultur?",
+        "imposter": "Welches Café hat die beste Atmosphäre?"
+      },
+      "q38": {
+        "normal": "In welchem Land träumst du davon, deinen Ruhestand zu verbringen?",
+        "imposter": "In welchem Haus träumst du davon, deinen Ruhestand zu verbringen?"
+      },
+      "q39": {
+        "normal": "Welches Land hat die schönsten traditionellen Kleidungsstücke?",
+        "imposter": "Welche Modemarke hat die schönsten Kleidungsstücke?"
+      },
+      "q40": {
+        "normal": "Welches Land wird deiner Meinung nach am meisten unterschätzt?",
+        "imposter": "Welcher Film wird deiner Meinung nach am meisten unterschätzt?"
+      },
+      "q41": {
+        "normal": "Was ist das teuerste Land, das du je besucht hast?",
+        "imposter": "Was ist das teuerste Restaurant, das du je besucht hast?"
+      },
+      "q42": {
+        "normal": "Welches Land hat die romantischste Atmosphäre?",
+        "imposter": "Welche Stadt hat die romantischste Atmosphäre?"
+      },
+      "q43": {
+        "normal": "Die Menschen welches Landes arbeiten am härtesten?",
+        "imposter": "Welcher Beruf erfordert die härteste Arbeit?"
+      },
+      "q44": {
+        "normal": "Welches Land ist berühmt für seine Desserts?",
+        "imposter": "Welche Bäckerei ist berühmt für ihre Desserts?"
+      },
+      "q45": {
+        "normal": "Welches Land hat die beste Streetfood-Szene?",
+        "imposter": "Welcher Markt hat die beste Food-Szene?"
+      },
+      "q46": {
+        "normal": "Welches Land kennst du neben deinem eigenen am besten?",
+        "imposter": "Welches Thema kennst du neben deinem Beruf am besten?"
+      },
+      "q47": {
+        "normal": "Wenn du überall hin reisen könntest, welches Land würdest du studieren?",
+        "imposter": "Wenn du alles lernen könntest, welches Fach würdest du studieren?"
+      },
+      "q48": {
+        "normal": "Welches Land hat die einzigartigste Sprache?",
+        "imposter": "Welcher Sport hat die einzigartigsten Regeln?"
+      },
+      "q49": {
+        "normal": "Welches Land hat deiner Meinung nach die beste Zukunft?",
+        "imposter": "Welches Unternehmen hat deiner Meinung nach die beste Zukunft?"
+      },
+      "q50": {
+        "normal": "Welches Land hat dich am meisten gelehrt?",
+        "imposter": "Welches Buch hat dich am meisten gelehrt?"
       }
     },
     "professions": {
@@ -327,6 +1795,194 @@
       "q3": {
         "normal": "Wie sollte deine ideale Arbeitsumgebung sein?",
         "imposter": "Wie sollte dein idealer Urlaubsort sein?"
+      },
+      "q4": {
+        "normal": "Welcher Beruf bringt am meisten Respekt ein?",
+        "imposter": "Welches Hobby bringt am meisten Respekt ein?"
+      },
+      "q5": {
+        "normal": "Was ist der am schwersten auszuübende Beruf?",
+        "imposter": "Was ist der am schwersten zu spielende Sport?"
+      },
+      "q6": {
+        "normal": "Welchen Beruf würdest du niemals ausüben?",
+        "imposter": "Welches Essen würdest du niemals essen?"
+      },
+      "q7": {
+        "normal": "Was ist der wichtigste Beruf der Welt?",
+        "imposter": "Was ist die wichtigste Erfindung der Welt?"
+      },
+      "q8": {
+        "normal": "Welcher Beruf wird deiner Meinung nach unterbewertet?",
+        "imposter": "Welches Talent wird deiner Meinung nach unterbewertet?"
+      },
+      "q9": {
+        "normal": "Welcher Beruf erfordert die meiste Kreativität?",
+        "imposter": "Welches Hobby erfordert die meiste Kreativität?"
+      },
+      "q10": {
+        "normal": "Welcher Beruf macht die Welt besser?",
+        "imposter": "Welche Erfindung macht die Welt besser?"
+      },
+      "q11": {
+        "normal": "Würdest du lieber im Homeoffice oder im Büro arbeiten?",
+        "imposter": "Würdest du lieber alleine oder mit einer Gruppe reisen?"
+      },
+      "q12": {
+        "normal": "Welche Fähigkeiten sind in deinem Traumjob am wichtigsten?",
+        "imposter": "Welche Fähigkeiten sind in deinem Traumsport am wichtigsten?"
+      },
+      "q13": {
+        "normal": "Welcher Beruf würde dich am glücklichsten machen?",
+        "imposter": "Welcher Ort würde dich am glücklichsten machen?"
+      },
+      "q14": {
+        "normal": "Was ist der stressigste Job?",
+        "imposter": "Was ist der stressigste Sport?"
+      },
+      "q15": {
+        "normal": "Würdest du einen festen Job oder eine abenteuerliche Karriere bevorzugen?",
+        "imposter": "Würdest du ein stabiles Leben oder einen abenteuerlichen Lebensstil bevorzugen?"
+      },
+      "q16": {
+        "normal": "Welcher Beruf erfordert das meiste Reisen?",
+        "imposter": "Welches Hobby erfordert das meiste Reisen?"
+      },
+      "q17": {
+        "normal": "Welchen Job würdest du umsonst machen?",
+        "imposter": "Welche Aktivität würdest du umsonst machen?"
+      },
+      "q18": {
+        "normal": "Welcher Beruf fasziniert dich am meisten?",
+        "imposter": "Welches Land fasziniert dich am meisten?"
+      },
+      "q19": {
+        "normal": "Welcher Job wäre im Alter am schwersten auszuführen?",
+        "imposter": "Welcher Sport wäre im Alter am schwersten auszuüben?"
+      },
+      "q20": {
+        "normal": "Was ist der lustigste Job, den du dir vorstellen kannst?",
+        "imposter": "Was ist das lustigste Hobby, das du dir vorstellen kannst?"
+      },
+      "q21": {
+        "normal": "Würdest du lieber mit Menschen oder alleine arbeiten?",
+        "imposter": "Würdest du lieber mit Menschen oder alleine reisen?"
+      },
+      "q22": {
+        "normal": "Welcher Beruf hat sich durch die Technologie am meisten verändert?",
+        "imposter": "Welches Hobby hat sich durch die Technologie am meisten verändert?"
+      },
+      "q23": {
+        "normal": "Welcher Job erfordert die meiste Geduld?",
+        "imposter": "Welches Hobby erfordert die meiste Geduld?"
+      },
+      "q24": {
+        "normal": "Was ist der gefährlichste Beruf?",
+        "imposter": "Was ist der gefährlichste Sport?"
+      },
+      "q25": {
+        "normal": "Welcher Job bietet die meiste Freiheit?",
+        "imposter": "Welcher Lebensstil bietet die meiste Freiheit?"
+      },
+      "q26": {
+        "normal": "Welchen Beruf würdest du für ein zweites Leben wählen?",
+        "imposter": "Welches Land würdest du für ein zweites Leben wählen?"
+      },
+      "q27": {
+        "normal": "Welcher Job lehrt dich am meisten über Menschen?",
+        "imposter": "Welches Hobby lehrt dich am meisten über Menschen?"
+      },
+      "q28": {
+        "normal": "Welcher Beruf hat die beste Work-Life-Balance?",
+        "imposter": "Welche Stadt hat die beste Work-Life-Balance?"
+      },
+      "q29": {
+        "normal": "Welchen Job würdest du nach einem Tag hassen?",
+        "imposter": "Welches Essen würdest du hassen, nachdem du es jeden Tag gegessen hast?"
+      },
+      "q30": {
+        "normal": "Welcher Beruf hat die interessantesten Geschichten?",
+        "imposter": "Welche TV-Show hat die interessantesten Geschichten?"
+      },
+      "q31": {
+        "normal": "Möchtest du einen berühmten oder einen ruhigen Beruf ausüben?",
+        "imposter": "Möchtest du einen berühmten oder einen ruhigen Lebensstil?"
+      },
+      "q32": {
+        "normal": "Welcher Beruf trägt am meisten zur Gesellschaft bei?",
+        "imposter": "Welche Erfindung trägt am meisten zur Gesellschaft bei?"
+      },
+      "q33": {
+        "normal": "Was ist der künstlerischste Beruf?",
+        "imposter": "Was ist die künstlerischste Stadt?"
+      },
+      "q34": {
+        "normal": "Von welchem Beruf träumen Kinder am meisten?",
+        "imposter": "An welchem Hobby haben Kinder am meisten Spaß?"
+      },
+      "q35": {
+        "normal": "Welcher Beruf erfordert das beste Gedächtnis?",
+        "imposter": "Welches Spiel erfordert das beste Gedächtnis?"
+      },
+      "q36": {
+        "normal": "Was ist der befriedigendste Teil deines Traumjobs?",
+        "imposter": "Was ist der befriedigendste Teil deines Lieblingshobbys?"
+      },
+      "q37": {
+        "normal": "Welcher Beruf verschwindet durch Automatisierung?",
+        "imposter": "Welche Tradition verschwindet durch die Moderne?"
+      },
+      "q38": {
+        "normal": "Welcher Job wäre auf einer Party am lustigsten?",
+        "imposter": "Welches Hobby wäre auf einer Party am lustigsten?"
+      },
+      "q39": {
+        "normal": "Welchen Beruf wird KI deiner Meinung nach zuerst ersetzen?",
+        "imposter": "Welche Aufgabe wird KI deiner Meinung nach zuerst ersetzen?"
+      },
+      "q40": {
+        "normal": "Welchen Job würdest du wählen, wenn Geld keine Rolle spielen würde?",
+        "imposter": "An welchem Ort würdest du leben, wenn Geld keine Rolle spielen würde?"
+      },
+      "q41": {
+        "normal": "Welcher Beruf wird in deiner Kultur am meisten respektiert?",
+        "imposter": "Welches Hobby wird in deiner Kultur am meisten respektiert?"
+      },
+      "q42": {
+        "normal": "Welcher Job erfordert die meiste körperliche Kraft?",
+        "imposter": "Welcher Sport erfordert die meiste körperliche Kraft?"
+      },
+      "q43": {
+        "normal": "Was ist die längste Ausbildung, die für einen Beruf erforderlich ist?",
+        "imposter": "Was ist die längste Reise, die du je gemacht hast?"
+      },
+      "q44": {
+        "normal": "Welcher Beruf wird am stärksten von Jahreszeiten beeinflusst?",
+        "imposter": "Welches Hobby wird am stärksten von Jahreszeiten beeinflusst?"
+      },
+      "q45": {
+        "normal": "Würdest du lieber morgens oder nachts arbeiten?",
+        "imposter": "Bist du persönlich eher ein Morgen- oder ein Nachtmensch?"
+      },
+      "q46": {
+        "normal": "Welcher Beruf erfordert am meisten Teamwork?",
+        "imposter": "Welcher Sport erfordert am meisten Teamwork?"
+      },
+      "q47": {
+        "normal": "Welche berufliche Fähigkeit hättest du gerne?",
+        "imposter": "Welche persönliche Fähigkeit hättest du gerne?"
+      },
+      "q48": {
+        "normal": "Welcher Beruf hat den größten Einfluss auf Kinder?",
+        "imposter": "Welche TV-Show hat den größten Einfluss auf Kinder?"
+      },
+      "q49": {
+        "normal": "Was ist der kreativste Beruf?",
+        "imposter": "Was ist das kreativste Hobby?"
+      },
+      "q50": {
+        "normal": "Welchen Beruf würdest du einem Freund empfehlen?",
+        "imposter": "Welches Reiseziel würdest du einem Freund empfehlen?"
       }
     },
     "technology": {
@@ -341,6 +1997,194 @@
       "q3": {
         "normal": "Was teilst du in sozialen Medien?",
         "imposter": "Was machst du mit deinen Freunden?"
+      },
+      "q4": {
+        "normal": "Welche Technologie hat dein Leben am meisten verändert?",
+        "imposter": "Welches Ereignis hat dein Leben am meisten verändert?"
+      },
+      "q5": {
+        "normal": "Ohne welches Tech-Gadget könntest du nicht leben?",
+        "imposter": "Ohne welches Lebensmittel könntest du nicht leben?"
+      },
+      "q6": {
+        "normal": "Welche Technologie wird deiner Meinung nach überschätzt?",
+        "imposter": "Welche Touristenattraktion wird deiner Meinung nach überschätzt?"
+      },
+      "q7": {
+        "normal": "Was ist die beste Social-Media-Plattform?",
+        "imposter": "Was ist die beste Streaming-Plattform?"
+      },
+      "q8": {
+        "normal": "Glaubst du, dass KI den Menschen ersetzen wird?",
+        "imposter": "Glaubst du, dass Roboter die Arbeiter ersetzen werden?"
+      },
+      "q9": {
+        "normal": "Welche Website besuchst du am häufigsten?",
+        "imposter": "Welches Geschäft besuchst du am häufigsten?"
+      },
+      "q10": {
+        "normal": "Wie viele Stunden am Tag verbringst du an deinem Handy?",
+        "imposter": "Wie viele Stunden am Tag verbringst du mit Lesen?"
+      },
+      "q11": {
+        "normal": "Welches Technologieunternehmen bewunderst du am meisten?",
+        "imposter": "Welche Modemarke bewunderst du am meisten?"
+      },
+      "q12": {
+        "normal": "Welche Technologie ist deiner Meinung nach am gefährlichsten?",
+        "imposter": "Welches Lebensmittel ist deiner Meinung nach am gefährlichsten für die Gesundheit?"
+      },
+      "q13": {
+        "normal": "Was ist der derzeit aufregendste Tech-Trend?",
+        "imposter": "Was ist der derzeit aufregendste Modetrend?"
+      },
+      "q14": {
+        "normal": "Was hältst du von sozialen Medien?",
+        "imposter": "Was hältst du von Reality-TV?"
+      },
+      "q15": {
+        "normal": "Welche alte Technologie vermisst du?",
+        "imposter": "Welche alte Tradition vermisst du?"
+      },
+      "q16": {
+        "normal": "Was machst du morgens als erstes auf deinem Handy?",
+        "imposter": "Was machst du morgens als erstes in der Küche?"
+      },
+      "q17": {
+        "normal": "Auf welche zukünftige Technologie freust du dich?",
+        "imposter": "Auf welches zukünftige Reiseziel freust du dich?"
+      },
+      "q18": {
+        "normal": "Glaubst du, Technologie macht uns sozialer oder weniger sozial?",
+        "imposter": "Glaubst du, Städte machen Menschen sozialer oder weniger sozial?"
+      },
+      "q19": {
+        "normal": "Welches Technikproblem frustriert dich am meisten?",
+        "imposter": "Welches Verkehrsproblem frustriert dich am meisten?"
+      },
+      "q20": {
+        "normal": "Was ist die beste Tech-Erfindung des letzten Jahrzehnts?",
+        "imposter": "Was ist die beste Food-Erfindung des letzten Jahrzehnts?"
+      },
+      "q21": {
+        "normal": "Wie stehst du zu selbstfahrenden Autos?",
+        "imposter": "Wie stehst du zu fliegenden Autos?"
+      },
+      "q22": {
+        "normal": "Was ist die beste Programmiersprache?",
+        "imposter": "Was ist die beste Kochsprache?"
+      },
+      "q23": {
+        "normal": "Bevorzugst du Apple oder Android?",
+        "imposter": "Bevorzugst du Pepsi oder Coca-Cola?"
+      },
+      "q24": {
+        "normal": "Was ist die nützlichste App auf deinem Handy?",
+        "imposter": "Was ist das nützlichste Werkzeug in deiner Küche?"
+      },
+      "q25": {
+        "normal": "Wie oft erneuerst du deine Geräte?",
+        "imposter": "Wie oft dekorierst du dein Zuhause neu?"
+      },
+      "q26": {
+        "normal": "Welche Technologie würdest du dir wünschen, die es aber noch nicht gibt?",
+        "imposter": "Welches Essen würdest du dir wünschen, das es aber noch nicht gibt?"
+      },
+      "q27": {
+        "normal": "Was hältst du vom Metaverse?",
+        "imposter": "Was hältst du von virtuellen Konzerten?"
+      },
+      "q28": {
+        "normal": "Was ist die nützlichste Technologie in der Medizin?",
+        "imposter": "Was ist die nützlichste Pflanze in der Medizin?"
+      },
+      "q29": {
+        "normal": "Glaubst du, dass Kryptowährungen die Zukunft sind?",
+        "imposter": "Glaubst du, dass Weltraumtourismus die Zukunft ist?"
+      },
+      "q30": {
+        "normal": "Welche Technologie hat die Bildung am meisten verbessert?",
+        "imposter": "Welches Gebäude hat die Bildung am meisten verbessert?"
+      },
+      "q31": {
+        "normal": "Wie schützt du deine Privatsphäre im Internet?",
+        "imposter": "Wie schützt du dein Zuhause?"
+      },
+      "q32": {
+        "normal": "Was hältst du von Smart-Home-Geräten?",
+        "imposter": "Was hältst du von Smart-City-Infrastrukturen?"
+      },
+      "q33": {
+        "normal": "Was war das erste Gadget, das du besessen hast?",
+        "imposter": "Was war das erste Instrument, das du gespielt hast?"
+      },
+      "q34": {
+        "normal": "Wie denkst du über die Datenerfassung durch Apps?",
+        "imposter": "Wie denkst du über die Verfolgung durch Kundenkarten?"
+      },
+      "q35": {
+        "normal": "Welche Technologie ist für die Umwelt am wichtigsten?",
+        "imposter": "Welche Gewohnheit ist für die Umwelt am wichtigsten?"
+      },
+      "q36": {
+        "normal": "Würdest du in einem komplett intelligenten Haus (Smart Home) leben?",
+        "imposter": "Würdest du in einem vollautomatisierten Hotel übernachten?"
+      },
+      "q37": {
+        "normal": "Was ist die am schnellsten wachsende Technologie?",
+        "imposter": "Was ist der am schnellsten wachsende Sport?"
+      },
+      "q38": {
+        "normal": "Welche Technologie wird deiner Meinung nach in 10 Jahren verschwunden sein?",
+        "imposter": "Welcher Food-Trend wird deiner Meinung nach in 10 Jahren verschwunden sein?"
+      },
+      "q39": {
+        "normal": "Wie stehst du zur Bildschirmzeit bei Kindern?",
+        "imposter": "Wie stehst du zu Social Media für Kinder?"
+      },
+      "q40": {
+        "normal": "Welche Technologie nutzen Wissenschaftler am meisten?",
+        "imposter": "Welches Werkzeug nutzen Künstler am meisten?"
+      },
+      "q41": {
+        "normal": "Was hältst du von Robotik in der Fertigung?",
+        "imposter": "Was hältst du von Drohnen in der Paketzustellung?"
+      },
+      "q42": {
+        "normal": "Was ist die beste Spielkonsole aller Zeiten?",
+        "imposter": "Was ist das beste Brettspiel aller Zeiten?"
+      },
+      "q43": {
+        "normal": "Wie hat das Internet deinen Alltag verändert?",
+        "imposter": "Wie hat Reisen deinen Alltag verändert?"
+      },
+      "q44": {
+        "normal": "Welche Technik nutzt du am meisten für deine Kreativität?",
+        "imposter": "Welches Hobby nutzt du am meisten für deine Kreativität?"
+      },
+      "q45": {
+        "normal": "Würdest du dir Technologie in deinen Körper implantieren lassen?",
+        "imposter": "Würdest du in den Weltraum fliegen, wenn du könntest?"
+      },
+      "q46": {
+        "normal": "Welchen Streaming-Dienst nutzt du am meisten?",
+        "imposter": "Welchen Lieferdienst nutzt du am meisten?"
+      },
+      "q47": {
+        "normal": "Was ist das einflussreichste Technologieunternehmen?",
+        "imposter": "Was ist die einflussreichste Wohltätigkeitsorganisation?"
+      },
+      "q48": {
+        "normal": "Wie denkst du über Deepfake-Technologie?",
+        "imposter": "Wie denkst du über Spezialeffekte in Filmen?"
+      },
+      "q49": {
+        "normal": "Was ist wichtiger: Hardware oder Software?",
+        "imposter": "Was ist wichtiger: Zutaten oder das Rezept?"
+      },
+      "q50": {
+        "normal": "Wie sähe ein Leben ohne das Internet aus?",
+        "imposter": "Wie sähe ein Leben ohne Strom aus?"
       }
     }
   },
@@ -350,6 +2194,7 @@
     "support": "Support",
     "legal": "Rechtliches",
     "premium": "Premium",
+    "Premium": "Premium",
     "premiumActive": "Premium-Mitgliedschaft",
     "getPremium": "Premium holen",
     "lifetimeMember": "Lebenslanges Mitglied",
@@ -366,35 +2211,43 @@
     "cantOpenLink": "Link konnte nicht geöffnet werden",
     "shareMessage": "Imposter Party - Spiele mit deinen Freunden! {{url}}"
   },
-  "onboarding": {
-    "skip": "Überspringen",
-    "next": "Weiter",
-    "start": "Spiel starten",
-    "slide1": {
-      "title": "Willkommen bei Imposter Party! 🎉",
-      "description": "Das lustigste soziale Deduktionsspiel mit Freunden! Finde den Betrüger oder überlebe als einer.",
-      "highlight": "Spiele mit 3-10 Spielern!"
-    },
-    "slide2": {
-      "title": "Wer ist der Betrüger? 🕵️",
-      "description": "Ein Spieler kennt das geheime Wort nicht - das ist der Betrüger! Alle anderen sehen das gleiche Wort, aber der Betrüger kennt nur die Kategorie.",
-      "highlight": "Der Betrüger muss bluffen um zu überleben!"
-    },
-    "slide3": {
-      "title": "Frage-Antwort Runde 💬",
-      "description": "Stellt euch abwechselnd Fragen. Die Fragen sollten zum Wort passen, aber nicht zu offensichtlich sein - der Betrüger könnte es erraten!",
-      "highlight": "Beispiel: 'Wie oft machst du das?'"
-    },
-    "slide4": {
-      "title": "Abstimmungszeit ✋",
-      "description": "Nach der Diskussion stimmt jeder für den, den er für den Betrüger hält. Der Spieler mit den meisten Stimmen scheidet aus!",
-      "highlight": "Bei Gleichstand scheidet niemand aus!"
-    },
-    "slide5": {
-      "title": "Bereit zu spielen? 🏆",
-      "description": "Finde den Betrüger und sammle Punkte! Verschiedene Kategorien, Spezialmodi und mehr erwarten dich.",
-      "highlight": "Troll-Modus: Manchmal ist jeder der Betrüger! 😈"
-    }
+  "customCategory": {
+    "title": "Kategorie erstellen",
+    "editTitle": "Kategorie bearbeiten",
+    "name": "Kategoriename",
+    "namePlaceholder": "Z.B. Büro-Wörter",
+    "icon": "Symbol",
+    "selectIcon": "Symbol auswählen",
+    "words": "Wörter",
+    "wordsHint": "Schreibe ein Wort pro Zeile (mindestens 5)",
+    "wordsPlaceholder": "Computer\nMeeting\nKaffee\nE-Mail\nDeadline",
+    "wordsCount": "Wörter",
+    "preview": "Vorschau",
+    "save": "Speichern",
+    "update": "Aktualisieren",
+    "error": "Fehler",
+    "nameRequired": "Kategoriename ist erforderlich",
+    "minWords": "Du musst mindestens 5 Wörter hinzufügen",
+    "saveFailed": "Kategorie konnte nicht gespeichert werden",
+    "deleteTitle": "Kategorie löschen",
+    "deleteMessage": "Bist du sicher, dass du diese Kategorie löschen möchtest?",
+    "premiumRequired": "Premium erforderlich",
+    "premiumDesc": "Premium-Mitgliedschaft erforderlich, um eigene Kategorien zu erstellen",
+    "getPremium": "Premium holen"
+  },
+  "myCategories": {
+    "title": "Meine Kategorien",
+    "premiumTitle": "Unbegrenzte Kategorien mit Premium",
+    "premiumDesc": "Erstelle deine eigenen Kategorien",
+    "emptyTitle": "Noch keine Kategorien",
+    "emptyDesc": "Erstelle deine eigenen Wortlisten, um mit Freunden zu spielen",
+    "create": "Kategorie erstellen"
+  },
+  "common": {
+    "delete": "Löschen",
+    "error": "Fehler",
+    "ok": "OK",
+    "loading": "Wird geladen..."
   },
   "playerSetup": {
     "title": "Spieler",
@@ -409,6 +2262,7 @@
   },
   "categorySelect": {
     "title": "Kategorien",
+    "customCategories": "Meine eigenen Kategorien",
     "save": "Speichern",
     "selected": "ausgewählt",
     "words": "Wörter",
@@ -421,18 +2275,25 @@
     "premiumCategories": "Premium Kategorien",
     "premiumTitle": "Premium Kategorie",
     "premiumMessage": "Premium-Mitgliedschaft erforderlich, um auf diese Kategorie zuzugreifen.",
-    "goPremium": "Premium holen"
+    "goPremium": "Premium holen",
+    "myCategories": "Meine Kategorien",
+    "customCategoriesCount": "Eigene Kategorien",
+    "noCustomCategories": "Noch keine Kategorien erstellt",
+    "createOwnCategories": "Erstelle deine eigenen Kategorien"
   },
   "premium": {
     "restoreTitle": "Wiederherstellen",
     "restoreMessage": "Wiederherstellungsprozess gestartet...",
     "lifetimeBadge": "Lebenslang Mitglied",
     "monthlyBadge": "Monatlich Mitglied",
+    "yearlyBadge": "Jährlich Mitglied",
     "title": "Premium",
     "heroTitle": "Alle Funktionen freischalten",
     "heroSubtitle": "Sofortiger Zugang und 21 weitere Premium-Kategorien",
     "monthlyTitle": "Premium-Zugang",
     "monthlySubtitle": "Monatlich",
+    "yearlyTitle": "Premium-Zugang",
+    "yearlySubtitle": "Jährlich",
     "lifetimeTitle": "Premium-Zugang",
     "lifetimeSubtitle": "Lebenslanger Zugang",
     "purchaseButton": "Zugang erhalten",
@@ -451,6 +2312,16 @@
     "tagFriends": "Freunde",
     "restorePurchase": "Käufe wiederherstellen",
     "termsOfUse": "Nutzungsbedingungen",
-    "privacyPolicy": "Datenschutzrichtlinie"
+    "privacyPolicy": "Datenschutzrichtlinie",
+    "alreadyPremium": "Du bist Premium!",
+    "yearlyActive": "Jährliche Mitgliedschaft aktiv",
+    "daysRemaining": "{{days}} Tage verbleibend",
+    "manageSubscription": "Abo verwalten",
+    "successTitle": "Erfolg!",
+    "successMessage": "Premium-Mitgliedschaft aktiviert. Viel Spaß mit allen Funktionen!",
+    "planNotFound": "Ausgewählter Plan nicht gefunden",
+    "purchaseFailed": "Kauf fehlgeschlagen. Bitte versuche es erneut.",
+    "restoreSuccessTitle": "Kauf wiederhergestellt",
+    "legalText": "Abonnement verlängert sich automatisch, sofern es nicht gekündigt wird. Jederzeit in den Kontoeinstellungen kündbar."
   }
 }

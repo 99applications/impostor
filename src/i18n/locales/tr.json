@@ -1,7 +1,7 @@
 {
   "app": {
-    "name": "Sahtekar",
-    "tagline": "Sahtekarı Bul!"
+    "name": "Fake",
+    "tagline": "Sahtekârı Bul!"
   },
   "home": {
     "playGame": "Oyuna Başla",
@@ -9,132 +9,100 @@
   },
   "howToPlay": {
     "title": "Nasıl Oynanır?",
-    "step1Title": "Oyuncuları Belirle",
-    "step1Desc": "Oyuncu sayısını ve kaç kişinin sahtekar olacağını seç.",
+    "step1Title": "Oyuncuları Ayarla",
+    "step1Desc": "Oyuncu ve sahtekâr sayısını seç.",
     "step2Title": "Kategori Seç",
     "step2Desc": "Oynamak istediğin kategoriyi seç.",
-    "step3Title": "Sırayla Bak",
-    "step3Desc": "Her oyuncu sırayla telefonuna bakarak kelimesini/sorusunu görür.",
-    "step4Title": "Sahtekarı Bul",
-    "step4Desc": "Tartışın ve sahtekarın kim olduğunu bulmaya çalışın!",
+    "step3Title": "Sırayla Oyna",
+    "step3Desc": "Her oyuncu kelimesini/sorusunu görmek için telefona bakar.",
+    "step4Title": "Sahtekârı Bul",
+    "step4Desc": "Tartış ve sahtekârın kim olduğunu bulmaya çalış!",
     "gotIt": "Anladım!"
-  },
-  "setup": {
-    "playerCount": "Kaç oyuncu?",
-    "imposterCount": "Kaç sahtekar?",
-    "gameMode": "Oyun Modu",
-    "additionalSettings": "Ek Ayarlar",
-    "wordGame": "Kelime Oyunu",
-    "wordGameDesc": "Gizli kelimeyi bilmeyeni bul",
-    "questionGame": "Soru Oyunu",
-    "questionGameDesc": "Farklı soru alanı bul",
-    "categories": "Kategoriler",
-    "showCategoryToImposter": "Sahtekara kategoriyi göster",
-    "showHintToImposter": "Sahtekara ipucu göster",
-    "startGame": "Oyunu Başlat",
-    "duration": "Süre",
-    "noLimit": "Süresiz",
-    "trollMode": "Trol Modu",
-    "trollModeHint": "Çok düşük ihtimalle herkes sahtekar olur"
-  },
-  "customCategory": {
-    "title": "Kategori Oluştur",
-    "editTitle": "Kategori Düzenle",
-    "name": "Kategori Adı",
-    "namePlaceholder": "Örn: Ofis Kelimeleri",
-    "icon": "İkon",
-    "selectIcon": "İkon seç",
-    "words": "Kelimeler",
-    "wordsHint": "Her satıra bir kelime yazın (minimum 5)",
-    "wordsPlaceholder": "Bilgisayar\nToplantı\nKahve\nE-posta\nDeadline",
-    "wordsCount": "kelime",
-    "preview": "Önizleme",
-    "save": "Kaydet",
-    "update": "Güncelle",
-    "error": "Hata",
-    "nameRequired": "Kategori adı zorunludur",
-    "minWords": "En az 5 kelime eklemelisiniz",
-    "saveFailed": "Kategori kaydedilemedi",
-    "deleteTitle": "Kategoriyi Sil",
-    "deleteMessage": "Bu kategoriyi silmek istediğinize emin misiniz?",
-    "premiumRequired": "Premium Gerekli",
-    "premiumDesc": "Özel kategori oluşturmak için Premium üyelik gerekiyor",
-    "getPremium": "Premium'a Geç"
-  },
-  "myCategories": {
-    "title": "Kategorilerim",
-    "premiumTitle": "Premium ile Sınırsız Kategori",
-    "premiumDesc": "Kendi kategorilerinizi oluşturun",
-    "emptyTitle": "Henüz kategori yok",
-    "emptyDesc": "Arkadaşlarınızla oynamak için kendi kelime listelerinizi oluşturun",
-    "create": "Kategori Oluştur"
-    
-  },
-  "game": {
-    "player": "Oyuncu",
-    "tapToReveal": "Görmek için dokun",
-    "tapToHide": "Gizlemek için dokun",
-    "yourWord": "Senin Kelimen",
-    "yourQuestion": "Senin Sorun",
-    "youAreImposter": "Sen Sahtekarsın!",
-    "imposterHint": "İpucu",
-    "category": "Kategori",
-    "next": "Sonraki",
-    "ready": "Hazır mısın?",
-    "passPhone": "Telefonu diğer oyuncuya ver",
-    "players": "oyuncu",
-    "mode": "Mod",
-    "imposters": "Sahtekar",
-    "discussTitle": "Tartışma Zamanı!",
-    "discussSubtitle": "Sahtekarı bulmak için sorular sorun ve tartışın",
-    "startDiscussion": "Tartışmayı Başlat",
-    "endGame": "Oyunu Bitir",
-    "tips": "İpuçları",
-    "tip1": "Herkes sırayla konuşsun",
-    "tip2": "Şüpheli cevaplara dikkat edin",
-    "tip3": "Oylama ile sahtekarı belirleyin"
   },
   "onboarding": {
     "skip": "Atla",
-    "next": "Devam",
-    "start": "Oyuna Başla",
+    "next": "İleri",
+    "start": "Oynamaya Başla",
     "slide1": {
       "title": "Imposter Party'ye Hoş Geldin! 🎉",
-      "description": "Arkadaşlarınla oynayabileceğin en eğlenceli sosyal dedektiflik oyunu! Sahtekarı bul veya sahtekar olarak hayatta kal.",
-      "highlight": "3-10 kişiyle oynayabilirsin!"
+      "description": "Arkadaşlarınla oynamak için en eğlenceli sosyal çıkarım oyunu! Sahtekârı bul ya da sahtekâr olarak hayatta kal.",
+      "highlight": "3-10 oyuncu ile oyna!"
     },
     "slide2": {
-      "title": "Sahtekar Kim? 🕵️",
-      "description": "Oyunculardan biri gizli kelimeyi bilmiyor - o sahtekar! Diğer herkes aynı kelimeyi görür ama sahtekar sadece kategoriyi bilir.",
-      "highlight": "Sahtekar yakalanmamak için blöf yapmalı!"
+      "title": "Kim Sahtekâr? 🕵️",
+      "description": "Bir oyuncu gizli kelimeyi bilmiyor - o sahtekâr! Diğerleri aynı kelimeyi görür ama sahtekâr sadece kategoriyi bilir.",
+      "highlight": "Sahtekâr hayatta kalmak için blöf yapmalı!"
     },
     "slide3": {
       "title": "Soru-Cevap Turu 💬",
-      "description": "Sırayla birbirinize sorular sorun. Sorular kelimeyle ilgili olmalı ama çok açık olmamalı - sahtekar kelimeyi tahmin edebilir!",
+      "description": "Sırayla birbirinize sorular sorun. Sorular kelimeyle ilgili olmalı ama çok belirgin olmamalı - sahtekâr tahmin edebilir!",
       "highlight": "Örnek: 'Bunu ne sıklıkla yaparsın?'"
     },
     "slide4": {
       "title": "Oylama Zamanı ✋",
-      "description": "Tartışma bittikten sonra herkes sahtekar olduğunu düşündüğü kişiye oy verir. En çok oy alan elenir!",
-      "highlight": "Beraberliklerde kimse elenmez!"
+      "description": "Tartışmanın ardından herkes sahtekâr olduğunu düşündüğü kişi için oy kullanır. En çok oy alan elenebilir!",
+      "highlight": "Beraberlik durumunda kimse elenmez!"
     },
     "slide5": {
-      "title": "Hazır mısın? 🏆",
-      "description": "Sahtekarı bul ve puanları topla! Farklı kategoriler, özel modlar ve daha fazlası seni bekliyor.",
-      "highlight": "Trol Modu: Bazen herkes sahtekar olabilir! 😈"
+      "title": "Oynamaya Hazır mısın? 🏆",
+      "description": "Sahtekârı bul ve puan kazan! Farklı kategoriler, özel modlar ve daha fazlası seni bekliyor.",
+      "highlight": "Trol Modu: Bazen herkes sahtekâr olabilir! 😈"
     }
+  },
+  "setup": {
+    "playerCount": "Kaç kişi oynuyor?",
+    "imposterCount": "Kaç sahtekâr?",
+    "trollMode": "Trol Modu",
+    "trollModeHint": "%7 ihtimalle herkes sahtekâr!",
+    "gameMode": "Oyun Modu",
+    "wordGame": "Kelime Oyunu",
+    "wordGameDesc": "Kelimeyi bilmeyeni bul",
+    "questionGame": "Soru Oyunu",
+    "questionGameDesc": "Farklı soruyu bul",
+    "categories": "Kategoriler",
+    "showCategoryToImposter": "Sahtekâra kategoriyi göster",
+    "showHintToImposter": "Sahtekâra ipucu göster",
+    "startGame": "Oyunu Başlat",
+    "noLimit": "Süresiz",
+    "duration": "Süre",
+    "minutes": "dk",
+    "additionalSettings": "Ek Ayarlar"
+  },
+  "game": {
+    "players": "oyuncu",
+    "mode": "Mod",
+    "imposters": "Sahtekârlar",
+    "discussTitle": "Tartışma Zamanı!",
+    "discussSubtitle": "Sahtekârı bulmak için soru sorun ve tartışın",
+    "startDiscussion": "Tartışmayı Başlat",
+    "endGame": "Oyunu Bitir",
+    "tips": "İpuçları",
+    "tip1": "Herkesin sırayla konuşmasına izin verin",
+    "tip2": "Şüpheli cevaplara dikkat edin",
+    "tip3": "Sahtekârı belirlemek için oy kullanın",
+    "player": "Oyuncu",
+    "tapToReveal": "Görmek için dokun",
+    "tapToHide": "Gizlemek için dokun",
+    "yourWord": "Senin Kelimenin",
+    "yourQuestion": "Senin Sorun",
+    "youAreImposter": "Sen Sahtekârsın!",
+    "imposterHint": "İpucu",
+    "category": "Kategori",
+    "next": "İleri",
+    "ready": "Hazır mısın?",
+    "passPhone": "Telefonu bir sonraki oyuncuya ver"
   },
   "reveal": {
     "title": "Oyun Bitti!",
-    "impostersWere": "Sahtekarlar",
+    "impostersWere": "Sahtekârlar",
     "theWordWas": "Kelime şuydu",
     "theQuestionWas": "Soru şuydu",
     "playAgain": "Tekrar Oyna",
     "backToMenu": "Ana Menü"
   },
   "categories": {
-    "christmas": "Noel",
-    "food": "Yiyecekler",
+    "christmas": "Yılbaşı",
+    "food": "Yemek",
     "animals": "Hayvanlar",
     "movies": "Filmler",
     "sports": "Sporlar",
@@ -147,13 +115,53 @@
       "santa": "Noel Baba",
       "reindeer": "Ren Geyiği",
       "snowflake": "Kar Tanesi",
-      "christmasTree": "Çam Ağacı",
+      "christmasTree": "Yılbaşı Ağacı",
       "giftBox": "Hediye Kutusu",
-      "stocking": "Noel Çorabı",
+      "stocking": "Yılbaşı Çorabı",
       "snowman": "Kardan Adam",
       "sleigh": "Kızak",
-      "lights": "Işık Süsleri",
-      "gingerbread": "Zencefilli Kurabiye"
+      "lights": "Işıklar",
+      "gingerbread": "Zencefilli Kurabiye",
+      "elf": "Elf",
+      "caroling": "Noel Şarkısı Söyleme",
+      "mistletoe": "Ökseotu",
+      "wreath": "Çelenk",
+      "nutcracker": "Fındıkkıran",
+      "ornament": "Süsleme",
+      "bells": "Çanlar",
+      "holly": "Çobanpüskülü",
+      "tinsel": "Işıltılı Süs",
+      "candles": "Mumlar",
+      "chimney": "Baca",
+      "fireplace": "Şömine",
+      "eggnog": "Yumurtalı Süt İçeceği",
+      "cookie": "Kurabiye",
+      "star": "Yıldız",
+      "angel": "Melek",
+      "nativity": "Doğuş Sahnesi",
+      "christmasCard": "Yılbaşı Kartı",
+      "christmasEve": "Noel Gecesi",
+      "winter": "Kış",
+      "snowball": "Kar Topu",
+      "iceSkating": "Buz Pateni",
+      "hotChocolate": "Sıcak Çikolata",
+      "scarf": "Atkı",
+      "hat": "Şapka",
+      "mittens": "Eldiven",
+      "boots": "Bot",
+      "christmasSong": "Yılbaşı Şarkısı",
+      "turkey": "Hindi",
+      "gingerbreadHouse": "Zencefilli Ev",
+      "candyCane": "Şeker Kamışı",
+      "mulledWine": "Sıcak Şarap",
+      "advent": "Advent Takvimi",
+      "christmasShopping": "Yılbaşı Alışverişi",
+      "presents": "Hediyeler",
+      "familyGathering": "Aile Toplantısı",
+      "christmasDinner": "Yılbaşı Yemeği",
+      "snowglobe": "Kar Küresi",
+      "christmasMarket": "Yılbaşı Pazarı",
+      "sleighBells": "Kızak Çanları"
     },
     "food": {
       "pizza": "Pizza",
@@ -163,11 +171,49 @@
       "pide": "Pide",
       "kofte": "Köfte",
       "pasta": "Makarna",
-      "sushi": "Sushi",
+      "sushi": "Suşi",
       "kebab": "Kebap",
       "manti": "Mantı",
       "borek": "Börek",
-      "baklava": "Baklava"
+      "baklava": "Baklava",
+      "steak": "Biftek",
+      "tacos": "Taco",
+      "curry": "Körili Yemek",
+      "ramen": "Ramen",
+      "salad": "Salata",
+      "soup": "Çorba",
+      "sandwich": "Sandviç",
+      "croissant": "Kruvasan",
+      "waffle": "Waffle",
+      "pancake": "Pankek",
+      "iceCream": "Dondurma",
+      "chocolate": "Çikolata",
+      "cake": "Pasta",
+      "cookie": "Kurabiye",
+      "bread": "Ekmek",
+      "cheese": "Peynir",
+      "eggs": "Yumurta",
+      "bacon": "Pastırma",
+      "fish": "Balık",
+      "shrimp": "Karides",
+      "orange": "Portakal",
+      "apple": "Elma",
+      "banana": "Muz",
+      "strawberry": "Çilek",
+      "coffee": "Kahve",
+      "tea": "Çay",
+      "juice": "Meyve Suyu",
+      "yogurt": "Yoğurt",
+      "rice": "Pilav",
+      "noodles": "Noodle",
+      "avocado": "Avokado",
+      "hummus": "Humus",
+      "burrito": "Burrito",
+      "shawarma": "Şavarma",
+      "hotdog": "Hot Dog",
+      "fries": "Patates Kızartması",
+      "popcorn": "Patlamış Mısır",
+      "peanut": "Fıstık Ezmesi"
     },
     "animals": {
       "lion": "Aslan",
@@ -181,21 +227,97 @@
       "wolf": "Kurt",
       "bear": "Ayı",
       "crocodile": "Timsah",
-      "dolphin": "Yunus"
+      "dolphin": "Yunus",
+      "eagle": "Kartal",
+      "parrot": "Papağan",
+      "flamingo": "Flamingo",
+      "peacock": "Tavus Kuşu",
+      "rabbit": "Tavşan",
+      "fox": "Tilki",
+      "deer": "Geyik",
+      "horse": "At",
+      "cat": "Kedi",
+      "dog": "Köpek",
+      "shark": "Köpek Balığı",
+      "whale": "Balina",
+      "octopus": "Ahtapot",
+      "butterfly": "Kelebek",
+      "bee": "Arı",
+      "snake": "Yılan",
+      "lizard": "Kertenkele",
+      "turtle": "Kaplumbağa",
+      "frog": "Kurbağa",
+      "monkey": "Maymun",
+      "gorilla": "Goril",
+      "cheetah": "Çita",
+      "zebra": "Zebra",
+      "rhinoceros": "Gergedan",
+      "hippopotamus": "Hipopotam",
+      "camel": "Deve",
+      "polarBear": "Kutup Ayısı",
+      "jaguar": "Jaguar",
+      "owl": "Baykuş",
+      "bat": "Yarasa",
+      "crow": "Karga",
+      "salmon": "Somon",
+      "seahorse": "Denizatı",
+      "lobster": "Istakoz",
+      "crab": "Yengeç",
+      "ant": "Karınca",
+      "spider": "Örümcek",
+      "lemur": "Lemur"
     },
     "movies": {
-      "titanic": "Titanik",
+      "titanic": "Titanic",
       "avatar": "Avatar",
       "matrix": "Matrix",
-      "inception": "Başlangıç",
-      "interstellar": "Yıldızlararası",
+      "inception": "Inception",
+      "interstellar": "Interstellar",
       "gladiator": "Gladyatör",
       "forrestGump": "Forrest Gump",
       "godfather": "Baba",
       "lordOfRings": "Yüzüklerin Efendisi",
       "harryPotter": "Harry Potter",
       "starWars": "Yıldız Savaşları",
-      "jurassicPark": "Jurassic Park"
+      "jurassicPark": "Jurassic Park",
+      "shawshank": "Esaretin Bedeli",
+      "darkKnight": "Kara Şövalye",
+      "schindlersList": "Schindler'in Listesi",
+      "pulpFiction": "Ucuz Roman",
+      "fightClub": "Dövüş Kulübü",
+      "goodfellas": "Sıradan İnsanlar",
+      "silenceOfLambs": "Kuzuların Sessizliği",
+      "americanBeauty": "Amerikan Güzeli",
+      "savePrivateRyan": "Ryan'ı Kurtar",
+      "braveheart": "Cesur Yürek",
+      "theMatrix": "Matrix Reloaded",
+      "terminator": "Terminatör",
+      "alien": "Alien",
+      "predator": "Predator",
+      "dieHard": "Zor Ölüm",
+      "rocky": "Rocky",
+      "scarface": "Scarface",
+      "casablanca": "Kazablanka",
+      "rearWindow": "Arka Pencere",
+      "psycho": "Sapık",
+      "shinning": "Cinnet",
+      "exorcist": "Şeytan",
+      "jaws": "Köpekbalığı",
+      "eT": "E.T.",
+      "backToFuture": "Geleceğe Dönüş",
+      "indianaJones": "Indiana Jones",
+      "spiderMan": "Örümcek Adam",
+      "ironMan": "Demir Adam",
+      "avengers": "İntikamcılar",
+      "blackPanther": "Kara Panter",
+      "wonderWoman": "Süper Kadın",
+      "joker": "Joker",
+      "parasite": "Parazit",
+      "oldboy": "Oldboy",
+      "cityOfGod": "Tanrı'nın Şehri",
+      "amelie": "Amelie",
+      "lifeIsBeautiful": "Hayat Güzeldir",
+      "spiritedAway": "Ruhların Kaçışı"
     },
     "sports": {
       "football": "Futbol",
@@ -209,7 +331,45 @@
       "cycling": "Bisiklet",
       "skiing": "Kayak",
       "golf": "Golf",
-      "baseball": "Beyzbol"
+      "baseball": "Beyzbol",
+      "rugby": "Rugby",
+      "cricket": "Kriket",
+      "tabletennis": "Masa Tenisi",
+      "badminton": "Badminton",
+      "archery": "Okçuluk",
+      "fencing": "Eskrim",
+      "judo": "Judo",
+      "karate": "Karate",
+      "taekwondo": "Taekwondo",
+      "gymnastics": "Jimnastik",
+      "rowing": "Kürek",
+      "sailing": "Yelkenli",
+      "surfing": "Sörf",
+      "skateboarding": "Kaykay",
+      "snowboarding": "Snowboard",
+      "icehockey": "Buz Hokeyi",
+      "figureskating": "Artistik Patinaj",
+      "biathlon": "Biatlon",
+      "triathlon": "Triatlon",
+      "marathon": "Maraton",
+      "weightlifting": "Halter",
+      "shooting": "Atıcılık",
+      "horseriding": "Binicilik",
+      "handball": "Hentbol",
+      "waterpolo": "Su Topu",
+      "diving": "Dalış",
+      "canoeing": "Kano",
+      "climbing": "Tırmanış",
+      "mma": "MMA",
+      "esports": "E-Spor",
+      "chess": "Satranç",
+      "bowling": "Bowling",
+      "billiards": "Bilardo",
+      "darts": "Dart",
+      "lacrosse": "Lakros",
+      "softball": "Softball",
+      "polo": "Polo",
+      "curling": "Curling"
     },
     "countries": {
       "turkey": "Türkiye",
@@ -223,7 +383,45 @@
       "egypt": "Mısır",
       "india": "Hindistan",
       "china": "Çin",
-      "russia": "Rusya"
+      "russia": "Rusya",
+      "usa": "Amerika Birleşik Devletleri",
+      "uk": "Birleşik Krallık",
+      "canada": "Kanada",
+      "australia": "Avustralya",
+      "argentina": "Arjantin",
+      "southKorea": "Güney Kore",
+      "netherlands": "Hollanda",
+      "portugal": "Portekiz",
+      "greece": "Yunanistan",
+      "sweden": "İsveç",
+      "norway": "Norveç",
+      "switzerland": "İsv瑞士",
+      "austria": "Avusturya",
+      "belgium": "Belçika",
+      "poland": "Polonya",
+      "ukraine": "Ukrayna",
+      "iran": "İran",
+      "saudiArabia": "Suudi Arabistan",
+      "uae": "BAE",
+      "thailand": "Tayland",
+      "vietnam": "Vietnam",
+      "indonesia": "Endonezya",
+      "malaysia": "Malezya",
+      "singapore": "Singapur",
+      "southAfrica": "Güney Afrika",
+      "nigeria": "Nijerya",
+      "kenya": "Kenya",
+      "morocco": "Fas",
+      "ethiopia": "Etiyopya",
+      "colombia": "Kolombiya",
+      "chile": "Şili",
+      "peru": "Peru",
+      "newZealand": "Yeni Zelanda",
+      "cuba": "Küba",
+      "iraq": "Irak",
+      "pakistan": "Pakistan",
+      "bangladesh": "Bangladeş",
+      "philippines": "Filipinler"
     },
     "professions": {
       "doctor": "Doktor",
@@ -237,11 +435,49 @@
       "nurse": "Hemşire",
       "architect": "Mimar",
       "accountant": "Muhasebeci",
-      "waiter": "Garson"
+      "waiter": "Garson",
+      "dentist": "Diş Hekimi",
+      "pharmacist": "Eczacı",
+      "psychologist": "Psikolog",
+      "judge": "Hakim",
+      "scientist": "Bilim İnsanı",
+      "programmer": "Programcı",
+      "designer": "Tasarımcı",
+      "journalist": "Gazeteci",
+      "photographer": "Fotoğrafçı",
+      "musician": "Müzisyen",
+      "actor": "Aktör",
+      "director": "Yönetmen",
+      "writer": "Yazar",
+      "painter": "Ressam",
+      "sculptor": "Heykeltıraş",
+      "dancer": "Dansçı",
+      "veterinarian": "Veteriner",
+      "biologist": "Biyolog",
+      "chemist": "Kimyacı",
+      "physicist": "Fizikçi",
+      "mathematician": "Matematikçi",
+      "economist": "Ekonomist",
+      "sociologist": "Sosyolog",
+      "historian": "Tarihçi",
+      "archaeologist": "Arkeolog",
+      "geologist": "Jeolog",
+      "astronaut": "Astronot",
+      "soldier": "Asker",
+      "sailor": "Denizci",
+      "farmer": "Çiftçi",
+      "electrician": "Elektrikçi",
+      "plumber": "Tesisatçı",
+      "carpenter": "Marangoz",
+      "mechanic": "Mekanik",
+      "barber": "Berber",
+      "tailor": "Terzi",
+      "librarian": "Kütüphaneci",
+      "translator": "Tercüman"
     },
     "technology": {
       "iPhone": "iPhone",
-      "laptop": "Laptop",
+      "laptop": "Dizüstü Bilgisayar",
       "tablet": "Tablet",
       "smartwatch": "Akıllı Saat",
       "drone": "Drone",
@@ -251,17 +487,55 @@
       "metaverse": "Metaverse",
       "instagram": "Instagram",
       "tiktok": "TikTok",
-      "youtube": "YouTube"
+      "youtube": "YouTube",
+      "internet": "İnternet",
+      "wifi": "Wi-Fi",
+      "bluetooth": "Bluetooth",
+      "gps": "GPS",
+      "cloud": "Bulut Bilişim",
+      "database": "Veritabanı",
+      "cybersecurity": "Siber Güvenlik",
+      "virtualReality": "Sanal Gerçeklik",
+      "augmentedReality": "Artırılmış Gerçeklik",
+      "quantumComputing": "Kuantum Bilgisayar",
+      "selfDrivingCar": "Otonom Araç",
+      "electricCar": "Elektrikli Araba",
+      "solarPanel": "Güneş Paneli",
+      "threeD": "3D Teknoloji",
+      "printer3d": "3D Yazıcı",
+      "smartHome": "Akıllı Ev",
+      "alexa": "Alexa",
+      "chatgpt": "ChatGPT",
+      "netflix": "Netflix",
+      "spotify": "Spotify",
+      "facebook": "Facebook",
+      "twitter": "Twitter/X",
+      "whatsapp": "WhatsApp",
+      "zoom": "Zoom",
+      "google": "Google",
+      "amazon": "Amazon",
+      "tesla": "Tesla",
+      "spacex": "SpaceX",
+      "satellite": "Uydu",
+      "nuclear": "Nükleer Enerji",
+      "biotech": "Biyoteknoloji",
+      "nanotech": "Nanoteknoloji",
+      "semiconductor": "Yarı İletken",
+      "processor": "İşlemci",
+      "gameConsole": "Oyun Konsolu",
+      "vr": "VR Gözlük",
+      "cryptocurrency": "Kripto Para",
+      "nft": "NFT"
     }
   },
   "hints": {
     "christmas": {
-      "hint1": "Kış mevsimi ile ilgili",
+      "hint1": "Kış mevsimiyle ilgili",
       "hint2": "Kutlama zamanı",
       "hint3": "Aralık ayında olur"
     },
     "food": {
-      "hint1": "Yenir içilir",
+      "hint1": "Yenilen veya içilen bir şey",
       "hint2": "Mutfakta yapılır",
       "hint3": "Lezzetli bir şey"
     },
@@ -271,72 +545,636 @@
       "hint3": "Hayvanat bahçesinde görürsün"
     },
     "movies": {
-      "hint1": "Sinemada izlenir",
-      "hint2": "Hollywood yapımı olabilir",
-      "hint3": "Ekranda görürsün"
+      "hint1": "Sinema ile ilgili",
+      "hint2": "Büyük ekranda gösterildi",
+      "hint3": "Dünyaca ünlü"
     },
     "sports": {
       "hint1": "Fiziksel aktivite",
-      "hint2": "Yarışmalarda yapılır",
-      "hint3": "Spor salonu veya saha"
+      "hint2": "Rekabetçi bir şey",
+      "hint3": "Olimpiyatlarda olabilir"
     },
     "countries": {
-      "hint1": "Haritada bulunur",
-      "hint2": "Bir bayrağı var",
-      "hint3": "İnsanlar orada yaşar"
+      "hint1": "Bir ülke",
+      "hint2": "Dünya haritasında var",
+      "hint3": "Başkenti olan bir yer"
     },
     "professions": {
-      "hint1": "Bir iş/meslek",
-      "hint2": "Para kazanmak için yapılır",
-      "hint3": "Eğitim gerektirir"
+      "hint1": "Bir iş veya kariyer",
+      "hint2": "İnsanlar bunu meslek olarak yapar",
+      "hint3": "Eğitim veya beceri gerektirir"
     },
     "technology": {
-      "hint1": "Dijital dünya",
-      "hint2": "Elektronik bir şey",
-      "hint3": "Modern çağ icadı"
+      "hint1": "Modern teknoloji ile ilgili",
+      "hint2": "Dijital veya elektronik",
+      "hint3": "Günümüzde yaygın kullanılan"
     }
   },
   "questions": {
     "christmas": {
       "q1": {
-        "normal": "En sevdiğin Noel filmi hangisi?",
-        "imposter": "En sevdiğin korku filmi hangisi?"
+        "normal": "En sevdiğin Yılbaşı filmi nedir?",
+        "imposter": "En sevdiğin korku filmi nedir?"
       },
       "q2": {
-        "normal": "Noel'de en çok ne yemeyi seversin?",
+        "normal": "Yılbaşında en çok ne yemeyi seversin?",
         "imposter": "Yazın en çok ne yemeyi seversin?"
       },
       "q3": {
-        "normal": "Noel ağacına ne süslersin?",
-        "imposter": "Doğum günü pastasına ne koyarsın?"
+        "normal": "Yılbaşı ağacını neyle süslersin?",
+        "imposter": "Doğum günü pastasının üzerine ne koyarsın?"
+      },
+      "q4": {
+        "normal": "En çok hangi hediyeyi almak istersin?",
+        "imposter": "En çok hangi eşyayı satın almak istersin?"
+      },
+      "q5": {
+        "normal": "Noel arifesini nasıl geçirirsin?",
+        "imposter": "Yılbaşı gecesini nasıl geçirirsin?"
+      },
+      "q6": {
+        "normal": "En çok hangi Yılbaşı şarkısını seversin?",
+        "imposter": "En çok hangi pop şarkısını seversin?"
+      },
+      "q7": {
+        "normal": "Yılbaşının en güzel yanı nedir?",
+        "imposter": "Yazın en güzel yanı nedir?"
+      },
+      "q8": {
+        "normal": "Hediye vermeyi mi yoksa almayı mı tercih edersin?",
+        "imposter": "Yemek yapmayı mı yoksa sipariş etmeyi mi tercih edersin?"
+      },
+      "q9": {
+        "normal": "En sevdiğin Yılbaşı kurabiyesi hangisi?",
+        "imposter": "En sevdiğin doğum günü tatlısı hangisi?"
+      },
+      "q10": {
+        "normal": "Yılbaşını nerede geçirirsin?",
+        "imposter": "Tatilini nerede geçirirsin?"
+      },
+      "q11": {
+        "normal": "Hangi Yılbaşı geleneğini seviyorsun?",
+        "imposter": "Hangi yaz geleneğini seviyorsun?"
+      },
+      "q12": {
+        "normal": "Yılbaşı süslerini ne kadar erken asarsın?",
+        "imposter": "Tatil planını ne kadar erken yaparsın?"
+      },
+      "q13": {
+        "normal": "Bir Yılbaşı kartına ne yazarsın?",
+        "imposter": "Bir doğum günü kartına ne yazarsın?"
+      },
+      "q14": {
+        "normal": "Yılbaşında kar yağdığında nasıl hissedersin?",
+        "imposter": "Piknikte yağmur yağdığında nasıl hissedersin?"
+      },
+      "q15": {
+        "normal": "Çocuklar Yılbaşında en çok neyi sever?",
+        "imposter": "Çocuklar yazın en çok neyi sever?"
+      },
+      "q16": {
+        "normal": "Aldığın en kötü Yılbaşı hediyesi neydi?",
+        "imposter": "Aldığın en kötü doğum günü hediyesi neydi?"
+      },
+      "q17": {
+        "normal": "Noel Baba'ya inanır mısın?",
+        "imposter": "Paskalya Tavşanına inanır mısın?"
+      },
+      "q18": {
+        "normal": "Hangi Yılbaşı yemeği olmadan yaşayamazsın?",
+        "imposter": "Hangi yaz yemeği olmadan yaşayamazsın?"
+      },
+      "q19": {
+        "normal": "Hediyeleri nasıl paketlersin?",
+        "imposter": "Seyahat için nasıl bavul hazırlarsın?"
+      },
+      "q20": {
+        "normal": "Hediyeleri saat kaçta açarsın?",
+        "imposter": "Doğum günü pastasını saat kaçta yersin?"
+      },
+      "q21": {
+        "normal": "Yılbaşı ağacın nasıl görünüyor?",
+        "imposter": "Bahçen nasıl görünüyor?"
+      },
+      "q22": {
+        "normal": "Yılbaşında kiliseye gider misin?",
+        "imposter": "Hafta sonları parka gider misin?"
+      },
+      "q23": {
+        "normal": "En iyi Yılbaşı anın nedir?",
+        "imposter": "En iyi yaz anın nedir?"
+      },
+      "q24": {
+        "normal": "Yılbaşından önce bir dilek listesi yapar mısın?",
+        "imposter": "Market alışverişinden önce bir alışveriş listesi yapar mısın?"
+      },
+      "q25": {
+        "normal": "Yılbaşı yemeği için kaç kişi toplanır?",
+        "imposter": "Doğum günü partine kaç kişi gelir?"
+      },
+      "q26": {
+        "normal": "Yılbaşı sabahı ne içersin?",
+        "imposter": "Tembel bir pazar sabahı ne içersin?"
+      },
+      "q27": {
+        "normal": "Hatırladığın en komik Yılbaşı anısı nedir?",
+        "imposter": "Hatırladığın en komik parti anısı nedir?"
+      },
+      "q28": {
+        "normal": "Ağacın tepesine melek mi yoksa yıldız mı koyarsın?",
+        "imposter": "Pastada mum mu yoksa maytap mı tercih edersin?"
+      },
+      "q29": {
+        "normal": "Her yıl hangi Yılbaşı filmini izlersin?",
+        "imposter": "Her yıl hangi diziyi izlersin?"
+      },
+      "q30": {
+        "normal": "Yılbaşı alışverişine erken mi çıkarsın yoksa son dakikaya mı bırakırsın?",
+        "imposter": "Tatil rezervasyonunu erken mi yaparsın yoksa son dakikaya mı bırakırsın?"
+      },
+      "q31": {
+        "normal": "En sevdiğin Yılbaşı şekeri hangisi?",
+        "imposter": "En sevdiğin Cadılar Bayramı şekeri hangisi?"
+      },
+      "q32": {
+        "normal": "Yılbaşı hediyelerini başkasına hediye etmek hakkında ne düşünüyorsun?",
+        "imposter": "Mağazadan alınan ürünleri iade etmek hakkında ne düşünüyorsun?"
+      },
+      "q33": {
+        "normal": "Çocukluğundan kalan bir Yılbaşı geleneği nedir?",
+        "imposter": "Çocukluğundan kalan bir yaz geleneği nedir?"
+      },
+      "q34": {
+        "normal": "Karlı bir Yılbaşı mı yoksa yeşil bir Yılbaşı mı tercih edersin?",
+        "imposter": "Sıcak bir yaz mı yoksa serin bir yaz mı tercih edersin?"
+      },
+      "q35": {
+        "normal": "Yılbaşında verdiğin en pahalı hediye neydi?",
+        "imposter": "Bir doğum gününde verdiğin en pahalı hediye neydi?"
+      },
+      "q36": {
+        "normal": "Yılbaşı kartlarını postayla mı yoksa dijital olarak mı gönderirsin?",
+        "imposter": "Doğum günü tebriklerini kartla mı yoksa mesajla mı gönderirsin?"
+      },
+      "q37": {
+        "normal": "Yılbaşı yemeğinden sonra ne yaparsın?",
+        "imposter": "Büyük bir aile yemeğinden sonra ne yaparsın?"
+      },
+      "q38": {
+        "normal": "Senin için mükemmel Yılbaşı nasıldır?",
+        "imposter": "Senin için mükemmel tatil nasıldır?"
+      },
+      "q39": {
+        "normal": "26 Aralık'ta nasıl hissedersin?",
+        "imposter": "Büyük bir partinin ertesi günü nasıl hissedersin?"
+      },
+      "q40": {
+        "normal": "En sevdiğin Yılbaşı süsü hangisi?",
+        "imposter": "En sevdiğin ev dekorasyonu hangisi?"
+      },
+      "q41": {
+        "normal": "Gerçek mi yoksa yapay bir Yılbaşı ağacı mı tercih edersin?",
+        "imposter": "Gerçek mi yoksa yapay çiçek mi tercih edersin?"
+      },
+      "q42": {
+        "normal": "Hangi advent takvimi geleneğini takip edersin?",
+        "imposter": "Hangi sabah rutini takip edersin?"
+      },
+      "q43": {
+        "normal": "Hiç unutmadığın Yılbaşı hediyesi neydi?",
+        "imposter": "Hiç unutmadığın doğum günü hediyesi neydi?"
+      },
+      "q44": {
+        "normal": "Yılbaşı bittiğinde nasıl hissedersin?",
+        "imposter": "Bir tatil bittiğinde nasıl hissedersin?"
+      },
+      "q45": {
+        "normal": "En sevdiğin Yılbaşı kokusu hangisi?",
+        "imposter": "En sevdiğin mutfak kokusu hangisi?"
+      },
+      "q46": {
+        "normal": "El yapımı mı yoksa mağazadan alınmış Yılbaşı hediyelerini mi tercih edersin?",
+        "imposter": "Ev yemeği mi yoksa restoran yemeği mi tercih edersin?"
+      },
+      "q47": {
+        "normal": "En çok hangi Yılbaşı aktivitesinden keyif alırsın?",
+        "imposter": "En çok hangi hafta sonu aktivitesinden keyif alırsın?"
+      },
+      "q48": {
+        "normal": "Genellikle kaç hediye verirsin?",
+        "imposter": "Genellikle kaç doğum günü hediyesi verirsin?"
+      },
+      "q49": {
+        "normal": "Ağaç olmadan Yılbaşı nasıl olurdu?",
+        "imposter": "Pasta olmadan doğum günü nasıl olurdu?"
+      },
+      "q50": {
+        "normal": "Yılbaşı sabahı rutinin nedir?",
+        "imposter": "Düzenli hafta sonu sabah rutinin nedir?"
       }
     },
     "food": {
       "q1": {
-        "normal": "Pizzaya hangi malzemeyi koyarsın?",
-        "imposter": "Salataya hangi malzemeyi koyarsın?"
+        "normal": "Pizzanın üzerine hangi malzemeleri koyarsın?",
+        "imposter": "Salataya hangi malzemeleri eklersin?"
       },
       "q2": {
         "normal": "En sevdiğin fast food restoranı hangisi?",
-        "imposter": "En sevdiğin kıyafet mağazası hangisi?"
+        "imposter": "En sevdiğin giyim mağazası hangisi?"
       },
       "q3": {
         "normal": "Kahvaltıda ne yersin?",
-        "imposter": "Akşam yemeğinde ne yersin?"
+        "imposter": "Sabah ilk iş ne yaparsın?"
+      },
+      "q4": {
+        "normal": "Seni en çok rahatlatan yemek hangisi?",
+        "imposter": "Seni en çok rahatlatan aktivite hangisi?"
+      },
+      "q5": {
+        "normal": "Bifteğini nasıl pişmiş seversin?",
+        "imposter": "Kahveni nasıl seversin?"
+      },
+      "q6": {
+        "normal": "En çok hangi mutfağı seviyorsun?",
+        "imposter": "En çok hangi müzik türünü seviyorsun?"
+      },
+      "q7": {
+        "normal": "Birini etkilemek istediğinde ne pişirirsin?",
+        "imposter": "Birini etkilemek istediğinde ne giyersin?"
+      },
+      "q8": {
+        "normal": "Sevdiğin en garip yiyecek kombinasyonu nedir?",
+        "imposter": "Sahip olduğun en garip hobi nedir?"
+      },
+      "q9": {
+        "normal": "Tatlı mı yoksa tuzlu yiyecekleri mi tercih edersin?",
+        "imposter": "Dağları mı yoksa denizi mi tercih edersin?"
+      },
+      "q10": {
+        "normal": "Her gün yiyebileceğin yemek hangisi?",
+        "imposter": "Her gün dinleyebileceğin şarkı hangisi?"
+      },
+      "q11": {
+        "normal": "Bir partideki en iyi yemek nedir?",
+        "imposter": "Bir partideki en iyi aktivite nedir?"
+      },
+      "q12": {
+        "normal": "Evde yemek yapmayı mı yoksa dışarıda yemeyi mi tercih edersin?",
+        "imposter": "Evden mi yoksa ofisten mi çalışmayı tercih edersin?"
+      },
+      "q13": {
+        "normal": "Çocukken nefret ettiğin ama şimdi sevdiğin yiyecek hangisi?",
+        "imposter": "Çocukken nefret ettiğin ama şimdi sevdiğin aktivite hangisi?"
+      },
+      "q14": {
+        "normal": "En sevdiğin tatlı hangisi?",
+        "imposter": "En sevdiğin mevsim hangisi?"
+      },
+      "q15": {
+        "normal": "Dünyadaki son gününde ne yerdin?",
+        "imposter": "Dünyadaki son gününde ne yapardın?"
+      },
+      "q16": {
+        "normal": "Baharatlı mı yoksa hafif yiyecekleri mi tercih edersin?",
+        "imposter": "Sıcak mı yoksa soğuk havayı mı tercih edersin?"
+      },
+      "q17": {
+        "normal": "Şimdiye kadar pişirdiğin en zor yemek hangisi?",
+        "imposter": "Şimdiye kadar yaptığın en zor görev hangisi?"
+      },
+      "q18": {
+        "normal": "Gece geç saatlerde en sevdiğin atıştırmalık nedir?",
+        "imposter": "Gece geç saatlerde en sevdiğin aktivite nedir?"
+      },
+      "q19": {
+        "normal": "Buzdolabında her zaman bulundurduğun yiyecek nedir?",
+        "imposter": "Çantanda her zaman bulundurduğun eşya nedir?"
+      },
+      "q20": {
+        "normal": "Yemekle birlikte en sevdiğin içecek hangisi?",
+        "imposter": "En sevdiğin film türü hangisi?"
+      },
+      "q21": {
+        "normal": "Stresli olduğunda ne yersin?",
+        "imposter": "Stresli olduğunda ne yaparsın?"
+      },
+      "q22": {
+        "normal": "Yediğin en pahalı yemek neydi?",
+        "imposter": "Satın aldığın en pahalı eşya neydi?"
+      },
+      "q23": {
+        "normal": "Sana çocukluğunu hatırlatan yemek hangisi?",
+        "imposter": "Sana çocukluğunu hatırlatan şarkı hangisi?"
+      },
+      "q24": {
+        "normal": "Bir restoranda yalnız yemek yeme konusunda ne düşünüyorsun?",
+        "imposter": "Yalnız seyahat etme konusunda ne düşünüyorsun?"
+      },
+      "q25": {
+        "normal": "Pişirmekten en çok gurur duyduğun yemek hangisi?",
+        "imposter": "En çok gurur duyduğun yeteneğin hangisi?"
+      },
+      "q26": {
+        "normal": "Yeni yiyecekleri kolayca dener misin?",
+        "imposter": "Yeni aktiviteleri kolayca dener misin?"
+      },
+      "q27": {
+        "normal": "Asla yemeyeceğin yiyecek hangisi?",
+        "imposter": "Asla yapmayacağın aktivite hangisi?"
+      },
+      "q28": {
+        "normal": "Hangisi daha iyi: ev yemeği mi yoksa restoran yemeği mi?",
+        "imposter": "Hangisi daha iyi: ev mi otel mi?"
+      },
+      "q29": {
+        "normal": "En sevdiğin sokak yemeği hangisi?",
+        "imposter": "En sevdiğin sokak müziği hangisi?"
+      },
+      "q30": {
+        "normal": "Yemekte sunum ne kadar önemlidir?",
+        "imposter": "Modada görünüm ne kadar önemlidir?"
+      },
+      "q31": {
+        "normal": "Hangi baharat olmadan yemek yapamazsın?",
+        "imposter": "Hangi alet olmadan çalışamazsın?"
+      },
+      "q32": {
+        "normal": "Piknik için en iyi yiyecek nedir?",
+        "imposter": "Bir piknik günü için en iyi aktivite nedir?"
+      },
+      "q33": {
+        "normal": "Vejetaryen yemekler hakkında ne düşünüyorsun?",
+        "imposter": "Elektrikli arabalar hakkında ne düşünüyorsun?"
+      },
+      "q34": {
+        "normal": "En çok hangi yemeği yapmanla tanınırsın?",
+        "imposter": "En çok hangi yeteneğinle tanınırsın?"
+      },
+      "q35": {
+        "normal": "Antrenmandan sonra ne yersin?",
+        "imposter": "Antrenmandan sonra ne yaparsın?"
+      },
+      "q36": {
+        "normal": "Soğuk bir gün için en iyi yemek nedir?",
+        "imposter": "Soğuk bir gün için en iyi aktivite nedir?"
+      },
+      "q37": {
+        "normal": "Tarifleri mi takip edersin yoksa doğaçlama mı yaparsın?",
+        "imposter": "Planlara mı uyarsın yoksa doğaçlama mı yaparsın?"
+      },
+      "q38": {
+        "normal": "Yemek konusundaki kaçamağın (guilty pleasure) nedir?",
+        "imposter": "Eğlence konusundaki kaçamağın (guilty pleasure) nedir?"
+      },
+      "q39": {
+        "normal": "Yaptığın en büyük mutfak felaketi nedir?",
+        "imposter": "Yaptığın en büyük hata nedir?"
+      },
+      "q40": {
+        "normal": "Mükemmel yemeğin nasıl görünüyor?",
+        "imposter": "Mükemmel günün nasıl görünüyor?"
+      },
+      "q41": {
+        "normal": "Romantik bir akşam yemeği için en iyi yemek nedir?",
+        "imposter": "Romantik bir akşam için en iyi aktivite nedir?"
+      },
+      "q42": {
+        "normal": "Haftada kaç kez yemek yaparsın?",
+        "imposter": "Haftada kaç kez egzersiz yaparsın?"
+      },
+      "q43": {
+        "normal": "Sana en çok enerji veren yemek hangisi?",
+        "imposter": "Sana en çok enerji veren aktivite hangisi?"
+      },
+      "q44": {
+        "normal": "En sevdiğin yemek anın hangisi?",
+        "imposter": "En sevdiğin seyahat anın hangisi?"
+      },
+      "q45": {
+        "normal": "Her gün kahvaltı yapar mısın?",
+        "imposter": "Her gün egzersiz yapar mısın?"
+      },
+      "q46": {
+        "normal": "Potluck (herkesin yemek getirdiği) partilere ne götürürsün?",
+        "imposter": "Ev görme partilerine ne hediye götürürsün?"
+      },
+      "q47": {
+        "normal": "Düzenli olarak yediğin en sağlıklı şey nedir?",
+        "imposter": "Sahip olduğun en sağlıklı alışkanlık nedir?"
+      },
+      "q48": {
+        "normal": "Başka bir kültürden en sevdiğin yemek hangisi?",
+        "imposter": "Başka bir kültürden en sevdiğin gelenek hangisi?"
+      },
+      "q49": {
+        "normal": "Ne yiyeceğine nasıl karar verirsin?",
+        "imposter": "Ne giyeceğine nasıl karar verirsin?"
+      },
+      "q50": {
+        "normal": "Kendini şımarttığın en güzel yiyecek nedir?",
+        "imposter": "Kendini şımarttığın en büyük alışverişin nedir?"
       }
     },
     "animals": {
       "q1": {
-        "normal": "Hangi hayvanı evcil beslersin?",
-        "imposter": "Hangi arabayı sürersin?"
+        "normal": "Hangi hayvanı evcil hayvan olarak beslemek isterdin?",
+        "imposter": "Hangi arabayı kullanmak isterdin?"
       },
       "q2": {
-        "normal": "Hayvanat bahçesinde ilk neyi görürsün?",
-        "imposter": "AVM'de ilk neyi görürsün?"
+        "normal": "Hayvanat bahçesinde ilk olarak neyi görürsün?",
+        "imposter": "Alışveriş merkezinde ilk olarak neyi görürsün?"
       },
       "q3": {
         "normal": "Hangi hayvan olmak isterdin?",
         "imposter": "Hangi süper kahraman olmak isterdin?"
+      },
+      "q4": {
+        "normal": "En sevdiğin vahşi hayvan hangisi?",
+        "imposter": "En sevdiğin vahşi manzara hangisi?"
+      },
+      "q5": {
+        "normal": "En çok hangi hayvandan korkarsın?",
+        "imposter": "En çok hangi aktiviteden korkarsın?"
+      },
+      "q6": {
+        "normal": "Hangi hayvanın sana en çok benzediğini düşünüyorsun?",
+        "imposter": "Kişiliğine en çok uyan araba markası hangisi?"
+      },
+      "q7": {
+        "normal": "Hangi hayvanı incelemek/öğrenmek isterdin?",
+        "imposter": "Hangi konuyu incelemek/öğrenmek isterdin?"
+      },
+      "q8": {
+        "normal": "Bildiğin en tehlikeli hayvan hangisi?",
+        "imposter": "Bildiğin en tehlikeli spor hangisi?"
+      },
+      "q9": {
+        "normal": "Sence en zeki hayvan hangisi?",
+        "imposter": "Sence en zekice icat hangisi?"
+      },
+      "q10": {
+        "normal": "Eğer vahşi bir hayvanı evcilleştirmen gerekseydi hangisini seçerdin?",
+        "imposter": "Yeni bir beceride ustalaşman gerekseydi hangisini seçerdin?"
+      },
+      "q11": {
+        "normal": "En tatlı yavru hayvan hangisi?",
+        "imposter": "En tatlı bebek ismi hangisi?"
+      },
+      "q12": {
+        "normal": "Hangi hayvan en uzun yaşar?",
+        "imposter": "Hangi bina en uzun süre ayakta kalır?"
+      },
+      "q13": {
+        "normal": "Hangi hayvan en iyi korumayı yapar?",
+        "imposter": "Hangi insan en iyi korumayı yapar?"
+      },
+      "q14": {
+        "normal": "Hiç egzotik bir hayvan yer miydin?",
+        "imposter": "Hiç ekstrem bir sporu dener miydin?"
+      },
+      "q15": {
+        "normal": "En sevdiğin hayvan nasıl bir ses çıkarır?",
+        "imposter": "En sevdiğin enstrüman nasıl bir ses çıkarır?"
+      },
+      "q16": {
+        "normal": "Ruhani hayvanın (spirit animal) hangisi?",
+        "imposter": "Ruhani elementin (spirit element) hangisi?"
+      },
+      "q17": {
+        "normal": "Sence hayvanların duyguları var mıdır?",
+        "imposter": "Sence robotların duyguları var mıdır?"
+      },
+      "q18": {
+        "normal": "Issız bir adaya hangi hayvanı götürürdün?",
+        "imposter": "Issız bir adaya hangi insanı götürürdün?"
+      },
+      "q19": {
+        "normal": "Gördüğün en komik hayvan davranışı nedir?",
+        "imposter": "Gördüğün en komik insan davranışı nedir?"
+      },
+      "q20": {
+        "normal": "Hangi hayvan en kötü evcil hayvan olurdu?",
+        "imposter": "Hangi araba işe gidip gelmek için en kötü araba olurdu?"
+      },
+      "q21": {
+        "normal": "Sence hayvanları hayvanat bahçesinde tutmalı mıyız?",
+        "imposter": "Sence müzeleri geç saatlere kadar açık tutmalı mıyız?"
+      },
+      "q22": {
+        "normal": "Hangi hayvan en iyi hafızaya sahiptir?",
+        "imposter": "Tanıdığın hangi insan en iyi hafızaya sahip?"
+      },
+      "q23": {
+        "normal": "En çok hangi hayvan için üzülüyorsun?",
+        "imposter": "En çok hangi durum için üzülüyorsun?"
+      },
+      "q24": {
+        "normal": "Hangi vahşi hayvanla karşılaşmak seni en çok heyecanlandırırdı?",
+        "imposter": "Hangi ünlüyle karşılaşmak seni en çok heyecanlandırırdı?"
+      },
+      "q25": {
+        "normal": "Senin için en büyüleyici hayvan hangisi?",
+        "imposter": "Senin için en büyüleyici ülke hangisi?"
+      },
+      "q26": {
+        "normal": "Bildiğin en renkli hayvan hangisi?",
+        "imposter": "Bildiğin en renkli şehir hangisi?"
+      },
+      "q27": {
+        "normal": "Hangi hayvan en hızlıdır?",
+        "imposter": "Hangi araç en hızlıdır?"
+      },
+      "q28": {
+        "normal": "En korkutucu okyanus hayvanı hangisi?",
+        "imposter": "En korkutucu okyanus sporu hangisi?"
+      },
+      "q29": {
+        "normal": "Hangi hayvan en soğuk yerde yaşar?",
+        "imposter": "Tanıdığın hangi kişi en soğuk yerde yaşıyor?"
+      },
+      "q30": {
+        "normal": "Eğer hayvanlar konuşabilseydi hangisi en ilginç olurdu?",
+        "imposter": "Eğer tablolar konuşabilseydi hangisi en ilginç olurdu?"
+      },
+      "q31": {
+        "normal": "Hangi hayvan en iyi kamuflaja sahiptir?",
+        "imposter": "Hangi kişi kalabalığa karışmakta en iyisidir?"
+      },
+      "q32": {
+        "normal": "Parkta ördeklere ne yedirirsin?",
+        "imposter": "Pikniğe ne götürürsün?"
+      },
+      "q33": {
+        "normal": "Bildiğin nesli en çok tükenmekte olan hayvan hangisi?",
+        "imposter": "Bildiğin nesli en çok tükenmekte olan gelenek hangisi?"
+      },
+      "q34": {
+        "normal": "Hangi hayvan sürüler halinde avlanır?",
+        "imposter": "Hangi takım sporu en çok ekip çalışması gerektirir?"
+      },
+      "q35": {
+        "normal": "En zehirli hayvan hangisi?",
+        "imposter": "En zehirli bitki hangisi?"
+      },
+      "q36": {
+        "normal": "Hangi hayvan kış uykusuna yatar?",
+        "imposter": "İnsanların kışın daha çok yaptığı aktivite nedir?"
+      },
+      "q37": {
+        "normal": "Çölde hangi hayvanı bulabilirsin?",
+        "imposter": "Çölde hangi aktiviteyi yapabilirsin?"
+      },
+      "q38": {
+        "normal": "Yaşamış en büyük hayvan hangisi?",
+        "imposter": "Yapılmış en büyük gemi hangisi?"
+      },
+      "q39": {
+        "normal": "Hangi hayvan en iyi gece görüşüne sahip?",
+        "imposter": "Hangi kamera en iyi gece moduna sahip?"
+      },
+      "q40": {
+        "normal": "Protein için böcek yer miydin?",
+        "imposter": "Aşırı diyetleri dener miydin?"
+      },
+      "q41": {
+        "normal": "Hangi hayvan iyi şansla ilişkilendirilir?",
+        "imposter": "Hangi nesne iyi şansla ilişkilendirilir?"
+      },
+      "q42": {
+        "normal": "Hangi hayvanın özelliğine sahip olmak isterdin?",
+        "imposter": "Hangi süper güce sahip olmak isterdin?"
+      },
+      "q43": {
+        "normal": "Bir popülerlik yarışmasını hangi hayvan kazanırdı?",
+        "imposter": "Bir popülerlik yarışmasını hangi ünlü kazanırdı?"
+      },
+      "q44": {
+        "normal": "Hangi hayvan en sadıktır?",
+        "imposter": "Bir insanı en sadık yapan özellik nedir?"
+      },
+      "q45": {
+        "normal": "Hayvan deneyleri hakkında ne düşünüyorsun?",
+        "imposter": "Ürün testleri hakkında ne düşünüyorsun?"
+      },
+      "q46": {
+        "normal": "Şehir hayatına en uygun hayvan hangisi?",
+        "imposter": "Şehir hayatına en uygun insan tipi hangisi?"
+      },
+      "q47": {
+        "normal": "En gizemli hayvan hangisi?",
+        "imposter": "En gizemli meslek hangisi?"
+      },
+      "q48": {
+        "normal": "Hangi kuş en yükseğe uçar?",
+        "imposter": "Hangi uçak en yükseğe uçar?"
+      },
+      "q49": {
+        "normal": "Hangi hayvan en iyi komedyen olurdu?",
+        "imposter": "Sence hangi kişi en iyi komedyen olurdu?"
+      },
+      "q50": {
+        "normal": "Okyanusun en derininde hangi hayvan yaşar?",
+        "imposter": "Okyanusun en derinine hangi denizaltı iner?"
       }
     },
     "movies": {
@@ -350,7 +1188,195 @@
       },
       "q3": {
         "normal": "Hangi film karakteri olmak isterdin?",
-        "imposter": "Hangi tarihi kişi olmak isterdin?"
+        "imposter": "Hangi tarihi şahsiyet olmak isterdin?"
+      },
+      "q4": {
+        "normal": "Seni ağlatan son film hangisiydi?",
+        "imposter": "Seni ağlatan son şarkı hangisiydi?"
+      },
+      "q5": {
+        "normal": "En sevdiğin aktör/aktris kim?",
+        "imposter": "En sevdiğin müzisyen kim?"
+      },
+      "q6": {
+        "normal": "Filmleri evde mi yoksa sinemada mı izlemeyi tercih edersin?",
+        "imposter": "Evde mi yoksa kafede mi okumayı tercih edersin?"
+      },
+      "q7": {
+        "normal": "Tekrar tekrar izleyebileceğin film hangisi?",
+        "imposter": "Tekrar tekrar dinleyebileceğin şarkı hangisi?"
+      },
+      "q8": {
+        "normal": "İzlediğin en korkunç film hangisi?",
+        "imposter": "Bindiğin en korkunç lunapark aleti hangisi?"
+      },
+      "q9": {
+        "normal": "En iyi müziklere sahip film hangisi?",
+        "imposter": "En iyi diskografiye sahip sanatçı hangisi?"
+      },
+      "q10": {
+        "normal": "Seni en çok hayal kırıklığına uğratan film hangisi?",
+        "imposter": "Seni en çok hayal kırıklığına uğratan ürün hangisi?"
+      },
+      "q11": {
+        "normal": "Hangi filmin devamının gelmesini isterdin?",
+        "imposter": "Hangi dizinin daha çok sezonu olmasını isterdin?"
+      },
+      "q12": {
+        "normal": "En iyi özel efektlere sahip film hangisi?",
+        "imposter": "En iyi grafiklere sahip video oyunu hangisi?"
+      },
+      "q13": {
+        "normal": "Şimdiye kadar izlediğin en komik film hangisi?",
+        "imposter": "Şimdiye kadar gördüğün en komik komedyen hangisi?"
+      },
+      "q14": {
+        "normal": "En romantik film hangisi?",
+        "imposter": "En romantik şehir hangisi?"
+      },
+      "q15": {
+        "normal": "Bir filmi izlemeden önce yorumları okur musun?",
+        "imposter": "Bir şey satın almadan önce yorumları okur musun?"
+      },
+      "q16": {
+        "normal": "En sık söylediğin film repliği nedir?",
+        "imposter": "En sık söylediğin şarkı sözü nedir?"
+      },
+      "q17": {
+        "normal": "En ilginç bulduğun film kötüsü (villain) kim?",
+        "imposter": "En ilginç bulduğun tarihi kötü adam kim?"
+      },
+      "q18": {
+        "normal": "Hangi animasyon filmini seviyorsun?",
+        "imposter": "Hangi animasyon dizisini seviyorsun?"
+      },
+      "q19": {
+        "normal": "En iyi ters köşeye (plot twist) sahip film hangisi?",
+        "imposter": "En iyi ters köşeye sahip kitap hangisi?"
+      },
+      "q20": {
+        "normal": "En çok takdir ettiğin yönetmen kim?",
+        "imposter": "En çok takdir ettiğin mimar kim?"
+      },
+      "q21": {
+        "normal": "Hangi film setini ziyaret etmek isterdin?",
+        "imposter": "Hangi tarihi yeri ziyaret etmek isterdin?"
+      },
+      "q22": {
+        "normal": "Keyif aldığın yabancı dildeki film hangisi?",
+        "imposter": "Ziyaret etmekten keyif aldığın yabancı ülke hangisi?"
+      },
+      "q23": {
+        "normal": "Seni en çok düşündüren film hangisiydi?",
+        "imposter": "Seni en çok düşündüren kitap hangisiydi?"
+      },
+      "q24": {
+        "normal": "Baştan sona izlediğin en uzun film hangisi?",
+        "imposter": "Okuduğun en uzun kitap hangisi?"
+      },
+      "q25": {
+        "normal": "Hangi filmin sonuna bayılıyorsun?",
+        "imposter": "Hangi tatilinin bitişine bayılıyorsun?"
+      },
+      "q26": {
+        "normal": "Kitaplardan uyarlanan filmleri mi yoksa orijinal senaryoları mı tercih edersin?",
+        "imposter": "Cover şarkıları mı yoksa orijinal şarkıları mı tercih edersin?"
+      },
+      "q27": {
+        "normal": "En iyi süper kahraman filmi hangisi?",
+        "imposter": "Hangi süper kahraman gücünü seçerdin?"
+      },
+      "q28": {
+        "normal": "En aksiyon dolu film hangisi?",
+        "imposter": "En aksiyon dolu spor hangisi?"
+      },
+      "q29": {
+        "normal": "Herkesin izlemesi gereken klasik film hangisi?",
+        "imposter": "Herkesin okuması gereken klasik kitap hangisi?"
+      },
+      "q30": {
+        "normal": "En iyi açılış sahnesine sahip film hangisi?",
+        "imposter": "En iyi girişe (intro) sahip şarkı hangisi?"
+      },
+      "q31": {
+        "normal": "Altyazıyı mı yoksa dublajı mı tercih edersin?",
+        "imposter": "Kitapları çevirisinden mi yoksa orijinalinden mi okumayı tercih edersin?"
+      },
+      "q32": {
+        "normal": "Çocukken seni korkutan film hangisiydi?",
+        "imposter": "Çocukken seni korkutan deneyim hangisiydi?"
+      },
+      "q33": {
+        "normal": "Uzaylılara hangi filmi izletirdin?",
+        "imposter": "Uzaylılara hangi yemeği gösterirdin?"
+      },
+      "q34": {
+        "normal": "Hangi film daha fazla Oscar kazanmalıydı?",
+        "imposter": "Hangi şarkı daha fazla ödül kazanmalıydı?"
+      },
+      "q35": {
+        "normal": "En iyi filmler hangi on yıla aitti?",
+        "imposter": "En iyi müzikler hangi on yıla aitti?"
+      },
+      "q36": {
+        "normal": "En iyi araba kovalamacasına sahip film hangisi?",
+        "imposter": "En iyi yarışa sahip video oyunu hangisi?"
+      },
+      "q37": {
+        "normal": "Bir filmi gerçekten harika yapan şey nedir?",
+        "imposter": "Bir şarkıyı gerçekten harika yapan şey nedir?"
+      },
+      "q38": {
+        "normal": "En çok abartılmış film hangisi?",
+        "imposter": "En çok abartılmış turistik yer hangisi?"
+      },
+      "q39": {
+        "normal": "Hangi filmin sonu seni sinir etti?",
+        "imposter": "Hangi dizinin sonu seni sinir etti?"
+      },
+      "q40": {
+        "normal": "En iyi film serisi hangisi?",
+        "imposter": "En iyi dizi serisi hangisi?"
+      },
+      "q41": {
+        "normal": "Bir filmi yalnız mı yoksa başkalarıyla mı izlemeyi tercih edersin?",
+        "imposter": "Yalnız mı yoksa başkalarıyla mı yemek yemeyi tercih edersin?"
+      },
+      "q42": {
+        "normal": "İngilizce olmayan hangi film aklını başından aldı?",
+        "imposter": "İngilizce olmayan hangi şarkı aklını başından aldı?"
+      },
+      "q43": {
+        "normal": "Kendine en yakın bulduğun film karakteri hangisi?",
+        "imposter": "Kendine en yakın bulduğun kitap karakteri hangisi?"
+      },
+      "q44": {
+        "normal": "Bugün sinemada eksik olan şey nedir?",
+        "imposter": "Bugün müzikte eksik olan şey nedir?"
+      },
+      "q45": {
+        "normal": "Gerçek bir hikayeye dayanan en iyi film hangisi?",
+        "imposter": "En iyi belgesel hangisi?"
+      },
+      "q46": {
+        "normal": "Hayata bakış açını değiştiren film hangisi?",
+        "imposter": "Hayata bakış açını değiştiren kitap hangisi?"
+      },
+      "q47": {
+        "normal": "Gelecek vizyondaki en çok beklediğin film hangisi?",
+        "imposter": "Gelecekteki en çok beklediğin seyahat hangisi?"
+      },
+      "q48": {
+        "normal": "Filmlerden önce fragmanları izler misin?",
+        "imposter": "Restoranlara gitmeden önce menüleri okur musun?"
+      },
+      "q49": {
+        "normal": "En iyi kostümlere sahip film hangisi?",
+        "imposter": "En iyi kostümlere sahip moda tasarımcısı kim?"
+      },
+      "q50": {
+        "normal": "Otobiyografi filminin adı ne olurdu?",
+        "imposter": "Otobiyografi kitabının adı ne olurdu?"
       }
     },
     "sports": {
@@ -363,8 +1389,196 @@
         "imposter": "En sevdiğin şarkıcı kim?"
       },
       "q3": {
-        "normal": "Hangi sporu yapmayı seversin?",
-        "imposter": "Hangi enstrümanı çalmayı seversin?"
+        "normal": "Hangi sporu yapmayı seviyorsun?",
+        "imposter": "Hangi enstrümanı çalmayı seviyorsun?"
+      },
+      "q4": {
+        "normal": "Yapabilseydin hangi sporu denerdin?",
+        "imposter": "Yapabilseydin hangi hobiyi denerdin?"
+      },
+      "q5": {
+        "normal": "Canlı izlemesi en heyecan verici spor hangisi?",
+        "imposter": "Canlı gitmesi en heyecan verici konser hangisi?"
+      },
+      "q6": {
+        "normal": "Takım sporlarını mı yoksa bireysel sporları mı tercih edersin?",
+        "imposter": "Grup halinde mi yoksa yalnız seyahat etmeyi mi tercih edersin?"
+      },
+      "q7": {
+        "normal": "Çocukken hangi sporu yapardın?",
+        "imposter": "Çocukken hangi hobin vardı?"
+      },
+      "q8": {
+        "normal": "En tehlikeli spor hangisi?",
+        "imposter": "En tehlikeli meslek hangisi?"
+      },
+      "q9": {
+        "normal": "Sporları izlemeyi mi yoksa yapmayı mı tercih edersin?",
+        "imposter": "Filmleri izlemeyi mi yoksa çekmeyi mi tercih edersin?"
+      },
+      "q10": {
+        "normal": "Ustalaşması en zor spor hangisi?",
+        "imposter": "Ustalaşması en zor enstrüman hangisi?"
+      },
+      "q11": {
+        "normal": "Çocuğunun hangi sporu yapmasını isterdin?",
+        "imposter": "Çocuğunun hangi hobiye sahip olmasını isterdin?"
+      },
+      "q12": {
+        "normal": "Hangi spor yaralanmasını yaşadın?",
+        "imposter": "İşle ilgili hangi yaralanmayı yaşadın?"
+      },
+      "q13": {
+        "normal": "En çok hafife alınan spor hangisi?",
+        "imposter": "En çok hafife alınan şehir hangisi?"
+      },
+      "q14": {
+        "normal": "Tüm zamanların en büyük sporcusu kim?",
+        "imposter": "Tüm zamanların en büyük müzisyeni kim?"
+      },
+      "q15": {
+        "normal": "En önemli spor ekipmanı nedir?",
+        "imposter": "En önemli mutfak ekipmanı nedir?"
+      },
+      "q16": {
+        "normal": "Hiç ekstrem sporlar yapar mıydın?",
+        "imposter": "Hiç ekstrem yemekler yapar mıydın?"
+      },
+      "q17": {
+        "normal": "En iyi formalara sahip spor hangisi?",
+        "imposter": "En iyi ulusal kıyafetlere sahip ülke hangisi?"
+      },
+      "q18": {
+        "normal": "Spor etkinlikleri için erken uyanır mısın?",
+        "imposter": "İndirimler için erken uyanır mısın?"
+      },
+      "q19": {
+        "normal": "Olimpiyatlara hangi sporu eklerdin?",
+        "imposter": "Okul müfredatına hangi aktiviteyi eklerdin?"
+      },
+      "q20": {
+        "normal": "Belirli bir spor için en iyi ülke neresidir?",
+        "imposter": "Belirli bir mutfak için en iyi ülke neresidir?"
+      },
+      "q21": {
+        "normal": "Sporda kaybetmek hakkında ne hissediyorsun?",
+        "imposter": "İşte başarısız olmak hakkında ne hissediyorsun?"
+      },
+      "q22": {
+        "normal": "En tutkulu taraftarlara sahip spor hangisi?",
+        "imposter": "En tutkulu hayranlara sahip müzik türü hangisi?"
+      },
+      "q23": {
+        "normal": "Yaz sporlarını mı yoksa kış sporlarını mı tercih edersin?",
+        "imposter": "Yaz tatillerini mi yoksa kış tatillerini mi tercih edersin?"
+      },
+      "q24": {
+        "normal": "Gittiğin en iyi stadyum hangisi?",
+        "imposter": "Gittiğin en iyi konser mekanı hangisi?"
+      },
+      "q25": {
+        "normal": "Sence hangi spor en çok beceri gerektirir?",
+        "imposter": "Sence hangi sanat formu en çok beceri gerektirir?"
+      },
+      "q26": {
+        "normal": "İzlediğin en uzun spor etkinliği hangisiydi?",
+        "imposter": "İzlediğin en uzun film hangisiydi?"
+      },
+      "q27": {
+        "normal": "En çok strateji içeren spor hangisi?",
+        "imposter": "En çok strateji içeren kutu oyunu hangisi?"
+      },
+      "q28": {
+        "normal": "Sporu kazanmak için mi yoksa eğlence için mi yaparsın?",
+        "imposter": "Oyunları kazanmak için mi yoksa eğlence için mi oynarsın?"
+      },
+      "q29": {
+        "normal": "Büyürken idol aldığın spor kahramanı kimdi?",
+        "imposter": "Büyürken idol aldığın müzik kahramanı kimdi?"
+      },
+      "q30": {
+        "normal": "Başka bir hayatta hangi sporda ustalaşmak isterdin?",
+        "imposter": "Başka bir hayatta hangi enstrümanda ustalaşmak isterdin?"
+      },
+      "q31": {
+        "normal": "Zindelik (fitness) için en iyi spor hangisi?",
+        "imposter": "Zindelik için en iyi diyet hangisi?"
+      },
+      "q32": {
+        "normal": "İzlemesi en güzel spor hangisi?",
+        "imposter": "İzlemesi en güzel sanat formu hangisi?"
+      },
+      "q33": {
+        "normal": "Her türlü havada yapabileceğin spor hangisi?",
+        "imposter": "Her türlü havada yapabileceğin hobi hangisi?"
+      },
+      "q34": {
+        "normal": "En komik anlara sahip spor hangisi?",
+        "imposter": "En komik anlara sahip dizi hangisi?"
+      },
+      "q35": {
+        "normal": "En çok hangi spor rekorunu kırmak isterdin?",
+        "imposter": "En çok hangi dünya rekorunu kırmak isterdin?"
+      },
+      "q36": {
+        "normal": "Aileleri en çok bir araya getiren spor hangisi?",
+        "imposter": "Aileleri en çok bir araya getiren aktivite hangisi?"
+      },
+      "q37": {
+        "normal": "Hangi sporu en büyük ilgiyle izlersin?",
+        "imposter": "Hangi haber konusunu en büyük ilgiyle takip edersin?"
+      },
+      "q38": {
+        "normal": "Sporda hangisi daha önemli: yetenek mi yoksa antrenman mı?",
+        "imposter": "Müzikte hangisi daha önemli: yetenek mi yoksa eğitim mi?"
+      },
+      "q39": {
+        "normal": "En iyi rekabete sahip spor hangisi?",
+        "imposter": "En iyi rekabete sahip dizi hangisi?"
+      },
+      "q40": {
+        "normal": "Gördüğün en unutulmaz spor anı nedir?",
+        "imposter": "Gördüğün en unutulmaz konser anı nedir?"
+      },
+      "q41": {
+        "normal": "En sevdiğin sporu ne daha iyi yapardı?",
+        "imposter": "En sevdiğin diziyi ne daha iyi yapardı?"
+      },
+      "q42": {
+        "normal": "Ülkende en popüler olan spor hangisi?",
+        "imposter": "Ülkende en popüler olan yemek hangisi?"
+      },
+      "q43": {
+        "normal": "Spor haberlerini günlük olarak takip eder misin?",
+        "imposter": "Magazin haberlerini günlük olarak takip eder misin?"
+      },
+      "q44": {
+        "normal": "Dünyadaki en büyük spor etkinliği hangisi?",
+        "imposter": "Dünyadaki en büyük müzik etkinliği hangisi?"
+      },
+      "q45": {
+        "normal": "Profesyonel bir sporcu olmak ister miydin?",
+        "imposter": "Profesyonel bir müzisyen olmak ister miydin?"
+      },
+      "q46": {
+        "normal": "Sana hayat hakkında en çok şey öğreten spor hangisi?",
+        "imposter": "Sana hayat hakkında en çok şey öğreten kitap hangisi?"
+      },
+      "q47": {
+        "normal": "Fiziksel olarak en zorlayıcı spor hangisi?",
+        "imposter": "Zihinsel olarak en zorlayıcı meslek hangisi?"
+      },
+      "q48": {
+        "normal": "Hangi sporun abartıldığını düşünüyorsun?",
+        "imposter": "Hangi restoran türünün abartıldığını düşünüyorsun?"
+      },
+      "q49": {
+        "normal": "En sevdiğin sporun en iyi yanı nedir?",
+        "imposter": "En sevdiğin hobinin en iyi yanı nedir?"
+      },
+      "q50": {
+        "normal": "Boş vaktin olsaydı hangi sporu izlerdin?",
+        "imposter": "Boş vaktin olsaydı hangi diziyi art arda izlerdin?"
       }
     },
     "countries": {
@@ -373,40 +1587,604 @@
         "imposter": "Hangi gezegeni ziyaret etmek istersin?"
       },
       "q2": {
-        "normal": "Hangi ülkenin yemeklerini seversin?",
+        "normal": "Hangi ülkenin mutfağını seversin?",
         "imposter": "Hangi rengi seversin?"
       },
       "q3": {
         "normal": "Hangi ülkede yaşamak istersin?",
-        "imposter": "Hangi dönemde yaşamak istersin?"
+        "imposter": "Hangi çağda yaşamak istersin?"
+      },
+      "q4": {
+        "normal": "Hangi ülke en güzel manzaraya sahip?",
+        "imposter": "Hangi tablo en güzel manzaraya sahip?"
+      },
+      "q5": {
+        "normal": "Hangi ülke en iyi yemeklere sahip?",
+        "imposter": "Hangi restoran en iyi yemeklere sahip?"
+      },
+      "q6": {
+        "normal": "Hangi ülke en iyi müziğe sahip?",
+        "imposter": "Hangi yayın platformu en iyi müziğe sahip?"
+      },
+      "q7": {
+        "normal": "Hangi ülke sana en çok evin gibi hissettiriyor?",
+        "imposter": "Hangi mevsim sana en çok evin gibi hissettiriyor?"
+      },
+      "q8": {
+        "normal": "Hangi dili konuşmayı çok isterdin?",
+        "imposter": "Hangi enstrümanı çalmayı çok isterdin?"
+      },
+      "q9": {
+        "normal": "Hangi ülke en arkadaş canlısı insanlara sahip?",
+        "imposter": "Hangi mahalle en arkadaş canlısı insanlara sahip?"
+      },
+      "q10": {
+        "normal": "Sence hangi ülke en gizemli olanı?",
+        "imposter": "Sence hangi meslek en gizemli olanı?"
+      },
+      "q11": {
+        "normal": "Hangi ülkenin tarihi en büyüleyici?",
+        "imposter": "Hangi kişinin biyografisi en büyüleyici?"
+      },
+      "q12": {
+        "normal": "Hangi ülke en iyi plajlara sahip?",
+        "imposter": "Hangi şehir en iyi parklara sahip?"
+      },
+      "q13": {
+        "normal": "Ziyaret etmek seni en çok hangi ülkede şaşırtırdı?",
+        "imposter": "Tadına bakmak seni en çok hangi yemekte şaşırtırdı?"
+      },
+      "q14": {
+        "normal": "Hangi ülke en eşsiz kültüre sahip?",
+        "imposter": "Hangi grup en eşsiz tarza sahip?"
+      },
+      "q15": {
+        "normal": "En çok hangi ülkenin mimarisini seviyorsun?",
+        "imposter": "En çok hangi mobilya tarzını seviyorsun?"
+      },
+      "q16": {
+        "normal": "Hangi ülke en iyi toplu taşımaya sahip?",
+        "imposter": "Hangi şehir en iyi bisiklet altyapısına sahip?"
+      },
+      "q17": {
+        "normal": "Hangi ülke en iyi yaşam kalitesine sahip?",
+        "imposter": "Hangi şehir en iyi yaşam kalitesine sahip?"
+      },
+      "q18": {
+        "normal": "Hangi ülkeyi asla ziyaret etmezdin?",
+        "imposter": "Hangi yemeği asla denemezdin?"
+      },
+      "q19": {
+        "normal": "Hangi ülke en zengin tarihe sahip?",
+        "imposter": "Hangi müze en zengin koleksiyona sahip?"
+      },
+      "q20": {
+        "normal": "Hangi ülkenin modasını seviyorsun?",
+        "imposter": "Hangi on yılın modasını seviyorsun?"
+      },
+      "q21": {
+        "normal": "Hangi ülke en iyi milli parka sahip?",
+        "imposter": "Hangi şehir en iyi hayvanat bahçesine sahip?"
+      },
+      "q22": {
+        "normal": "En önemli icatları hangi ülke yaptı?",
+        "imposter": "En önemli icatları hangi kişi yaptı?"
+      },
+      "q23": {
+        "normal": "Hakkında en az şey bildiğin ülke hangisi?",
+        "imposter": "Hakkında en az şey bildiğin konu hangisi?"
+      },
+      "q24": {
+        "normal": "Hangi ülke en ilginç yaban hayatına sahip?",
+        "imposter": "Hangi şehir en ilginç sokak sanatına sahip?"
+      },
+      "q25": {
+        "normal": "Kendi ülkenden en çok neyi özlersin?",
+        "imposter": "Memleketinden en çok neyi özlersin?"
+      },
+      "q26": {
+        "normal": "Sence 50 yıl sonra hangi ülke en güçlü olacak?",
+        "imposter": "Sence 50 yıl sonra hangi teknoloji en güçlü olacak?"
+      },
+      "q27": {
+        "normal": "Hangi ülke en iyi eğitim sistemine sahip?",
+        "imposter": "Hangi şehir en iyi üniversitelere sahip?"
+      },
+      "q28": {
+        "normal": "Hangi ülkenin festivaline katılırdın?",
+        "imposter": "Hangi müzik festivaline katılırdın?"
+      },
+      "q29": {
+        "normal": "Seni en çok şaşırtan ülke hangisi oldu?",
+        "imposter": "Seni en çok şaşırtan film hangisi oldu?"
+      },
+      "q30": {
+        "normal": "Hangi ülke en iyi gece hayatına sahip?",
+        "imposter": "Hangi şehir en iyi gece hayatına sahip?"
+      },
+      "q31": {
+        "normal": "Hangi ülke en çarpıcı gün batımlarına sahip?",
+        "imposter": "Hangi tablo en çarpıcı renklere sahip?"
+      },
+      "q32": {
+        "normal": "Seninkine en çok benzeyen ülke hangisi?",
+        "imposter": "Sana en çok benzeyen kişi kim?"
+      },
+      "q33": {
+        "normal": "Bir arkadaşına hangi ülkeyi tavsiye ederdin?",
+        "imposter": "Bir arkadaşına hangi restoranı tavsiye ederdin?"
+      },
+      "q34": {
+        "normal": "Hangi ülke en iyi kış aktivitelerine sahip?",
+        "imposter": "Hangi şehir en iyi kış pazarlarına sahip?"
+      },
+      "q35": {
+        "normal": "En sevdiğin yazarlar hangi ülkeden çıktı?",
+        "imposter": "En sevdiğin müzisyenler hangi ülkeden çıktı?"
+      },
+      "q36": {
+        "normal": "Hangi ülkeyi macera ile ilişkilendiriyorsun?",
+        "imposter": "Hangi sporu macera ile ilişkilendiriyorsun?"
+      },
+      "q37": {
+        "normal": "Hangi ülke en iyi kahve kültürüne sahip?",
+        "imposter": "Hangi kafe en iyi atmosfere sahip?"
+      },
+      "q38": {
+        "normal": "Emekli olduğunda hangi ülkede yaşamayı hayal ediyorsun?",
+        "imposter": "Emekli olduğunda hangi evde yaşamayı hayal ediyorsun?"
+      },
+      "q39": {
+        "normal": "Hangi ülke en güzel geleneksel kıyafetlere sahip?",
+        "imposter": "Hangi moda markası en güzel kıyafetlere sahip?"
+      },
+      "q40": {
+        "normal": "Sence hangi ülke değeri en az bilinen (underrated) yer?",
+        "imposter": "Sence hangi film değeri en az bilinen (underrated) yapım?"
+      },
+      "q41": {
+        "normal": "Ziyaret ettiğin en pahalı ülke hangisiydi?",
+        "imposter": "Gittiğin en pahalı restoran hangisiydi?"
+      },
+      "q42": {
+        "normal": "Hangi ülke en romantik atmosfere sahip?",
+        "imposter": "Hangi şehir en romantik atmosfere sahip?"
+      },
+      "q43": {
+        "normal": "Hangi ülkenin insanları en çok çalışır?",
+        "imposter": "Hangi meslek en çok çalışmayı gerektirir?"
+      },
+      "q44": {
+        "normal": "Hangi ülke tatlılarıyla ünlüdür?",
+        "imposter": "Hangi fırın tatlılarıyla ünlüdür?"
+      },
+      "q45": {
+        "normal": "Hangi ülke en iyi sokak yemekleri sahnesine sahip?",
+        "imposter": "Hangi pazar en iyi yemek sahnesine sahip?"
+      },
+      "q46": {
+        "normal": "Kendi ülkenden sonra en iyi bildiğin ülke hangisi?",
+        "imposter": "Kendi mesleğinden sonra en iyi bildiğin konu hangisi?"
+      },
+      "q47": {
+        "normal": "İstediğin yere gidebilseydin hangi ülkeyi incelerdin?",
+        "imposter": "İstediğin şeyi öğrenebilseydin hangi konuyu okurdun?"
+      },
+      "q48": {
+        "normal": "Hangi ülke en eşsiz dile sahip?",
+        "imposter": "Hangi spor en eşsiz kurallara sahip?"
+      },
+      "q49": {
+        "normal": "Sence hangi ülkenin geleceği en parlak?",
+        "imposter": "Sence hangi şirketin geleceği en parlak?"
+      },
+      "q50": {
+        "normal": "Sana en çok şeyi öğreten ülke hangisi oldu?",
+        "imposter": "Sana en çok şeyi öğreten kitap hangisi oldu?"
       }
     },
     "professions": {
       "q1": {
-        "normal": "Çocukken ne olmak istiyordun?",
-        "imposter": "Çocukken ne yemek istiyordun?"
+        "normal": "Çocukken ne olmak isterdin?",
+        "imposter": "Çocukken ne yemek isterdin?"
       },
       "q2": {
-        "normal": "Hangi meslekte çalışmak istersin?",
-        "imposter": "Hangi ülkede tatil yapmak istersin?"
+        "normal": "Hangi meslekte çalışmak isterdin?",
+        "imposter": "Hangi ülkede tatil yapmak isterdin?"
       },
       "q3": {
-        "normal": "İdeal iş ortamın nasıl olmalı?",
+        "normal": "İdeal çalışma ortamın nasıl olmalı?",
         "imposter": "İdeal tatil yerin nasıl olmalı?"
+      },
+      "q4": {
+        "normal": "Hangi meslek en çok saygıyı hak ediyor?",
+        "imposter": "Hangi hobi en çok saygıyı hak ediyor?"
+      },
+      "q5": {
+        "normal": "Yapması en zor meslek hangisi?",
+        "imposter": "Yapması en zor spor hangisi?"
+      },
+      "q6": {
+        "normal": "Hangi mesleği asla yapmazdın?",
+        "imposter": "Hangi yemeği asla yemezdin?"
+      },
+      "q7": {
+        "normal": "Dünyadaki en önemli meslek hangisi?",
+        "imposter": "Dünyadaki en önemli icat hangisi?"
+      },
+      "q8": {
+        "normal": "Sence hangi mesleğe hak ettiği değer verilmiyor?",
+        "imposter": "Sence hangi yeteneğe hak ettiği değer verilmiyor?"
+      },
+      "q9": {
+        "normal": "Hangi meslek en çok yaratıcılık gerektirir?",
+        "imposter": "Hangi hobi en çok yaratıcılık gerektirir?"
+      },
+      "q10": {
+        "normal": "Hangi meslek dünyayı daha iyi bir yer yapar?",
+        "imposter": "Hangi icat dünyayı daha iyi bir yer yapar?"
+      },
+      "q11": {
+        "normal": "Uzaktan mı yoksa ofiste mi çalışırdın?",
+        "imposter": "Yalnız mı yoksa bir grupla mı seyahat ederdin?"
+      },
+      "q12": {
+        "normal": "Hayalindeki işte hangi beceriler en önemlidir?",
+        "imposter": "Hayalindeki sporda hangi beceriler en önemlidir?"
+      },
+      "q13": {
+        "normal": "Hangi meslek seni en mutlu ederdi?",
+        "imposter": "Hangi yer seni en mutlu ederdi?"
+      },
+      "q14": {
+        "normal": "En stresli iş hangisi?",
+        "imposter": "En stresli spor hangisi?"
+      },
+      "q15": {
+        "normal": "İstikrarlı bir işi mi yoksa maceralı bir kariyeri mi tercih edersin?",
+        "imposter": "İstikrarlı bir hayatı mı yoksa maceralı bir yaşam tarzını mı tercih edersin?"
+      },
+      "q16": {
+        "normal": "Hangi meslek en çok seyahat etmeyi gerektirir?",
+        "imposter": "Hangi hobi en çok seyahat etmeyi gerektirir?"
+      },
+      "q17": {
+        "normal": "Hangi işi bedavaya yapardın?",
+        "imposter": "Hangi aktiviteyi bedavaya yapardın?"
+      },
+      "q18": {
+        "normal": "Hangi meslek sana en büyüleyici geliyor?",
+        "imposter": "Hangi ülke sana en büyüleyici geliyor?"
+      },
+      "q19": {
+        "normal": "Yaşlılıkta yapması en zor iş hangisi olurdu?",
+        "imposter": "Yaşlılıkta yapması en zor spor hangisi olurdu?"
+      },
+      "q20": {
+        "normal": "Aklına gelen en komik iş hangisi?",
+        "imposter": "Aklına gelen en komik hobi hangisi?"
+      },
+      "q21": {
+        "normal": "İnsanlarla birlikte mi yoksa yalnız mı çalışırdın?",
+        "imposter": "İnsanlarla birlikte mi yoksa yalnız mı seyahat ederdin?"
+      },
+      "q22": {
+        "normal": "Teknoloji nedeniyle en çok hangi meslek değişti?",
+        "imposter": "Teknoloji nedeniyle en çok hangi hobi değişti?"
+      },
+      "q23": {
+        "normal": "Hangi iş en çok sabır gerektirir?",
+        "imposter": "Hangi hobi en çok sabır gerektirir?"
+      },
+      "q24": {
+        "normal": "En tehlikeli meslek hangisi?",
+        "imposter": "En tehlikeli spor hangisi?"
+      },
+      "q25": {
+        "normal": "Hangi iş en fazla özgürlüğü sağlar?",
+        "imposter": "Hangi yaşam tarzı en fazla özgürlüğü sağlar?"
+      },
+      "q26": {
+        "normal": "İkinci bir hayat için hangi mesleği seçerdin?",
+        "imposter": "İkinci bir hayat için hangi ülkeyi seçerdin?"
+      },
+      "q27": {
+        "normal": "İnsanlar hakkında sana en çok şey öğreten iş hangisi?",
+        "imposter": "İnsanlar hakkında sana en çok şey öğreten hobi hangisi?"
+      },
+      "q28": {
+        "normal": "Hangi meslek en iyi iş-yaşam dengesine sahip?",
+        "imposter": "Hangi şehir en iyi iş-yaşam dengesine sahip?"
+      },
+      "q29": {
+        "normal": "Hangi işten sadece bir gün sonra nefret ederdin?",
+        "imposter": "Her gün yedikten sonra hangi yemekten nefret ederdin?"
+      },
+      "q30": {
+        "normal": "Hangi meslek en ilginç hikayelere sahip?",
+        "imposter": "Hangi dizi en ilginç hikayelere sahip?"
+      },
+      "q31": {
+        "normal": "Ünlü bir meslek mi yoksa sessiz sakin bir meslek mi isterdin?",
+        "imposter": "Ünlü bir yaşam tarzı mı yoksa sessiz sakin bir yaşam tarzı mı isterdin?"
+      },
+      "q32": {
+        "normal": "Topluma en çok hangi meslek katkıda bulunur?",
+        "imposter": "Topluma en çok hangi icat katkıda bulunur?"
+      },
+      "q33": {
+        "normal": "En sanatsal meslek hangisi?",
+        "imposter": "En sanatsal şehir hangisi?"
+      },
+      "q34": {
+        "normal": "Çocuklar en çok hangi mesleğin hayalini kurar?",
+        "imposter": "Çocuklar en çok hangi hobiden keyif alır?"
+      },
+      "q35": {
+        "normal": "Hangi meslek en iyi hafızayı gerektirir?",
+        "imposter": "Hangi oyun en iyi hafızayı gerektirir?"
+      },
+      "q36": {
+        "normal": "Hayalindeki işin en tatmin edici yanı nedir?",
+        "imposter": "En sevdiğin hobinin en tatmin edici yanı nedir?"
+      },
+      "q37": {
+        "normal": "Otomasyon nedeniyle hangi meslek yok oluyor?",
+        "imposter": "Modernite nedeniyle hangi gelenek yok oluyor?"
+      },
+      "q38": {
+        "normal": "Bir partide anlatması en eğlenceli iş hangisi olurdu?",
+        "imposter": "Bir partide anlatması en eğlenceli hobi hangisi olurdu?"
+      },
+      "q39": {
+        "normal": "Sence yapay zeka ilk olarak hangi mesleğin yerini alacak?",
+        "imposter": "Sence yapay zeka ilk olarak hangi görevin yerini alacak?"
+      },
+      "q40": {
+        "normal": "Eğer para önemli olmasaydı hangi işi seçerdin?",
+        "imposter": "Eğer para önemli olmasaydı hangi yerde yaşardın?"
+      },
+      "q41": {
+        "normal": "Senin kültüründe en çok saygı gören meslek hangisi?",
+        "imposter": "Senin kültüründe en çok saygı gören hobi hangisi?"
+      },
+      "q42": {
+        "normal": "Hangi iş en çok fiziksel güç gerektirir?",
+        "imposter": "Hangi spor en çok fiziksel güç gerektirir?"
+      },
+      "q43": {
+        "normal": "Bir meslek için gereken en uzun eğitim süreci hangisidir?",
+        "imposter": "Çıktığın en uzun yolculuk hangisiydi?"
+      },
+      "q44": {
+        "normal": "Hangi meslek mevsimlerden en çok etkilenir?",
+        "imposter": "Hangi hobi mevsimlerden en çok etkilenir?"
+      },
+      "q45": {
+        "normal": "Sabahları mı yoksa geceleri mi çalışmayı tercih edersin?",
+        "imposter": "Kişisel olarak sabahları mı yoksa geceleri mi seversin?"
+      },
+      "q46": {
+        "normal": "Hangi meslek en çok takım çalışmasına ihtiyaç duyar?",
+        "imposter": "Hangi spor en çok takım çalışmasına ihtiyaç duyar?"
+      },
+      "q47": {
+        "normal": "Hangi mesleki beceriye sahip olmayı isterdin?",
+        "imposter": "Hangi kişisel beceriye sahip olmayı isterdin?"
+      },
+      "q48": {
+        "normal": "Hangi mesleğin çocuklar üzerinde en çok etkisi var?",
+        "imposter": "Hangi dizinin çocuklar üzerinde en çok etkisi var?"
+      },
+      "q49": {
+        "normal": "En yaratıcı meslek hangisi?",
+        "imposter": "En yaratıcı hobi hangisi?"
+      },
+      "q50": {
+        "normal": "Bir arkadaşına hangi mesleği önerirdin?",
+        "imposter": "Bir arkadaşına tatil için nereyi önerirdin?"
       }
     },
     "technology": {
       "q1": {
         "normal": "En çok hangi uygulamayı kullanıyorsun?",
-        "imposter": "En çok hangi yemeği yapıyorsun?"
+        "imposter": "En çok hangi yemeği pişiriyorsun?"
       },
       "q2": {
-        "normal": "Hangi teknolojik aleti almak istersin?",
-        "imposter": "Hangi kıyafeti almak istersin?"
+        "normal": "Hangi teknolojik aleti satın almak istersin?",
+        "imposter": "Hangi kıyafeti satın almak istersin?"
       },
       "q3": {
-        "normal": "Sosyal medyada ne paylaşırsın?",
-        "imposter": "Arkadaşlarınla ne yaparsın?"
+        "normal": "Sosyal medyada ne paylaşıyorsun?",
+        "imposter": "Arkadaşlarınla ne yapıyorsun?"
+      },
+      "q4": {
+        "normal": "Hayatını en çok değiştiren teknoloji hangisi oldu?",
+        "imposter": "Hayatını en çok değiştiren olay ne oldu?"
+      },
+      "q5": {
+        "normal": "Hangi teknolojik alet olmadan yaşayamazsın?",
+        "imposter": "Hangi yiyecek olmadan yaşayamazsın?"
+      },
+      "q6": {
+        "normal": "Hangi teknolojinin abartıldığını düşünüyorsun?",
+        "imposter": "Hangi turistik yerin abartıldığını düşünüyorsun?"
+      },
+      "q7": {
+        "normal": "En iyi sosyal medya platformu hangisi?",
+        "imposter": "En iyi yayın platformu hangisi?"
+      },
+      "q8": {
+        "normal": "Sence yapay zeka insanların yerini alacak mı?",
+        "imposter": "Sence robotlar işçilerin yerini alacak mı?"
+      },
+      "q9": {
+        "normal": "En çok hangi web sitesini ziyaret edersin?",
+        "imposter": "En çok hangi mağazayı ziyaret edersin?"
+      },
+      "q10": {
+        "normal": "Günde kaç saatini telefonda geçiriyorsun?",
+        "imposter": "Günde kaç saatini kitap okuyarak geçiriyorsun?"
+      },
+      "q11": {
+        "normal": "En çok hangi teknoloji şirketine hayranlık duyuyorsun?",
+        "imposter": "En çok hangi moda markasına hayranlık duyuyorsun?"
+      },
+      "q12": {
+        "normal": "Hangi teknolojinin en tehlikeli olduğunu düşünüyorsun?",
+        "imposter": "Sağlık için en tehlikeli yiyeceğin hangisi olduğunu düşünüyorsun?"
+      },
+      "q13": {
+        "normal": "Şu an en heyecan verici teknoloji trendi nedir?",
+        "imposter": "Şu an en heyecan verici moda trendi nedir?"
+      },
+      "q14": {
+        "normal": "Sosyal medya hakkında ne düşünüyorsun?",
+        "imposter": "Reality show'lar hakkında ne düşünüyorsun?"
+      },
+      "q15": {
+        "normal": "Hangi eski teknolojiyi özlüyorsun?",
+        "imposter": "Hangi eski geleneği özlüyorsun?"
+      },
+      "q16": {
+        "normal": "Sabah telefonda yaptığın ilk şey nedir?",
+        "imposter": "Sabah mutfakta yaptığın ilk şey nedir?"
+      },
+      "q17": {
+        "normal": "Gelecekteki hangi teknoloji seni heyecanlandırıyor?",
+        "imposter": "Gelecekte ziyaret edeceğin hangi yer seni heyecanlandırıyor?"
+      },
+      "q18": {
+        "normal": "Sence teknoloji bizi daha çok mu yoksa daha az mı sosyal yapıyor?",
+        "imposter": "Sence şehirler insanları daha çok mu yoksa daha az mı sosyal yapıyor?"
+      },
+      "q19": {
+        "normal": "Hangi teknolojik sorun seni en çok sinir eder?",
+        "imposter": "Hangi trafik sorunu seni en çok sinir eder?"
+      },
+      "q20": {
+        "normal": "Son on yılın en iyi teknolojik icadı nedir?",
+        "imposter": "Son on yılın en iyi yiyecek icadı nedir?"
+      },
+      "q21": {
+        "normal": "Sürücüsüz arabalar hakkında ne düşünüyorsun?",
+        "imposter": "Uçan arabalar hakkında ne düşünüyorsun?"
+      },
+      "q22": {
+        "normal": "En iyi programlama dili hangisi?",
+        "imposter": "En iyi aşçılık jargonu hangisi?"
+      },
+      "q23": {
+        "normal": "Apple'ı mı yoksa Android'i mi tercih edersin?",
+        "imposter": "Pepsi'yi mi yoksa Coca-Cola'yı mı tercih edersin?"
+      },
+      "q24": {
+        "normal": "Telefonundaki en faydalı uygulama hangisi?",
+        "imposter": "Mutfağındaki en faydalı alet hangisi?"
+      },
+      "q25": {
+        "normal": "Cihazlarını ne sıklıkla yenilersin?",
+        "imposter": "Evinin dekorasyonunu ne sıklıkla yenilersin?"
+      },
+      "q26": {
+        "normal": "Var olmasını dilediğin ama olmayan teknoloji hangisi?",
+        "imposter": "Var olmasını dilediğin ama olmayan yiyecek hangisi?"
+      },
+      "q27": {
+        "normal": "Metaverse hakkında ne hissediyorsun?",
+        "imposter": "Sanal konserler hakkında ne hissediyorsun?"
+      },
+      "q28": {
+        "normal": "Tıptaki en faydalı teknoloji hangisi?",
+        "imposter": "Tıptaki en faydalı bitki hangisi?"
+      },
+      "q29": {
+        "normal": "Sence kripto para geleceğin ta kendisi mi?",
+        "imposter": "Sence uzay turizmi geleceğin ta kendisi mi?"
+      },
+      "q30": {
+        "normal": "Eğitimi en çok geliştiren teknoloji hangisi oldu?",
+        "imposter": "Eğitimi en çok geliştiren bina hangisi oldu?"
+      },
+      "q31": {
+        "normal": "Çevrimiçi gizliliğini nasıl koruyorsun?",
+        "imposter": "Evini nasıl koruyorsun?"
+      },
+      "q32": {
+        "normal": "Akıllı ev cihazları hakkında ne düşünüyorsun?",
+        "imposter": "Akıllı şehir altyapısı hakkında ne düşünüyorsun?"
+      },
+      "q33": {
+        "normal": "Sahip olduğun ilk alet (gadget) neydi?",
+        "imposter": "Çaldığın ilk enstrüman neydi?"
+      },
+      "q34": {
+        "normal": "Uygulamalar tarafından veri toplanması hakkında ne düşünüyorsun?",
+        "imposter": "Sadakat (indirim) kartlarının seni takip etmesi hakkında ne düşünüyorsun?"
+      },
+      "q35": {
+        "normal": "Çevre için en önemli teknoloji hangisi?",
+        "imposter": "Çevre için en önemli alışkanlık hangisi?"
+      },
+      "q36": {
+        "normal": "Tamamen akıllı bir evde yaşar mıydın?",
+        "imposter": "Tamamen otomatikleştirilmiş bir otelde kalır mıydın?"
+      },
+      "q37": {
+        "normal": "En hızlı gelişen teknoloji hangisi?",
+        "imposter": "En hızlı gelişen spor hangisi?"
+      },
+      "q38": {
+        "normal": "Sence hangi teknoloji 10 yıl içinde yok olacak?",
+        "imposter": "Sence hangi yemek trendi 10 yıl içinde yok olacak?"
+      },
+      "q39": {
+        "normal": "Çocuklar için ekran süresi hakkındaki fikrin nedir?",
+        "imposter": "Çocuklar için sosyal medya hakkındaki fikrin nedir?"
+      },
+      "q40": {
+        "normal": "Bilim insanları en çok hangi teknolojiyi kullanır?",
+        "imposter": "Sanatçılar en çok hangi aracı kullanır?"
+      },
+      "q41": {
+        "normal": "Üretimde robotların kullanılması hakkında ne düşünüyorsun?",
+        "imposter": "Teslimatta dronların kullanılması hakkında ne düşünüyorsun?"
+      },
+      "q42": {
+        "normal": "Gelmiş geçmiş en iyi oyun konsolu hangisi?",
+        "imposter": "Gelmiş geçmiş en iyi kutu oyunu hangisi?"
+      },
+      "q43": {
+        "normal": "İnternet günlük hayatını nasıl değiştirdi?",
+        "imposter": "Seyahat etmek günlük hayatını nasıl değiştirdi?"
+      },
+      "q44": {
+        "normal": "Yaratıcılık için en çok hangi teknolojiyi kullanıyorsun?",
+        "imposter": "Yaratıcılık için en çok hangi hobiyi kullanıyorsun?"
+      },
+      "q45": {
+        "normal": "Vücuduna teknolojik bir çip yerleştirir miydin?",
+        "imposter": "İmkanın olsaydı uzaya gider miydin?"
+      },
+      "q46": {
+        "normal": "En çok hangi yayın servisini kullanıyorsun?",
+        "imposter": "En çok hangi teslimat (kurye) servisini kullanıyorsun?"
+      },
+      "q47": {
+        "normal": "En etkili teknoloji şirketi hangisi?",
+        "imposter": "En etkili yardım kuruluşu hangisi?"
+      },
+      "q48": {
+        "normal": "Deepfake teknolojisi hakkında ne hissediyorsun?",
+        "imposter": "Filmlerdeki özel efektler hakkında ne hissediyorsun?"
+      },
+      "q49": {
+        "normal": "Hangisi daha önemli: donanım mı yoksa yazılım mı?",
+        "imposter": "Hangisi daha önemli: malzemeler mi yoksa tarif mi?"
+      },
+      "q50": {
+        "normal": "İnternet olmasaydı hayat nasıl görünürdü?",
+        "imposter": "Elektrik olmasaydı hayat nasıl görünürdü?"
       }
     }
   },
@@ -418,12 +2196,12 @@
     "support": "Destek",
     "legal": "Yasal",
     "premium": "Premium",
-    "premiumActive": "Premium Üyelik",
-    "getPremium": "Premium'a geçin",
-    "lifetimeMember": "Ömür boyu üye",
+    "premiumActive": "Premium Aktif",
+    "getPremium": "Premium'u Edinin",
+    "lifetimeMember": "Ömür Boyu Üye",
     "daysLeft": "{{days}} gün kaldı",
     "rateApp": "Uygulamayı Puanla",
-    "shareApp": "Arkadaşlarınla Paylaş",
+    "shareApp": "Uygulamayı Paylaş",
     "feedback": "Geri Bildirim Gönder",
     "privacy": "Gizlilik Politikası",
     "terms": "Kullanım Şartları",
@@ -431,62 +2209,127 @@
     "cantOpenStore": "Mağaza açılamadı",
     "cantOpenEmail": "E-posta uygulaması açılamadı",
     "cantOpenLink": "Bağlantı açılamadı",
-    "shareMessage": "Sahtekar Partisi - Arkadaşlarınla oyna! {{url}}"
+    "shareMessage": "Bu oyunu oynamalısın! {{url}}"
+  },
+  "customCategory": {
+    "title": "Özel Kategori",
+    "editTitle": "Kategoriyi Düzenle",
+    "name": "Kategori Adı",
+    "categoryName": "Kategori Adı",
+    "namePlaceholder": "Örn. Ofis Kelimeleri",
+    "categoryNamePlaceholder": "Kategorini adlandır",
+    "icon": "İkon",
+    "selectIcon": "İkon seç",
+    "words": "Kelimeler",
+    "wordsHint": "Her satıra bir kelime yazın (en az 5)",
+    "wordsPlaceholder": "Bilgisayar\nToplantı\nKahve\nE-posta\nTeslim Tarihi",
+    "wordPlaceholder": "Kelime ekle",
+    "wordsCount": "kelime",
+    "preview": "Önizleme",
+    "addWord": "Kelime Ekle",
+    "save": "Kaydet",
+    "update": "Güncelle",
+    "error": "Hata",
+    "nameRequired": "Kategori adı gereklidir",
+    "nameError": "Kategori adı gereklidir",
+    "minWords": "En az 5 kelime eklemelisiniz",
+    "wordCountError": "En az 5 kelime ekleyin",
+    "saveFailed": "Kategori kaydedilemedi",
+    "saveSuccess": "Kategori kaydedildi",
+    "saveError": "Kaydetme hatası",
+    "deleteTitle": "Kategoriyi Sil",
+    "deleteMessage": "Bu kategoriyi silmek istediğinizden emin misiniz?",
+    "premiumRequired": "Premium Gerekli",
+    "premiumDesc": "Özel kategoriler oluşturmak için Premium üyelik gereklidir",
+    "getPremium": "Premium'u Edinin"
+  },
+  "myCategories": {
+    "title": "Kategorilerim",
+    "premiumTitle": "Premium ile Sınırsız Kategori",
+    "premiumDesc": "Kendi kategorilerini oluştur",
+    "emptyTitle": "Henüz kategori yok",
+    "empty": "Henüz özel kategori yok",
+    "emptyDesc": "Özel kategorini oluştur ve oyna",
+    "create": "Kategori Oluştur",
+    "edit": "Düzenle",
+    "delete": "Sil",
+    "deleteConfirm": "Bu kategoriyi silmek istiyor musun?",
+    "deleteSuccess": "Kategori silindi",
+    "wordCount": "kelime"
+  },
+  "common": {
+    "delete": "Sil",
+    "error": "Hata",
+    "ok": "Tamam",
+    "loading": "Yükleniyor...",
+    "cancel": "İptal",
+    "yes": "Evet",
+    "no": "Hayır"
   },
   "playerSetup": {
-    "title": "Oyuncular",
+    "title": "Oyuncuları Ayarla",
     "players": "oyuncu",
     "addPlayer": "Oyuncu Ekle",
+    "playerName": "Oyuncu adı",
     "save": "Kaydet",
-    "hint": "Oyuncu isimlerine tıklayarak değiştirebilirsiniz",
+    "hint": "Düzenlemek için oyuncu isimlerine dokunun",
     "maxPlayersTitle": "Maksimum Oyuncu",
     "maxPlayersMessage": "En fazla 20 oyuncu ekleyebilirsiniz",
     "minPlayersTitle": "Minimum Oyuncu",
-    "minPlayersMessage": "En az 3 oyuncu olmalıdır"
+    "minPlayersMessage": "En az 3 oyuncu gerekli",
+    "minPlayers": "En az 3 oyuncu gerekli",
+    "start": "Başla",
+    "back": "Geri"
   },
-  "common": {
-    "delete": "Sil"
-  },
-  
   "categorySelect": {
-    "title": "Kategoriler",
-    "save": "Kaydet",
+    "title": "Kategori Seç",
     "customCategories": "Özel Kategorilerim",
-    "selected": "seçili",
+    "save": "Kaydet",
+    "selected": "Kategori seçili",
     "words": "kelime",
     "questions": "soru",
-    "selectAll": "Tümünü Seç",
-    "deselectAll": "Seçimi Temizle",
-    "hint": "Birden fazla kategori seçerek oyunu çeşitlendirebilirsiniz",
+    "selectAll": "Hepsini Seç",
+    "deselectAll": "Seçimi Kaldır",
+    "hint": "Oyunu çeşitlendirmek için birden fazla kategori seçin",
     "noneSelected": "Kategori seçilmedi",
+    "noSelection": "En az bir kategori seçin",
     "freeCategories": "Ücretsiz Kategoriler",
     "premiumCategories": "Premium Kategoriler",
     "premiumTitle": "Premium Kategori",
-    "premiumMessage": "Bu kategoriye erişmek için Premium üyelik gerekiyor.",
+    "premiumMessage": "Bu kategoriye erişmek için Premium üyelik gereklidir.",
     "goPremium": "Premium'a Geç",
-    "myCategories": "Kategorilerim",
+    "myCategories": "Özel Kategorilerim",
     "customCategoriesCount": "özel kategori",
-    "noCustomCategories": "Henüz kategori oluşturmadınız",
-    "createOwnCategories": "Kendi kategorilerinizi oluşturun"
+    "noCustomCategories": "Henüz kategori oluşturulmadı",
+    "createOwnCategories": "Kendi kategorilerinizi oluşturun",
+    "officialCategories": "Resmi Kategoriler",
+    "free": "Ücretsiz",
+    "premium": "Premium",
+    "locked": "Kilitli"
   },
   "premium": {
-    "restoreTitle": "Geri Yükleme",
-    "restoreMessage": "Satın alma geri yükleme işlemi başlatıldı...",
+    "restoreTitle": "Geri Yükle",
+    "restoreMessage": "Satın alma işlemini geri yükleme başlatıldı...",
     "lifetimeBadge": "Ömür Boyu Üye",
     "monthlyBadge": "Aylık Üye",
-    "title": "Premium",
+    "yearlyBadge": "Yıllık Üye",
+    "title": "Premium'a Geç",
     "heroTitle": "Tüm Özelliklerin Kilidini Aç",
-    "heroSubtitle": "Anında erişim ve 21 premium kategori daha kazan",
-    "monthlyTitle": "Premium Erişim",
-    "monthlySubtitle": "Aylık",
-    "lifetimeTitle": "Premium Erişim",
-    "lifetimeSubtitle": "Ömür boyu erişim",
-    "purchaseButton": "Erişim Kazan",
+    "heroSubtitle": "Anında erişim ve 21+ premium kategori kazan",
+    "subtitle": "Tüm özelliklerin kilidini aç",
+    "monthlyTitle": "Aylık Plan",
+    "monthlySubtitle": "Esnek ödeme",
+    "yearlyTitle": "Yıllık Plan",
+    "yearlySubtitle": "En popüler seçenek",
+    "yearlyBadge": "En İyi Değer",
+    "lifetimeTitle": "Ömür Boyu",
+    "lifetimeSubtitle": "Tek seferlik ödeme, sonsuz erişim",
+    "purchaseButton": "Erişim Al",
     "whatsIncluded": "Neler dahil",
-    "feature1Title": "Sınırsız özel kategoriler",
+    "feature1Title": "Sınırsız özel kategori",
     "feature1Desc": "Arkadaşlarının seveceği kategoriler oluştur",
     "feature2Title": "22+ premium kategori",
-    "feature2Desc": "Sonsuz eğlence için 2500+ seçilmiş kelime",
+    "feature2Desc": "Sonsuz eğlence için 2500+ özenle seçilmiş kelime",
     "feature3Title": "Özel temalar",
     "feature3Desc": "Oyununu kişiselleştir",
     "feature4Title": "Reklamsız deneyim",
@@ -495,8 +2338,24 @@
     "tagFamily": "Aile",
     "tagTravel": "Seyahat",
     "tagFriends": "Arkadaşlar",
-    "restorePurchase": "Satın Almaları Geri Yükle",
+    "restorePurchase": "Satın Alımı Geri Yükle",
     "termsOfUse": "Kullanım Şartları",
-    "privacyPolicy": "Gizlilik Politikası"
+    "privacyPolicy": "Gizlilik Politikası",
+    "feature1": "Tüm Premium Kategoriler",
+    "feature2": "Reklamsız Deneyim",
+    "feature3": "Sınırsız Özel Kategori",
+    "feature4": "Öncelikli Destek",
+    "subscribe": "Abone Ol",
+    "restore": "Satın Alımı Geri Yükle",
+    "alreadyPremium": "Zaten Premium üyesin!",
+    "yearlyActive": "Yıllık Abonelik Aktif",
+    "daysRemaining": "{{days}} gün kaldı",
+    "manageSubscription": "Aboneliği Yönet",
+    "successTitle": "Teşekkürler!",
+    "successMessage": "Premium üyeliğin aktifleştirildi.",
+    "planNotFound": "Plan bulunamadı",
+    "purchaseFailed": "Satın alma başarısız",
+    "restoreSuccessTitle": "Geri Yüklendi!",
+    "legalText": "Abonelikler, iTunes hesabınız üzerinden ücretlendirilir. Abonelik, mevcut dönemin sona ermesinden en az 24 saat önce iptal edilmediği sürece otomatik olarak yenilenir."
   }
 }

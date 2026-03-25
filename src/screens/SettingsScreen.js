@@ -19,10 +19,10 @@ import { usePremium } from '../context/PremiumContext';
 
 const APP_STORE_URL = 'https://apps.apple.com/app/idXXXXXXXXX'; // App Store ID'ni ekle
 const PLAY_STORE_URL =
-  'https://play.google.com/store/apps/details?id=com.yourapp.package'; // Package name'i ekle
-const SUPPORT_EMAIL = 'support@yourapp.com';
-const PRIVACY_URL = 'https://yourapp.com/privacy';
-const TERMS_URL = 'https://yourapp.com/terms';
+  'https://play.google.com/store/apps/details?id=com.impostor';
+const SUPPORT_EMAIL = 'imposter@codeva.com.tr';
+const PRIVACY_URL = 'https://codeva.com.tr/imposter/privacy';
+const TERMS_URL = 'https://codeva.com.tr/imposter/terms';
 
 const SettingsScreen = ({ navigation }) => {
   const { t, i18n } = useTranslation();
@@ -343,7 +343,7 @@ const SettingsScreen = ({ navigation }) => {
           </View>
           <Text style={styles.appName}>{t('app.name')}</Text>
           <Text style={styles.appVersion}>v1.0.0</Text>
-          <Text style={styles.appCopyright}>© 2024 Your Company</Text>
+          <Text style={styles.appCopyright}>© 2026 Codeva</Text>
         </View>
       </ScrollView>
     </View>

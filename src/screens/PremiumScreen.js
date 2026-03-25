@@ -12,6 +12,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Ionicons';
+import InAppReview from 'react-native-in-app-review';
 import { colors } from '../theme/colors';
 import { usePremium } from '../context/PremiumContext';
 
@@ -44,11 +45,11 @@ const PremiumScreen = ({ navigation }) => {
       price: prices.monthly || '₺129,99',
     },
     {
-      id: 'lifetime',
-      productId: PRODUCT_IDS.lifetime,
-      titleKey: 'premium.lifetimeTitle',
-      subtitleKey: 'premium.lifetimeSubtitle',
-      price: prices.lifetime || '₺399,99',
+      id: 'yearly',
+      productId: PRODUCT_IDS.yearly,
+      titleKey: 'premium.yearlyTitle',
+      subtitleKey: 'premium.yearlySubtitle',
+      price: prices.yearly || '₺399,99',
     },
   ];
 
@@ -97,6 +98,9 @@ const PremiumScreen = ({ navigation }) => {
     setIsPurchasing(false);
 
     if (result.success) {
+      if (InAppReview.isAvailable()) {
+        InAppReview.RequestInAppReview();
+      }
       Alert.alert(t('premium.successTitle'), t('premium.successMessage'), [
         { text: t('common.ok'), onPress: () => navigation.goBack() },
       ]);
@@ -143,20 +147,20 @@ const PremiumScreen = ({ navigation }) => {
   const selectedPlanData = plans.find(p => p.id === selectedPlan);
 
   // Loading state
-  if (isLoading && !isPremium) {
-    return (
-      <View
-        style={[
-          styles.container,
-          styles.loadingContainer,
-          { paddingTop: insets.top },
-        ]}
-      >
-        <ActivityIndicator size="large" color={colors.accentPrimary} />
-        <Text style={styles.loadingText}>{t('common.loading')}</Text>
-      </View>
-    );
-  }
+if (isLoading && !isPremium && packages.length === 0) {
+  return (
+    <View
+      style={[
+        styles.container,
+        styles.loadingContainer,
+        { paddingTop: insets.top },
+      ]}
+    >
+      <ActivityIndicator size="large" color={colors.accentPrimary} />
+      <Text style={styles.loadingText}>{t('common.loading')}</Text>
+    </View>
+  );
+}
 
   // Premium aktif ise
   if (isPremium) {
@@ -192,16 +196,16 @@ const PremiumScreen = ({ navigation }) => {
           </Text>
 
           <Text style={styles.premiumActiveSubtitle}>
-            {premiumType === 'lifetime'
-              ? t('premium.lifetimeActive')
+            {premiumType === 'yearly' // lifetime → yearly
+              ? t('premium.yearlyActive') // lifetimeActive → yearlyActive
               : t('premium.daysRemaining', { days: getDaysRemaining() })}
           </Text>
 
           <View style={styles.premiumBadge}>
             <Icon name="diamond" size={18} color={colors.warning} />
             <Text style={styles.premiumBadgeText}>
-              {premiumType === 'lifetime'
-                ? t('premium.lifetimeBadge')
+              {premiumType === 'yearly' // lifetime → yearly
+                ? t('premium.yearlyBadge') // lifetimeBadge → yearlyBadge
                 : t('premium.monthlyBadge')}
             </Text>
           </View>
@@ -219,7 +223,7 @@ const PremiumScreen = ({ navigation }) => {
           </View>
 
           {/* Aboneliği Yönet Butonu (sadece aylık için) */}
-          {premiumType === 'monthly' && (
+          {(premiumType === 'monthly' || premiumType === 'yearly') && (
             <TouchableOpacity
               style={styles.manageButton}
               onPress={handleManageSubscription}
@@ -389,13 +393,13 @@ const PremiumScreen = ({ navigation }) => {
         </TouchableOpacity>
         <View style={styles.footerDivider} />
         <TouchableOpacity
-          onPress={() => Linking.openURL('https://yourapp.com/terms')}
+          onPress={() => Linking.openURL('https://codeva.com.tr/imposter/terms')}
         >
           <Text style={styles.footerLink}>{t('premium.termsOfUse')}</Text>
         </TouchableOpacity>
         <View style={styles.footerDivider} />
         <TouchableOpacity
-          onPress={() => Linking.openURL('https://yourapp.com/privacy')}
+          onPress={() => Linking.openURL('https://codeva.com.tr/imposter/privacy')}
         >
           <Text style={styles.footerLink}>{t('premium.privacyPolicy')}</Text>
         </TouchableOpacity>

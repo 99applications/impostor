@@ -10,8 +10,9 @@ const REVENUECAT_API_KEY_ANDROID = 'goog_QGHGUshxZfTDzSvGAZvbJnBCxUc';
 
 // Product IDs - RevenueCat Dashboard'da oluşturduğunuz ürün ID'leri
 const PRODUCT_IDS = {
-  monthly: 'premium_monthly',
-  lifetime: 'premium_lifetime',
+  monthly: 'premium_monthly:premium-monthly', // Eski hali 'premium_monthly' idi şimdi 'premium_monthly:premium-monthly' olarak güncellendi
+  yearly: 'premium_yearly:premium-yearly', // Eski hali 'premium_yearly' idi şimdi 'premium_yearly:premium-yearly' olarak güncellendi
+
 };
 
 // Entitlement ID
@@ -34,34 +35,51 @@ export const PremiumProvider = ({ children }) => {
     try {
       setIsLoading(true);
 
-      // Debug modda log seviyesini ayarla
       if (__DEV__) {
         Purchases.setLogLevel(LOG_LEVEL.DEBUG);
       }
 
-      // Platform'a göre API key seç
       const apiKey =
         Platform.OS === 'ios'
           ? REVENUECAT_API_KEY_IOS
           : REVENUECAT_API_KEY_ANDROID;
 
-      // RevenueCat'i yapılandır
       await Purchases.configure({ apiKey });
+      console.log('✅ RevenueCat bağlandı!');
 
-      // Mevcut abonelik durumunu kontrol et
-      await checkSubscriptionStatus();
+      try {
+        const info = await Purchases.getCustomerInfo();
+        console.log('✅ Customer ID:', info.originalAppUserId);
+        handleCustomerInfoUpdate(info);
+      } catch (e) {
+        console.log('⚠️ Customer info alınamadı:', e.message);
+      }
 
-      // Satın alınabilir paketleri al
-      await fetchPackages();
+      try {
+        const offerings = await Purchases.getOfferings();
+        console.log(
+          '✅ Offerings:',
+          offerings.current?.availablePackages?.length || 0,
+          'paket bulundu',
+        );
 
-      // Listener ekle - abonelik değişikliklerini dinle
+        if (
+          offerings.current &&
+          offerings.current.availablePackages.length > 0
+        ) {
+          setPackages(offerings.current.availablePackages);
+        }
+      } catch (e) {
+        console.log('⚠️ Offerings alınamadı:', e.message);
+      }
+
       Purchases.addCustomerInfoUpdateListener(info => {
         handleCustomerInfoUpdate(info);
       });
     } catch (error) {
-      console.log('RevenueCat initialization error:', error);
+      console.log('❌ RevenueCat HATA:', error);
     } finally {
-      setIsLoading(false);
+      setIsLoading(false); // Her durumda loading'i kapat
     }
   };
 
@@ -88,9 +106,12 @@ export const PremiumProvider = ({ children }) => {
       // Ürün tipini belirle
       const productId = premiumEntitlement.productIdentifier;
 
-      if (productId === PRODUCT_IDS.lifetime) {
-        setPremiumType('lifetime');
-        setExpiryDate(null);
+      if (productId === PRODUCT_IDS.yearly) {
+        setPremiumType('yearly'); // lifetime → yearly
+        // expiryDate'i ayarla (senelik de süreli)
+        if (premiumEntitlement.expirationDate) {
+          setExpiryDate(new Date(premiumEntitlement.expirationDate));
+        }
       } else {
         setPremiumType('monthly');
         // Bitiş tarihini ayarla
@@ -214,7 +235,7 @@ export const PremiumProvider = ({ children }) => {
 
   // Kalan gün sayısı
   const getDaysRemaining = () => {
-    if (!expiryDate || premiumType === 'lifetime') return null;
+    if (!expiryDate) return null;
 
     const now = new Date();
     const diff = expiryDate - now;
@@ -232,7 +253,7 @@ export const PremiumProvider = ({ children }) => {
   const getPrices = () => {
     return {
       monthly: getProductPrice('monthly'),
-      lifetime: getProductPrice('lifetime'),
+      yearly: getProductPrice('yearly'),
     };
   };
 
