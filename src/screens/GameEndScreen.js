@@ -1,35 +1,120 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   Text,
   StyleSheet,
   TouchableOpacity,
   ScrollView,
+  Modal,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import InAppReview from 'react-native-in-app-review';
 import { colors } from '../theme/colors';
 import { useGame } from '../context/GameContext';
+
+const HAS_RATED_KEY = '@has_rated';
 
 const GameEndScreen = ({ navigation }) => {
   const { t } = useTranslation();
   const insets = useSafeAreaInsets();
   const { state, resetGame, fullReset } = useGame();
+  const [showRatingModal, setShowRatingModal] = useState(false);
+  const [selectedRating, setSelectedRating] = useState(0);
 
   const imposters = state.players.filter(p => p.isImposter);
 
- const handlePlayAgain = () => {
-   resetGame();
-   navigation.replace('PlayerTurn');
- };
+  useEffect(() => {
+    const checkRating = async () => {
+      try {
+        const hasRated = await AsyncStorage.getItem(HAS_RATED_KEY);
+        if (!hasRated) {
+          setTimeout(() => setShowRatingModal(true), 1500);
+        }
+      } catch (e) {}
+    };
+    checkRating();
+  }, []);
+
+  const handleRatingSubmit = async () => {
+    if (selectedRating === 0) return;
+    try {
+      await AsyncStorage.setItem(HAS_RATED_KEY, 'true');
+    } catch (e) {}
+    setShowRatingModal(false);
+    if (selectedRating >= 4) {
+      try {
+        if (InAppReview.isAvailable()) {
+          InAppReview.RequestInAppReview();
+        }
+      } catch (e) {}
+    }
+  };
+
+  const handleRatingLater = () => {
+    setShowRatingModal(false);
+  };
+
+  const handlePlayAgain = () => {
+    resetGame();
+    navigation.replace('PlayerTurn');
+  };
 
   const handleBackToMenu = () => {
     fullReset();
     navigation.replace('Home');
   };
 
+  console.log('hasRated:', showRatingModal ? 'No' : 'Yes');
+
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
+      <Modal
+        visible={showRatingModal}
+        transparent
+        animationType="fade"
+        onRequestClose={handleRatingLater}
+      >
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalCard}>
+            <Text style={styles.modalEmoji}>🎭</Text>
+            <Text style={styles.modalTitle}>Nasıl buldun?</Text>
+            <Text style={styles.modalSubtitle}>
+              Oyunu beğendiysen bize destek ol!
+            </Text>
+            <View style={styles.starsRow}>
+              {[1, 2, 3, 4, 5].map(star => (
+                <TouchableOpacity
+                  key={star}
+                  onPress={() => setSelectedRating(star)}
+                  activeOpacity={0.7}
+                >
+                  <Text style={[
+                    styles.star,
+                    selectedRating >= star && styles.starActive,
+                  ]}>
+                    ★
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+            <TouchableOpacity
+              style={[
+                styles.modalButton,
+                selectedRating === 0 && styles.modalButtonDisabled,
+              ]}
+              onPress={handleRatingSubmit}
+              disabled={selectedRating === 0}
+            >
+              <Text style={styles.modalButtonText}>Gönder</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handleRatingLater}>
+              <Text style={styles.modalLater}>Daha Sonra</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
       {/* Arka plan efektleri */}
       <View style={styles.bgCircle1} />
       <View style={styles.bgCircle2} />
@@ -327,6 +412,72 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     color: colors.textSecondary,
+  },
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.6)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 32,
+  },
+  modalCard: {
+    backgroundColor: colors.bgCard,
+    borderRadius: 24,
+    padding: 28,
+    alignItems: 'center',
+    width: '100%',
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  modalEmoji: {
+    fontSize: 48,
+    marginBottom: 12,
+  },
+  modalTitle: {
+    fontSize: 22,
+    fontWeight: '800',
+    color: colors.textPrimary,
+    marginBottom: 8,
+  },
+  modalSubtitle: {
+    fontSize: 14,
+    color: colors.textSecondary,
+    textAlign: 'center',
+    marginBottom: 24,
+    lineHeight: 20,
+  },
+  starsRow: {
+    flexDirection: 'row',
+    gap: 8,
+    marginBottom: 28,
+  },
+  star: {
+    fontSize: 44,
+    color: colors.border,
+  },
+  starActive: {
+    color: '#F59E0B',
+  },
+  modalButton: {
+    backgroundColor: colors.accentPrimary,
+    paddingVertical: 14,
+    paddingHorizontal: 48,
+    borderRadius: 14,
+    marginBottom: 14,
+    width: '100%',
+    alignItems: 'center',
+  },
+  modalButtonDisabled: {
+    opacity: 0.4,
+  },
+  modalButtonText: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: colors.textPrimary,
+  },
+  modalLater: {
+    fontSize: 14,
+    color: colors.textMuted,
   },
 });
 

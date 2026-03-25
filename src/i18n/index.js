@@ -6,6 +6,8 @@ import { NativeModules, Platform } from 'react-native';
 import tr from './locales/tr.json';
 import en from './locales/en.json';
 import de from './locales/de.json';
+import fr from './locales/fr.json';
+import es from './locales/es.json';
 
 const LANGUAGE_KEY = '@app_language';
 
@@ -14,6 +16,8 @@ export const SUPPORTED_LANGUAGES = [
   { code: 'tr', name: 'Türkçe', flag: '🇹🇷' },
   { code: 'en', name: 'English', flag: '🇬🇧' },
   { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
+  { code: 'fr', name: 'Français', flag: '🇫🇷' },
+  { code: 'es', name: 'Español', flag: '🇪🇸' },
 ];
 
 // Cihazın dilini al
@@ -21,13 +25,11 @@ const getDeviceLanguage = () => {
   let deviceLanguage = 'en';
 
   if (Platform.OS === 'ios') {
-    // iOS için
     deviceLanguage =
-      NativeModules.SettingsManager?.settings?.AppleLocale || // iOS 12 ve altı
-      NativeModules.SettingsManager?.settings?.AppleLanguages?.[0] || // iOS 13+
+      NativeModules.SettingsManager?.settings?.AppleLocale ||
+      NativeModules.SettingsManager?.settings?.AppleLanguages?.[0] ||
       'en';
   } else {
-    // Android için
     deviceLanguage = NativeModules.I18nManager?.localeIdentifier || 'en';
   }
 
@@ -39,8 +41,14 @@ const getDeviceLanguage = () => {
     lang => lang.code === languageCode,
   );
 
-  return isSupported ? languageCode : 'en';
+  const result = isSupported ? languageCode : 'en';
+  console.log('Cihaz dili:', deviceLanguage, '-> Algılanan:', result);
+  return result;
+
+
+
 };
+
 
 // Dil algılayıcı
 const languageDetector = {
@@ -80,6 +88,8 @@ i18n
       tr: { translation: tr },
       en: { translation: en },
       de: { translation: de },
+      fr: { translation: fr },
+      es: { translation: es },
     },
     fallbackLng: 'en',
     interpolation: {
