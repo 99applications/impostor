@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { colors } from '../theme/colors';
 
 const HomeScreen = ({ navigation }) => {
@@ -20,7 +21,7 @@ const HomeScreen = ({ navigation }) => {
         style={styles.settingsButton}
         onPress={() => navigation.navigate('Settings')}
       >
-        <Text style={styles.settingsIcon}>⚙️</Text>
+        <Icon name="settings-outline" size={24} color={colors.textPrimary} />
       </TouchableOpacity>
 
       {/* İçerik */}
@@ -28,7 +29,7 @@ const HomeScreen = ({ navigation }) => {
         {/* Logo */}
         <View style={styles.logoSection}>
           <View style={styles.logoContainer}>
-            <Text style={styles.logoEmoji}>🎭</Text>
+            <Icon name="search" size={48} color={colors.textPrimary} />
           </View>
           <Text style={styles.title}>{t('app.name')}</Text>
           <Text style={styles.tagline}>{t('app.tagline')}</Text>
@@ -43,7 +44,7 @@ const HomeScreen = ({ navigation }) => {
             onPress={() => navigation.navigate('GameSetup')}
           >
             <View style={styles.buttonIcon}>
-              <Text style={styles.buttonEmoji}>🎮</Text>
+              <Icon name="game-controller" size={22} color={colors.textPrimary} />
             </View>
             <Text style={styles.primaryButtonText}>{t('home.playGame')}</Text>
           </TouchableOpacity>
@@ -55,7 +56,7 @@ const HomeScreen = ({ navigation }) => {
             onPress={() => navigation.navigate('HowToPlay')}
           >
             <View style={styles.buttonIconSmall}>
-              <Text style={styles.buttonEmojiSmall}>❓</Text>
+              <Icon name="help-circle-outline" size={20} color={colors.textSecondary} />
             </View>
             <Text style={styles.secondaryButtonText}>
               {t('home.howToPlay')}
@@ -113,9 +114,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.border,
   },
-  settingsIcon: {
-    fontSize: 24,
-  },
   content: {
     flex: 1,
     justifyContent: 'center',
@@ -138,9 +136,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 15,
     elevation: 8,
-  },
-  logoEmoji: {
-    fontSize: 50,
   },
   title: {
     fontSize: 32,
@@ -178,9 +173,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  buttonEmoji: {
-    fontSize: 20,
-  },
   primaryButtonText: {
     fontSize: 18,
     fontWeight: '700',
@@ -205,9 +197,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.bgCardLight,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  buttonEmojiSmall: {
-    fontSize: 16,
   },
   secondaryButtonText: {
     fontSize: 16,

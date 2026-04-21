@@ -11,8 +11,11 @@ import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import InAppReview from 'react-native-in-app-review';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { colors } from '../theme/colors';
 import { useGame } from '../context/GameContext';
+import { usePremium } from '../context/PremiumContext';
+import { showInterstitialAd } from '../utils/adManager';
 
 const HAS_RATED_KEY = '@has_rated';
 
@@ -20,10 +23,18 @@ const GameEndScreen = ({ navigation }) => {
   const { t } = useTranslation();
   const insets = useSafeAreaInsets();
   const { state, resetGame, fullReset } = useGame();
+  const { isPremium } = usePremium();
   const [showRatingModal, setShowRatingModal] = useState(false);
   const [selectedRating, setSelectedRating] = useState(0);
 
   const imposters = state.players.filter(p => p.isImposter);
+
+  useEffect(() => {
+    // Premium değilse reklam göster
+    if (!isPremium) {
+      showInterstitialAd(null);
+    }
+  }, [isPremium]);
 
   useEffect(() => {
     const checkRating = async () => {
@@ -78,7 +89,7 @@ const GameEndScreen = ({ navigation }) => {
       >
         <View style={styles.modalOverlay}>
           <View style={styles.modalCard}>
-            <Text style={styles.modalEmoji}>🎭</Text>
+            <Icon name="star" size={48} color={colors.warning} style={styles.modalIcon} />
             <Text style={styles.modalTitle}>Nasıl buldun?</Text>
             <Text style={styles.modalSubtitle}>
               Oyunu beğendiysen bize destek ol!
@@ -126,7 +137,9 @@ const GameEndScreen = ({ navigation }) => {
       >
         {/* Başlık */}
         <View style={styles.header}>
-          <Text style={styles.emoji}>🎉</Text>
+          <View style={styles.headerIconWrapper}>
+            <Icon name="trophy" size={52} color={colors.warning} />
+          </View>
           <Text style={styles.title}>{t('reveal.title')}</Text>
         </View>
 
@@ -137,7 +150,7 @@ const GameEndScreen = ({ navigation }) => {
             {imposters.map(imposter => (
               <View key={imposter.id} style={styles.imposterCard}>
                 <View style={styles.imposterIcon}>
-                  <Text style={styles.imposterEmoji}>🎭</Text>
+                  <Icon name="skull" size={24} color={colors.textPrimary} />
                 </View>
                 <Text style={styles.imposterName}>
                   {t('game.player')} {imposter.id}
@@ -157,12 +170,12 @@ const GameEndScreen = ({ navigation }) => {
           <View style={styles.answerCard}>
             {state.gameMode === 'word' ? (
               <>
-                <Text style={styles.answerEmoji}>✨</Text>
+                <Icon name="sparkles" size={40} color={colors.success} style={styles.answerIcon} />
                 <Text style={styles.answerText}>{t(state.currentWordKey)}</Text>
               </>
             ) : (
               <>
-                <Text style={styles.answerEmoji}>❓</Text>
+                <Icon name="help-circle" size={40} color={colors.accentPrimary} style={styles.answerIcon} />
                 <View style={styles.questionBox}>
                   <Text style={styles.questionLabel}>Normal:</Text>
                   <Text style={styles.questionText}>
@@ -267,8 +280,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 32,
   },
-  emoji: {
-    fontSize: 64,
+  headerIconWrapper: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    backgroundColor: 'rgba(251, 191, 36, 0.15)',
+    justifyContent: 'center',
+    alignItems: 'center',
     marginBottom: 16,
   },
   title: {
@@ -310,9 +328,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 8,
   },
-  imposterEmoji: {
-    fontSize: 24,
-  },
   imposterName: {
     fontSize: 16,
     fontWeight: '700',
@@ -326,8 +341,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.border,
   },
-  answerEmoji: {
-    fontSize: 40,
+  answerIcon: {
     marginBottom: 12,
   },
   answerText: {
@@ -429,8 +443,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.border,
   },
-  modalEmoji: {
-    fontSize: 48,
+  modalIcon: {
     marginBottom: 12,
   },
   modalTitle: {

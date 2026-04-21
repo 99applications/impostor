@@ -1,4 +1,7 @@
 {
   "name": "impostor",
-  "displayName": "impostor"
+  "displayName": "impostor",
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-6529717155550493~4234272019"
+  }
 }

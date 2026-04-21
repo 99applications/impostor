@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { colors } from '../theme/colors';
 
 const HowToPlayScreen = ({ navigation }) => {
@@ -17,25 +18,29 @@ const HowToPlayScreen = ({ navigation }) => {
   const steps = [
     {
       number: '1',
-      emoji: '👥',
+      icon: 'people',
+      iconColor: colors.accentPrimary,
       titleKey: 'howToPlay.step1Title',
       descKey: 'howToPlay.step1Desc',
     },
     {
       number: '2',
-      emoji: '📂',
+      icon: 'folder-open',
+      iconColor: colors.success,
       titleKey: 'howToPlay.step2Title',
       descKey: 'howToPlay.step2Desc',
     },
     {
       number: '3',
-      emoji: '👀',
+      icon: 'eye',
+      iconColor: colors.warning,
       titleKey: 'howToPlay.step3Title',
       descKey: 'howToPlay.step3Desc',
     },
     {
       number: '4',
-      emoji: '🔍',
+      icon: 'search',
+      iconColor: colors.danger,
       titleKey: 'howToPlay.step4Title',
       descKey: 'howToPlay.step4Desc',
     },
@@ -49,7 +54,7 @@ const HowToPlayScreen = ({ navigation }) => {
           style={styles.backButton}
           onPress={() => navigation.goBack()}
         >
-          <Text style={styles.backIcon}>←</Text>
+          <Icon name="chevron-back" size={24} color={colors.textPrimary} />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>{t('howToPlay.title')}</Text>
         <View style={styles.placeholder} />
@@ -70,8 +75,8 @@ const HowToPlayScreen = ({ navigation }) => {
               {index < steps.length - 1 && <View style={styles.stepLine} />}
             </View>
             <View style={styles.stepContent}>
-              <View style={styles.stepIconContainer}>
-                <Text style={styles.stepEmoji}>{step.emoji}</Text>
+              <View style={[styles.stepIconContainer, { backgroundColor: `${step.iconColor}20` }]}>
+                <Icon name={step.icon} size={24} color={step.iconColor} />
               </View>
               <View style={styles.stepText}>
                 <Text style={styles.stepTitle}>{t(step.titleKey)}</Text>
@@ -83,7 +88,9 @@ const HowToPlayScreen = ({ navigation }) => {
 
         {/* İpucu kutusu */}
         <View style={styles.tipBox}>
-          <Text style={styles.tipEmoji}>💡</Text>
+          <View style={styles.tipIconWrapper}>
+            <Icon name="bulb" size={22} color={colors.accentPrimary} />
+          </View>
           <Text style={styles.tipText}>
             Sahtekarlar kelimeyi/soruyu bilmez. Onları yakalamak için dikkatli
             sorular sorun!
@@ -124,10 +131,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.bgCard,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  backIcon: {
-    fontSize: 20,
-    color: colors.textPrimary,
   },
   headerTitle: {
     fontSize: 20,
@@ -184,13 +187,9 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: 24,
-    backgroundColor: colors.bgCardLight,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 14,
-  },
-  stepEmoji: {
-    fontSize: 24,
   },
   stepText: {
     flex: 1,
@@ -208,16 +207,22 @@ const styles = StyleSheet.create({
   },
   tipBox: {
     flexDirection: 'row',
+    alignItems: 'center',
     backgroundColor: 'rgba(139, 92, 246, 0.15)',
     borderRadius: 16,
     padding: 16,
     marginTop: 12,
     borderWidth: 1,
     borderColor: colors.accentPrimary,
+    gap: 12,
   },
-  tipEmoji: {
-    fontSize: 24,
-    marginRight: 12,
+  tipIconWrapper: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: 'rgba(139, 92, 246, 0.2)',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   tipText: {
     flex: 1,
