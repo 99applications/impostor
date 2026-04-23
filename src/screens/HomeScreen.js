@@ -1,16 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { colors } from '../theme/colors';
+import RatingModal, { HAS_RATED_KEY } from '../components/RatingModal';
 
 const HomeScreen = ({ navigation }) => {
   const { t } = useTranslation();
   const insets = useSafeAreaInsets();
+  const [showRatingModal, setShowRatingModal] = useState(false);
+
+  useEffect(() => {
+    const checkRating = async () => {
+      try {
+        const hasRated = await AsyncStorage.getItem(HAS_RATED_KEY);
+        if (!hasRated) {
+          setTimeout(() => setShowRatingModal(true), 2000);
+        }
+      } catch (e) {}
+    };
+    checkRating();
+  }, []);
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
+      <RatingModal
+        visible={showRatingModal}
+        onClose={() => setShowRatingModal(false)}
+      />
       {/* Arka plan efektleri */}
       <View style={styles.bgCircle1} />
       <View style={styles.bgCircle2} />

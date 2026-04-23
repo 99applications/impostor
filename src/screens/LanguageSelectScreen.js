@@ -7,10 +7,13 @@ import {
   ScrollView,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { colors } from '../theme/colors';
 import { SUPPORTED_LANGUAGES, changeLanguage } from '../i18n';
 import { checkOnboardingStatus } from './Onboardingscreen';
+
+const LANGUAGE_SELECTED_KEY = '@language_selected';
 
 const LanguageSelectScreen = ({ navigation }) => {
   const insets = useSafeAreaInsets();
@@ -21,6 +24,7 @@ const LanguageSelectScreen = ({ navigation }) => {
     setSelected(langCode);
     setLoading(true);
     await changeLanguage(langCode);
+    await AsyncStorage.setItem(LANGUAGE_SELECTED_KEY, 'true');
     const hasOnboarded = await checkOnboardingStatus();
     setLoading(false);
     if (hasOnboarded) {

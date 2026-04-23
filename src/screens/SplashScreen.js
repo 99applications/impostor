@@ -3,7 +3,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { checkOnboardingStatus } from './Onboardingscreen';
 
-const LANGUAGE_KEY = '@app_language';
+const LANGUAGE_SELECTED_KEY = '@language_selected';
 
 const checkAndNavigate = async () => {
   const hasCompletedOnboarding = await checkOnboardingStatus();
@@ -51,9 +51,9 @@ const SplashScreen = ({ navigation }) => {
 
     // 2 saniye sonra kontrol et ve yönlendir
     const timer = setTimeout(async () => {
-      const savedLanguage = await AsyncStorage.getItem(LANGUAGE_KEY);
-      if (!savedLanguage) {
-        // Dil seçimi yapılmamış → dil seçim ekranına git
+      const languageSelected = await AsyncStorage.getItem(LANGUAGE_SELECTED_KEY);
+      if (!languageSelected) {
+        // Kullanıcı manuel dil seçmemiş → dil seçim ekranına git
         navigation.replace('LanguageSelect');
         return;
       }
