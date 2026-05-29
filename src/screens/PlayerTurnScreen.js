@@ -4,13 +4,13 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  Vibration,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { colors } from '../theme/colors';
 import { useGame } from '../context/GameContext';
+import { vibrate } from '../utils/helpers';
 
 const PlayerTurnScreen = ({ navigation }) => {
   const { t } = useTranslation();
@@ -40,14 +40,14 @@ const PlayerTurnScreen = ({ navigation }) => {
         setTimeLeft(prev => {
           if (prev <= 1) {
             clearInterval(timerRef.current);
-            Vibration.vibrate([0, 500, 200, 500]);
+            vibrate([0, 500, 200, 500]);
             navigation.replace('GameEnd', { timeUp: true });
             return 0;
           }
 
           // Son 10 saniyede titreşim
           if (prev <= 11 && prev > 1) {
-            Vibration.vibrate(100);
+            vibrate(100);
           }
 
           return prev - 1;

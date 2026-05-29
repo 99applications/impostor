@@ -16,12 +16,15 @@ export const shuffleArray = array => {
 // Vibration helper
 import { Vibration, Platform } from 'react-native';
 
-export const vibrate = (duration = 50) => {
-  if (Platform.OS === 'ios') {
-    // iOS için hafif titreşim
-    Vibration.vibrate();
-  } else {
-    Vibration.vibrate(duration);
+export const vibrate = (pattern = 50) => {
+  try {
+    if (Platform.OS === 'ios') {
+      Vibration.vibrate();
+    } else {
+      Vibration.vibrate(pattern);
+    }
+  } catch {
+    // Ignore if vibration is unavailable or permission denied
   }
 };
 
