@@ -91,10 +91,7 @@ const HowToPlayScreen = ({ navigation }) => {
           <View style={styles.tipIconWrapper}>
             <Icon name="bulb" size={22} color={colors.accentPrimary} />
           </View>
-          <Text style={styles.tipText}>
-            Sahtekarlar kelimeyi/soruyu bilmez. Onları yakalamak için dikkatli
-            sorular sorun!
-          </Text>
+          <Text style={styles.tipText}>{t('howToPlay.tip')}</Text>
         </View>
       </ScrollView>
 

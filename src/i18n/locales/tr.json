@@ -17,7 +17,8 @@
     "step3Desc": "Her oyuncu kelimesini/sorusunu görmek için telefona bakar.",
     "step4Title": "Sahtekârı Bul",
     "step4Desc": "Tartış ve sahtekârın kim olduğunu bulmaya çalış!",
-    "gotIt": "Anladım!"
+    "gotIt": "Anladım!",
+    "tip": "Sahtekarlar kelimeyi/soruyu bilmez. Onları yakalamak için dikkatli sorular sorun!"
   },
   "onboarding": {
     "skip": "Atla",
@@ -66,7 +67,8 @@
     "noLimit": "Süresiz",
     "duration": "Süre",
     "minutes": "dk",
-    "additionalSettings": "Ek Ayarlar"
+    "additionalSettings": "Ek Ayarlar",
+    "max": "En fazla"
   },
   "game": {
     "players": "oyuncu",
@@ -2312,7 +2314,7 @@
     "restoreMessage": "Satın alma işlemini geri yükleme başlatıldı...",
     "lifetimeBadge": "Ömür Boyu Üye",
     "monthlyBadge": "Aylık Üye",
-    "yearlyBadge": "Yıllık Üye",
+    "yearlyBadge": "En İyi Değer",
     "title": "Premium'a Geç",
     "heroTitle": "Tüm Özelliklerin Kilidini Aç",
     "heroSubtitle": "Anında erişim ve 21+ premium kategori kazan",
@@ -2321,7 +2323,6 @@
     "monthlySubtitle": "Esnek ödeme",
     "yearlyTitle": "Yıllık Plan",
     "yearlySubtitle": "En popüler seçenek",
-    "yearlyBadge": "En İyi Değer",
     "lifetimeTitle": "Ömür Boyu",
     "lifetimeSubtitle": "Tek seferlik ödeme, sonsuz erişim",
     "purchaseButton": "Erişim Al",
@@ -2356,6 +2357,23 @@
     "planNotFound": "Plan bulunamadı",
     "purchaseFailed": "Satın alma başarısız",
     "restoreSuccessTitle": "Geri Yüklendi!",
-    "legalText": "Abonelikler, iTunes hesabınız üzerinden ücretlendirilir. Abonelik, mevcut dönemin sona ermesinden en az 24 saat önce iptal edilmediği sürece otomatik olarak yenilenir."
+    "legalText": "Abonelikler, iTunes hesabınız üzerinden ücretlendirilir. Abonelik, mevcut dönemin sona ermesinden en az 24 saat önce iptal edilmediği sürece otomatik olarak yenilenir.",
+    "errGeneric": "Satın alma işlemi başarısız oldu.",
+    "errAlreadyOwned": "Bu ürün zaten satın alınmış.",
+    "errNotAllowed": "Satın alma izni yok.",
+    "errNotFound": "Ürün bulunamadı",
+    "restoreSuccess": "Satın almalarınız geri yüklendi!",
+    "restoreNone": "Geri yüklenecek satın alma bulunamadı.",
+    "restoreFailed": "Geri yükleme başarısız oldu.",
+    "errPending": "Ödeme beklemede."
+  },
+  "splash": {
+    "subtitle": "Sahtekarı Bul!"
+  },
+  "rating": {
+    "title": "Nasıl buldun?",
+    "subtitle": "Oyunu beğendiysen bize destek ol!",
+    "submit": "Gönder",
+    "later": "Daha Sonra"
   }
 }

@@ -16,15 +16,16 @@ let isLoaded = false;
 let isLoading = false;
 let isConfigured = false;
 
-// Aile Politikasına uygun reklam yapılandırması (COPPA/Family)
+// 13+ hedef kitle: uygulama çocuklara yönelik DEĞİL.
+// tagForChildDirectedTreatment / tagForUnderAgeOfConsent KULLANILMIYOR;
+// bunlar açık olursa Google uygulamayı Families politikasına sokar ve
+// interstitial reklamlar reddedilir. İçerik derecesini G ile sınırlı tutuyoruz.
 const configureAds = async () => {
   if (isConfigured) return;
   isConfigured = true;
   try {
     await mobileAds().setRequestConfiguration({
       maxAdContentRating: MaxAdContentRating.G,
-      tagForChildDirectedTreatment: true,
-      tagForUnderAgeOfConsent: true,
     });
     await mobileAds().initialize();
   } catch (e) {

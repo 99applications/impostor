@@ -11,6 +11,7 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import InAppReview from 'react-native-in-app-review';
+import { useTranslation } from 'react-i18next';
 import { colors } from '../theme/colors';
 
 export const HAS_RATED_KEY = '@has_rated';
@@ -42,6 +43,7 @@ const openStoreReview = async () => {
 };
 
 const RatingModal = ({ visible, onClose }) => {
+  const { t } = useTranslation();
   const [selectedRating, setSelectedRating] = useState(0);
 
   const handleSubmit = async () => {
@@ -95,10 +97,8 @@ const RatingModal = ({ visible, onClose }) => {
             color={colors.warning}
             style={styles.modalIcon}
           />
-          <Text style={styles.modalTitle}>Nasıl buldun?</Text>
-          <Text style={styles.modalSubtitle}>
-            Oyunu beğendiysen bize destek ol!
-          </Text>
+          <Text style={styles.modalTitle}>{t('rating.title')}</Text>
+          <Text style={styles.modalSubtitle}>{t('rating.subtitle')}</Text>
 
           <View style={styles.starsRow}>
             {[1, 2, 3, 4, 5].map(star => (
@@ -127,11 +127,11 @@ const RatingModal = ({ visible, onClose }) => {
             onPress={handleSubmit}
             disabled={selectedRating === 0}
           >
-            <Text style={styles.modalButtonText}>Gönder</Text>
+            <Text style={styles.modalButtonText}>{t('rating.submit')}</Text>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={handleLater}>
-            <Text style={styles.modalLater}>Daha Sonra</Text>
+            <Text style={styles.modalLater}>{t('rating.later')}</Text>
           </TouchableOpacity>
         </View>
       </View>

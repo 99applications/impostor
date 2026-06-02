@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { Platform, Alert } from 'react-native';
 import Purchases, { LOG_LEVEL } from 'react-native-purchases';
+import i18n from '../i18n';
 
 const PremiumContext = createContext();
 
@@ -157,21 +158,21 @@ export const PremiumProvider = ({ children }) => {
         console.log('Purchase error:', error);
 
         // Hata mesajını döndür
-        let errorMessage = 'Satın alma işlemi başarısız oldu.';
+        let errorMessage = i18n.t('premium.errGeneric');
 
         if (
           error.code ===
           Purchases.PURCHASES_ERROR_CODE.PRODUCT_ALREADY_PURCHASED
         ) {
-          errorMessage = 'Bu ürün zaten satın alınmış.';
+          errorMessage = i18n.t('premium.errAlreadyOwned');
         } else if (
           error.code === Purchases.PURCHASES_ERROR_CODE.PURCHASE_NOT_ALLOWED
         ) {
-          errorMessage = 'Satın alma izni yok.';
+          errorMessage = i18n.t('premium.errNotAllowed');
         } else if (
           error.code === Purchases.PURCHASES_ERROR_CODE.PAYMENT_PENDING
         ) {
-          errorMessage = 'Ödeme beklemede.';
+          errorMessage = i18n.t('premium.errPending');
         }
 
         return { success: false, error: errorMessage };
@@ -195,7 +196,7 @@ export const PremiumProvider = ({ children }) => {
       );
 
       if (!packageToPurchase) {
-        throw new Error('Ürün bulunamadı');
+        throw new Error(i18n.t('premium.errNotFound'));
       }
 
       return await purchasePackage(packageToPurchase);
@@ -222,12 +223,12 @@ export const PremiumProvider = ({ children }) => {
         success: true,
         restored: !!hasPremium,
         message: hasPremium
-          ? 'Satın almalarınız geri yüklendi!'
-          : 'Geri yüklenecek satın alma bulunamadı.',
+          ? i18n.t('premium.restoreSuccess')
+          : i18n.t('premium.restoreNone'),
       };
     } catch (error) {
       console.log('Restore error:', error);
-      return { success: false, error: 'Geri yükleme başarısız oldu.' };
+      return { success: false, error: i18n.t('premium.restoreFailed') };
     } finally {
       setIsLoading(false);
     }

@@ -17,7 +17,8 @@
     "step3Desc": "Chaque joueur regarde son téléphone pour voir son mot/sa question.",
     "step4Title": "Trouver l'imposteur",
     "step4Desc": "Discutez et essayez de découvrir qui est l'imposteur !",
-    "gotIt": "Compris !"
+    "gotIt": "Compris !",
+    "tip": "Les imposteurs ne connaissent pas le mot/la question. Posez des questions astucieuses pour les démasquer !"
   },
   "onboarding": {
     "skip": "Passer",
@@ -66,7 +67,8 @@
     "noLimit": "Illimité",
     "duration": "Durée",
     "minutes": "min",
-    "additionalSettings": "Paramètres supplémentaires"
+    "additionalSettings": "Paramètres supplémentaires",
+    "max": "Max"
   },
   "game": {
     "players": "joueurs",
@@ -2233,7 +2235,15 @@
     "deleteMessage": "Êtes-vous sûr de vouloir supprimer cette catégorie ?",
     "premiumRequired": "Premium Requis",
     "premiumDesc": "Abonnement Premium requis pour créer des catégories personnalisées",
-    "getPremium": "Obtenir Premium"
+    "getPremium": "Obtenir Premium",
+    "categoryName": "Nom de la catégorie",
+    "categoryNamePlaceholder": "Nommez votre catégorie",
+    "wordPlaceholder": "Ajouter un mot",
+    "addWord": "Ajouter un mot",
+    "nameError": "Le nom de la catégorie est requis",
+    "wordCountError": "Ajoutez au moins 5 mots",
+    "saveSuccess": "Catégorie enregistrée",
+    "saveError": "Erreur d'enregistrement"
   },
   "myCategories": {
     "title": "Mes catégories",
@@ -2241,13 +2251,22 @@
     "premiumDesc": "Créez vos propres catégories",
     "emptyTitle": "Pas encore de catégories",
     "emptyDesc": "Créez vos propres listes de mots pour jouer avec des amis",
-    "create": "Créer une catégorie"
+    "create": "Créer une catégorie",
+    "empty": "Aucune catégorie personnalisée",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "deleteConfirm": "Voulez-vous supprimer cette catégorie ?",
+    "deleteSuccess": "Catégorie supprimée",
+    "wordCount": "mots"
   },
   "common": {
     "delete": "Supprimer",
     "error": "Erreur",
     "ok": "OK",
-    "loading": "Chargement..."
+    "loading": "Chargement...",
+    "cancel": "Annuler",
+    "yes": "Oui",
+    "no": "Non"
   },
   "playerSetup": {
     "title": "Joueurs",
@@ -2258,7 +2277,11 @@
     "maxPlayersTitle": "Maximum de joueurs",
     "maxPlayersMessage": "Vous pouvez ajouter jusqu'à 20 joueurs",
     "minPlayersTitle": "Minimum de joueurs",
-    "minPlayersMessage": "Au moins 3 joueurs sont requis"
+    "minPlayersMessage": "Au moins 3 joueurs sont requis",
+    "playerName": "Nom du joueur",
+    "minPlayers": "Au moins 3 joueurs requis",
+    "start": "Commencer",
+    "back": "Retour"
   },
   "categorySelect": {
     "title": "Catégories",
@@ -2279,7 +2302,12 @@
     "myCategories": "Mes catégories",
     "customCategoriesCount": "catégories personnalisées",
     "noCustomCategories": "Aucune catégorie créée pour le moment",
-    "createOwnCategories": "Créez vos propres catégories"
+    "createOwnCategories": "Créez vos propres catégories",
+    "noSelection": "Sélectionnez au moins une catégorie",
+    "officialCategories": "Catégories officielles",
+    "free": "Gratuit",
+    "premium": "Premium",
+    "locked": "Verrouillé"
   },
   "premium": {
     "restoreTitle": "Restaurer",
@@ -2322,6 +2350,30 @@
     "planNotFound": "Le forfait sélectionné est introuvable",
     "purchaseFailed": "L'achat a échoué. Veuillez réessayer.",
     "restoreSuccessTitle": "Achat restauré",
-    "legalText": "L'abonnement se renouvelle automatiquement sauf annulation. Annulez à tout moment dans les paramètres de votre compte."
+    "legalText": "L'abonnement se renouvelle automatiquement sauf annulation. Annulez à tout moment dans les paramètres de votre compte.",
+    "subtitle": "Débloquez toutes les fonctionnalités",
+    "feature1": "Toutes les catégories Premium",
+    "feature2": "Expérience sans publicité",
+    "feature3": "Catégories personnalisées illimitées",
+    "feature4": "Support prioritaire",
+    "subscribe": "S'abonner",
+    "restore": "Restaurer l'achat",
+    "errGeneric": "L'achat a échoué.",
+    "errAlreadyOwned": "Ce produit a déjà été acheté.",
+    "errNotAllowed": "Les achats ne sont pas autorisés.",
+    "errNotFound": "Produit introuvable",
+    "restoreSuccess": "Vos achats ont été restaurés !",
+    "restoreNone": "Aucun achat à restaurer.",
+    "restoreFailed": "La restauration a échoué.",
+    "errPending": "Paiement en attente."
+  },
+  "splash": {
+    "subtitle": "Trouvez l'imposteur !"
+  },
+  "rating": {
+    "title": "Ça t'a plu ?",
+    "subtitle": "Si tu aimes le jeu, soutiens-nous !",
+    "submit": "Envoyer",
+    "later": "Plus tard"
   }
 }

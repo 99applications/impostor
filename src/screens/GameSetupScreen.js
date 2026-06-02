@@ -30,6 +30,10 @@ const GameSetupScreen = ({ navigation }) => {
   } = useGame();
 
   const maxImposters = getMaxImposters(state.playerCount);
+  const canDecPlayer = state.playerCount > 3;
+  const canIncPlayer = state.playerCount < 20;
+  const canDecImposter = state.imposterCount > 1;
+  const canIncImposter = state.imposterCount < maxImposters;
 
   const handleStartGame = () => {
     startGame();
@@ -135,17 +139,33 @@ const GameSetupScreen = ({ navigation }) => {
               <Text style={styles.counterLabel}>{t('setup.playerCount')}</Text>
               <View style={styles.counterControls}>
                 <TouchableOpacity
-                  style={styles.counterButton}
+                  style={[
+                    styles.counterButton,
+                    !canDecPlayer && styles.counterButtonDisabled,
+                  ]}
+                  disabled={!canDecPlayer}
                   onPress={() => handlePlayerCountChange(-1)}
                 >
-                  <Icon name="remove" size={20} color={colors.textPrimary} />
+                  <Icon
+                    name="remove"
+                    size={20}
+                    color={canDecPlayer ? colors.textPrimary : colors.textMuted}
+                  />
                 </TouchableOpacity>
                 <Text style={styles.counterValue}>{state.playerCount}</Text>
                 <TouchableOpacity
-                  style={styles.counterButton}
+                  style={[
+                    styles.counterButton,
+                    !canIncPlayer && styles.counterButtonDisabled,
+                  ]}
+                  disabled={!canIncPlayer}
                   onPress={() => handlePlayerCountChange(1)}
                 >
-                  <Icon name="add" size={20} color={colors.textPrimary} />
+                  <Icon
+                    name="add"
+                    size={20}
+                    color={canIncPlayer ? colors.textPrimary : colors.textMuted}
+                  />
                 </TouchableOpacity>
               </View>
             </View>
@@ -162,19 +182,42 @@ const GameSetupScreen = ({ navigation }) => {
               </Text>
               <View style={styles.counterControls}>
                 <TouchableOpacity
-                  style={styles.counterButton}
+                  style={[
+                    styles.counterButton,
+                    !canDecImposter && styles.counterButtonDisabled,
+                  ]}
+                  disabled={!canDecImposter}
                   onPress={() => handleImposterCountChange(-1)}
                 >
-                  <Icon name="remove" size={20} color={colors.textPrimary} />
+                  <Icon
+                    name="remove"
+                    size={20}
+                    color={
+                      canDecImposter ? colors.textPrimary : colors.textMuted
+                    }
+                  />
                 </TouchableOpacity>
                 <Text style={styles.counterValue}>{state.imposterCount}</Text>
                 <TouchableOpacity
-                  style={styles.counterButton}
+                  style={[
+                    styles.counterButton,
+                    !canIncImposter && styles.counterButtonDisabled,
+                  ]}
+                  disabled={!canIncImposter}
                   onPress={() => handleImposterCountChange(1)}
                 >
-                  <Icon name="add" size={20} color={colors.textPrimary} />
+                  <Icon
+                    name="add"
+                    size={20}
+                    color={
+                      canIncImposter ? colors.textPrimary : colors.textMuted
+                    }
+                  />
                 </TouchableOpacity>
               </View>
+              <Text style={styles.counterHint}>
+                {t('setup.max')} {maxImposters}
+              </Text>
             </View>
           </View>
         </View>
@@ -503,6 +546,15 @@ const styles = StyleSheet.create({
     backgroundColor: colors.bgCardLight,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  counterButtonDisabled: {
+    opacity: 0.4,
+  },
+  counterHint: {
+    fontSize: 12,
+    color: colors.textMuted,
+    marginTop: 8,
+    textAlign: 'center',
   },
   counterValue: {
     fontSize: 28,

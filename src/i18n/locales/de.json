@@ -17,7 +17,8 @@
     "step3Desc": "Jeder Spieler schaut auf sein Handy, um sein Wort/Frage zu sehen.",
     "step4Title": "Betrüger finden",
     "step4Desc": "Diskutiert und versucht herauszufinden, wer der Betrüger ist!",
-    "gotIt": "Verstanden!"
+    "gotIt": "Verstanden!",
+    "tip": "Betrüger kennen das Wort/die Frage nicht. Stellt clevere Fragen, um sie zu entlarven!"
   },
   "onboarding": {
     "skip": "Überspringen",
@@ -66,7 +67,8 @@
     "noLimit": "Unbestimmt",
     "duration": "Dauer",
     "minutes": "Min.",
-    "additionalSettings": "Zusätzliche Einstellungen"
+    "additionalSettings": "Zusätzliche Einstellungen",
+    "max": "Max."
   },
   "game": {
     "players": "Spieler",
@@ -2233,7 +2235,15 @@
     "deleteMessage": "Bist du sicher, dass du diese Kategorie löschen möchtest?",
     "premiumRequired": "Premium erforderlich",
     "premiumDesc": "Premium-Mitgliedschaft erforderlich, um eigene Kategorien zu erstellen",
-    "getPremium": "Premium holen"
+    "getPremium": "Premium holen",
+    "categoryName": "Kategoriename",
+    "categoryNamePlaceholder": "Benenne deine Kategorie",
+    "wordPlaceholder": "Wort hinzufügen",
+    "addWord": "Wort hinzufügen",
+    "nameError": "Kategoriename ist erforderlich",
+    "wordCountError": "Füge mindestens 5 Wörter hinzu",
+    "saveSuccess": "Kategorie gespeichert",
+    "saveError": "Speicherfehler"
   },
   "myCategories": {
     "title": "Meine Kategorien",
@@ -2241,13 +2251,22 @@
     "premiumDesc": "Erstelle deine eigenen Kategorien",
     "emptyTitle": "Noch keine Kategorien",
     "emptyDesc": "Erstelle deine eigenen Wortlisten, um mit Freunden zu spielen",
-    "create": "Kategorie erstellen"
+    "create": "Kategorie erstellen",
+    "empty": "Noch keine eigenen Kategorien",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "deleteConfirm": "Möchtest du diese Kategorie löschen?",
+    "deleteSuccess": "Kategorie gelöscht",
+    "wordCount": "Wörter"
   },
   "common": {
     "delete": "Löschen",
     "error": "Fehler",
     "ok": "OK",
-    "loading": "Wird geladen..."
+    "loading": "Wird geladen...",
+    "cancel": "Abbrechen",
+    "yes": "Ja",
+    "no": "Nein"
   },
   "playerSetup": {
     "title": "Spieler",
@@ -2258,7 +2277,11 @@
     "maxPlayersTitle": "Maximale Spieler",
     "maxPlayersMessage": "Sie können bis zu 20 Spieler hinzufügen",
     "minPlayersTitle": "Mindestens Spieler",
-    "minPlayersMessage": "Mindestens 3 Spieler erforderlich"
+    "minPlayersMessage": "Mindestens 3 Spieler erforderlich",
+    "playerName": "Spielername",
+    "minPlayers": "Mindestens 3 Spieler erforderlich",
+    "start": "Starten",
+    "back": "Zurück"
   },
   "categorySelect": {
     "title": "Kategorien",
@@ -2279,7 +2302,12 @@
     "myCategories": "Meine Kategorien",
     "customCategoriesCount": "Eigene Kategorien",
     "noCustomCategories": "Noch keine Kategorien erstellt",
-    "createOwnCategories": "Erstelle deine eigenen Kategorien"
+    "createOwnCategories": "Erstelle deine eigenen Kategorien",
+    "noSelection": "Wähle mindestens eine Kategorie",
+    "officialCategories": "Offizielle Kategorien",
+    "free": "Kostenlos",
+    "premium": "Premium",
+    "locked": "Gesperrt"
   },
   "premium": {
     "restoreTitle": "Wiederherstellen",
@@ -2322,6 +2350,30 @@
     "planNotFound": "Ausgewählter Plan nicht gefunden",
     "purchaseFailed": "Kauf fehlgeschlagen. Bitte versuche es erneut.",
     "restoreSuccessTitle": "Kauf wiederhergestellt",
-    "legalText": "Abonnement verlängert sich automatisch, sofern es nicht gekündigt wird. Jederzeit in den Kontoeinstellungen kündbar."
+    "legalText": "Abonnement verlängert sich automatisch, sofern es nicht gekündigt wird. Jederzeit in den Kontoeinstellungen kündbar.",
+    "subtitle": "Schalte alle Funktionen frei",
+    "feature1": "Alle Premium-Kategorien",
+    "feature2": "Werbefreies Erlebnis",
+    "feature3": "Unbegrenzte eigene Kategorien",
+    "feature4": "Vorrangiger Support",
+    "subscribe": "Abonnieren",
+    "restore": "Kauf wiederherstellen",
+    "errGeneric": "Der Kauf ist fehlgeschlagen.",
+    "errAlreadyOwned": "Dieses Produkt wurde bereits gekauft.",
+    "errNotAllowed": "Käufe sind nicht erlaubt.",
+    "errNotFound": "Produkt nicht gefunden",
+    "restoreSuccess": "Deine Käufe wurden wiederhergestellt!",
+    "restoreNone": "Keine Käufe zum Wiederherstellen gefunden.",
+    "restoreFailed": "Wiederherstellung fehlgeschlagen.",
+    "errPending": "Zahlung steht aus."
+  },
+  "splash": {
+    "subtitle": "Finde den Betrüger!"
+  },
+  "rating": {
+    "title": "Wie gefällt es dir?",
+    "subtitle": "Wenn dir das Spiel gefällt, unterstütze uns!",
+    "submit": "Senden",
+    "later": "Später"
   }
 }

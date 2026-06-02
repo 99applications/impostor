@@ -24,12 +24,14 @@ const checkAndNavigate = async () => {
 
 import React, { useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, Animated, Dimensions } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { colors } from '../theme/colors';
 
 const { width, height } = Dimensions.get('window');
 
 const SplashScreen = ({ navigation }) => {
+  const { t } = useTranslation();
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const scaleAnim = useRef(new Animated.Value(0.5)).current;
 
@@ -83,7 +85,7 @@ const SplashScreen = ({ navigation }) => {
           <Icon name="search" size={48} color={colors.textPrimary} />
         </View>
         <Text style={styles.title}>Imposter Party</Text>
-        <Text style={styles.subtitle}>Sahtekarı Bul!</Text>
+        <Text style={styles.subtitle}>{t('splash.subtitle')}</Text>
       </Animated.View>
     </View>
   );
