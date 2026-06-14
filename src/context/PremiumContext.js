@@ -8,7 +8,7 @@ const PremiumContext = createContext();
 // RevenueCat API Keys - Kendi key'lerinizi buraya ekleyin.
 // ÖNEMLİ: iOS key'i 'appl_' ile, Android key'i 'goog_' ile başlar.
 // (RevenueCat Dashboard > Project Settings > API Keys > Apple App Store / Google Play Store)
-const REVENUECAT_API_KEY_IOS = 'appl_XXXXXXXXXXXXXXXXXXXXXXXXXXXX';
+const REVENUECAT_API_KEY_IOS = 'appl_wlwYCKMkOuTyBDKuQSmThKnixpH';
 const REVENUECAT_API_KEY_ANDROID = 'goog_QGHGUshxZfTDzSvGAZvbJnBCxUc';
 
 // Product IDs - RevenueCat Dashboard'da oluşturduğunuz ürün ID'leri

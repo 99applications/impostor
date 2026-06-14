@@ -42,14 +42,14 @@ const PremiumScreen = ({ navigation }) => {
       productId: PRODUCT_IDS.monthly,
       titleKey: 'premium.monthlyTitle',
       subtitleKey: 'premium.monthlySubtitle',
-      price: prices.monthly || '₺129,99',
+      price: prices.monthly || '$4,99',
     },
     {
       id: 'yearly',
       productId: PRODUCT_IDS.yearly,
       titleKey: 'premium.yearlyTitle',
       subtitleKey: 'premium.yearlySubtitle',
-      price: prices.yearly || '₺399,99',
+      price: prices.yearly || '$29,99',
     },
   ];
 
