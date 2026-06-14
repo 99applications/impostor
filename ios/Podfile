@@ -8,11 +8,14 @@ require Pod::Executable.execute_command('node', ['-p',
 platform :ios, min_ios_version_supported
 prepare_react_native_project!
 
-linkage = ENV['USE_FRAMEWORKS']
-if linkage != nil
-  Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
-  use_frameworks! :linkage => linkage.to_sym
-end
+# @react-native-firebase (Crashlytics) static framework olarak derlensin diye gerekli.
+$RNFirebaseAsStaticFramework = true
+
+# Firebase + Google Mobile Ads, statik framework bağlantısı ister.
+# USE_FRAMEWORKS ile override edilebilir; varsayılan :static.
+linkage = ENV['USE_FRAMEWORKS'] || 'static'
+Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
+use_frameworks! :linkage => linkage.to_sym
 
 target 'impostor' do
   config = use_native_modules!
@@ -30,5 +33,23 @@ target 'impostor' do
       :mac_catalyst_enabled => false,
       # :ccache_enabled => true
     )
+
+    # Yeni Xcode/Clang ile fmt 11.0.2'nin consteval format-string kontrolü
+    # derlemeyi kırıyor ("call to consteval function ... is not a constant
+    # expression"). fmt header'ında FMT_USE_CONSTEVAL'i 0'a zorlayarak
+    # (fmt'in eski derleyiciler için kullandığı güvenli yol) kapatıyoruz.
+    fmt_base = File.join(__dir__, 'Pods', 'fmt', 'include', 'fmt', 'base.h')
+    if File.exist?(fmt_base)
+      text = File.read(fmt_base)
+      unless text.include?('FMT_USE_CONSTEVAL_PATCHED')
+        patched = text.sub(
+          "#if FMT_USE_CONSTEVAL\n#  define FMT_CONSTEVAL consteval",
+          "#define FMT_USE_CONSTEVAL_PATCHED 1\n#undef FMT_USE_CONSTEVAL\n#define FMT_USE_CONSTEVAL 0\n#if FMT_USE_CONSTEVAL\n#  define FMT_CONSTEVAL consteval"
+        )
+        File.chmod(0644, fmt_base)
+        File.write(fmt_base, patched)
+        Pod::UI.puts "Patched fmt base.h: FMT_USE_CONSTEVAL forced to 0".green
+      end
+    end
   end
 end

@@ -1,3 +1,4 @@
+import { Platform } from 'react-native';
 import mobileAds, {
   InterstitialAd,
   AdEventType,
@@ -5,11 +6,17 @@ import mobileAds, {
   MaxAdContentRating,
 } from 'react-native-google-mobile-ads';
 
-// DEV modunda test reklamı, production'da kendi Ad Unit ID'nizi kullanın
-// AdMob Dashboard'dan aldığınız Interstitial Ad Unit ID'yi buraya yazın
+// DEV modunda test reklamı, production'da kendi Ad Unit ID'nizi kullanın.
+// AdMob Dashboard'dan aldığınız Interstitial Ad Unit ID'leri platforma göre buraya yazın.
+// NOT: iOS ve Android için AdMob'da AYRI ad unit ID oluşturulur.
+const ANDROID_INTERSTITIAL_AD_UNIT_ID = 'ca-app-pub-6529717155550493/1586364279';
+const IOS_INTERSTITIAL_AD_UNIT_ID = 'ca-app-pub-6529717155550493/6044462925';
+
 const AD_UNIT_ID = __DEV__
   ? TestIds.INTERSTITIAL
-  : 'ca-app-pub-6529717155550493/1586364279';
+  : Platform.OS === 'ios'
+  ? IOS_INTERSTITIAL_AD_UNIT_ID
+  : ANDROID_INTERSTITIAL_AD_UNIT_ID;
 
 let ad = null;
 let isLoaded = false;
