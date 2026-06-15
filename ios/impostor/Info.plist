@@ -35,8 +35,6 @@
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
 	<key>NSUserTrackingUsageDescription</key>
 	<string>Bu kimlik, size daha alakalı reklamlar göstermek için kullanılacaktır.</string>
 	<key>RCTNewArchEnabled</key>
