@@ -106,10 +106,11 @@ export const PremiumProvider = ({ children }) => {
     if (premiumEntitlement) {
       setIsPremium(true);
 
-      // Ürün tipini belirle
-      const productId = premiumEntitlement.productIdentifier;
+      // Ürün tipini belirle (iOS'ta ':basePlan' eki olmadığından ':' öncesini karşılaştır)
+      const productId = (premiumEntitlement.productIdentifier || '').split(':')[0];
+      const yearlyId = (PRODUCT_IDS.yearly || '').split(':')[0];
 
-      if (productId === PRODUCT_IDS.yearly) {
+      if (productId === yearlyId) {
         setPremiumType('yearly'); // lifetime → yearly
         // expiryDate'i ayarla (senelik de süreli)
         if (premiumEntitlement.expirationDate) {
@@ -187,15 +188,37 @@ export const PremiumProvider = ({ children }) => {
     }
   };
 
-  // Product ID ile satın alma (alternatif yöntem)
-  const purchaseProduct = async productId => {
+  // Paket bulma yardımcısı - hem iOS hem Android için sağlam eşleştirme.
+  // iOS'ta product.identifier = 'premium_monthly' iken,
+  // Android'de 'premium_monthly:premium-monthly' (basePlan ekli) gelir.
+  // Bu yüzden hem RevenueCat package type'ına hem de ':' öncesi product id'ye bakarız.
+  const findPackageByType = type => {
+    if (!packages || packages.length === 0) return null;
+
+    // 1) RevenueCat standart package type ile eşleştir (platformdan bağımsız)
+    const byPackageType = packages.find(pkg => {
+      const pt = (pkg.packageType || '').toUpperCase();
+      if (type === 'monthly') return pt === 'MONTHLY';
+      if (type === 'yearly') return pt === 'ANNUAL';
+      return false;
+    });
+    if (byPackageType) return byPackageType;
+
+    // 2) Yedek: product identifier'ı ':' öncesine göre eşleştir
+    const targetId = (PRODUCT_IDS[type] || '').split(':')[0];
+    if (!targetId) return null;
+    return packages.find(
+      pkg => (pkg.product.identifier || '').split(':')[0] === targetId,
+    );
+  };
+
+  // Plan tipi ('monthly' | 'yearly') ile satın alma
+  const purchaseProduct = async type => {
     try {
       setIsLoading(true);
 
       // Paketler içinden ürünü bul
-      const packageToPurchase = packages.find(
-        pkg => pkg.product.identifier === productId,
-      );
+      const packageToPurchase = findPackageByType(type);
 
       if (!packageToPurchase) {
         throw new Error(i18n.t('premium.errNotFound'));
@@ -247,8 +270,7 @@ export const PremiumProvider = ({ children }) => {
 
   // Fiyat bilgisi al
   const getProductPrice = type => {
-    const productId = PRODUCT_IDS[type];
-    const pkg = packages.find(p => p.product.identifier === productId);
+    const pkg = findPackageByType(type);
     return pkg ? pkg.product.priceString : null;
   };
 

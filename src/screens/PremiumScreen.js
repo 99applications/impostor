@@ -8,6 +8,7 @@ import {
   Linking,
   Alert,
   ActivityIndicator,
+  Platform,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -93,7 +94,7 @@ const PremiumScreen = ({ navigation }) => {
 
     setIsPurchasing(true);
 
-    const result = await purchaseProduct(selectedPlanData.productId);
+    const result = await purchaseProduct(selectedPlanData.id);
 
     setIsPurchasing(false);
 
