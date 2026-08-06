@@ -4,6 +4,8 @@ import mobileAds, {
   AdEventType,
   TestIds,
   MaxAdContentRating,
+  AdsConsent,
+  AdsConsentDebugGeography,
 } from 'react-native-google-mobile-ads';
 
 // DEV modunda test reklamı, production'da kendi Ad Unit ID'nizi kullanın.
@@ -31,6 +33,28 @@ const configureAds = async () => {
   if (isConfigured) return;
   isConfigured = true;
   try {
+    // CMP / Kullanıcı rızası (Google UMP).
+    // gatherConsent, rıza formunu YALNIZCA bölgesel olarak gerekli olan yerlerde
+    // (Avrupa Ekonomik Alanı, Birleşik Krallık, İsviçre) gösterir.
+    // ABD ve diğer bölgelerde kullanıcıya hiçbir onay ekranı çıkmaz.
+    // Reklamlar başlatılmadan ÖNCE çağrılır ki TC dizesi reklam isteklerine eklensin.
+    try {
+      // __DEV__: cihazı "Avrupa'daymış gibi" göstererek rıza formunu test et.
+      // Emülatörler otomatik test cihazıdır; gerçek cihazda logcat'te yazan
+      // "addTestDeviceHashedId(...)" değerini testDeviceIdentifiers'a ekle.
+      // Production'da (__DEV__ false) debug yok → form yalnızca gerçek AEA/UK/CH'de çıkar.
+      await AdsConsent.gatherConsent(
+        __DEV__
+          ? {
+              debugGeography: AdsConsentDebugGeography.EEA,
+              testDeviceIdentifiers: [],
+            }
+          : undefined,
+      );
+    } catch (e) {
+      console.log('Consent gather error:', e);
+    }
+
     await mobileAds().setRequestConfiguration({
       maxAdContentRating: MaxAdContentRating.G,
     });
