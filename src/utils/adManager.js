@@ -18,15 +18,10 @@ const AD_UNIT_ID = __DEV__
   ? IOS_INTERSTITIAL_AD_UNIT_ID
   : ANDROID_INTERSTITIAL_AD_UNIT_ID;
 
-const AD_EVERY_N_GAMES = 3;
-const AD_MIN_COOLDOWN_MS = 60 * 1000; // 1 minute between interstitials
-
 let ad = null;
 let isLoaded = false;
 let isLoading = false;
 let isConfigured = false;
-let gamesSinceLastAd = 0;
-let lastAdShownAt = 0;
 
 // 13+ hedef kitle: uygulama çocuklara yönelik DEĞİL.
 // tagForChildDirectedTreatment / tagForUnderAgeOfConsent KULLANILMIYOR;
@@ -73,24 +68,8 @@ export const preloadInterstitialAd = async () => {
   createAndLoad();
 };
 
-const canShowAdNow = () => {
-  gamesSinceLastAd += 1;
-  if (gamesSinceLastAd < AD_EVERY_N_GAMES) {
-    return false;
-  }
-  if (Date.now() - lastAdShownAt < AD_MIN_COOLDOWN_MS) {
-    return false;
-  }
-  return true;
-};
-
-// Oyun bitince çağırın - her N oyunda bir + cooldown; hazır değilse onClosed hemen
+// Oyun bitince çağırın - her oyun sonunda gösterir; hazır değilse onClosed hemen
 export const showInterstitialAd = onClosed => {
-  if (!canShowAdNow()) {
-    if (onClosed) onClosed();
-    return;
-  }
-
   if (!ad || !isLoaded) {
     if (onClosed) onClosed();
     createAndLoad();
@@ -112,7 +91,5 @@ export const showInterstitialAd = onClosed => {
   });
 
   isLoaded = false;
-  gamesSinceLastAd = 0;
-  lastAdShownAt = Date.now();
   ad.show();
 };
