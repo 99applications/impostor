@@ -15,6 +15,54 @@ import { useTranslation } from 'react-i18next';
 import { colors } from '../theme/colors';
 
 export const HAS_RATED_KEY = '@has_rated';
+export const RATING_LATER_KEY = '@rating_later_at';
+export const GAMES_PLAYED_KEY = '@games_played';
+
+const RATING_LATER_COOLDOWN_MS = 7 * 24 * 60 * 60 * 1000; // 7 days
+const MIN_GAMES_BEFORE_RATING = 3;
+
+/** Session guard so Home + GameEnd don't both show rating. */
+let ratingShownThisSession = false;
+
+export const incrementGamesPlayed = async () => {
+  try {
+    const raw = await AsyncStorage.getItem(GAMES_PLAYED_KEY);
+    const count = (parseInt(raw, 10) || 0) + 1;
+    await AsyncStorage.setItem(GAMES_PLAYED_KEY, String(count));
+    return count;
+  } catch (e) {
+    return 0;
+  }
+};
+
+export const shouldShowRatingPrompt = async ({ requireMinGames = true } = {}) => {
+  if (ratingShownThisSession) return false;
+
+  try {
+    const hasRated = await AsyncStorage.getItem(HAS_RATED_KEY);
+    if (hasRated) return false;
+
+    const laterAt = await AsyncStorage.getItem(RATING_LATER_KEY);
+    if (laterAt) {
+      const elapsed = Date.now() - parseInt(laterAt, 10);
+      if (elapsed < RATING_LATER_COOLDOWN_MS) return false;
+    }
+
+    if (requireMinGames) {
+      const raw = await AsyncStorage.getItem(GAMES_PLAYED_KEY);
+      const gamesPlayed = parseInt(raw, 10) || 0;
+      if (gamesPlayed < MIN_GAMES_BEFORE_RATING) return false;
+    }
+
+    return true;
+  } catch (e) {
+    return false;
+  }
+};
+
+export const markRatingPromptShown = () => {
+  ratingShownThisSession = true;
+};
 
 const ANDROID_PACKAGE = 'com.impostor';
 const IOS_APP_ID = 'XXXXXXXXX'; // App Store ID eklendiğinde buraya yaz
@@ -77,8 +125,11 @@ const RatingModal = ({ visible, onClose }) => {
     }
   };
 
-  const handleLater = () => {
+  const handleLater = async () => {
     setSelectedRating(0);
+    try {
+      await AsyncStorage.setItem(RATING_LATER_KEY, String(Date.now()));
+    } catch (e) {}
     onClose();
   };
 
