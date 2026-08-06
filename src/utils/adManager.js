@@ -11,10 +11,15 @@ const AD_UNIT_ID = __DEV__
   ? TestIds.INTERSTITIAL
   : 'ca-app-pub-6529717155550493/1586364279';
 
+const AD_EVERY_N_GAMES = 3;
+const AD_MIN_COOLDOWN_MS = 60 * 1000; // 1 minute between interstitials
+
 let ad = null;
 let isLoaded = false;
 let isLoading = false;
 let isConfigured = false;
+let gamesSinceLastAd = 0;
+let lastAdShownAt = 0;
 
 // 13+ hedef kitle: uygulama çocuklara yönelik DEĞİL.
 // tagForChildDirectedTreatment / tagForUnderAgeOfConsent KULLANILMIYOR;
@@ -61,12 +66,26 @@ export const preloadInterstitialAd = async () => {
   createAndLoad();
 };
 
-// Oyun bitince çağırın - reklam hazırsa gösterir, değilse onClosed'ı hemen çağırır
+const canShowAdNow = () => {
+  gamesSinceLastAd += 1;
+  if (gamesSinceLastAd < AD_EVERY_N_GAMES) {
+    return false;
+  }
+  if (Date.now() - lastAdShownAt < AD_MIN_COOLDOWN_MS) {
+    return false;
+  }
+  return true;
+};
+
+// Oyun bitince çağırın - her N oyunda bir + cooldown; hazır değilse onClosed hemen
 export const showInterstitialAd = onClosed => {
-  if (!ad || !isLoaded) {
-    // Reklam hazır değil, hemen devam et
+  if (!canShowAdNow()) {
     if (onClosed) onClosed();
-    // Bir sonraki oyun için yükle
+    return;
+  }
+
+  if (!ad || !isLoaded) {
+    if (onClosed) onClosed();
     createAndLoad();
     return;
   }
@@ -74,7 +93,6 @@ export const showInterstitialAd = onClosed => {
   const unsubClosed = ad.addAdEventListener(AdEventType.CLOSED, () => {
     unsubClosed();
     isLoaded = false;
-    // Bir sonraki oyun için önceden yükle
     createAndLoad();
     if (onClosed) onClosed();
   });
@@ -87,5 +105,7 @@ export const showInterstitialAd = onClosed => {
   });
 
   isLoaded = false;
+  gamesSinceLastAd = 0;
+  lastAdShownAt = Date.now();
   ad.show();
 };

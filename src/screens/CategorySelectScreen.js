@@ -256,8 +256,8 @@ const CategorySelectScreen = ({ navigation }) => {
               {isPremium
                 ? customCategoryCount > 0
                   ? `${customCategoryCount} ${t(
-                      'categorySelect.customCategoriesCount',
-                    )}`
+                    'categorySelect.customCategoriesCount',
+                  )}`
                   : t('categorySelect.noCustomCategories')
                 : t('categorySelect.createOwnCategories')}
             </Text>
@@ -429,8 +429,8 @@ const CategorySelectScreen = ({ navigation }) => {
                 isLocked
                   ? colors.textMuted
                   : isSelected
-                  ? colors.textPrimary
-                  : colors.textSecondary
+                    ? colors.textPrimary
+                    : colors.textSecondary
               }
             />
           </View>

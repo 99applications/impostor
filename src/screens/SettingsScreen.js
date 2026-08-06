@@ -13,9 +13,12 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Ionicons';
+import DeviceInfo from 'react-native-device-info';
 import { colors } from '../theme/colors';
 import { SUPPORTED_LANGUAGES, changeLanguage } from '../i18n';
 import { usePremium } from '../context/PremiumContext';
+
+const APP_VERSION = DeviceInfo.getVersion();
 
 const APP_STORE_URL = 'https://apps.apple.com/app/idXXXXXXXXX'; // App Store ID'ni ekle
 const PLAY_STORE_URL =
@@ -342,7 +345,7 @@ const SettingsScreen = ({ navigation }) => {
             </View>
           </View>
           <Text style={styles.appName}>{t('app.name')}</Text>
-          <Text style={styles.appVersion}>v1.0.0</Text>
+          <Text style={styles.appVersion}>v{APP_VERSION}</Text>
           <Text style={styles.appCopyright}>© 2026 Codeva</Text>
         </View>
       </ScrollView>

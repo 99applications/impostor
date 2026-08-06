@@ -8,35 +8,41 @@ import {
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { colors } from '../theme/colors';
 import { useGame } from '../context/GameContext';
 import { usePremium } from '../context/PremiumContext';
 import { showInterstitialAd } from '../utils/adManager';
-import RatingModal, { HAS_RATED_KEY } from '../components/RatingModal';
+import RatingModal, {
+  shouldShowRatingPrompt,
+  markRatingPromptShown,
+  incrementGamesPlayed,
+} from '../components/RatingModal';
 
 const GameEndScreen = ({ navigation }) => {
   const { t } = useTranslation();
   const insets = useSafeAreaInsets();
   const { state, resetGame, fullReset } = useGame();
-  const { isPremium } = usePremium();
+  const { isPremium, isLoading: isPremiumLoading } = usePremium();
   const [showRatingModal, setShowRatingModal] = useState(false);
 
   const imposters = state.players.filter(p => p.isImposter);
 
   useEffect(() => {
-    // Premium değilse reklam göster
+    // Wait until premium status is known so subscribers don't see a flash ad
+    if (isPremiumLoading) return;
     if (!isPremium) {
       showInterstitialAd(null);
     }
-  }, [isPremium]);
+  }, [isPremium, isPremiumLoading]);
 
   useEffect(() => {
     const checkRating = async () => {
       try {
-        const hasRated = await AsyncStorage.getItem(HAS_RATED_KEY);
-        if (!hasRated) {
+        await incrementGamesPlayed();
+        const canShow = await shouldShowRatingPrompt({ requireMinGames: true });
+        if (canShow) {
+          markRatingPromptShown();
           setTimeout(() => setShowRatingModal(true), 1500);
         }
       } catch (e) {}
@@ -105,25 +111,33 @@ const GameEndScreen = ({ navigation }) => {
             {state.gameMode === 'word' ? (
               <>
                 <Icon name="sparkles" size={40} color={colors.success} style={styles.answerIcon} />
-                <Text style={styles.answerText}>{t(state.currentWordKey)}</Text>
+                <Text style={styles.answerText}>
+                  {state.currentWord || t(state.currentWordKey)}
+                </Text>
               </>
             ) : (
               <>
                 <Icon name="help-circle" size={40} color={colors.accentPrimary} style={styles.answerIcon} />
-                <View style={styles.questionBox}>
-                  <Text style={styles.questionLabel}>Normal:</Text>
-                  <Text style={styles.questionText}>
-                    {t(`${state.currentQuestionKey}.normal`)}
-                  </Text>
-                </View>
-                <View style={styles.questionBox}>
-                  <Text style={[styles.questionLabel, styles.imposterLabel]}>
-                    Sahtekar:
-                  </Text>
-                  <Text style={styles.questionText}>
-                    {t(`${state.currentQuestionKey}.imposter`)}
-                  </Text>
-                </View>
+                {state.currentWord ? (
+                  <Text style={styles.answerText}>{state.currentWord}</Text>
+                ) : (
+                  <>
+                    <View style={styles.questionBox}>
+                      <Text style={styles.questionLabel}>Normal:</Text>
+                      <Text style={styles.questionText}>
+                        {t(`${state.currentQuestionKey}.normal`)}
+                      </Text>
+                    </View>
+                    <View style={styles.questionBox}>
+                      <Text style={[styles.questionLabel, styles.imposterLabel]}>
+                        Sahtekar:
+                      </Text>
+                      <Text style={styles.questionText}>
+                        {t(`${state.currentQuestionKey}.imposter`)}
+                      </Text>
+                    </View>
+                  </>
+                )}
               </>
             )}
           </View>

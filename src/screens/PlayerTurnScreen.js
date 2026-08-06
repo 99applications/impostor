@@ -249,23 +249,42 @@ const PlayerTurnScreen = ({ navigation }) => {
           </View>
           <Text style={styles.imposterTitle}>{t('game.youAreImposter')}</Text>
 
+          {state.gameMode === 'question' &&
+            (state.currentQuestionKey || state.currentWord) && (
+              <View style={styles.infoBox}>
+                <Icon
+                  name="help-circle-outline"
+                  size={18}
+                  color={colors.warning}
+                />
+                <Text style={styles.infoLabel}>{t('game.yourQuestion')}</Text>
+                <Text style={styles.infoValue}>
+                  {state.currentWord ||
+                    t(`${state.currentQuestionKey}.imposter`)}
+                </Text>
+              </View>
+            )}
+
           {state.showCategoryToImposter && state.currentCategory && (
             <View style={styles.infoBox}>
               <Icon name="folder-outline" size={18} color={colors.textMuted} />
               <Text style={styles.infoLabel}>{t('game.category')}</Text>
               <Text style={styles.infoValue}>
-                {t(`categories.${state.currentCategory}`)}
+                {state.customCategories?.[state.currentCategory]?.name ||
+                  t(`categories.${state.currentCategory}`)}
               </Text>
             </View>
           )}
 
-          {state.showHintToImposter && state.currentHintKey && (
-            <View style={styles.infoBox}>
-              <Icon name="bulb-outline" size={18} color={colors.warning} />
-              <Text style={styles.infoLabel}>{t('game.imposterHint')}</Text>
-              <Text style={styles.infoValue}>{t(state.currentHintKey)}</Text>
-            </View>
-          )}
+          {state.gameMode === 'word' &&
+            state.showHintToImposter &&
+            state.currentHintKey && (
+              <View style={styles.infoBox}>
+                <Icon name="bulb-outline" size={18} color={colors.warning} />
+                <Text style={styles.infoLabel}>{t('game.imposterHint')}</Text>
+                <Text style={styles.infoValue}>{t(state.currentHintKey)}</Text>
+              </View>
+            )}
         </View>
       );
     }
@@ -278,7 +297,9 @@ const PlayerTurnScreen = ({ navigation }) => {
             <Icon name="text" size={40} color={colors.success} />
           </View>
           <Text style={styles.contentLabel}>{t('game.yourWord')}</Text>
-          <Text style={styles.contentValue}>{t(state.currentWordKey)}</Text>
+          <Text style={styles.contentValue}>
+            {state.currentWord || t(state.currentWordKey)}
+          </Text>
         </View>
       );
     }
@@ -291,7 +312,8 @@ const PlayerTurnScreen = ({ navigation }) => {
         </View>
         <Text style={styles.contentLabel}>{t('game.yourQuestion')}</Text>
         <Text style={styles.contentValue}>
-          {t(`${state.currentQuestionKey}.normal`)}
+          {state.currentWord ||
+            t(`${state.currentQuestionKey}.normal`)}
         </Text>
       </View>
     );
