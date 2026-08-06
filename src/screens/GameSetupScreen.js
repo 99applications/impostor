@@ -60,6 +60,13 @@ const GameSetupScreen = ({ navigation }) => {
     let questions = 0;
 
     (state.selectedCategories || []).forEach(categoryId => {
+      const custom = state.customCategories?.[categoryId];
+      if (custom) {
+        words += custom.words?.length || 0;
+        questions += custom.questions?.length || 0;
+        return;
+      }
+
       const category = CATEGORIES[categoryId];
       if (category) {
         words += category.wordKeys?.length || 0;

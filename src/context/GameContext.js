@@ -11,51 +11,97 @@ const getRandomItem = array => {
   return array[Math.floor(Math.random() * array.length)];
 };
 
-const getRandomWordKey = (categories, customCategories = {}) => {
-  const randomCategoryId = getRandomItem(categories);
+const getRandomWordKey = (categoryId, customCategories = {}) => {
+  if (!categoryId) return null;
 
   // Önce custom kategorilerde ara
-  if (customCategories[randomCategoryId]) {
-    const words = customCategories[randomCategoryId].words || [];
+  if (customCategories[categoryId]) {
+    const words = customCategories[categoryId].words || [];
     return words.length > 0
-      ? `custom:${randomCategoryId}:${getRandomItem(words)}`
+      ? `custom:${categoryId}:${getRandomItem(words)}`
       : null;
   }
 
   // Sonra normal kategorilerde ara
-  const category = CATEGORIES[randomCategoryId];
+  const category = CATEGORIES[categoryId];
   if (!category || !category.wordKeys) return null;
   return getRandomItem(category.wordKeys);
 };
 
-const getRandomQuestionKey = (categories, customCategories = {}) => {
-  const randomCategoryId = getRandomItem(categories);
+const getRandomQuestionKey = (categoryId, customCategories = {}) => {
+  if (!categoryId) return null;
 
-  if (customCategories[randomCategoryId]) {
-    const questions = customCategories[randomCategoryId].questions || [];
+  if (customCategories[categoryId]) {
+    const questions = customCategories[categoryId].questions || [];
     return questions.length > 0
-      ? `custom:${randomCategoryId}:${getRandomItem(questions)}`
+      ? `custom:${categoryId}:${getRandomItem(questions)}`
       : null;
   }
 
-  const category = CATEGORIES[randomCategoryId];
+  const category = CATEGORIES[categoryId];
   if (!category || !category.questionKeys) return null;
   return getRandomItem(category.questionKeys);
 };
 
-const getRandomHintKey = (categories, customCategories = {}) => {
-  const randomCategoryId = getRandomItem(categories);
+const getRandomHintKey = (categoryId, customCategories = {}) => {
+  if (!categoryId) return null;
 
-  if (customCategories[randomCategoryId]) {
-    const hints = customCategories[randomCategoryId].hints || [];
+  if (customCategories[categoryId]) {
+    const hints = customCategories[categoryId].hints || [];
     return hints.length > 0
-      ? `custom:${randomCategoryId}:${getRandomItem(hints)}`
+      ? `custom:${categoryId}:${getRandomItem(hints)}`
       : null;
   }
 
-  const category = CATEGORIES[randomCategoryId];
+  const category = CATEGORIES[categoryId];
   if (!category || !category.hintKeys) return null;
   return getRandomItem(category.hintKeys);
+};
+
+/** Pick content for a round from a single category so word/hint/category always match. */
+const pickRoundContent = (
+  gameMode,
+  selectedCategories,
+  customCategories = {},
+) => {
+  const currentCategory = getRandomItem(selectedCategories);
+
+  let currentWordKey = null;
+  let currentQuestionKey = null;
+  let currentHintKey = null;
+  let currentWord = null;
+
+  if (gameMode === 'word') {
+    const wordResult = getRandomWordKey(currentCategory, customCategories);
+    if (wordResult && wordResult.startsWith('custom:')) {
+      currentWord = wordResult.split(':')[2];
+    } else {
+      currentWordKey = wordResult;
+    }
+
+    const hintResult = getRandomHintKey(currentCategory, customCategories);
+    if (hintResult && !hintResult.startsWith('custom:')) {
+      currentHintKey = hintResult;
+    }
+  } else {
+    const questionResult = getRandomQuestionKey(
+      currentCategory,
+      customCategories,
+    );
+    if (questionResult && questionResult.startsWith('custom:')) {
+      currentWord = questionResult.split(':')[2];
+    } else {
+      currentQuestionKey = questionResult;
+    }
+  }
+
+  return {
+    currentCategory,
+    currentWordKey,
+    currentQuestionKey,
+    currentHintKey,
+    currentWord,
+  };
 };
 
 const initialState = {
@@ -201,46 +247,13 @@ const gameReducer = (state, action) => {
         }
       }
 
-      const currentCategory = getRandomItem(selectedCategories);
-
-      let currentWordKey = null;
-      let currentQuestionKey = null;
-      let currentHintKey = null;
-      let currentWord = null;
-
-      if (gameMode === 'word') {
-        const wordResult = getRandomWordKey(
-          selectedCategories,
-          customCategories,
-        );
-        if (wordResult && wordResult.startsWith('custom:')) {
-          // Custom kategori kelimesi
-          currentWord = wordResult.split(':')[2];
-        } else {
-          currentWordKey = wordResult;
-        }
-
-        const hintResult = getRandomHintKey(
-          selectedCategories,
-          customCategories,
-        );
-        if (hintResult && hintResult.startsWith('custom:')) {
-          // Custom hint - şimdilik null bırak
-          currentHintKey = null;
-        } else {
-          currentHintKey = hintResult;
-        }
-      } else {
-        const questionResult = getRandomQuestionKey(
-          selectedCategories,
-          customCategories,
-        );
-        if (questionResult && questionResult.startsWith('custom:')) {
-          currentWord = questionResult.split(':')[2];
-        } else {
-          currentQuestionKey = questionResult;
-        }
-      }
+      const {
+        currentCategory,
+        currentWordKey,
+        currentQuestionKey,
+        currentHintKey,
+        currentWord,
+      } = pickRoundContent(gameMode, selectedCategories, customCategories);
 
       return {
         ...state,
@@ -303,42 +316,13 @@ const gameReducer = (state, action) => {
         }
       }
 
-      const currentCategory = getRandomItem(selectedCategories);
-
-      let currentWordKey = null;
-      let currentQuestionKey = null;
-      let currentHintKey = null;
-      let currentWord = null;
-
-      if (gameMode === 'word') {
-        const wordResult = getRandomWordKey(
-          selectedCategories,
-          customCategories,
-        );
-        if (wordResult && wordResult.startsWith('custom:')) {
-          currentWord = wordResult.split(':')[2];
-        } else {
-          currentWordKey = wordResult;
-        }
-
-        const hintResult = getRandomHintKey(
-          selectedCategories,
-          customCategories,
-        );
-        if (hintResult && !hintResult.startsWith('custom:')) {
-          currentHintKey = hintResult;
-        }
-      } else {
-        const questionResult = getRandomQuestionKey(
-          selectedCategories,
-          customCategories,
-        );
-        if (questionResult && questionResult.startsWith('custom:')) {
-          currentWord = questionResult.split(':')[2];
-        } else {
-          currentQuestionKey = questionResult;
-        }
-      }
+      const {
+        currentCategory,
+        currentWordKey,
+        currentQuestionKey,
+        currentHintKey,
+        currentWord,
+      } = pickRoundContent(gameMode, selectedCategories, customCategories);
 
       return {
         ...initialState,
