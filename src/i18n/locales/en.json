@@ -2375,5 +2375,22 @@
     "subtitle": "If you enjoyed the game, support us!",
     "submit": "Submit",
     "later": "Later"
+  },
+  "paywall": {
+    "proLabel": "PRO",
+    "title": "Never Let The Party End",
+    "subtitle": "Unlock every category, every exclusive word and ad-free play in one tap.",
+    "statCategories": "Premium categories",
+    "statWords": "Exclusive words",
+    "statCustom": "Your own decks",
+    "yearlyTitle": "Yearly",
+    "yearlySubtitle": "Full access for 12 months",
+    "monthlyTitle": "Monthly",
+    "perMonth": "{{price}} / mo",
+    "savePercent": "SAVE {{percent}}%",
+    "bestValue": "BEST VALUE",
+    "cta": "GO PRO",
+    "cancelAnytime": "Cancel anytime",
+    "legalText": "Your subscription is charged to your Google Play account. It renews automatically unless cancelled at least 24 hours before the end of the current period. You can manage or cancel it in Google Play > Subscriptions."
   }
 }
