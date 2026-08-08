@@ -110,7 +110,8 @@ const OnboardingScreen = ({ navigation }) => {
     } catch (error) {
       console.log('Error saving onboarding status:', error);
     }
-    navigation.replace('Home');
+    // Onboarding sonrası paywall; paywall kapatılınca Home'a geçer.
+    navigation.replace('Paywall');
   };
 
   const onViewableItemsChanged = useRef(({ viewableItems }) => {

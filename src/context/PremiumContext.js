@@ -301,6 +301,7 @@ export const PremiumProvider = ({ children }) => {
     getDaysRemaining,
     getProductPrice,
     getPrices,
+    getPackage: findPackageByType,
     PRODUCT_IDS,
   };
 

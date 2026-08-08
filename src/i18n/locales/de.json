@@ -2375,5 +2375,22 @@
     "subtitle": "Wenn dir das Spiel gefällt, unterstütze uns!",
     "submit": "Senden",
     "later": "Später"
+  },
+  "paywall": {
+    "proLabel": "PRO",
+    "title": "Lass die Party nie enden",
+    "subtitle": "Schalte mit einem Tipp alle Kategorien, exklusive Wörter und werbefreies Spielen frei.",
+    "statCategories": "Premium-Kategorien",
+    "statWords": "Exklusive Wörter",
+    "statCustom": "Eigene Kategorien",
+    "yearlyTitle": "Jährlich",
+    "yearlySubtitle": "12 Monate Vollzugriff",
+    "monthlyTitle": "Monatlich",
+    "perMonth": "{{price}} / Mon.",
+    "savePercent": "{{percent}}% SPAREN",
+    "bestValue": "BESTER WERT",
+    "cta": "PRO HOLEN",
+    "cancelAnytime": "Jederzeit kündbar",
+    "legalText": "Dein Abo wird über dein Google-Play-Konto abgerechnet. Es verlängert sich automatisch, sofern es nicht mindestens 24 Stunden vor Ende der laufenden Periode gekündigt wird. Du kannst es unter Google Play > Abos verwalten oder kündigen."
   }
 }
