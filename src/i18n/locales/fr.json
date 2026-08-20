@@ -2375,5 +2375,22 @@
     "subtitle": "Si tu aimes le jeu, soutiens-nous !",
     "submit": "Envoyer",
     "later": "Plus tard"
+  },
+  "paywall": {
+    "proLabel": "PRO",
+    "title": "Que la fête ne s'arrête jamais",
+    "subtitle": "Débloque toutes les catégories, les mots exclusifs et le jeu sans pub en un seul clic.",
+    "statCategories": "Catégories premium",
+    "statWords": "Mots exclusifs",
+    "statCustom": "Tes catégories",
+    "yearlyTitle": "Annuel",
+    "yearlySubtitle": "Accès complet pendant 12 mois",
+    "monthlyTitle": "Mensuel",
+    "perMonth": "{{price}} / mois",
+    "savePercent": "{{percent}} % D'ÉCONOMIE",
+    "bestValue": "MEILLEURE OFFRE",
+    "cta": "PASSER À PRO",
+    "cancelAnytime": "Annulable à tout moment",
+    "legalText": "Ton abonnement est facturé sur ton compte Google Play. Il se renouvelle automatiquement sauf résiliation au moins 24 heures avant la fin de la période en cours. Tu peux le gérer ou le résilier dans Google Play > Abonnements."
   }
 }

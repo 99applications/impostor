@@ -2375,5 +2375,22 @@
     "subtitle": "Si te gustó el juego, ¡apóyanos!",
     "submit": "Enviar",
     "later": "Más tarde"
+  },
+  "paywall": {
+    "proLabel": "PRO",
+    "title": "Que la fiesta no acabe nunca",
+    "subtitle": "Desbloquea todas las categorías, las palabras exclusivas y el juego sin anuncios en un toque.",
+    "statCategories": "Categorías premium",
+    "statWords": "Palabras exclusivas",
+    "statCustom": "Tus categorías",
+    "yearlyTitle": "Anual",
+    "yearlySubtitle": "Acceso completo 12 meses",
+    "monthlyTitle": "Mensual",
+    "perMonth": "{{price}} / mes",
+    "savePercent": "AHORRA {{percent}}%",
+    "bestValue": "MEJOR VALOR",
+    "cta": "HAZTE PRO",
+    "cancelAnytime": "Cancela cuando quieras",
+    "legalText": "Tu suscripción se cobra en tu cuenta de Google Play. Se renueva automáticamente salvo que la canceles al menos 24 horas antes de que acabe el periodo actual. Puedes gestionarla o cancelarla en Google Play > Suscripciones."
   }
 }

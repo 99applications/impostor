@@ -2375,5 +2375,22 @@
     "subtitle": "Oyunu beğendiysen bize destek ol!",
     "submit": "Gönder",
     "later": "Daha Sonra"
+  },
+  "paywall": {
+    "proLabel": "PRO",
+    "title": "Partiyi Asla Bitirme",
+    "subtitle": "Tüm kategorileri, özel kelimeleri ve reklamsız oyunu tek dokunuşla aç.",
+    "statCategories": "Premium kategori",
+    "statWords": "Özel kelime",
+    "statCustom": "Kendi kategorin",
+    "yearlyTitle": "Yıllık",
+    "yearlySubtitle": "12 ay tam erişim",
+    "monthlyTitle": "Aylık",
+    "perMonth": "{{price}} / ay",
+    "savePercent": "%{{percent}} TASARRUF",
+    "bestValue": "EN AVANTAJLI",
+    "cta": "PRO'YA GEÇ",
+    "cancelAnytime": "İstediğin an iptal edebilirsin",
+    "legalText": "Abonelik ücreti Google Play hesabınızdan tahsil edilir. Mevcut dönem bitmeden en az 24 saat önce iptal edilmediği sürece otomatik olarak yenilenir. Aboneliğinizi Google Play > Abonelikler bölümünden yönetebilir veya iptal edebilirsiniz."
   }
 }
