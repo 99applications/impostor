@@ -109,7 +109,25 @@ android {
         signingConfig signingConfigs.release
         minifyEnabled enableProguardInReleaseBuilds
         proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+
+        // Native crash'ler (SIGABRT / SIGSEGV) Crashlytics'te okunabilir stack
+        // ile gelsin diye sembol dosyalarini yukler. Bu olmadan sadece
+        // "SIGABRT" yazar ve nereden geldigi anlasilamaz.
+        firebaseCrashlytics {
+            nativeSymbolUploadEnabled true
+        }
     }
+    }
+
+    packaging {
+        jniLibs {
+            // Native kutuphaneleri kurulum aninda diske cikarir.
+            // Varsayilan (false) davranista .so dosyalari APK icinden dogrudan
+            // okunur; bozuk Play split kurulumlarinda ve bazi OEM cihazlarda
+            // bu okuma basarisiz olup MainApplication.onCreate icinde
+            // SoLoaderDSONotFoundError (libc++_shared.so) crash'ine yol aciyor.
+            useLegacyPackaging = true
+        }
     }
 }
 

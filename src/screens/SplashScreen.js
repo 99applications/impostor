@@ -1,34 +1,12 @@
-
-
+import React, { useEffect, useRef } from 'react';
+import { View, Text, StyleSheet, Animated } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Icon from 'react-native-vector-icons/Ionicons';
+import { colors } from '../theme/colors';
 import { checkOnboardingStatus } from './Onboardingscreen';
 
 const LANGUAGE_SELECTED_KEY = '@language_selected';
-
-const checkAndNavigate = async () => {
-  const hasCompletedOnboarding = await checkOnboardingStatus();
-
-  if (hasCompletedOnboarding) {
-    navigation.replace('Home');
-  } else {
-    navigation.replace('Onboarding');
-  }
-};
-
-// Animasyonunuz bittiğinde checkAndNavigate() çağırın
-
-// ============================================
-// TAM ÖRNEK SPLASHSCREEN
-// ============================================
-// Eğer mevcut SplashScreen'iniz basitse, aşağıdaki gibi güncelleyebilirsiniz:
-
-import React, { useEffect, useRef } from 'react';
-import { View, Text, StyleSheet, Animated, Dimensions } from 'react-native';
-import { useTranslation } from 'react-i18next';
-import Icon from 'react-native-vector-icons/Ionicons';
-import { colors } from '../theme/colors';
-
-const { width, height } = Dimensions.get('window');
 
 const SplashScreen = ({ navigation }) => {
   const { t } = useTranslation();
@@ -36,8 +14,10 @@ const SplashScreen = ({ navigation }) => {
   const scaleAnim = useRef(new Animated.Value(0.5)).current;
 
   useEffect(() => {
+    let isMounted = true;
+
     // Animasyonları başlat
-    Animated.parallel([
+    const animation = Animated.parallel([
       Animated.timing(fadeAnim, {
         toValue: 1,
         duration: 800,
@@ -49,17 +29,24 @@ const SplashScreen = ({ navigation }) => {
         tension: 40,
         useNativeDriver: true,
       }),
-    ]).start();
+    ]);
+    animation.start();
 
     // 2 saniye sonra kontrol et ve yönlendir
     const timer = setTimeout(async () => {
-      const languageSelected = await AsyncStorage.getItem(LANGUAGE_SELECTED_KEY);
+      const languageSelected = await AsyncStorage.getItem(
+        LANGUAGE_SELECTED_KEY,
+      );
+      if (!isMounted) return;
+
       if (!languageSelected) {
         // Kullanıcı manuel dil seçmemiş → dil seçim ekranına git
         navigation.replace('LanguageSelect');
         return;
       }
       const hasCompletedOnboarding = await checkOnboardingStatus();
+      if (!isMounted) return;
+
       if (hasCompletedOnboarding) {
         navigation.replace('Home');
       } else {
@@ -67,8 +54,16 @@ const SplashScreen = ({ navigation }) => {
       }
     }, 2000);
 
-    return () => clearTimeout(timer);
-  }, [navigation]);
+    return () => {
+      isMounted = false;
+      clearTimeout(timer);
+      // Ekran değişirken animasyon çalışmaya devam ederse, native animasyon
+      // düğümleri kaldırılmışken bağlanmaya çalışılıyor ve
+      // NativeAnimatedNodesManager.connectAnimatedNodes çakışıyor.
+      animation.stop();
+    };
+    // fadeAnim/scaleAnim useRef ile olusturuldugu icin referanslari sabittir.
+  }, [navigation, fadeAnim, scaleAnim]);
 
   return (
     <View style={styles.container}>
