@@ -49,7 +49,9 @@ const MyCategoriesScreen = ({ navigation }) => {
         {!isPremium && (
           <TouchableOpacity
             style={styles.premiumBanner}
-            onPress={() => navigation.navigate('Premium')}
+            onPress={() =>
+              navigation.navigate('Paywall', { onboarding: false })
+            }
           >
             <View style={styles.premiumBannerIcon}>
               <Icon name="diamond" size={24} color={colors.warning} />

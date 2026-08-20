@@ -5,7 +5,6 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
-  Alert,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -54,19 +53,10 @@ const CategorySelectScreen = ({ navigation }) => {
       }
     }
 
-    // Premium kategori kontrolü
+    // Premium kategori kontrolü - sistem uyarısı yerine paywall ekranını aç.
+    // onboarding: false → paywall kapatılınca buraya geri döner.
     if (category?.isPremium && !isPremium) {
-      Alert.alert(
-        t('categorySelect.premiumTitle'),
-        t('categorySelect.premiumMessage'),
-        [
-          { text: t('common.cancel'), style: 'cancel' },
-          {
-            text: t('categorySelect.goPremium'),
-            onPress: () => navigation.navigate('Premium'),
-          },
-        ],
-      );
+      navigation.navigate('Paywall', { onboarding: false });
       return;
     }
 
@@ -215,7 +205,11 @@ const CategorySelectScreen = ({ navigation }) => {
       <TouchableOpacity
         style={styles.myCategoriesButton}
         activeOpacity={0.8}
-        onPress={() => navigation.navigate('MyCategories')}
+        onPress={() =>
+          isPremium
+            ? navigation.navigate('MyCategories')
+            : navigation.navigate('Paywall', { onboarding: false })
+        }
       >
         <View style={styles.myCategoriesLeft}>
           <View
@@ -490,6 +484,20 @@ const CategorySelectScreen = ({ navigation }) => {
                 {count.questions} {t('categorySelect.questions')}
               </Text>
             </View>
+
+            {/* Kilitli kategorilerde ne kaçırıldığını göster - kelimeler
+                bulanık, merak uyandırıp paywall'a tıklamayı artırıyor. */}
+            {isLocked && (
+              <View style={styles.lockedPreview}>
+                {category.wordKeys.slice(0, 3).map(wordKey => (
+                  <View key={wordKey} style={styles.lockedWordChip}>
+                    <Text style={styles.lockedWord} numberOfLines={1}>
+                      {t(wordKey)}
+                    </Text>
+                  </View>
+                ))}
+              </View>
+            )}
           </View>
         </View>
 
@@ -767,6 +775,28 @@ const styles = StyleSheet.create({
   categoryStats: {
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  lockedPreview: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 6,
+    marginTop: 8,
+  },
+  lockedWordChip: {
+    backgroundColor: colors.bgCardLight,
+    borderRadius: 6,
+    paddingHorizontal: 9,
+    paddingVertical: 4,
+  },
+  lockedWord: {
+    fontSize: 12,
+    fontWeight: '600',
+    // Bulanıklık efekti: metnin kendisi şeffaf, gölgesi yayılarak çiziliyor.
+    // Böylece ek bir native blur kütüphanesine ihtiyaç kalmıyor.
+    color: 'transparent',
+    textShadowColor: colors.textSecondary,
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 5,
   },
   categoryStat: {
     fontSize: 12,

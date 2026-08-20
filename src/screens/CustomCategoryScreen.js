@@ -163,7 +163,9 @@ const CustomCategoryScreen = ({ navigation, route }) => {
           </Text>
           <TouchableOpacity
             style={styles.premiumButton}
-            onPress={() => navigation.navigate('Premium')}
+            onPress={() =>
+              navigation.navigate('Paywall', { onboarding: false })
+            }
           >
             <Icon name="diamond" size={20} color={colors.textPrimary} />
             <Text style={styles.premiumButtonText}>
