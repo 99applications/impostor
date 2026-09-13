@@ -15,7 +15,7 @@ export const LANGUAGE_SELECTED_KEY = '@language_selected';
 // Supported languages
 export const SUPPORTED_LANGUAGES = [
   { code: 'tr', name: 'Türkçe', flag: '🇹🇷' },
-  { code: 'en', name: 'English', flag: '🇬🇧' },
+  { code: 'en', name: 'English', flag: '🇺🇸' },
   { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
   { code: 'fr', name: 'Français', flag: '🇫🇷' },
   { code: 'es', name: 'Español', flag: '🇪🇸' },
