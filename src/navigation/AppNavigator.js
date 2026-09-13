@@ -10,6 +10,7 @@ import HowToPlayScreen from '../screens/HowToPlayScreen';
 import GameSetupScreen from '../screens/GameSetupScreen';
 import PlayerTurnScreen from '../screens/PlayerTurnScreen';
 import GameEndScreen from '../screens/GameEndScreen';
+import VotingScreen from '../screens/VotingScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import PlayerSetupScreen from '../screens/PlayerSetupScreen';
 import CategorySelectScreen from '../screens/CategorySelectScreen';
@@ -38,6 +39,7 @@ const AppNavigator = () => {
       <Stack.Screen name="HowToPlay" component={HowToPlayScreen} />
       <Stack.Screen name="GameSetup" component={GameSetupScreen} />
       <Stack.Screen name="PlayerTurn" component={PlayerTurnScreen} />
+      <Stack.Screen name="Voting" component={VotingScreen} />
       <Stack.Screen name="GameEnd" component={GameEndScreen} />
       <Stack.Screen name="Settings" component={SettingsScreen} />
       <Stack.Screen name="PlayerSetup" component={PlayerSetupScreen} />
