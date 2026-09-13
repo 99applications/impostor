@@ -1,10 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -41,7 +36,7 @@ const PlayerTurnScreen = ({ navigation }) => {
           if (prev <= 1) {
             clearInterval(timerRef.current);
             vibrate([0, 500, 200, 500]);
-            navigation.replace('GameEnd', { timeUp: true });
+            navigation.replace('Voting');
             return 0;
           }
 
@@ -89,7 +84,7 @@ const PlayerTurnScreen = ({ navigation }) => {
     if (timerRef.current) {
       clearInterval(timerRef.current);
     }
-    navigation.replace('GameEnd', { timeUp: false });
+    navigation.replace('Voting');
   };
 
   // Süre kritik mi?
@@ -222,8 +217,10 @@ const PlayerTurnScreen = ({ navigation }) => {
             activeOpacity={0.8}
             onPress={handleEndGame}
           >
-            <Icon name="flag" size={20} color={colors.textPrimary} />
-            <Text style={styles.endGameButtonText}>{t('game.endGame')}</Text>
+            <Icon name="hand-left" size={20} color={colors.textPrimary} />
+            <Text style={styles.endGameButtonText}>
+              {t('game.startVoting')}
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -312,8 +309,7 @@ const PlayerTurnScreen = ({ navigation }) => {
         </View>
         <Text style={styles.contentLabel}>{t('game.yourQuestion')}</Text>
         <Text style={styles.contentValue}>
-          {state.currentWord ||
-            t(`${state.currentQuestionKey}.normal`)}
+          {state.currentWord || t(`${state.currentQuestionKey}.normal`)}
         </Text>
       </View>
     );

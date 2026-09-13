@@ -13,13 +13,37 @@ import { colors } from '../theme/colors';
 import { useGame } from '../context/GameContext';
 import { usePremium } from '../context/PremiumContext';
 import { showInterstitialAd } from '../utils/adManager';
+import { calculateVoteResult, getPlayerName } from '../utils/voting';
 import RatingModal, {
   shouldShowRatingPrompt,
   markRatingPromptShown,
   incrementGamesPlayed,
 } from '../components/RatingModal';
 
-const GameEndScreen = ({ navigation }) => {
+const VERDICT_STYLES = {
+  groupWins: {
+    icon: 'shield-checkmark',
+    color: colors.success,
+    bg: 'rgba(16, 185, 129, 0.15)',
+  },
+  innocentEliminated: {
+    icon: 'skull',
+    color: colors.danger,
+    bg: 'rgba(239, 68, 68, 0.15)',
+  },
+  tie: {
+    icon: 'git-compare',
+    color: colors.warning,
+    bg: 'rgba(245, 158, 11, 0.15)',
+  },
+  troll: {
+    icon: 'happy',
+    color: colors.accentPrimary,
+    bg: 'rgba(139, 92, 246, 0.15)',
+  },
+};
+
+const GameEndScreen = ({ navigation, route }) => {
   const { t } = useTranslation();
   const insets = useSafeAreaInsets();
   const { state, resetGame, fullReset } = useGame();
@@ -27,6 +51,51 @@ const GameEndScreen = ({ navigation }) => {
   const [showRatingModal, setShowRatingModal] = useState(false);
 
   const imposters = state.players.filter(p => p.isImposter);
+
+  // Oylama yapıldıysa sonucu hesapla; atlandıysa sadece açıklama gösterilir.
+  const votes = route?.params?.votes;
+  const result = votes
+    ? calculateVoteResult(state.players, votes, state.isTrollRound)
+    : null;
+
+  const getVerdictText = () => {
+    if (!result) {
+      return null;
+    }
+    switch (result.outcome) {
+      case 'groupWins':
+        return {
+          title: t('result.groupWinsTitle'),
+          desc: t('result.groupWinsDesc', {
+            name: getPlayerName(result.eliminated, t),
+          }),
+        };
+      case 'innocentEliminated':
+        return {
+          title: t('result.imposterWinsTitle'),
+          desc: t('result.innocentEliminatedDesc', {
+            name: getPlayerName(result.eliminated, t),
+          }),
+        };
+      case 'tie': {
+        const names = state.players
+          .filter(p => result.topIds.includes(p.id))
+          .map(p => getPlayerName(p, t))
+          .join(', ');
+        return {
+          title: t('result.imposterWinsTitle'),
+          desc: names
+            ? t('result.tieDesc', { names })
+            : t('result.noVotesDesc'),
+        };
+      }
+      default:
+        return { title: t('result.trollTitle'), desc: t('result.trollDesc') };
+    }
+  };
+
+  const verdict = getVerdictText();
+  const verdictStyle = result ? VERDICT_STYLES[result.outcome] : null;
 
   useEffect(() => {
     // Wait until premium status is known so subscribers don't see a flash ad
@@ -75,13 +144,35 @@ const GameEndScreen = ({ navigation }) => {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        {/* Başlık */}
-        <View style={styles.header}>
-          <View style={styles.headerIconWrapper}>
-            <Icon name="trophy" size={52} color={colors.warning} />
+        {/* Başlık: oylama yapıldıysa kazananı açıkça göster */}
+        {verdict ? (
+          <View
+            style={[
+              styles.verdictCard,
+              {
+                backgroundColor: verdictStyle.bg,
+                borderColor: verdictStyle.color,
+              },
+            ]}
+          >
+            <Icon
+              name={verdictStyle.icon}
+              size={56}
+              color={verdictStyle.color}
+            />
+            <Text style={[styles.verdictTitle, { color: verdictStyle.color }]}>
+              {verdict.title}
+            </Text>
+            <Text style={styles.verdictDesc}>{verdict.desc}</Text>
           </View>
-          <Text style={styles.title}>{t('reveal.title')}</Text>
-        </View>
+        ) : (
+          <View style={styles.header}>
+            <View style={styles.headerIconWrapper}>
+              <Icon name="trophy" size={52} color={colors.warning} />
+            </View>
+            <Text style={styles.title}>{t('reveal.title')}</Text>
+          </View>
+        )}
 
         {/* Sahtekarlar */}
         <View style={styles.section}>
@@ -93,7 +184,7 @@ const GameEndScreen = ({ navigation }) => {
                   <Icon name="skull" size={24} color={colors.textPrimary} />
                 </View>
                 <Text style={styles.imposterName}>
-                  {t('game.player')} {imposter.id}
+                  {getPlayerName(imposter, t)}
                 </Text>
               </View>
             ))}
@@ -110,14 +201,24 @@ const GameEndScreen = ({ navigation }) => {
           <View style={styles.answerCard}>
             {state.gameMode === 'word' ? (
               <>
-                <Icon name="sparkles" size={40} color={colors.success} style={styles.answerIcon} />
+                <Icon
+                  name="sparkles"
+                  size={40}
+                  color={colors.success}
+                  style={styles.answerIcon}
+                />
                 <Text style={styles.answerText}>
                   {state.currentWord || t(state.currentWordKey)}
                 </Text>
               </>
             ) : (
               <>
-                <Icon name="help-circle" size={40} color={colors.accentPrimary} style={styles.answerIcon} />
+                <Icon
+                  name="help-circle"
+                  size={40}
+                  color={colors.accentPrimary}
+                  style={styles.answerIcon}
+                />
                 {state.currentWord ? (
                   <Text style={styles.answerText}>{state.currentWord}</Text>
                 ) : (
@@ -129,7 +230,9 @@ const GameEndScreen = ({ navigation }) => {
                       </Text>
                     </View>
                     <View style={styles.questionBox}>
-                      <Text style={[styles.questionLabel, styles.imposterLabel]}>
+                      <Text
+                        style={[styles.questionLabel, styles.imposterLabel]}
+                      >
                         Sahtekar:
                       </Text>
                       <Text style={styles.questionText}>
@@ -143,11 +246,13 @@ const GameEndScreen = ({ navigation }) => {
           </View>
         </View>
 
-        {/* Tüm oyuncular listesi */}
+        {/* Oyuncular: oylama yapıldıysa oy sayılarıyla sıralı */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Tüm Oyuncular</Text>
+          <Text style={styles.sectionTitle}>
+            {result ? t('result.voteResults') : t('reveal.allPlayers')}
+          </Text>
           <View style={styles.playersList}>
-            {state.players.map(player => (
+            {(result ? result.ranking : state.players).map(player => (
               <View
                 key={player.id}
                 style={[
@@ -155,9 +260,32 @@ const GameEndScreen = ({ navigation }) => {
                   player.isImposter && styles.playerItemImposter,
                 ]}
               >
-                <Text style={styles.playerNumber}>
-                  {t('game.player')} {player.id}
-                </Text>
+                <View style={styles.playerInfo}>
+                  <Text style={styles.playerNumber}>
+                    {getPlayerName(player, t)}
+                  </Text>
+                  {result && (
+                    <View style={styles.tagRow}>
+                      {result.eliminated?.id === player.id && (
+                        <View style={[styles.tag, styles.tagEliminated]}>
+                          <Text style={styles.tagText}>
+                            {t('result.eliminated')}
+                          </Text>
+                        </View>
+                      )}
+                      {result.isTie && result.topIds.includes(player.id) && (
+                        <View style={[styles.tag, styles.tagTie]}>
+                          <Text style={styles.tagText}>{t('result.tie')}</Text>
+                        </View>
+                      )}
+                    </View>
+                  )}
+                </View>
+                {result && (
+                  <Text style={styles.voteCount}>
+                    {t('result.votes', { count: result.counts[player.id] })}
+                  </Text>
+                )}
                 {player.isImposter && (
                   <View style={styles.imposterBadge}>
                     <Text style={styles.imposterBadgeText}>🎭</Text>
@@ -336,6 +464,57 @@ const styles = StyleSheet.create({
   playerNumber: {
     fontSize: 16,
     color: colors.textPrimary,
+  },
+  playerInfo: {
+    flex: 1,
+  },
+  tagRow: {
+    flexDirection: 'row',
+    gap: 6,
+    marginTop: 4,
+  },
+  tag: {
+    borderRadius: 6,
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+  },
+  tagEliminated: {
+    backgroundColor: colors.danger,
+  },
+  tagTie: {
+    backgroundColor: colors.warning,
+  },
+  tagText: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: colors.textPrimary,
+  },
+  voteCount: {
+    fontSize: 15,
+    fontWeight: '700',
+    color: colors.textSecondary,
+    marginHorizontal: 10,
+  },
+  verdictCard: {
+    alignItems: 'center',
+    borderWidth: 2,
+    borderRadius: 20,
+    paddingVertical: 24,
+    paddingHorizontal: 20,
+    marginBottom: 28,
+  },
+  verdictTitle: {
+    fontSize: 30,
+    fontWeight: '800',
+    marginTop: 12,
+    marginBottom: 8,
+    textAlign: 'center',
+  },
+  verdictDesc: {
+    fontSize: 16,
+    color: colors.textPrimary,
+    textAlign: 'center',
+    lineHeight: 22,
   },
   imposterBadge: {
     backgroundColor: colors.danger,
