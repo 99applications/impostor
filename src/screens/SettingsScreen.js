@@ -3,7 +3,6 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableOpacity,
   ScrollView,
   Linking,
   Share,
@@ -12,11 +11,21 @@ import {
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Ionicons';
 import DeviceInfo from 'react-native-device-info';
-import { colors } from '../theme/colors';
+import { colors, gradients, withAlpha } from '../theme/colors';
 import { SUPPORTED_LANGUAGES, changeLanguage } from '../i18n';
 import { usePremium } from '../context/PremiumContext';
+import {
+  AppLogo,
+  GlassCard,
+  IconTile,
+  PressableScale,
+  ScreenBackground,
+  ScreenHeader,
+  SectionLabel,
+} from '../components/ui';
 
 const APP_VERSION = DeviceInfo.getVersion();
 
@@ -26,6 +35,24 @@ const PLAY_STORE_URL =
 const SUPPORT_EMAIL = 'imposter@codeva.com.tr';
 const PRIVACY_URL = 'https://codeva.com.tr/imposter/privacy';
 const TERMS_URL = 'https://codeva.com.tr/imposter/terms';
+
+const MUTED_GRADIENT = ['#a9a6c6', '#6f6b92'];
+
+const MenuRow = ({ icon, gradient, title, onPress, trailing, isLast }) => (
+  <PressableScale
+    scaleTo={0.98}
+    onPress={onPress}
+    style={[styles.menuRow, !isLast && styles.menuRowBorder]}
+  >
+    <IconTile name={icon} size={38} gradient={gradient} soft />
+    <Text style={styles.menuText}>{title}</Text>
+    <Icon
+      name={trailing || 'chevron-forward'}
+      size={18}
+      color={colors.textMuted}
+    />
+  </PressableScale>
+);
 
 const SettingsScreen = ({ navigation }) => {
   const { t, i18n } = useTranslation();
@@ -95,471 +122,278 @@ const SettingsScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={[styles.container, { paddingTop: insets.top }]}>
-      {/* Header */}
-      <View style={styles.header}>
-        <TouchableOpacity
-          style={styles.backButton}
-          onPress={() => navigation.goBack()}
-        >
-          <Icon name="chevron-back" size={24} color={colors.textPrimary} />
-        </TouchableOpacity>
-        <Text style={styles.headerTitle}>{t('settings.title')}</Text>
-        <View style={styles.placeholder} />
-      </View>
+    <ScreenBackground>
+      <View style={[styles.container, { paddingTop: insets.top }]}>
+        <ScreenHeader
+          title={t('settings.title')}
+          onBack={() => navigation.goBack()}
+        />
 
-      <ScrollView
-        style={styles.scrollView}
-        contentContainerStyle={styles.scrollContent}
-        showsVerticalScrollIndicator={false}
-      >
-        {/* Premium Kartı */}
-        <TouchableOpacity
-          style={[styles.premiumCard, isPremium && styles.premiumCardActive]}
-          activeOpacity={0.8}
-          onPress={() => navigation.navigate('Premium')}
+        <ScrollView
+          style={styles.scrollView}
+          contentContainerStyle={[
+            styles.scrollContent,
+            { paddingBottom: insets.bottom + 32 },
+          ]}
+          showsVerticalScrollIndicator={false}
         >
-          <View style={styles.premiumCardLeft}>
-            <View
-              style={[
-                styles.premiumIcon,
-                isPremium && styles.premiumIconActive,
+          {/* Premium Kartı */}
+          <PressableScale
+            scaleTo={0.98}
+            onPress={() => navigation.navigate('Premium')}
+          >
+            <LinearGradient
+              colors={[
+                withAlpha(colors.warning, 0.3),
+                withAlpha(colors.accentPink, 0.14),
               ]}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 1 }}
+              style={styles.premiumCard}
             >
-              <Icon
-                name={isPremium ? 'diamond' : 'diamond-outline'}
-                size={28}
-                color={isPremium ? colors.warning : colors.textSecondary}
-              />
-            </View>
-            <View style={styles.premiumInfo}>
-              <Text style={styles.premiumTitle}>
-                {isPremium
-                  ? t('settings.premiumActive')
-                  : t('settings.premium')}
-              </Text>
-              <Text
-                style={[
-                  styles.premiumStatus,
-                  isPremium && styles.premiumStatusActive,
-                ]}
-              >
-                {getPremiumStatusText()}
-              </Text>
-            </View>
-          </View>
-          <Icon name="chevron-forward" size={22} color={colors.textMuted} />
-        </TouchableOpacity>
+              <IconTile name="diamond" size={52} gradient={gradients.warning} />
+              <View style={styles.premiumInfo}>
+                <Text style={styles.premiumTitle}>
+                  {isPremium
+                    ? t('settings.premiumActive')
+                    : t('settings.premium')}
+                </Text>
+                <Text style={styles.premiumStatus}>
+                  {getPremiumStatusText()}
+                </Text>
+              </View>
+              <View style={styles.premiumArrow}>
+                <Icon
+                  name="chevron-forward"
+                  size={18}
+                  color={colors.textPrimary}
+                />
+              </View>
+            </LinearGradient>
+          </PressableScale>
 
-        {/* Dil Seçimi */}
-        <View style={styles.section}>
-          <View style={styles.sectionHeader}>
-            <Icon
-              name="language-outline"
-              size={20}
-              color={colors.textSecondary}
-            />
-            <Text style={styles.sectionTitle}>{t('settings.language')}</Text>
-          </View>
-
-          <View style={styles.languageList}>
+          {/* Dil Seçimi */}
+          <SectionLabel
+            icon="language"
+            title={t('settings.language')}
+            style={styles.sectionSpacing}
+          />
+          <GlassCard style={styles.list}>
             {SUPPORTED_LANGUAGES.map((lang, index) => {
               const isSelected = i18n.language === lang.code;
               const isLast = index === SUPPORTED_LANGUAGES.length - 1;
               return (
-                <TouchableOpacity
+                <PressableScale
                   key={lang.code}
-                  style={[
-                    styles.languageItem,
-                    isSelected && styles.languageItemActive,
-                    isLast && styles.languageItemLast,
-                  ]}
-                  activeOpacity={0.7}
+                  scaleTo={0.98}
+                  style={[styles.menuRow, !isLast && styles.menuRowBorder]}
                   onPress={() => handleLanguageChange(lang.code)}
                 >
-                  <Text style={styles.languageFlag}>{lang.flag}</Text>
+                  <View style={styles.flagBox}>
+                    <Text style={styles.flag}>{lang.flag}</Text>
+                  </View>
                   <Text
                     style={[
-                      styles.languageName,
-                      isSelected && styles.languageNameActive,
+                      styles.menuText,
+                      !isSelected && styles.menuTextMuted,
                     ]}
                   >
                     {lang.name}
                   </Text>
-                  {isSelected && (
-                    <View style={styles.checkIcon}>
+                  {isSelected ? (
+                    <LinearGradient
+                      colors={gradients.primary}
+                      style={styles.checkIcon}
+                    >
                       <Icon
                         name="checkmark"
-                        size={16}
+                        size={15}
                         color={colors.textPrimary}
                       />
-                    </View>
+                    </LinearGradient>
+                  ) : (
+                    <View style={styles.checkEmpty} />
                   )}
-                </TouchableOpacity>
+                </PressableScale>
               );
             })}
-          </View>
-        </View>
+          </GlassCard>
 
-        {/* Destek */}
-        <View style={styles.section}>
-          <View style={styles.sectionHeader}>
-            <Icon name="heart-outline" size={20} color={colors.textSecondary} />
-            <Text style={styles.sectionTitle}>{t('settings.support')}</Text>
-          </View>
-
-          <View style={styles.menuList}>
-            {/* Puanla */}
-            <TouchableOpacity
-              style={styles.menuItem}
-              activeOpacity={0.7}
+          {/* Destek */}
+          <SectionLabel
+            icon="heart"
+            iconColor={colors.accentPink}
+            title={t('settings.support')}
+            style={styles.sectionSpacing}
+          />
+          <GlassCard style={styles.list}>
+            <MenuRow
+              icon="star"
+              gradient={gradients.warning}
+              title={t('settings.rateApp')}
               onPress={handleRateApp}
-            >
-              <View style={styles.menuItemLeft}>
-                <View
-                  style={[
-                    styles.menuIcon,
-                    { backgroundColor: 'rgba(251, 191, 36, 0.15)' },
-                  ]}
-                >
-                  <Icon name="star" size={20} color={colors.warning} />
-                </View>
-                <Text style={styles.menuItemText}>{t('settings.rateApp')}</Text>
-              </View>
-              <Icon name="chevron-forward" size={20} color={colors.textMuted} />
-            </TouchableOpacity>
-
-            {/* Paylaş */}
-            <TouchableOpacity
-              style={styles.menuItem}
-              activeOpacity={0.7}
-              onPress={handleShareApp}
-            >
-              <View style={styles.menuItemLeft}>
-                <View
-                  style={[
-                    styles.menuIcon,
-                    { backgroundColor: 'rgba(16, 185, 129, 0.15)' },
-                  ]}
-                >
-                  <Icon name="share-social" size={20} color={colors.success} />
-                </View>
-                <Text style={styles.menuItemText}>
-                  {t('settings.shareApp')}
-                </Text>
-              </View>
-              <Icon name="chevron-forward" size={20} color={colors.textMuted} />
-            </TouchableOpacity>
-
-            {/* Geri Bildirim */}
-            <TouchableOpacity
-              style={[styles.menuItem, styles.menuItemLast]}
-              activeOpacity={0.7}
-              onPress={handleFeedback}
-            >
-              <View style={styles.menuItemLeft}>
-                <View
-                  style={[
-                    styles.menuIcon,
-                    { backgroundColor: 'rgba(139, 92, 246, 0.15)' },
-                  ]}
-                >
-                  <Icon name="mail" size={20} color={colors.accentPrimary} />
-                </View>
-                <Text style={styles.menuItemText}>
-                  {t('settings.feedback')}
-                </Text>
-              </View>
-              <Icon name="chevron-forward" size={20} color={colors.textMuted} />
-            </TouchableOpacity>
-          </View>
-        </View>
-
-        {/* Yasal */}
-        <View style={styles.section}>
-          <View style={styles.sectionHeader}>
-            <Icon
-              name="document-text-outline"
-              size={20}
-              color={colors.textSecondary}
             />
-            <Text style={styles.sectionTitle}>{t('settings.legal')}</Text>
-          </View>
+            <MenuRow
+              icon="share-social"
+              gradient={gradients.success}
+              title={t('settings.shareApp')}
+              onPress={handleShareApp}
+            />
+            <MenuRow
+              icon="mail"
+              gradient={['#c4b5fd', '#7c3aed']}
+              title={t('settings.feedback')}
+              onPress={handleFeedback}
+              isLast
+            />
+          </GlassCard>
 
-          <View style={styles.menuList}>
-            {/* Gizlilik Politikası */}
-            <TouchableOpacity
-              style={styles.menuItem}
-              activeOpacity={0.7}
+          {/* Yasal */}
+          <SectionLabel
+            icon="document-text"
+            title={t('settings.legal')}
+            style={styles.sectionSpacing}
+          />
+          <GlassCard style={styles.list}>
+            <MenuRow
+              icon="shield-checkmark"
+              gradient={MUTED_GRADIENT}
+              title={t('settings.privacy')}
               onPress={handlePrivacy}
-            >
-              <View style={styles.menuItemLeft}>
-                <View
-                  style={[
-                    styles.menuIcon,
-                    { backgroundColor: 'rgba(100, 116, 139, 0.15)' },
-                  ]}
-                >
-                  <Icon
-                    name="shield-checkmark-outline"
-                    size={20}
-                    color={colors.textSecondary}
-                  />
-                </View>
-                <Text style={styles.menuItemText}>{t('settings.privacy')}</Text>
-              </View>
-              <Icon name="open-outline" size={18} color={colors.textMuted} />
-            </TouchableOpacity>
-
-            {/* Kullanım Şartları */}
-            <TouchableOpacity
-              style={[styles.menuItem, styles.menuItemLast]}
-              activeOpacity={0.7}
+              trailing="open-outline"
+            />
+            <MenuRow
+              icon="document"
+              gradient={MUTED_GRADIENT}
+              title={t('settings.terms')}
               onPress={handleTerms}
-            >
-              <View style={styles.menuItemLeft}>
-                <View
-                  style={[
-                    styles.menuIcon,
-                    { backgroundColor: 'rgba(100, 116, 139, 0.15)' },
-                  ]}
-                >
-                  <Icon
-                    name="document-outline"
-                    size={20}
-                    color={colors.textSecondary}
-                  />
-                </View>
-                <Text style={styles.menuItemText}>{t('settings.terms')}</Text>
-              </View>
-              <Icon name="open-outline" size={18} color={colors.textMuted} />
-            </TouchableOpacity>
-          </View>
-        </View>
+              trailing="open-outline"
+              isLast
+            />
+          </GlassCard>
 
-        {/* Uygulama Bilgisi */}
-        <View style={styles.appInfoSection}>
-          <View style={styles.appLogoWrapper}>
-            <View style={styles.appLogo}>
-              <Icon name="people" size={32} color={colors.accentPrimary} />
-            </View>
+          {/* Uygulama Bilgisi */}
+          <View style={styles.appInfo}>
+            <AppLogo size={60} animated={false} />
+            <Text style={styles.appName}>{t('app.name')}</Text>
+            <Text style={styles.appVersion}>v{APP_VERSION}</Text>
+            <Text style={styles.appCopyright}>© 2026 Codeva</Text>
           </View>
-          <Text style={styles.appName}>{t('app.name')}</Text>
-          <Text style={styles.appVersion}>v{APP_VERSION}</Text>
-          <Text style={styles.appCopyright}>© 2026 Codeva</Text>
-        </View>
-      </ScrollView>
-    </View>
+        </ScrollView>
+      </View>
+    </ScreenBackground>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.bgPrimary,
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingVertical: 16,
-  },
-  backButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: colors.bgCard,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  headerTitle: {
-    fontSize: 20,
-    fontWeight: '700',
-    color: colors.textPrimary,
-  },
-  placeholder: {
-    width: 40,
   },
   scrollView: {
     flex: 1,
   },
   scrollContent: {
     paddingHorizontal: 20,
-    paddingBottom: 40,
+    paddingTop: 4,
   },
-  // Premium Kartı
   premiumCard: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: colors.bgCard,
-    borderRadius: 16,
+    borderRadius: 20,
     padding: 16,
-    marginBottom: 24,
-    borderWidth: 1.5,
-    borderColor: colors.border,
-  },
-  premiumCardActive: {
-    borderColor: colors.warning,
-    backgroundColor: 'rgba(251, 191, 36, 0.08)',
-  },
-  premiumCardLeft: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
-  },
-  premiumIcon: {
-    width: 52,
-    height: 52,
-    borderRadius: 26,
-    backgroundColor: colors.bgCardLight,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 14,
-  },
-  premiumIconActive: {
-    backgroundColor: 'rgba(251, 191, 36, 0.2)',
+    gap: 14,
+    borderWidth: 1,
+    borderColor: withAlpha(colors.warning, 0.45),
   },
   premiumInfo: {
     flex: 1,
   },
   premiumTitle: {
-    fontSize: 17,
-    fontWeight: '700',
+    fontSize: 18,
+    fontWeight: '900',
     color: colors.textPrimary,
     marginBottom: 2,
   },
   premiumStatus: {
     fontSize: 14,
-    color: colors.textMuted,
-  },
-  premiumStatusActive: {
-    color: colors.warning,
     fontWeight: '600',
+    color: '#fcd34d',
   },
-  // Bölümler
-  section: {
-    marginBottom: 24,
-  },
-  sectionHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-    marginBottom: 12,
-  },
-  sectionTitle: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: colors.textPrimary,
-  },
-  // Dil Listesi
-  languageList: {
-    backgroundColor: colors.bgCard,
+  premiumArrow: {
+    width: 32,
+    height: 32,
     borderRadius: 16,
-    overflow: 'hidden',
+    backgroundColor: 'rgba(255, 255, 255, 0.12)',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  languageItem: {
+  sectionSpacing: {
+    marginTop: 26,
+  },
+  list: {
+    paddingHorizontal: 14,
+  },
+  menuRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 14,
-    paddingHorizontal: 16,
+    paddingVertical: 12,
+    gap: 14,
+  },
+  menuRowBorder: {
     borderBottomWidth: 1,
-    borderBottomColor: colors.border,
+    borderBottomColor: 'rgba(255, 255, 255, 0.06)',
   },
-  languageItemActive: {
-    backgroundColor: 'rgba(139, 92, 246, 0.08)',
-  },
-  languageItemLast: {
-    borderBottomWidth: 0,
-  },
-  languageFlag: {
-    fontSize: 26,
-    marginRight: 14,
-  },
-  languageName: {
+  menuText: {
     flex: 1,
     fontSize: 16,
-    fontWeight: '500',
-    color: colors.textSecondary,
-  },
-  languageNameActive: {
+    fontWeight: '700',
     color: colors.textPrimary,
+  },
+  menuTextMuted: {
+    color: colors.textSecondary,
     fontWeight: '600',
+  },
+  flagBox: {
+    width: 38,
+    height: 38,
+    borderRadius: 12,
+    backgroundColor: 'rgba(255, 255, 255, 0.06)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  flag: {
+    fontSize: 22,
   },
   checkIcon: {
     width: 26,
     height: 26,
     borderRadius: 13,
-    backgroundColor: colors.accentPrimary,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  // Menü Listesi
-  menuList: {
-    backgroundColor: colors.bgCard,
-    borderRadius: 16,
-    overflow: 'hidden',
+  checkEmpty: {
+    width: 26,
+    height: 26,
+    borderRadius: 13,
+    borderWidth: 2,
+    borderColor: colors.border,
   },
-  menuItem: {
-    flexDirection: 'row',
+  appInfo: {
     alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingVertical: 14,
-    paddingHorizontal: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-  },
-  menuItemLast: {
-    borderBottomWidth: 0,
-  },
-  menuItemLeft: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
-  },
-  menuIcon: {
-    width: 40,
-    height: 40,
-    borderRadius: 12,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 14,
-  },
-  menuItemText: {
-    fontSize: 16,
-    fontWeight: '500',
-    color: colors.textPrimary,
-  },
-  // Uygulama Bilgisi
-  appInfoSection: {
-    alignItems: 'center',
-    paddingTop: 20,
-    paddingBottom: 20,
-  },
-  appLogoWrapper: {
-    marginBottom: 12,
-  },
-  appLogo: {
-    width: 64,
-    height: 64,
-    borderRadius: 32,
-    backgroundColor: 'rgba(139, 92, 246, 0.12)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: colors.accentPrimary,
+    paddingTop: 36,
   },
   appName: {
     fontSize: 18,
-    fontWeight: '700',
+    fontWeight: '900',
     color: colors.textPrimary,
-    marginBottom: 4,
+    marginTop: 14,
+    marginBottom: 2,
   },
   appVersion: {
-    fontSize: 14,
+    fontSize: 13,
+    fontWeight: '600',
     color: colors.textSecondary,
-    marginBottom: 4,
+    marginBottom: 2,
   },
   appCopyright: {
     fontSize: 12,

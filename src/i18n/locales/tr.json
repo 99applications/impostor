@@ -102,7 +102,9 @@
     "theQuestionWas": "Soru şuydu",
     "playAgain": "Tekrar Oyna",
     "backToMenu": "Ana Menü",
-    "allPlayers": "Tüm Oyuncular"
+    "allPlayers": "Tüm Oyuncular",
+    "normalQuestion": "Normal soru",
+    "imposterQuestion": "Sahtekârın sorusu"
   },
   "categories": {
     "christmas": "Yılbaşı",

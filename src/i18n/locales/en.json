@@ -102,7 +102,9 @@
     "theQuestionWas": "The question was",
     "playAgain": "Play Again",
     "backToMenu": "Main Menu",
-    "allPlayers": "All Players"
+    "allPlayers": "All Players",
+    "normalQuestion": "Normal question",
+    "imposterQuestion": "Imposter's question"
   },
   "categories": {
     "christmas": "Christmas",

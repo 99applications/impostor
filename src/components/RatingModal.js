@@ -9,10 +9,14 @@ import {
   Platform,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import LinearGradient from 'react-native-linear-gradient';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import InAppReview from 'react-native-in-app-review';
 import { useTranslation } from 'react-i18next';
-import { colors } from '../theme/colors';
+import { colors, gradients, withAlpha } from '../theme/colors';
+import GradientButton from './ui/GradientButton';
+import IconTile from './ui/IconTile';
+import PressableScale from './ui/PressableScale';
 
 export const HAS_RATED_KEY = '@has_rated';
 export const RATING_LATER_KEY = '@rating_later_at';
@@ -141,50 +145,51 @@ const RatingModal = ({ visible, onClose }) => {
       onRequestClose={handleLater}
     >
       <View style={styles.modalOverlay}>
-        <View style={styles.modalCard}>
-          <Icon
-            name="star"
-            size={48}
-            color={colors.warning}
-            style={styles.modalIcon}
-          />
+        <LinearGradient
+          colors={['#2a2152', '#15122b']}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 0.6, y: 1 }}
+          style={styles.modalCard}
+        >
+          <View style={styles.iconHalo}>
+            <IconTile name="star" size={76} gradient={gradients.warning} round />
+          </View>
           <Text style={styles.modalTitle}>{t('rating.title')}</Text>
           <Text style={styles.modalSubtitle}>{t('rating.subtitle')}</Text>
 
           <View style={styles.starsRow}>
-            {[1, 2, 3, 4, 5].map(star => (
-              <TouchableOpacity
-                key={star}
-                onPress={() => setSelectedRating(star)}
-                activeOpacity={0.7}
-              >
-                <Text
-                  style={[
-                    styles.star,
-                    selectedRating >= star && styles.starActive,
-                  ]}
+            {[1, 2, 3, 4, 5].map(star => {
+              const isActive = selectedRating >= star;
+              return (
+                <PressableScale
+                  key={star}
+                  scaleTo={0.8}
+                  hitSlop={4}
+                  onPress={() => setSelectedRating(star)}
                 >
-                  ★
-                </Text>
-              </TouchableOpacity>
-            ))}
+                  <Icon
+                    name={isActive ? 'star' : 'star-outline'}
+                    size={40}
+                    color={isActive ? colors.warning : colors.borderLight}
+                  />
+                </PressableScale>
+              );
+            })}
           </View>
 
-          <TouchableOpacity
-            style={[
-              styles.modalButton,
-              selectedRating === 0 && styles.modalButtonDisabled,
-            ]}
-            onPress={handleSubmit}
+          <GradientButton
+            title={t('rating.submit')}
+            variant="warning"
+            size="md"
             disabled={selectedRating === 0}
-          >
-            <Text style={styles.modalButtonText}>{t('rating.submit')}</Text>
-          </TouchableOpacity>
+            onPress={handleSubmit}
+            style={styles.modalButton}
+          />
 
-          <TouchableOpacity onPress={handleLater}>
+          <TouchableOpacity style={styles.laterButton} onPress={handleLater}>
             <Text style={styles.modalLater}>{t('rating.later')}</Text>
           </TouchableOpacity>
-        </View>
+        </LinearGradient>
       </View>
     </Modal>
   );
@@ -193,67 +198,57 @@ const RatingModal = ({ visible, onClose }) => {
 const styles = StyleSheet.create({
   modalOverlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.6)',
+    backgroundColor: 'rgba(5, 4, 12, 0.75)',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 32,
+    paddingHorizontal: 28,
   },
   modalCard: {
-    backgroundColor: colors.bgCard,
-    borderRadius: 24,
-    padding: 28,
+    borderRadius: 28,
+    padding: 26,
     alignItems: 'center',
     width: '100%',
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: withAlpha(colors.warning, 0.35),
   },
-  modalIcon: {
-    marginBottom: 12,
+  iconHalo: {
+    width: 116,
+    height: 116,
+    borderRadius: 58,
+    backgroundColor: withAlpha(colors.warning, 0.12),
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 14,
   },
   modalTitle: {
-    fontSize: 22,
-    fontWeight: '800',
+    fontSize: 23,
+    fontWeight: '900',
     color: colors.textPrimary,
     marginBottom: 8,
+    textAlign: 'center',
   },
   modalSubtitle: {
     fontSize: 14,
     color: colors.textSecondary,
     textAlign: 'center',
-    marginBottom: 24,
+    marginBottom: 22,
     lineHeight: 20,
   },
   starsRow: {
     flexDirection: 'row',
-    gap: 8,
-    marginBottom: 28,
-  },
-  star: {
-    fontSize: 44,
-    color: colors.border,
-  },
-  starActive: {
-    color: '#F59E0B',
+    gap: 6,
+    marginBottom: 26,
   },
   modalButton: {
-    backgroundColor: colors.accentPrimary,
-    paddingVertical: 14,
-    paddingHorizontal: 48,
-    borderRadius: 14,
-    marginBottom: 14,
-    width: '100%',
-    alignItems: 'center',
+    alignSelf: 'stretch',
   },
-  modalButtonDisabled: {
-    opacity: 0.4,
-  },
-  modalButtonText: {
-    fontSize: 16,
-    fontWeight: '700',
-    color: colors.textPrimary,
+  laterButton: {
+    paddingTop: 14,
+    paddingHorizontal: 12,
   },
   modalLater: {
     fontSize: 14,
+    fontWeight: '600',
     color: colors.textMuted,
   },
 });

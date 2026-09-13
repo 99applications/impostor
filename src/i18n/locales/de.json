@@ -102,7 +102,9 @@
     "theQuestionWas": "Die Frage war",
     "playAgain": "Nochmal spielen",
     "backToMenu": "Hauptmenü",
-    "allPlayers": "Alle Spieler"
+    "allPlayers": "Alle Spieler",
+    "normalQuestion": "Normale Frage",
+    "imposterQuestion": "Frage des Betrügers"
   },
   "categories": {
     "christmas": "Weihnachten",

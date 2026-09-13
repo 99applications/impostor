@@ -1,5 +1,10 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import {
+  createStackNavigator,
+  CardStyleInterpolators,
+  TransitionPresets,
+} from '@react-navigation/stack';
+import { colors } from '../theme/colors';
 
 // Screens
 import SplashScreen from '../screens/SplashScreen';
@@ -21,26 +26,52 @@ import MyCategoriesScreen from '../screens/MyCategoriesScreen';
 
 const Stack = createStackNavigator();
 
+// Oyun akışında ve açılışta kayma yerine yumuşak geçiş.
+const fadeOptions = {
+  cardStyleInterpolator: CardStyleInterpolators.forFadeFromCenter,
+};
+
 const AppNavigator = () => {
   return (
     <Stack.Navigator
       initialRouteName="Splash"
       screenOptions={{
         headerShown: false,
-        cardStyle: { backgroundColor: '#0d0d1a' },
+        cardStyle: { backgroundColor: colors.bgPrimary },
         gestureEnabled: false,
+        ...TransitionPresets.SlideFromRightIOS,
       }}
     >
       <Stack.Screen name="Splash" component={SplashScreen} />
-      <Stack.Screen name="LanguageSelect" component={LanguageSelectScreen} />
-      <Stack.Screen name="Onboarding" component={OnboardingScreen} />
+      <Stack.Screen
+        name="LanguageSelect"
+        component={LanguageSelectScreen}
+        options={fadeOptions}
+      />
+      <Stack.Screen
+        name="Onboarding"
+        component={OnboardingScreen}
+        options={fadeOptions}
+      />
       <Stack.Screen name="Paywall" component={PaywallScreen} />
-      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="Home" component={HomeScreen} options={fadeOptions} />
       <Stack.Screen name="HowToPlay" component={HowToPlayScreen} />
       <Stack.Screen name="GameSetup" component={GameSetupScreen} />
-      <Stack.Screen name="PlayerTurn" component={PlayerTurnScreen} />
-      <Stack.Screen name="Voting" component={VotingScreen} />
-      <Stack.Screen name="GameEnd" component={GameEndScreen} />
+      <Stack.Screen
+        name="PlayerTurn"
+        component={PlayerTurnScreen}
+        options={fadeOptions}
+      />
+      <Stack.Screen
+        name="Voting"
+        component={VotingScreen}
+        options={fadeOptions}
+      />
+      <Stack.Screen
+        name="GameEnd"
+        component={GameEndScreen}
+        options={fadeOptions}
+      />
       <Stack.Screen name="Settings" component={SettingsScreen} />
       <Stack.Screen name="PlayerSetup" component={PlayerSetupScreen} />
       <Stack.Screen name="CategorySelect" component={CategorySelectScreen} />

@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  ScrollView,
-} from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { colors } from '../theme/colors';
+import { colors, withAlpha } from '../theme/colors';
 import { useGame } from '../context/GameContext';
 import { getPlayerName } from '../utils/voting';
+import {
+  FadeInView,
+  GlassCard,
+  GradientButton,
+  PlayerAvatar,
+  ScreenBackground,
+} from '../components/ui';
 
 // Telefon elden ele dolaşır: her oyuncu kimsenin görmeden oyunu verir.
 const VotingScreen = ({ navigation }) => {
@@ -32,6 +33,7 @@ const VotingScreen = ({ navigation }) => {
 
   const voterName = getPlayerName(voter, t);
   const candidates = players.filter(p => p.id !== voter.id);
+  const indexOf = player => players.findIndex(p => p.id === player.id);
 
   const handleConfirm = () => {
     if (selectedId === null) {
@@ -55,257 +57,289 @@ const VotingScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={[styles.container, { paddingTop: insets.top }]}>
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>{t('voting.title')}</Text>
-        <View style={styles.progressPill}>
-          <Text style={styles.progressText}>
-            {t('voting.progress', {
-              current: voterIndex + 1,
-              total: players.length,
-            })}
-          </Text>
-        </View>
-      </View>
-
-      {isPassing ? (
-        <View style={styles.passContent}>
-          <View style={styles.passIcon}>
-            <Icon
-              name="phone-portrait"
-              size={48}
-              color={colors.accentPrimary}
-            />
+    <ScreenBackground glow={isPassing ? 'violet' : 'danger'}>
+      <View style={[styles.container, { paddingTop: insets.top }]}>
+        <View style={styles.header}>
+          <View style={styles.titleRow}>
+            <Icon name="hand-left" size={20} color={colors.danger} />
+            <Text style={styles.headerTitle}>{t('voting.title')}</Text>
           </View>
-          <Text style={styles.passTitle}>
-            {t('voting.passTo', { name: voterName })}
-          </Text>
-          <Text style={styles.passNote}>{t('voting.passNote')}</Text>
+          <View style={styles.progressPill}>
+            <Text style={styles.progressText}>
+              {t('voting.progress', {
+                current: voterIndex + 1,
+                total: players.length,
+              })}
+            </Text>
+          </View>
         </View>
-      ) : (
-        <ScrollView
-          style={styles.scrollView}
-          contentContainerStyle={styles.scrollContent}
-          showsVerticalScrollIndicator={false}
-        >
-          <Text style={styles.question}>
-            {t('voting.whoVotes', { name: voterName })}
-          </Text>
 
-          {candidates.map(player => {
-            const isSelected = selectedId === player.id;
-            return (
-              <TouchableOpacity
-                key={player.id}
-                style={[styles.candidate, isSelected && styles.candidateActive]}
-                activeOpacity={0.8}
-                onPress={() => setSelectedId(player.id)}
-              >
-                <View
-                  style={[styles.avatar, isSelected && styles.avatarActive]}
-                >
-                  <Icon
-                    name="person"
-                    size={20}
-                    color={isSelected ? colors.textPrimary : colors.textMuted}
-                  />
-                </View>
-                <Text
-                  style={[
-                    styles.candidateName,
-                    isSelected && styles.candidateNameActive,
-                  ]}
-                >
-                  {getPlayerName(player, t)}
-                </Text>
-                <View style={[styles.radio, isSelected && styles.radioActive]}>
-                  {isSelected && (
-                    <Icon
-                      name="checkmark"
-                      size={16}
-                      color={colors.textPrimary}
-                    />
-                  )}
-                </View>
-              </TouchableOpacity>
-            );
-          })}
-        </ScrollView>
-      )}
+        <View style={styles.segments}>
+          {players.map((p, i) => (
+            <View
+              key={p.id}
+              style={[
+                styles.segment,
+                i < voterIndex && styles.segmentDone,
+                i === voterIndex && styles.segmentCurrent,
+              ]}
+            />
+          ))}
+        </View>
 
-      <View style={[styles.footer, { paddingBottom: insets.bottom + 16 }]}>
         {isPassing ? (
-          <TouchableOpacity
-            style={styles.primaryButton}
-            activeOpacity={0.85}
-            onPress={() => setIsPassing(false)}
-          >
-            <Text style={styles.primaryButtonText}>{t('voting.imReady')}</Text>
-          </TouchableOpacity>
+          <FadeInView key={`pass-${voterIndex}`} style={styles.passContent}>
+            <View style={styles.halo}>
+              <View style={styles.haloInner} />
+              <PlayerAvatar name={voterName} index={voterIndex} size={116} />
+            </View>
+            <Text style={styles.passTitle}>
+              {t('voting.passTo', { name: voterName })}
+            </Text>
+            <GlassCard style={styles.passNote}>
+              <Icon name="eye-off" size={18} color={colors.accentSecondary} />
+              <Text style={styles.passNoteText}>{t('voting.passNote')}</Text>
+            </GlassCard>
+          </FadeInView>
         ) : (
-          <TouchableOpacity
-            style={[
-              styles.primaryButton,
-              selectedId === null && styles.primaryButtonDisabled,
-            ]}
-            activeOpacity={0.85}
-            disabled={selectedId === null}
-            onPress={handleConfirm}
+          <ScrollView
+            style={styles.scrollView}
+            contentContainerStyle={styles.scrollContent}
+            showsVerticalScrollIndicator={false}
           >
-            <Icon name="hand-left" size={20} color={colors.textPrimary} />
-            <Text style={styles.primaryButtonText}>{t('voting.confirm')}</Text>
-          </TouchableOpacity>
+            <View style={styles.questionRow}>
+              <PlayerAvatar name={voterName} index={voterIndex} size={36} />
+              <Text style={styles.question}>
+                {t('voting.whoVotes', { name: voterName })}
+              </Text>
+            </View>
+
+            <View style={styles.grid}>
+              {candidates.map(player => {
+                const isSelected = selectedId === player.id;
+                return (
+                  <GlassCard
+                    key={player.id}
+                    active={isSelected}
+                    activeColor={colors.danger}
+                    style={styles.candidate}
+                    onPress={() => setSelectedId(player.id)}
+                  >
+                    {isSelected && (
+                      <View style={styles.selectedBadge}>
+                        <Icon
+                          name="hand-left"
+                          size={12}
+                          color={colors.textPrimary}
+                        />
+                      </View>
+                    )}
+                    <PlayerAvatar
+                      name={getPlayerName(player, t)}
+                      index={indexOf(player)}
+                      size={56}
+                      style={isSelected && styles.avatarSelected}
+                    />
+                    <Text
+                      style={[
+                        styles.candidateName,
+                        isSelected && styles.candidateNameActive,
+                      ]}
+                      numberOfLines={1}
+                    >
+                      {getPlayerName(player, t)}
+                    </Text>
+                  </GlassCard>
+                );
+              })}
+            </View>
+          </ScrollView>
         )}
 
-        <TouchableOpacity style={styles.skipButton} onPress={handleSkip}>
-          <Text style={styles.skipText}>{t('voting.skip')}</Text>
-        </TouchableOpacity>
+        <View style={[styles.footer, { paddingBottom: insets.bottom + 8 }]}>
+          {isPassing ? (
+            <GradientButton
+              title={t('voting.imReady')}
+              icon="eye"
+              onPress={() => setIsPassing(false)}
+            />
+          ) : (
+            <GradientButton
+              title={t('voting.confirm')}
+              icon="hand-left"
+              variant="danger"
+              disabled={selectedId === null}
+              onPress={handleConfirm}
+            />
+          )}
+
+          <TouchableOpacity style={styles.skipButton} onPress={handleSkip}>
+            <Text style={styles.skipText}>{t('voting.skip')}</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </ScreenBackground>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.bgPrimary,
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 20,
-    paddingVertical: 16,
+    paddingTop: 16,
+    paddingBottom: 14,
+  },
+  titleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
   },
   headerTitle: {
-    fontSize: 22,
-    fontWeight: '800',
+    fontSize: 24,
+    fontWeight: '900',
     color: colors.textPrimary,
   },
   progressPill: {
-    backgroundColor: colors.bgCard,
-    borderRadius: 20,
-    paddingHorizontal: 12,
-    paddingVertical: 6,
+    backgroundColor: 'rgba(255, 255, 255, 0.06)',
+    borderRadius: 999,
+    paddingHorizontal: 14,
+    paddingVertical: 7,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: 'rgba(255, 255, 255, 0.1)',
   },
   progressText: {
     fontSize: 14,
-    fontWeight: '700',
+    fontWeight: '800',
     color: colors.textSecondary,
+  },
+  segments: {
+    flexDirection: 'row',
+    gap: 4,
+    paddingHorizontal: 20,
+    marginBottom: 8,
+  },
+  segment: {
+    flex: 1,
+    height: 5,
+    borderRadius: 3,
+    backgroundColor: 'rgba(255, 255, 255, 0.08)',
+  },
+  segmentDone: {
+    backgroundColor: withAlpha(colors.danger, 0.5),
+  },
+  segmentCurrent: {
+    backgroundColor: colors.danger,
   },
   passContent: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 32,
+    paddingHorizontal: 28,
   },
-  passIcon: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    backgroundColor: 'rgba(139, 92, 246, 0.15)',
+  halo: {
+    width: 200,
+    height: 200,
+    borderRadius: 100,
+    backgroundColor: withAlpha(colors.accentPrimary, 0.08),
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 24,
+    marginBottom: 28,
+  },
+  haloInner: {
+    position: 'absolute',
+    width: 156,
+    height: 156,
+    borderRadius: 78,
+    backgroundColor: withAlpha(colors.accentPrimary, 0.14),
   },
   passTitle: {
-    fontSize: 24,
-    fontWeight: '800',
+    fontSize: 26,
+    fontWeight: '900',
     color: colors.textPrimary,
     textAlign: 'center',
-    marginBottom: 10,
+    marginBottom: 20,
+    lineHeight: 34,
   },
   passNote: {
-    fontSize: 15,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+  },
+  passNoteText: {
+    flexShrink: 1,
+    fontSize: 14,
     color: colors.textSecondary,
-    textAlign: 'center',
-    lineHeight: 22,
+    lineHeight: 20,
   },
   scrollView: {
     flex: 1,
   },
   scrollContent: {
     paddingHorizontal: 20,
+    paddingTop: 12,
     paddingBottom: 16,
   },
-  question: {
-    fontSize: 20,
-    fontWeight: '700',
-    color: colors.textPrimary,
-    textAlign: 'center',
-    marginBottom: 20,
-    lineHeight: 28,
-  },
-  candidate: {
+  questionRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: colors.bgCard,
-    borderRadius: 16,
-    padding: 14,
-    marginBottom: 10,
-    borderWidth: 2,
-    borderColor: colors.border,
+    gap: 12,
+    marginBottom: 18,
   },
-  candidateActive: {
-    borderColor: colors.danger,
-    backgroundColor: 'rgba(239, 68, 68, 0.1)',
+  question: {
+    flex: 1,
+    fontSize: 19,
+    fontWeight: '800',
+    color: colors.textPrimary,
+    lineHeight: 26,
   },
-  avatar: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: colors.bgCardLight,
+  grid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    rowGap: 12,
+  },
+  candidate: {
+    width: '48.2%',
+    alignItems: 'center',
+    paddingVertical: 18,
+    paddingHorizontal: 10,
+    borderWidth: 1.5,
+  },
+  selectedBadge: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: colors.danger,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 12,
   },
-  avatarActive: {
-    backgroundColor: colors.danger,
+  avatarSelected: {
+    borderColor: colors.danger,
+    borderWidth: 3,
   },
   candidateName: {
-    flex: 1,
-    fontSize: 17,
-    fontWeight: '600',
+    fontSize: 15,
+    fontWeight: '700',
     color: colors.textSecondary,
+    marginTop: 10,
   },
   candidateNameActive: {
     color: colors.textPrimary,
-  },
-  radio: {
-    width: 26,
-    height: 26,
-    borderRadius: 13,
-    borderWidth: 2,
-    borderColor: colors.border,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  radioActive: {
-    backgroundColor: colors.danger,
-    borderColor: colors.danger,
+    fontWeight: '900',
   },
   footer: {
     paddingHorizontal: 20,
     paddingTop: 12,
-  },
-  primaryButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 10,
-    backgroundColor: colors.accentPrimary,
-    paddingVertical: 16,
-    borderRadius: 16,
-  },
-  primaryButtonDisabled: {
-    opacity: 0.4,
-  },
-  primaryButtonText: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: colors.textPrimary,
   },
   skipButton: {
     alignItems: 'center',
@@ -313,6 +347,7 @@ const styles = StyleSheet.create({
   },
   skipText: {
     fontSize: 14,
+    fontWeight: '600',
     color: colors.textMuted,
   },
 });

@@ -1,11 +1,44 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Pressable,
+  ScrollView,
+  Animated,
+  Easing,
+} from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { colors } from '../theme/colors';
+import { colors, gradients, withAlpha } from '../theme/colors';
 import { useGame } from '../context/GameContext';
 import { vibrate } from '../utils/helpers';
+import {
+  AppLogo,
+  GlassCard,
+  GradientButton,
+  IconTile,
+  PlayerAvatar,
+  ScreenBackground,
+} from '../components/ui';
+
+// Oyuncu sırasını gösteren parçalı ilerleme çubuğu.
+const SegmentedProgress = ({ total, current }) => (
+  <View style={styles.segments}>
+    {Array.from({ length: total }).map((_, i) => (
+      <View
+        key={i}
+        style={[
+          styles.segment,
+          i < current && styles.segmentDone,
+          i === current && styles.segmentCurrent,
+        ]}
+      />
+    ))}
+  </View>
+);
 
 const PlayerTurnScreen = ({ navigation }) => {
   const { t } = useTranslation();
@@ -16,6 +49,8 @@ const PlayerTurnScreen = ({ navigation }) => {
   const [gamePhase, setGamePhase] = useState('viewing'); // 'viewing' | 'playing'
   const [timeLeft, setTimeLeft] = useState(state.gameDuration);
   const timerRef = useRef(null);
+  const flip = useRef(new Animated.Value(1)).current;
+  const pulse = useRef(new Animated.Value(0)).current;
 
   const currentPlayer = state.players[state.currentPlayerIndex];
   const isLastPlayer = state.currentPlayerIndex >= state.players.length - 1;
@@ -66,12 +101,58 @@ const PlayerTurnScreen = ({ navigation }) => {
     };
   }, []);
 
+  // Süre kritik mi?
+  const isCritical = timeLeft <= 30 && timeLeft > 0;
+  const isUrgent = timeLeft <= 10 && timeLeft > 0;
+  const hasTimer = state.gameDuration > 0;
+
+  // Son saniyelerde sayaç nabız gibi atar.
+  useEffect(() => {
+    if (gamePhase !== 'playing' || !hasTimer || !isUrgent) {
+      pulse.setValue(0);
+      return undefined;
+    }
+    const loop = Animated.loop(
+      Animated.sequence([
+        Animated.timing(pulse, {
+          toValue: 1,
+          duration: 450,
+          easing: Easing.out(Easing.quad),
+          useNativeDriver: true,
+        }),
+        Animated.timing(pulse, {
+          toValue: 0,
+          duration: 450,
+          easing: Easing.in(Easing.quad),
+          useNativeDriver: true,
+        }),
+      ]),
+    );
+    loop.start();
+    return () => loop.stop();
+  }, [gamePhase, hasTimer, isUrgent, pulse]);
+
+  // Kart çevirme: yarıya kadar döner, içerik değişir, geri döner.
   const handleReveal = () => {
-    setIsRevealed(!isRevealed);
+    Animated.timing(flip, {
+      toValue: 0,
+      duration: 140,
+      easing: Easing.in(Easing.quad),
+      useNativeDriver: true,
+    }).start(() => {
+      setIsRevealed(prev => !prev);
+      Animated.spring(flip, {
+        toValue: 1,
+        friction: 7,
+        tension: 80,
+        useNativeDriver: true,
+      }).start();
+    });
   };
 
   const handleNext = () => {
     setIsRevealed(false);
+    flip.setValue(1);
     if (isLastPlayer) {
       // Herkes rolünü gördü, oyun başlasın
       setGamePhase('playing');
@@ -87,189 +168,197 @@ const PlayerTurnScreen = ({ navigation }) => {
     navigation.replace('Voting');
   };
 
-  // Süre kritik mi?
-  const isCritical = timeLeft <= 30 && timeLeft > 0;
-  const isUrgent = timeLeft <= 10 && timeLeft > 0;
-
   // Oyun fazı: Tartışma ekranı
   if (gamePhase === 'playing') {
+    const timerColor = isUrgent
+      ? colors.danger
+      : isCritical
+      ? colors.warning
+      : colors.accentPrimary;
+    const progress = hasTimer ? timeLeft / state.gameDuration : 1;
+
     return (
-      <View style={[styles.container, { paddingTop: insets.top }]}>
-        {/* Süre Header */}
-        <View style={styles.timerHeader}>
-          <View style={styles.timerHeaderLeft}>
-            <Icon name="people" size={20} color={colors.textSecondary} />
-            <Text style={styles.timerHeaderText}>
-              {state.players.length} {t('game.players')}
-            </Text>
+      <ScreenBackground
+        glow={isUrgent ? 'danger' : isCritical ? 'warning' : 'violet'}
+      >
+        <View style={[styles.container, { paddingTop: insets.top }]}>
+          <View style={styles.playingHeader}>
+            <View style={styles.headerChip}>
+              <Icon name="people" size={16} color={colors.accentSecondary} />
+              <Text style={styles.headerChipText}>
+                {state.players.length} {t('game.players')}
+              </Text>
+            </View>
+            <View style={styles.headerChip}>
+              <Icon name="skull" size={14} color={colors.danger} />
+              <Text style={styles.headerChipText}>
+                {state.imposterCount} {t('game.imposters')}
+              </Text>
+            </View>
           </View>
 
-          {state.gameDuration > 0 && (
-            <View
+          <ScrollView
+            contentContainerStyle={styles.playingContent}
+            showsVerticalScrollIndicator={false}
+          >
+            {/* Sayaç */}
+            <Animated.View
               style={[
-                styles.timerBadge,
-                isCritical && styles.timerBadgeCritical,
-                isUrgent && styles.timerBadgeUrgent,
+                styles.timerOuter,
+                {
+                  borderColor: withAlpha(timerColor, 0.25),
+                  shadowColor: timerColor,
+                  transform: [
+                    {
+                      scale: pulse.interpolate({
+                        inputRange: [0, 1],
+                        outputRange: [1, 1.06],
+                      }),
+                    },
+                  ],
+                },
               ]}
             >
-              <Icon
-                name="timer-outline"
-                size={18}
-                color={
-                  isUrgent
-                    ? colors.textPrimary
-                    : isCritical
-                    ? colors.warning
-                    : colors.textPrimary
-                }
-              />
-              <Text
-                style={[
-                  styles.timerText,
-                  isCritical && styles.timerTextCritical,
-                  isUrgent && styles.timerTextUrgent,
-                ]}
+              <LinearGradient
+                colors={[withAlpha(timerColor, 0.35), withAlpha(timerColor, 0.08)]}
+                start={{ x: 0.2, y: 0 }}
+                end={{ x: 0.8, y: 1 }}
+                style={[styles.timerInner, { borderColor: timerColor }]}
               >
-                {formatTime(timeLeft)}
-              </Text>
-            </View>
-          )}
-        </View>
+                {hasTimer ? (
+                  <>
+                    <Icon name="timer-outline" size={22} color={timerColor} />
+                    <Text style={styles.timerText}>{formatTime(timeLeft)}</Text>
+                    <View style={styles.timerTrack}>
+                      <View
+                        style={[
+                          styles.timerFill,
+                          {
+                            width: `${progress * 100}%`,
+                            backgroundColor: timerColor,
+                          },
+                        ]}
+                      />
+                    </View>
+                  </>
+                ) : (
+                  <>
+                    <Icon
+                      name="chatbubbles"
+                      size={64}
+                      color={colors.textPrimary}
+                    />
+                    <Icon
+                      name="infinite"
+                      size={26}
+                      color={colors.accentSecondary}
+                    />
+                  </>
+                )}
+              </LinearGradient>
+            </Animated.View>
 
-        {/* Progress Bar (süre) */}
-        {state.gameDuration > 0 && (
-          <View style={styles.timerProgressContainer}>
-            <View
-              style={[
-                styles.timerProgress,
-                isCritical && styles.timerProgressCritical,
-                isUrgent && styles.timerProgressUrgent,
-                { width: `${(timeLeft / state.gameDuration) * 100}%` },
-              ]}
+            <Text style={styles.playingTitle}>{t('game.discussTitle')}</Text>
+            <Text style={styles.playingSubtitle}>
+              {t('game.discussSubtitle')}
+            </Text>
+
+            <GlassCard style={styles.modeCard}>
+              <IconTile
+                name={state.gameMode === 'word' ? 'text' : 'help-circle'}
+                size={40}
+                gradient={
+                  state.gameMode === 'word'
+                    ? gradients.success
+                    : gradients.warning
+                }
+                soft
+              />
+              <View style={styles.modeInfo}>
+                <Text style={styles.modeLabel}>{t('game.mode')}</Text>
+                <Text style={styles.modeValue}>
+                  {state.gameMode === 'word'
+                    ? t('setup.wordGame')
+                    : t('setup.questionGame')}
+                </Text>
+              </View>
+            </GlassCard>
+
+            {/* İpuçları */}
+            <GlassCard style={styles.tipsCard}>
+              <Text style={styles.tipsTitle}>{t('game.tips')}</Text>
+              {['tip1', 'tip2', 'tip3'].map((tip, index) => (
+                <View key={tip} style={styles.tipItem}>
+                  <View style={styles.tipNumber}>
+                    <Text style={styles.tipNumberText}>{index + 1}</Text>
+                  </View>
+                  <Text style={styles.tipText}>{t(`game.${tip}`)}</Text>
+                </View>
+              ))}
+            </GlassCard>
+          </ScrollView>
+
+          <View style={[styles.footer, { paddingBottom: insets.bottom + 16 }]}>
+            <GradientButton
+              title={t('game.startVoting')}
+              icon="hand-left"
+              variant="danger"
+              onPress={handleEndGame}
             />
           </View>
-        )}
-
-        {/* Ana içerik */}
-        <View style={styles.playingContent}>
-          <View style={styles.playingIconWrapper}>
-            <Icon name="chatbubbles" size={48} color={colors.accentPrimary} />
-          </View>
-
-          <Text style={styles.playingTitle}>{t('game.discussTitle')}</Text>
-          <Text style={styles.playingSubtitle}>
-            {t('game.discussSubtitle')}
-          </Text>
-
-          {/* Oyun bilgileri */}
-          <View style={styles.gameInfoCard}>
-            <View style={styles.gameInfoRow}>
-              <Icon
-                name="game-controller-outline"
-                size={20}
-                color={colors.textSecondary}
-              />
-              <Text style={styles.gameInfoLabel}>{t('game.mode')}:</Text>
-              <Text style={styles.gameInfoValue}>
-                {state.gameMode === 'word'
-                  ? t('setup.wordGame')
-                  : t('setup.questionGame')}
-              </Text>
-            </View>
-
-            <View style={styles.gameInfoDivider} />
-
-            <View style={styles.gameInfoRow}>
-              <Icon
-                name="alert-circle-outline"
-                size={20}
-                color={colors.danger}
-              />
-              <Text style={styles.gameInfoLabel}>{t('game.imposters')}:</Text>
-              <Text style={[styles.gameInfoValue, { color: colors.danger }]}>
-                {state.imposterCount}
-              </Text>
-            </View>
-          </View>
-
-          {/* İpuçları */}
-          <View style={styles.tipsContainer}>
-            <Text style={styles.tipsTitle}>{t('game.tips')}</Text>
-            <View style={styles.tipItem}>
-              <Icon name="checkmark-circle" size={16} color={colors.success} />
-              <Text style={styles.tipText}>{t('game.tip1')}</Text>
-            </View>
-            <View style={styles.tipItem}>
-              <Icon name="checkmark-circle" size={16} color={colors.success} />
-              <Text style={styles.tipText}>{t('game.tip2')}</Text>
-            </View>
-            <View style={styles.tipItem}>
-              <Icon name="checkmark-circle" size={16} color={colors.success} />
-              <Text style={styles.tipText}>{t('game.tip3')}</Text>
-            </View>
-          </View>
         </View>
-
-        {/* Oyunu Bitir Butonu */}
-        <View style={[styles.footer, { paddingBottom: insets.bottom + 20 }]}>
-          <TouchableOpacity
-            style={styles.endGameButton}
-            activeOpacity={0.8}
-            onPress={handleEndGame}
-          >
-            <Icon name="hand-left" size={20} color={colors.textPrimary} />
-            <Text style={styles.endGameButtonText}>
-              {t('game.startVoting')}
-            </Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+      </ScreenBackground>
     );
   }
+
+  const playerName =
+    currentPlayer?.name || `${t('game.player')} ${state.currentPlayerIndex + 1}`;
 
   // Rol görme fazı
   const renderContent = () => {
     if (!isRevealed) {
       return (
         <View style={styles.hiddenContent}>
-          <Icon name="eye-off" size={64} color={colors.textMuted} />
-          <Text style={styles.hiddenText}>{t('game.tapToReveal')}</Text>
+          <AppLogo size={96} />
+          <Text style={styles.hiddenName}>{playerName}</Text>
+          <View style={styles.tapPill}>
+            <Icon name="hand-left-outline" size={16} color={colors.textPrimary} />
+            <Text style={styles.tapPillText}>{t('game.tapToReveal')}</Text>
+          </View>
         </View>
       );
     }
 
     if (isImposter) {
       return (
-        <View style={styles.imposterContent}>
-          <View style={styles.imposterIconWrapper}>
-            <Icon name="skull" size={48} color={colors.danger} />
-          </View>
+        <View style={styles.revealContent}>
+          <IconTile name="skull" size={92} gradient={gradients.danger} round />
           <Text style={styles.imposterTitle}>{t('game.youAreImposter')}</Text>
 
           {state.gameMode === 'question' &&
             (state.currentQuestionKey || state.currentWord) && (
               <View style={styles.infoBox}>
-                <Icon
-                  name="help-circle-outline"
-                  size={18}
-                  color={colors.warning}
-                />
-                <Text style={styles.infoLabel}>{t('game.yourQuestion')}</Text>
-                <Text style={styles.infoValue}>
-                  {state.currentWord ||
-                    t(`${state.currentQuestionKey}.imposter`)}
-                </Text>
+                <Icon name="help-circle" size={18} color={colors.warning} />
+                <View style={styles.infoTextWrapper}>
+                  <Text style={styles.infoLabel}>{t('game.yourQuestion')}</Text>
+                  <Text style={styles.infoValue}>
+                    {state.currentWord ||
+                      t(`${state.currentQuestionKey}.imposter`)}
+                  </Text>
+                </View>
               </View>
             )}
 
           {state.showCategoryToImposter && state.currentCategory && (
             <View style={styles.infoBox}>
-              <Icon name="folder-outline" size={18} color={colors.textMuted} />
-              <Text style={styles.infoLabel}>{t('game.category')}</Text>
-              <Text style={styles.infoValue}>
-                {state.customCategories?.[state.currentCategory]?.name ||
-                  t(`categories.${state.currentCategory}`)}
-              </Text>
+              <Icon name="folder" size={18} color={colors.accentSecondary} />
+              <View style={styles.infoTextWrapper}>
+                <Text style={styles.infoLabel}>{t('game.category')}</Text>
+                <Text style={styles.infoValue}>
+                  {state.customCategories?.[state.currentCategory]?.name ||
+                    t(`categories.${state.currentCategory}`)}
+                </Text>
+              </View>
             </View>
           )}
 
@@ -277,166 +366,186 @@ const PlayerTurnScreen = ({ navigation }) => {
             state.showHintToImposter &&
             state.currentHintKey && (
               <View style={styles.infoBox}>
-                <Icon name="bulb-outline" size={18} color={colors.warning} />
-                <Text style={styles.infoLabel}>{t('game.imposterHint')}</Text>
-                <Text style={styles.infoValue}>{t(state.currentHintKey)}</Text>
+                <Icon name="bulb" size={18} color={colors.warning} />
+                <View style={styles.infoTextWrapper}>
+                  <Text style={styles.infoLabel}>{t('game.imposterHint')}</Text>
+                  <Text style={styles.infoValue}>{t(state.currentHintKey)}</Text>
+                </View>
               </View>
             )}
         </View>
       );
     }
 
-    // Normal oyuncu - Kelime modu
-    if (state.gameMode === 'word') {
-      return (
-        <View style={styles.playerContent}>
-          <View style={styles.playerIconWrapper}>
-            <Icon name="text" size={40} color={colors.success} />
-          </View>
-          <Text style={styles.contentLabel}>{t('game.yourWord')}</Text>
-          <Text style={styles.contentValue}>
-            {state.currentWord || t(state.currentWordKey)}
-          </Text>
-        </View>
-      );
-    }
+    const isWordMode = state.gameMode === 'word';
 
-    // Soru modu
     return (
-      <View style={styles.playerContent}>
-        <View style={styles.playerIconWrapper}>
-          <Icon name="help-circle" size={44} color={colors.success} />
-        </View>
-        <Text style={styles.contentLabel}>{t('game.yourQuestion')}</Text>
-        <Text style={styles.contentValue}>
-          {state.currentWord || t(`${state.currentQuestionKey}.normal`)}
+      <View style={styles.revealContent}>
+        <IconTile
+          name={isWordMode ? 'text' : 'help-circle'}
+          size={84}
+          gradient={gradients.success}
+          round
+        />
+        <Text style={styles.contentLabel}>
+          {isWordMode ? t('game.yourWord') : t('game.yourQuestion')}
+        </Text>
+        <Text style={[styles.contentValue, !isWordMode && styles.questionValue]}>
+          {isWordMode
+            ? state.currentWord || t(state.currentWordKey)
+            : state.currentWord || t(`${state.currentQuestionKey}.normal`)}
         </Text>
       </View>
     );
   };
 
+  const cardGradient = !isRevealed
+    ? ['#2a2152', '#171430']
+    : isImposter
+    ? ['#5b1a2b', '#23122a']
+    : ['#0f4a3c', '#10202a'];
+  const cardBorder = !isRevealed
+    ? withAlpha(colors.accentPrimary, 0.45)
+    : isImposter
+    ? colors.danger
+    : colors.success;
+
   return (
-    <View style={[styles.container, { paddingTop: insets.top }]}>
-      {/* Header */}
-      <View style={styles.header}>
-        <View style={styles.playerBadge}>
-          <Icon name="person" size={16} color={colors.textPrimary} />
-          <Text style={styles.playerBadgeText}>
-            {currentPlayer?.name ||
-              `${t('game.player')} ${state.currentPlayerIndex + 1}`}
-          </Text>
+    <ScreenBackground
+      glow={!isRevealed ? 'violet' : isImposter ? 'danger' : 'success'}
+    >
+      <View style={[styles.container, { paddingTop: insets.top }]}>
+        {/* Header */}
+        <View style={styles.header}>
+          <View style={styles.playerRow}>
+            <PlayerAvatar
+              name={playerName}
+              index={state.currentPlayerIndex}
+              size={40}
+            />
+            <View>
+              <Text style={styles.playerName} numberOfLines={1}>
+                {playerName}
+              </Text>
+              <Text style={styles.playerMeta}>
+                {state.currentPlayerIndex + 1} / {state.players.length}
+              </Text>
+            </View>
+          </View>
         </View>
-        <Text style={styles.progressText}>
-          {state.currentPlayerIndex + 1} / {state.players.length}
-        </Text>
-      </View>
 
-      {/* Progress Bar */}
-      <View style={styles.progressBarContainer}>
-        <View
-          style={[
-            styles.progressBar,
-            {
-              width: `${
-                ((state.currentPlayerIndex + 1) / state.players.length) * 100
-              }%`,
-            },
-          ]}
+        <SegmentedProgress
+          total={state.players.length}
+          current={state.currentPlayerIndex}
         />
-      </View>
 
-      {/* İçerik Kartı */}
-      <View style={styles.content}>
-        <TouchableOpacity
-          style={[
-            styles.card,
-            isRevealed && isImposter && styles.cardImposter,
-            isRevealed && !isImposter && styles.cardPlayer,
-          ]}
-          activeOpacity={0.9}
-          onPress={handleReveal}
-        >
-          {renderContent()}
+        {/* İçerik Kartı */}
+        <View style={styles.content}>
+          <Animated.View
+            style={{
+              transform: [
+                { perspective: 1200 },
+                {
+                  rotateY: flip.interpolate({
+                    inputRange: [0, 1],
+                    outputRange: ['90deg', '0deg'],
+                  }),
+                },
+              ],
+            }}
+          >
+            <Pressable onPress={handleReveal}>
+              <LinearGradient
+                colors={cardGradient}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+                style={[styles.card, { borderColor: cardBorder }]}
+              >
+                {renderContent()}
 
-          {isRevealed && (
-            <View style={styles.tapToHideWrapper}>
-              <Icon name="eye-off-outline" size={16} color={colors.textMuted} />
-              <Text style={styles.tapToHide}>{t('game.tapToHide')}</Text>
+                {isRevealed && (
+                  <View style={styles.tapToHideWrapper}>
+                    <Icon
+                      name="eye-off-outline"
+                      size={16}
+                      color={colors.textSecondary}
+                    />
+                    <Text style={styles.tapToHide}>{t('game.tapToHide')}</Text>
+                  </View>
+                )}
+              </LinearGradient>
+            </Pressable>
+          </Animated.View>
+        </View>
+
+        {/* Alt butonlar */}
+        <View style={[styles.footer, { paddingBottom: insets.bottom + 16 }]}>
+          {!isRevealed ? (
+            <View style={styles.readyRow}>
+              <Icon name="eye-off" size={18} color={colors.textMuted} />
+              <Text style={styles.footerHint}>{t('game.ready')}</Text>
+            </View>
+          ) : (
+            <GradientButton
+              title={isLastPlayer ? t('game.startDiscussion') : t('game.next')}
+              iconRight={isLastPlayer ? 'chatbubbles' : 'arrow-forward'}
+              variant={isLastPlayer ? 'brand' : 'primary'}
+              onPress={handleNext}
+            />
+          )}
+
+          {isRevealed && !isLastPlayer && (
+            <View style={styles.passPhoneWrapper}>
+              <Icon name="swap-horizontal" size={16} color={colors.textMuted} />
+              <Text style={styles.passPhoneHint}>{t('game.passPhone')}</Text>
             </View>
           )}
-        </TouchableOpacity>
+        </View>
       </View>
-
-      {/* Alt butonlar */}
-      <View style={[styles.footer, { paddingBottom: insets.bottom + 20 }]}>
-        {!isRevealed ? (
-          <Text style={styles.footerHint}>{t('game.ready')}</Text>
-        ) : (
-          <TouchableOpacity
-            style={styles.nextButton}
-            activeOpacity={0.8}
-            onPress={handleNext}
-          >
-            <Text style={styles.nextButtonText}>
-              {isLastPlayer ? t('game.startDiscussion') : t('game.next')}
-            </Text>
-            <Icon name="arrow-forward" size={20} color={colors.textPrimary} />
-          </TouchableOpacity>
-        )}
-
-        {isRevealed && !isLastPlayer && (
-          <View style={styles.passPhoneWrapper}>
-            <Icon name="swap-horizontal" size={16} color={colors.textMuted} />
-            <Text style={styles.passPhoneHint}>{t('game.passPhone')}</Text>
-          </View>
-        )}
-      </View>
-    </View>
+    </ScreenBackground>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.bgPrimary,
   },
   header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
     paddingHorizontal: 20,
-    paddingVertical: 16,
+    paddingTop: 16,
+    paddingBottom: 14,
   },
-  playerBadge: {
+  playerRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: colors.accentPrimary,
-    paddingVertical: 8,
-    paddingHorizontal: 16,
-    borderRadius: 20,
-    gap: 8,
+    gap: 12,
   },
-  playerBadgeText: {
-    fontSize: 16,
-    fontWeight: '700',
+  playerName: {
+    fontSize: 18,
+    fontWeight: '900',
     color: colors.textPrimary,
   },
-  progressText: {
-    fontSize: 16,
-    color: colors.textSecondary,
-    fontWeight: '600',
+  playerMeta: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: colors.textMuted,
   },
-  progressBarContainer: {
-    height: 4,
-    backgroundColor: colors.bgCard,
-    marginHorizontal: 20,
-    borderRadius: 2,
-    overflow: 'hidden',
+  segments: {
+    flexDirection: 'row',
+    gap: 4,
+    paddingHorizontal: 20,
   },
-  progressBar: {
-    height: '100%',
-    backgroundColor: colors.accentPrimary,
-    borderRadius: 2,
+  segment: {
+    flex: 1,
+    height: 5,
+    borderRadius: 3,
+    backgroundColor: 'rgba(255, 255, 255, 0.08)',
+  },
+  segmentDone: {
+    backgroundColor: withAlpha(colors.accentPrimary, 0.55),
+  },
+  segmentCurrent: {
+    backgroundColor: colors.accentPink,
   },
   content: {
     flex: 1,
@@ -444,131 +553,129 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   card: {
-    backgroundColor: colors.bgCard,
-    borderRadius: 24,
-    padding: 32,
-    minHeight: 320,
+    borderRadius: 28,
+    paddingVertical: 36,
+    paddingHorizontal: 24,
+    minHeight: 400,
     justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 2,
-    borderColor: colors.border,
-  },
-  cardImposter: {
-    borderColor: colors.danger,
-    backgroundColor: 'rgba(239, 68, 68, 0.08)',
-  },
-  cardPlayer: {
-    borderColor: colors.success,
-    backgroundColor: 'rgba(16, 185, 129, 0.08)',
+    borderWidth: 1.5,
   },
   hiddenContent: {
     alignItems: 'center',
-    gap: 16,
   },
-  hiddenText: {
-    fontSize: 18,
-    color: colors.textSecondary,
-  },
-  imposterContent: {
-    alignItems: 'center',
-  },
-  imposterIconWrapper: {
-    width: 88,
-    height: 88,
-    borderRadius: 44,
-    backgroundColor: 'rgba(239, 68, 68, 0.15)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  imposterTitle: {
-    fontSize: 24,
-    fontWeight: '800',
-    color: colors.danger,
-    marginBottom: 20,
+  hiddenName: {
+    fontSize: 28,
+    fontWeight: '900',
+    color: colors.textPrimary,
+    marginTop: 32,
     textAlign: 'center',
   },
-  playerContent: {
+  tapPill: {
+    flexDirection: 'row',
     alignItems: 'center',
+    gap: 8,
+    marginTop: 16,
+    paddingVertical: 10,
+    paddingHorizontal: 18,
+    borderRadius: 999,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
   },
-  playerIconWrapper: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    backgroundColor: 'rgba(16, 185, 129, 0.15)',
-    justifyContent: 'center',
+  tapPillText: {
+    fontSize: 15,
+    fontWeight: '700',
+    color: colors.textPrimary,
+  },
+  revealContent: {
     alignItems: 'center',
-    marginBottom: 20,
+    width: '100%',
+  },
+  imposterTitle: {
+    fontSize: 28,
+    fontWeight: '900',
+    color: colors.textPrimary,
+    marginTop: 20,
+    marginBottom: 12,
+    textAlign: 'center',
+    textShadowColor: withAlpha(colors.danger, 0.8),
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 18,
   },
   contentLabel: {
-    fontSize: 16,
-    color: colors.textSecondary,
+    fontSize: 15,
+    fontWeight: '700',
+    color: '#a7f3d0',
+    marginTop: 22,
     marginBottom: 8,
   },
   contentValue: {
-    fontSize: 28,
-    fontWeight: '800',
+    fontSize: 36,
+    fontWeight: '900',
     color: colors.textPrimary,
     textAlign: 'center',
+    textShadowColor: withAlpha(colors.success, 0.7),
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 18,
+  },
+  questionValue: {
+    fontSize: 22,
+    lineHeight: 30,
   },
   infoBox: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: colors.bgCardLight,
+    alignSelf: 'stretch',
+    backgroundColor: 'rgba(0, 0, 0, 0.25)',
     paddingVertical: 12,
-    paddingHorizontal: 20,
-    borderRadius: 12,
-    marginTop: 12,
-    gap: 10,
+    paddingHorizontal: 16,
+    borderRadius: 14,
+    marginTop: 10,
+    gap: 12,
+  },
+  infoTextWrapper: {
+    flex: 1,
   },
   infoLabel: {
-    fontSize: 14,
-    color: colors.textMuted,
+    fontSize: 12,
+    fontWeight: '600',
+    color: colors.textSecondary,
   },
   infoValue: {
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: '800',
     color: colors.textPrimary,
+    marginTop: 2,
   },
   tapToHideWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 24,
+    marginTop: 28,
     gap: 6,
   },
   tapToHide: {
     fontSize: 14,
-    color: colors.textMuted,
+    color: colors.textSecondary,
   },
   footer: {
     paddingHorizontal: 20,
-    paddingTop: 16,
-    alignItems: 'center',
+    paddingTop: 12,
   },
-  footerHint: {
-    fontSize: 16,
-    color: colors.textSecondary,
-    marginBottom: 16,
-  },
-  nextButton: {
+  readyRow: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: colors.accentPrimary,
-    paddingVertical: 16,
-    paddingHorizontal: 32,
-    borderRadius: 16,
-    width: '100%',
-    gap: 10,
+    gap: 8,
+    height: 60,
   },
-  nextButtonText: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: colors.textPrimary,
+  footerHint: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: colors.textSecondary,
   },
   passPhoneWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     marginTop: 12,
     gap: 6,
   },
@@ -576,169 +683,143 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: colors.textMuted,
   },
-  // Tartışma fazı stilleri
-  timerHeader: {
+  // Tartışma fazı
+  playingHeader: {
     flexDirection: 'row',
-    alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 20,
     paddingVertical: 16,
   },
-  timerHeaderLeft: {
+  headerChip: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
-  },
-  timerHeaderText: {
-    fontSize: 16,
-    color: colors.textSecondary,
-    fontWeight: '500',
-  },
-  timerBadge: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.bgCard,
-    paddingVertical: 10,
-    paddingHorizontal: 16,
-    borderRadius: 20,
-    gap: 8,
+    gap: 6,
+    paddingVertical: 8,
+    paddingHorizontal: 14,
+    borderRadius: 999,
+    backgroundColor: 'rgba(255, 255, 255, 0.06)',
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: 'rgba(255, 255, 255, 0.08)',
   },
-  timerBadgeCritical: {
-    backgroundColor: 'rgba(245, 158, 11, 0.15)',
-    borderColor: colors.warning,
-  },
-  timerBadgeUrgent: {
-    backgroundColor: 'rgba(239, 68, 68, 0.2)',
-    borderColor: colors.danger,
-  },
-  timerText: {
-    fontSize: 20,
+  headerChipText: {
+    fontSize: 13,
     fontWeight: '700',
-    color: colors.textPrimary,
-  },
-  timerTextCritical: {
-    color: colors.warning,
-  },
-  timerTextUrgent: {
-    color: colors.danger,
-  },
-  timerProgressContainer: {
-    height: 4,
-    backgroundColor: colors.bgCard,
-    marginHorizontal: 20,
-    borderRadius: 2,
-    overflow: 'hidden',
-  },
-  timerProgress: {
-    height: '100%',
-    backgroundColor: colors.accentPrimary,
-    borderRadius: 2,
-  },
-  timerProgressCritical: {
-    backgroundColor: colors.warning,
-  },
-  timerProgressUrgent: {
-    backgroundColor: colors.danger,
+    color: colors.textSecondary,
   },
   playingContent: {
-    flex: 1,
+    flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 24,
+    paddingHorizontal: 20,
+    paddingBottom: 12,
   },
-  playingIconWrapper: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    backgroundColor: 'rgba(139, 92, 246, 0.12)',
+  timerOuter: {
+    width: 228,
+    height: 228,
+    borderRadius: 114,
+    borderWidth: 12,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 24,
+    marginBottom: 26,
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.6,
+    shadowRadius: 30,
+  },
+  timerInner: {
+    width: 190,
+    height: 190,
+    borderRadius: 95,
+    borderWidth: 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  timerText: {
+    fontSize: 54,
+    fontWeight: '900',
+    color: colors.textPrimary,
+    fontVariant: ['tabular-nums'],
+    marginVertical: 2,
+  },
+  timerTrack: {
+    width: 96,
+    height: 5,
+    borderRadius: 3,
+    backgroundColor: 'rgba(255, 255, 255, 0.12)',
+    overflow: 'hidden',
+  },
+  timerFill: {
+    height: '100%',
+    borderRadius: 3,
   },
   playingTitle: {
-    fontSize: 26,
-    fontWeight: '800',
+    fontSize: 28,
+    fontWeight: '900',
     color: colors.textPrimary,
-    marginBottom: 8,
+    marginBottom: 6,
     textAlign: 'center',
   },
   playingSubtitle: {
-    fontSize: 16,
+    fontSize: 15,
     color: colors.textSecondary,
     textAlign: 'center',
-    marginBottom: 32,
-  },
-  gameInfoCard: {
-    backgroundColor: colors.bgCard,
-    borderRadius: 16,
-    padding: 20,
-    width: '100%',
     marginBottom: 24,
-    borderWidth: 1,
-    borderColor: colors.border,
+    lineHeight: 21,
   },
-  gameInfoRow: {
+  modeCard: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 10,
+    alignSelf: 'stretch',
+    padding: 12,
+    gap: 12,
+    marginBottom: 12,
   },
-  gameInfoLabel: {
-    fontSize: 14,
-    color: colors.textSecondary,
+  modeInfo: {
+    flex: 1,
   },
-  gameInfoValue: {
-    fontSize: 14,
-    fontWeight: '700',
+  modeLabel: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: colors.textMuted,
+  },
+  modeValue: {
+    fontSize: 15,
+    fontWeight: '800',
     color: colors.textPrimary,
   },
-  gameInfoDivider: {
-    height: 1,
-    backgroundColor: colors.border,
-    marginVertical: 12,
-  },
-  tipsContainer: {
-    backgroundColor: colors.bgCard,
-    borderRadius: 16,
-    padding: 20,
-    width: '100%',
-    borderWidth: 1,
-    borderColor: colors.border,
+  tipsCard: {
+    alignSelf: 'stretch',
+    padding: 16,
   },
   tipsTitle: {
-    fontSize: 16,
-    fontWeight: '700',
+    fontSize: 15,
+    fontWeight: '800',
     color: colors.textPrimary,
-    marginBottom: 14,
+    marginBottom: 12,
   },
   tipItem: {
     flexDirection: 'row',
-    alignItems: 'flex-start',
+    alignItems: 'center',
     gap: 10,
     marginBottom: 10,
+  },
+  tipNumber: {
+    width: 22,
+    height: 22,
+    borderRadius: 11,
+    backgroundColor: withAlpha(colors.accentPrimary, 0.2),
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  tipNumberText: {
+    fontSize: 12,
+    fontWeight: '900',
+    color: colors.accentSecondary,
   },
   tipText: {
     fontSize: 14,
     color: colors.textSecondary,
     flex: 1,
     lineHeight: 20,
-  },
-  endGameButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: colors.danger,
-    paddingVertical: 16,
-    paddingHorizontal: 32,
-    borderRadius: 16,
-    width: '100%',
-    gap: 10,
-  },
-  endGameButtonText: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: colors.textPrimary,
   },
 });
 

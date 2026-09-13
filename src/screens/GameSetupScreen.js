@@ -1,18 +1,66 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  ScrollView,
-  Switch,
-} from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Switch } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { colors } from '../theme/colors';
+import { colors, gradients, withAlpha } from '../theme/colors';
 import { useGame } from '../context/GameContext';
 import { CATEGORIES, getMaxImposters } from '../data/gameData';
+import {
+  GlassCard,
+  GradientButton,
+  IconButton,
+  IconTile,
+  PlayerAvatar,
+  PressableScale,
+  ScreenBackground,
+  ScreenHeader,
+  SectionLabel,
+} from '../components/ui';
+
+const DURATIONS = [60, 120, 180, 300, 0];
+
+// Kart içindeki -/+ sayaç.
+const Stepper = ({ value, onDec, onInc, canDec, canInc, accent }) => (
+  <View style={styles.stepper}>
+    <PressableScale
+      style={[styles.stepButton, !canDec && styles.stepButtonDisabled]}
+      disabled={!canDec}
+      onPress={onDec}
+      hitSlop={6}
+    >
+      <Icon name="remove" size={20} color={colors.textPrimary} />
+    </PressableScale>
+    <Text style={[styles.stepValue, { textShadowColor: withAlpha(accent, 0.6) }]}>
+      {value}
+    </Text>
+    <PressableScale
+      style={[styles.stepButton, !canInc && styles.stepButtonDisabled]}
+      disabled={!canInc}
+      onPress={onInc}
+      hitSlop={6}
+    >
+      <Icon name="add" size={20} color={colors.textPrimary} />
+    </PressableScale>
+  </View>
+);
+
+const SettingRow = ({ icon, gradient, title, hint, value, onToggle, isLast }) => (
+  <View style={[styles.settingRow, !isLast && styles.settingRowBorder]}>
+    <IconTile name={icon} size={40} gradient={gradient} soft />
+    <View style={styles.settingText}>
+      <Text style={styles.settingTitle}>{title}</Text>
+      {!!hint && <Text style={styles.settingHint}>{hint}</Text>}
+    </View>
+    <Switch
+      value={value}
+      onValueChange={onToggle}
+      trackColor={{ false: colors.bgCardLight, true: gradient[1] }}
+      thumbColor={colors.textPrimary}
+    />
+  </View>
+);
 
 const GameSetupScreen = ({ navigation }) => {
   const { t } = useTranslation();
@@ -26,7 +74,7 @@ const GameSetupScreen = ({ navigation }) => {
     toggleShowCategory,
     toggleShowHint,
     startGame,
-    toggleTrollMode
+    toggleTrollMode,
   } = useGame();
 
   const maxImposters = getMaxImposters(state.playerCount);
@@ -38,21 +86,6 @@ const GameSetupScreen = ({ navigation }) => {
   const handleStartGame = () => {
     startGame();
     navigation.navigate('PlayerTurn');
-  };
-
-  const getCategoryPreview = () => {
-    const count = state.selectedCategories?.length || 0;
-    if (count === 0) return t('categorySelect.noneSelected');
-
-    const categoryIcons = state.selectedCategories.slice(0, 3).map(id => {
-      const cat = CATEGORIES[id];
-      return cat ? cat.icon : 'folder-outline';
-    });
-
-    if (count > 3) {
-      return `${count} ${t('categorySelect.selected')}`;
-    }
-    return `${count} ${t('categorySelect.selected')}`;
   };
 
   const getTotalContent = () => {
@@ -78,6 +111,7 @@ const GameSetupScreen = ({ navigation }) => {
   };
 
   const totalContent = getTotalContent();
+  const selectedCategories = state.selectedCategories || [];
 
   const handlePlayerCountChange = delta => {
     const newCount = state.playerCount + delta;
@@ -97,644 +131,538 @@ const GameSetupScreen = ({ navigation }) => {
     }
   };
 
-  const formatDuration = duration => {
-    if (duration === 0) return t('setup.noLimit');
-    if (duration < 60) return `${duration}s`;
-    return `${duration / 60} ${t('setup.minutes')}`;
-  };
+  const getDurationLabel = duration =>
+    duration === 0
+      ? t('setup.noLimit')
+      : `${duration / 60} ${t('setup.minutes')}`;
+
+  // Oyuncu kartında gösterilecek avatarlar (en fazla 5).
+  const previewPlayers = Array.from(
+    { length: Math.min(state.playerCount, 5) },
+    (_, i) => state.players?.[i]?.name || `${t('game.player')} ${i + 1}`,
+  );
+
+  const modes = [
+    {
+      id: 'word',
+      icon: 'text',
+      gradient: gradients.success,
+      title: t('setup.wordGame'),
+      desc: t('setup.wordGameDesc'),
+    },
+    {
+      id: 'question',
+      icon: 'help-circle',
+      gradient: gradients.warning,
+      title: t('setup.questionGame'),
+      desc: t('setup.questionGameDesc'),
+    },
+  ];
 
   return (
-    <View style={[styles.container, { paddingTop: insets.top }]}>
-      {/* Header */}
-      <View style={styles.header}>
-        <TouchableOpacity
-          style={styles.backButton}
-          onPress={() => navigation.goBack()}
-        >
-          <Icon name="chevron-back" size={24} color={colors.textPrimary} />
-        </TouchableOpacity>
-        <Text style={styles.headerTitle}>{t('app.name')}</Text>
-        <TouchableOpacity
-          style={styles.settingsButton}
-          onPress={() => navigation.navigate('Settings')}
-        >
-          <Icon
-            name="settings-outline"
-            size={22}
-            color={colors.textSecondary}
-          />
-        </TouchableOpacity>
-      </View>
+    <ScreenBackground>
+      <View style={[styles.container, { paddingTop: insets.top }]}>
+        <ScreenHeader
+          title={t('app.name')}
+          onBack={() => navigation.goBack()}
+          right={
+            <IconButton
+              name="settings-outline"
+              iconSize={20}
+              onPress={() => navigation.navigate('Settings')}
+            />
+          }
+        />
 
-      <ScrollView
-        style={styles.scrollView}
-        contentContainerStyle={styles.scrollContent}
-        showsVerticalScrollIndicator={false}
-      >
-        {/* Oyuncu ve Sahtekar Sayısı */}
-        <View style={styles.countersRow}>
-          {/* Oyuncu Sayısı */}
-          <TouchableOpacity
-            onPress={() => navigation.navigate('PlayerSetup')}
-            activeOpacity={0.8}
-            style={styles.counterCardWrapper}
-          >
-            <View style={[styles.counterCard, styles.activeCard]}>
-              <View style={styles.counterIcon}>
-                <Icon name="people" size={24} color={colors.textPrimary} />
+        <ScrollView
+          style={styles.scrollView}
+          contentContainerStyle={styles.scrollContent}
+          showsVerticalScrollIndicator={false}
+        >
+          {/* Oyuncu ve Sahtekar Sayısı */}
+          <View style={styles.countersRow}>
+            <GlassCard
+              style={styles.counterCard}
+              onPress={() => navigation.navigate('PlayerSetup')}
+            >
+              <View style={styles.counterTop}>
+                <IconTile name="people" size={36} gradient={gradients.primary} />
+                <View style={styles.editChip}>
+                  <Icon name="pencil" size={11} color={colors.accentSecondary} />
+                </View>
               </View>
-              <Text style={styles.counterLabel}>{t('setup.playerCount')}</Text>
-              <View style={styles.counterControls}>
-                <TouchableOpacity
-                  style={[
-                    styles.counterButton,
-                    !canDecPlayer && styles.counterButtonDisabled,
-                  ]}
-                  disabled={!canDecPlayer}
-                  onPress={() => handlePlayerCountChange(-1)}
-                >
-                  <Icon
-                    name="remove"
-                    size={20}
-                    color={canDecPlayer ? colors.textPrimary : colors.textMuted}
+              <Text style={styles.counterLabel} numberOfLines={2}>
+                {t('setup.playerCount')}
+              </Text>
+              <View style={styles.avatarStack}>
+                {previewPlayers.map((name, i) => (
+                  <PlayerAvatar
+                    key={i}
+                    name={name}
+                    index={i}
+                    size={24}
+                    style={[styles.stackAvatar, i > 0 && styles.stackOverlap]}
                   />
-                </TouchableOpacity>
-                <Text style={styles.counterValue}>{state.playerCount}</Text>
-                <TouchableOpacity
-                  style={[
-                    styles.counterButton,
-                    !canIncPlayer && styles.counterButtonDisabled,
-                  ]}
-                  disabled={!canIncPlayer}
-                  onPress={() => handlePlayerCountChange(1)}
-                >
-                  <Icon
-                    name="add"
-                    size={20}
-                    color={canIncPlayer ? colors.textPrimary : colors.textMuted}
-                  />
-                </TouchableOpacity>
+                ))}
               </View>
-            </View>
-          </TouchableOpacity>
+              <Stepper
+                value={state.playerCount}
+                accent={colors.accentPrimary}
+                canDec={canDecPlayer}
+                canInc={canIncPlayer}
+                onDec={() => handlePlayerCountChange(-1)}
+                onInc={() => handlePlayerCountChange(1)}
+              />
+            </GlassCard>
 
-          {/* Sahtekar Sayısı */}
-          <View style={styles.counterCardWrapper}>
-            <View style={styles.counterCard}>
-              <View style={[styles.counterIcon, styles.imposterIcon]}>
-                <Icon name="eye" size={24} color={colors.textPrimary} />
+            <GlassCard style={styles.counterCard}>
+              <View style={styles.counterTop}>
+                <IconTile name="skull" size={36} gradient={gradients.danger} />
+                <Text style={styles.maxText}>
+                  {t('setup.max')} {maxImposters}
+                </Text>
               </View>
-              <Text style={styles.counterLabel}>
+              <Text style={styles.counterLabel} numberOfLines={2}>
                 {t('setup.imposterCount')}
               </Text>
-              <View style={styles.counterControls}>
-                <TouchableOpacity
-                  style={[
-                    styles.counterButton,
-                    !canDecImposter && styles.counterButtonDisabled,
-                  ]}
-                  disabled={!canDecImposter}
-                  onPress={() => handleImposterCountChange(-1)}
-                >
-                  <Icon
-                    name="remove"
-                    size={20}
-                    color={
-                      canDecImposter ? colors.textPrimary : colors.textMuted
-                    }
+              <View style={styles.avatarStack}>
+                {Array.from({ length: maxImposters }).map((_, i) => (
+                  <View
+                    key={i}
+                    style={[
+                      styles.imposterPip,
+                      i < state.imposterCount && styles.imposterPipActive,
+                    ]}
                   />
-                </TouchableOpacity>
-                <Text style={styles.counterValue}>{state.imposterCount}</Text>
-                <TouchableOpacity
-                  style={[
-                    styles.counterButton,
-                    !canIncImposter && styles.counterButtonDisabled,
-                  ]}
-                  disabled={!canIncImposter}
-                  onPress={() => handleImposterCountChange(1)}
-                >
-                  <Icon
-                    name="add"
-                    size={20}
-                    color={
-                      canIncImposter ? colors.textPrimary : colors.textMuted
-                    }
-                  />
-                </TouchableOpacity>
+                ))}
               </View>
-              <Text style={styles.counterHint}>
-                {t('setup.max')} {maxImposters}
-              </Text>
-            </View>
-          </View>
-        </View>
-
-        {/* Oyun Modu */}
-        <View style={styles.section}>
-          <View style={styles.sectionHeader}>
-            <Icon
-              name="game-controller-outline"
-              size={18}
-              color={colors.textSecondary}
-            />
-            <Text style={styles.sectionTitle}>{t('setup.gameMode')}</Text>
-          </View>
-          <View style={styles.gameModeRow}>
-            <TouchableOpacity
-              style={[
-                styles.gameModeCard,
-                state.gameMode === 'word' && styles.gameModeCardActive,
-              ]}
-              activeOpacity={0.8}
-              onPress={() => setGameMode('word')}
-            >
-              <Icon
-                name="text"
-                size={28}
-                color={
-                  state.gameMode === 'word'
-                    ? colors.accentPrimary
-                    : colors.textMuted
-                }
+              <Stepper
+                value={state.imposterCount}
+                accent={colors.danger}
+                canDec={canDecImposter}
+                canInc={canIncImposter}
+                onDec={() => handleImposterCountChange(-1)}
+                onInc={() => handleImposterCountChange(1)}
               />
-              <Text
-                style={[
-                  styles.gameModeTitle,
-                  state.gameMode === 'word' && styles.gameModeTitleActive,
-                ]}
-              >
-                {t('setup.wordGame')}
-              </Text>
-              <Text style={styles.gameModeDesc}>{t('setup.wordGameDesc')}</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={[
-                styles.gameModeCard,
-                state.gameMode === 'question' && styles.gameModeCardActive,
-              ]}
-              activeOpacity={0.8}
-              onPress={() => setGameMode('question')}
-            >
-              <Icon
-                name="help-circle-outline"
-                size={28}
-                color={
-                  state.gameMode === 'question'
-                    ? colors.accentPrimary
-                    : colors.textMuted
-                }
-              />
-              <Text
-                style={[
-                  styles.gameModeTitle,
-                  state.gameMode === 'question' && styles.gameModeTitleActive,
-                ]}
-              >
-                {t('setup.questionGame')}
-              </Text>
-              <Text style={styles.gameModeDesc}>
-                {t('setup.questionGameDesc')}
-              </Text>
-            </TouchableOpacity>
+            </GlassCard>
           </View>
-        </View>
 
-        {/* Süre Seçimi */}
-        <View style={styles.section}>
-          <View style={styles.sectionHeader}>
-            <Icon name="timer-outline" size={18} color={colors.textSecondary} />
-            <Text style={styles.sectionTitle}>{t('setup.duration')}</Text>
-          </View>
-          <View style={styles.durationRow}>
-            {[60, 120, 180, 300, 0].map(duration => {
-              const isSelected = state.gameDuration === duration;
-              let label;
-              if (duration === 0) {
-                label = t('setup.noLimit');
-              } else if (duration < 60) {
-                label = `${duration}s`;
-              } else {
-                label = `${duration / 60}dk`;
-              }
-
+          {/* Oyun Modu */}
+          <SectionLabel icon="game-controller" title={t('setup.gameMode')} />
+          <View style={styles.modeRow}>
+            {modes.map(mode => {
+              const isActive = state.gameMode === mode.id;
+              const accent = mode.gradient[1];
               return (
-                <TouchableOpacity
-                  key={duration}
-                  style={[
-                    styles.durationCard,
-                    isSelected && styles.durationCardActive,
-                  ]}
-                  activeOpacity={0.8}
-                  onPress={() => setGameDuration(duration)}
+                <GlassCard
+                  key={mode.id}
+                  active={isActive}
+                  activeColor={accent}
+                  style={styles.modeCard}
+                  onPress={() => setGameMode(mode.id)}
                 >
-                  <Icon
-                    name={duration === 0 ? 'infinite-outline' : 'time-outline'}
-                    size={18}
-                    color={isSelected ? colors.accentPrimary : colors.textMuted}
+                  {isActive && (
+                    <View style={[styles.modeCheck, { backgroundColor: accent }]}>
+                      <Icon
+                        name="checkmark"
+                        size={12}
+                        color={colors.textPrimary}
+                      />
+                    </View>
+                  )}
+                  <IconTile
+                    name={mode.icon}
+                    size={46}
+                    gradient={mode.gradient}
+                    soft={!isActive}
                   />
                   <Text
-                    style={[
-                      styles.durationText,
-                      isSelected && styles.durationTextActive,
-                    ]}
+                    style={[styles.modeTitle, isActive && styles.modeTitleActive]}
                   >
-                    {label}
+                    {mode.title}
                   </Text>
-                </TouchableOpacity>
+                  <Text style={styles.modeDesc}>{mode.desc}</Text>
+                </GlassCard>
               );
             })}
           </View>
-        </View>
 
-        {/* Kategoriler */}
-        <TouchableOpacity
-          style={styles.categoryCard}
-          activeOpacity={0.8}
-          onPress={() => navigation.navigate('CategorySelect')}
-        >
-          <View style={styles.categoryCardLeft}>
-            <View style={styles.categoryCardIcon}>
-              <Icon name="folder-open" size={24} color={colors.textPrimary} />
+          {/* Süre */}
+          <SectionLabel icon="timer" title={t('setup.duration')} />
+          <GlassCard style={styles.durationTrack}>
+            {DURATIONS.map(duration => {
+              const isSelected = state.gameDuration === duration;
+              const label = getDurationLabel(duration);
+              return (
+                <PressableScale
+                  key={duration}
+                  style={styles.durationItem}
+                  onPress={() => setGameDuration(duration)}
+                >
+                  {isSelected ? (
+                    <LinearGradient
+                      colors={gradients.primary}
+                      start={{ x: 0, y: 0 }}
+                      end={{ x: 1, y: 1 }}
+                      style={styles.durationPill}
+                    >
+                      {duration === 0 ? (
+                        <Icon
+                          name="infinite"
+                          size={20}
+                          color={colors.textPrimary}
+                        />
+                      ) : (
+                        <Text style={styles.durationTextActive}>{label}</Text>
+                      )}
+                    </LinearGradient>
+                  ) : (
+                    <View style={styles.durationPill}>
+                      {duration === 0 ? (
+                        <Icon
+                          name="infinite"
+                          size={20}
+                          color={colors.textMuted}
+                        />
+                      ) : (
+                        <Text style={styles.durationText}>{label}</Text>
+                      )}
+                    </View>
+                  )}
+                </PressableScale>
+              );
+            })}
+          </GlassCard>
+          {state.gameDuration === 0 && (
+            <Text style={styles.durationCaption}>{t('setup.noLimit')}</Text>
+          )}
+
+          {/* Kategoriler */}
+          <SectionLabel
+            icon="folder-open"
+            title={t('setup.categories')}
+            style={styles.sectionSpacing}
+          />
+          <GlassCard
+            style={styles.categoryCard}
+            onPress={() => navigation.navigate('CategorySelect')}
+          >
+            <View style={styles.categoryIcons}>
+              {selectedCategories.slice(0, 3).map((id, i) => (
+                <IconTile
+                  key={id}
+                  name={
+                    CATEGORIES[id]?.icon ||
+                    state.customCategories?.[id]?.icon ||
+                    'folder'
+                  }
+                  size={40}
+                  gradient={
+                    [gradients.success, gradients.info, gradients.brand][i]
+                  }
+                  style={[styles.categoryIcon, i > 0 && styles.categoryOverlap]}
+                />
+              ))}
+              {selectedCategories.length === 0 && (
+                <IconTile name="folder-open" size={40} soft />
+              )}
             </View>
-            <View style={styles.categoryCardInfo}>
-              <Text style={styles.categoryCardLabel}>
-                {t('setup.categories')}
+            <View style={styles.categoryInfo}>
+              <Text style={styles.categoryTitle}>
+                {selectedCategories.length} {t('categorySelect.selected')}
               </Text>
-              <Text style={styles.categoryCardValue}>
-                {state.selectedCategories?.length || 0}{' '}
-                {t('categorySelect.selected')} •{' '}
+              <Text style={styles.categoryMeta}>
                 {state.gameMode === 'word'
                   ? `${totalContent.words} ${t('categorySelect.words')}`
-                  : `${totalContent.questions} ${t(
-                      'categorySelect.questions',
-                    )}`}
+                  : `${totalContent.questions} ${t('categorySelect.questions')}`}
               </Text>
             </View>
-          </View>
-          <Icon name="chevron-forward" size={22} color={colors.textMuted} />
-        </TouchableOpacity>
-        <View style={styles.settingItem}>
-          <View style={styles.settingLeft}>
-            <Icon name="skull-outline" size={20} color={colors.danger} />
-            <View style={styles.settingTextWrapper}>
-              <Text style={styles.settingText}>{t('setup.trollMode')}</Text>
-              <Text style={styles.settingHint}>{t('setup.trollModeHint')}</Text>
-            </View>
-          </View>
-          <Switch
-            value={state.trollModeEnabled}
-            onValueChange={toggleTrollMode}
-            trackColor={{ false: colors.bgCardLight, true: colors.danger }}
-            thumbColor={colors.textPrimary}
+            <Icon name="chevron-forward" size={22} color={colors.textMuted} />
+          </GlassCard>
+
+          {/* Ek Ayarlar */}
+          <SectionLabel
+            icon="options"
+            title={t('setup.additionalSettings')}
+            style={styles.sectionSpacing}
           />
-        </View>
-
-        {/* Ek Ayarlar */}
-        <View style={styles.section}>
-          <View style={styles.sectionHeader}>
-            <Icon
-              name="options-outline"
-              size={18}
-              color={colors.textSecondary}
+          <GlassCard style={styles.settingsCard}>
+            <SettingRow
+              icon="skull"
+              gradient={gradients.danger}
+              title={t('setup.trollMode')}
+              hint={t('setup.trollModeHint')}
+              value={state.trollModeEnabled}
+              onToggle={toggleTrollMode}
             />
-            <Text style={styles.sectionTitle}>
-              {t('setup.additionalSettings')}
-            </Text>
-          </View>
-
-          <View style={styles.settingItem}>
-            <View style={styles.settingLeft}>
-              <Icon name="eye-outline" size={20} color={colors.textSecondary} />
-              <Text style={styles.settingText}>
-                {t('setup.showCategoryToImposter')}
-              </Text>
-            </View>
-            <Switch
+            <SettingRow
+              icon="eye"
+              gradient={gradients.primary}
+              title={t('setup.showCategoryToImposter')}
               value={state.showCategoryToImposter}
-              onValueChange={toggleShowCategory}
-              trackColor={{
-                false: colors.bgCardLight,
-                true: colors.accentPrimary,
-              }}
-              thumbColor={colors.textPrimary}
+              onToggle={toggleShowCategory}
             />
-          </View>
-
-          <View style={styles.settingItem}>
-            <View style={styles.settingLeft}>
-              <Icon
-                name="bulb-outline"
-                size={20}
-                color={colors.textSecondary}
-              />
-              <Text style={styles.settingText}>
-                {t('setup.showHintToImposter')}
-              </Text>
-            </View>
-            <Switch
+            <SettingRow
+              icon="bulb"
+              gradient={gradients.warning}
+              title={t('setup.showHintToImposter')}
               value={state.showHintToImposter}
-              onValueChange={toggleShowHint}
-              trackColor={{
-                false: colors.bgCardLight,
-                true: colors.accentPrimary,
-              }}
-              thumbColor={colors.textPrimary}
+              onToggle={toggleShowHint}
+              isLast
             />
-          </View>
-        </View>
-      </ScrollView>
+          </GlassCard>
+        </ScrollView>
 
-      {/* Başlat Butonu */}
-      <View style={[styles.footer, { paddingBottom: insets.bottom + 20 }]}>
-        <TouchableOpacity
-          style={styles.startButton}
-          activeOpacity={0.8}
-          onPress={handleStartGame}
+        {/* Başlat Butonu */}
+        <LinearGradient
+          colors={[withAlpha(colors.bgPrimary, 0), colors.bgPrimary]}
+          locations={[0, 0.35]}
+          style={[styles.footer, { paddingBottom: insets.bottom + 16 }]}
         >
-          <Icon name="play" size={22} color={colors.textPrimary} />
-          <Text style={styles.startButtonText}>{t('setup.startGame')}</Text>
-        </TouchableOpacity>
+          <GradientButton
+            title={t('setup.startGame')}
+            icon="play"
+            variant="brand"
+            onPress={handleStartGame}
+          />
+        </LinearGradient>
       </View>
-    </View>
+    </ScreenBackground>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.bgPrimary,
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingVertical: 16,
-  },
-  backButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: colors.bgCard,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  headerTitle: {
-    fontSize: 20,
-    fontWeight: '700',
-    color: colors.textPrimary,
-  },
-  settingsButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: colors.bgCard,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: colors.border,
   },
   scrollView: {
     flex: 1,
   },
   scrollContent: {
     paddingHorizontal: 20,
-    paddingBottom: 20,
+    paddingTop: 4,
+    paddingBottom: 120,
   },
   countersRow: {
     flexDirection: 'row',
     gap: 12,
-    marginBottom: 24,
-  },
-  counterCardWrapper: {
-    flex: 1,
+    marginBottom: 26,
   },
   counterCard: {
-    backgroundColor: colors.bgCard,
-    borderRadius: 16,
-    padding: 16,
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: colors.border,
+    flex: 1,
+    padding: 14,
   },
-  activeCard: {
-    borderColor: colors.accentPrimary,
-    borderWidth: 1.5,
-    backgroundColor: 'rgba(139, 92, 246, 0.05)',
-  },
-  counterIcon: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: colors.accentPrimary,
-    justifyContent: 'center',
+  counterTop: {
+    flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
     marginBottom: 12,
   },
-  imposterIcon: {
-    backgroundColor: colors.danger,
+  editChip: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: withAlpha(colors.accentPrimary, 0.18),
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  maxText: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: colors.textMuted,
   },
   counterLabel: {
-    fontSize: 14,
+    fontSize: 13,
+    fontWeight: '700',
     color: colors.textSecondary,
-    marginBottom: 12,
-    textAlign: 'center',
+    minHeight: 34,
   },
-  counterControls: {
+  avatarStack: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 16,
+    height: 26,
+    marginTop: 6,
+    marginBottom: 12,
+    flexWrap: 'nowrap',
+    overflow: 'hidden',
   },
-  counterButton: {
+  stackAvatar: {
+    borderColor: colors.bgCard,
+  },
+  stackOverlap: {
+    marginLeft: -8,
+  },
+  imposterPip: {
+    width: 14,
+    height: 14,
+    borderRadius: 7,
+    marginRight: 5,
+    backgroundColor: colors.bgCardLight,
+  },
+  imposterPipActive: {
+    backgroundColor: colors.danger,
+  },
+  stepper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: 'rgba(0, 0, 0, 0.25)',
+    borderRadius: 14,
+    padding: 4,
+  },
+  stepButton: {
     width: 36,
     height: 36,
-    borderRadius: 18,
-    backgroundColor: colors.bgCardLight,
+    borderRadius: 11,
+    backgroundColor: 'rgba(255, 255, 255, 0.08)',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  counterButtonDisabled: {
-    opacity: 0.4,
+  stepButtonDisabled: {
+    opacity: 0.3,
   },
-  counterHint: {
-    fontSize: 12,
-    color: colors.textMuted,
-    marginTop: 8,
-    textAlign: 'center',
-  },
-  counterValue: {
-    fontSize: 28,
-    fontWeight: '700',
+  stepValue: {
+    fontSize: 26,
+    fontWeight: '900',
     color: colors.textPrimary,
-    minWidth: 40,
-    textAlign: 'center',
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 12,
   },
-  section: {
-    marginBottom: 24,
-  },
-  sectionHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-    marginBottom: 12,
-  },
-  sectionTitle: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: colors.textPrimary,
-  },
-  gameModeRow: {
+  modeRow: {
     flexDirection: 'row',
     gap: 12,
+    marginBottom: 26,
   },
-  gameModeCard: {
+  modeCard: {
     flex: 1,
-    backgroundColor: colors.bgCard,
-    borderRadius: 16,
     padding: 16,
     alignItems: 'center',
-    borderWidth: 2,
-    borderColor: colors.border,
+    borderWidth: 1.5,
   },
-  gameModeCardActive: {
-    borderColor: colors.accentPrimary,
-    backgroundColor: 'rgba(139, 92, 246, 0.1)',
+  modeCheck: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  gameModeTitle: {
-    fontSize: 14,
-    fontWeight: '700',
+  modeTitle: {
+    fontSize: 15,
+    fontWeight: '800',
     color: colors.textSecondary,
-    marginTop: 8,
+    marginTop: 12,
     marginBottom: 4,
     textAlign: 'center',
   },
-  gameModeTitleActive: {
-    color: colors.accentPrimary,
+  modeTitleActive: {
+    color: colors.textPrimary,
   },
-  gameModeDesc: {
+  modeDesc: {
     fontSize: 12,
     color: colors.textMuted,
     textAlign: 'center',
+    lineHeight: 16,
   },
-  durationRow: {
+  durationTrack: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 10,
+    padding: 5,
+    borderRadius: 16,
   },
-  durationCard: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: colors.bgCard,
-    paddingVertical: 12,
-    paddingHorizontal: 16,
+  durationItem: {
+    flex: 1,
+  },
+  durationPill: {
+    height: 42,
     borderRadius: 12,
-    borderWidth: 1.5,
-    borderColor: colors.border,
-    gap: 6,
-    minWidth: 70,
-  },
-  durationCardActive: {
-    borderColor: colors.accentPrimary,
-    backgroundColor: 'rgba(139, 92, 246, 0.1)',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   durationText: {
-    fontSize: 14,
-    fontWeight: '600',
+    fontSize: 13,
+    fontWeight: '700',
     color: colors.textMuted,
   },
   durationTextActive: {
-    color: colors.accentPrimary,
+    fontSize: 13,
+    fontWeight: '900',
+    color: colors.textPrimary,
+  },
+  durationCaption: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: colors.accentSecondary,
+    textAlign: 'right',
+    marginTop: 6,
+    marginRight: 6,
+  },
+  sectionSpacing: {
+    marginTop: 26,
   },
   categoryCard: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: colors.bgCard,
-    borderRadius: 16,
-    padding: 16,
-    marginBottom: 24,
-    borderWidth: 2,
-    borderColor: colors.accentPrimary,
+    padding: 14,
   },
-  categoryCardLeft: {
+  categoryIcons: {
+    flexDirection: 'row',
+    marginRight: 14,
+  },
+  categoryIcon: {
+    borderWidth: 2,
+    borderColor: colors.bgCard,
+  },
+  categoryOverlap: {
+    marginLeft: -14,
+  },
+  categoryInfo: {
+    flex: 1,
+  },
+  categoryTitle: {
+    fontSize: 16,
+    fontWeight: '800',
+    color: colors.textPrimary,
+    marginBottom: 2,
+  },
+  categoryMeta: {
+    fontSize: 13,
+    color: colors.textMuted,
+  },
+  settingsCard: {
+    paddingHorizontal: 14,
+  },
+  settingRow: {
     flexDirection: 'row',
     alignItems: 'center',
+    paddingVertical: 12,
+    gap: 12,
+  },
+  settingRowBorder: {
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 255, 255, 0.06)',
+  },
+  settingText: {
     flex: 1,
   },
-  settingTextWrapper: {
-    flex: 1,
+  settingTitle: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: colors.textPrimary,
   },
   settingHint: {
     fontSize: 12,
     color: colors.textMuted,
     marginTop: 2,
   },
-  categoryCardIcon: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: colors.success,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 14,
-  },
-  categoryCardInfo: {
-    flex: 1,
-  },
-  categoryCardLabel: {
-    fontSize: 14,
-    color: colors.textSecondary,
-    marginBottom: 2,
-  },
-  categoryCardValue: {
-    fontSize: 13,
-    color: colors.textMuted,
-  },
-  settingItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: colors.bgCard,
-    paddingVertical: 14,
-    paddingHorizontal: 16,
-    borderRadius: 12,
-    marginBottom: 8,
-  },
-  settingLeft: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
-    gap: 12,
-  },
-  settingText: {
-    fontSize: 14,
-    color: colors.textSecondary,
-    flex: 1,
-  },
   footer: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
     paddingHorizontal: 20,
-    paddingTop: 16,
-  },
-  startButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: colors.accentPrimary,
-    paddingVertical: 18,
-    borderRadius: 16,
-    gap: 10,
-    shadowColor: colors.accentPrimary,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 5,
-  },
-  startButtonText: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: colors.textPrimary,
+    paddingTop: 36,
   },
 });
 

@@ -3,31 +3,30 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableOpacity,
   ScrollView,
   TextInput,
   Alert,
+  KeyboardAvoidingView,
+  Platform,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { colors } from '../theme/colors';
+import { colors, gradients, withAlpha } from '../theme/colors';
 import { useGame } from '../context/GameContext';
+import {
+  GlassCard,
+  GradientButton,
+  IconButton,
+  PlayerAvatar,
+  PressableScale,
+  ScreenBackground,
+  ScreenHeader,
+} from '../components/ui';
 
 const MIN_PLAYERS = 3;
 const MAX_PLAYERS = 20;
-
-// Her oyuncuya sırasına göre ayırt edici bir renk.
-const AVATAR_COLORS = [
-  '#8b5cf6',
-  '#ec4899',
-  '#f59e0b',
-  '#10b981',
-  '#3b82f6',
-  '#ef4444',
-  '#14b8a6',
-  '#f97316',
-];
 
 const PlayerSetupScreen = ({ navigation }) => {
   const { t } = useTranslation();
@@ -115,228 +114,208 @@ const PlayerSetupScreen = ({ navigation }) => {
     navigation.goBack();
   };
 
-  const getInitial = (name, index) =>
-    name.trim().charAt(0).toLocaleUpperCase() || String(index + 1);
+  const fillPercent = (players.length / MAX_PLAYERS) * 100;
 
   return (
-    <View style={[styles.container, { paddingTop: insets.top }]}>
-      <View style={styles.bgGlow} />
+    <ScreenBackground>
+      <KeyboardAvoidingView
+        style={[styles.container, { paddingTop: insets.top }]}
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      >
+        <ScreenHeader
+          title={t('playerSetup.title')}
+          onBack={() => navigation.goBack()}
+        />
 
-      {/* Header */}
-      <View style={styles.header}>
-        <TouchableOpacity
-          style={styles.backButton}
-          onPress={() => navigation.goBack()}
-        >
-          <Icon name="chevron-back" size={24} color={colors.textPrimary} />
-        </TouchableOpacity>
-        <Text style={styles.headerTitle}>{t('playerSetup.title')}</Text>
-        <View style={styles.headerSpacer} />
-      </View>
-
-      {/* Oyuncu sayısı özeti */}
-      <View style={styles.summaryCard}>
-        <View style={styles.summaryIcon}>
-          <Icon name="people" size={22} color={colors.accentPrimary} />
-        </View>
-        <View style={styles.summaryInfo}>
-          <Text style={styles.summaryTitle}>
-            {players.length} {t('playerSetup.players')}
-          </Text>
+        {/* Oyuncu sayısı özeti */}
+        <GlassCard style={styles.summaryCard}>
+          <View style={styles.summaryTop}>
+            <View>
+              <Text style={styles.summaryCount}>
+                {players.length}
+                <Text style={styles.summaryMax}> / {MAX_PLAYERS}</Text>
+              </Text>
+              <Text style={styles.summaryLabel}>{t('playerSetup.players')}</Text>
+            </View>
+            <View style={styles.summaryAvatars}>
+              {players.slice(0, 6).map((player, index) => (
+                <PlayerAvatar
+                  key={player.id}
+                  name={player.name}
+                  index={index}
+                  size={30}
+                  style={[styles.summaryAvatar, index > 0 && styles.overlap]}
+                />
+              ))}
+              {players.length > 6 && (
+                <View style={[styles.moreBubble, styles.overlap]}>
+                  <Text style={styles.moreText}>+{players.length - 6}</Text>
+                </View>
+              )}
+            </View>
+          </View>
           <View style={styles.progressTrack}>
-            <View
-              style={[
-                styles.progressFill,
-                { width: `${(players.length / MAX_PLAYERS) * 100}%` },
-              ]}
+            <LinearGradient
+              colors={gradients.brand}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+              style={[styles.progressFill, { width: `${fillPercent}%` }]}
             />
           </View>
-        </View>
-        <Text style={styles.summaryCount}>
-          {players.length}
-          <Text style={styles.summaryMax}> / {MAX_PLAYERS}</Text>
-        </Text>
-      </View>
+        </GlassCard>
 
-      {/* Oyuncu Listesi */}
-      <ScrollView
-        style={styles.scrollView}
-        contentContainerStyle={styles.scrollContent}
-        showsVerticalScrollIndicator={false}
-        keyboardShouldPersistTaps="handled"
-      >
-        {players.map((player, index) => {
-          const isFocused = focusedId === player.id;
-          const avatarColor = AVATAR_COLORS[index % AVATAR_COLORS.length];
+        {/* Oyuncu Listesi */}
+        <ScrollView
+          style={styles.scrollView}
+          contentContainerStyle={styles.scrollContent}
+          showsVerticalScrollIndicator={false}
+          keyboardShouldPersistTaps="handled"
+        >
+          {players.map((player, index) => {
+            const isFocused = focusedId === player.id;
 
-          return (
-            <View
-              key={player.id}
-              style={[styles.playerCard, isFocused && styles.playerCardFocused]}
-            >
-              <View style={[styles.avatar, { backgroundColor: avatarColor }]}>
-                <Text style={styles.avatarText}>
-                  {getInitial(player.name, index)}
-                </Text>
-              </View>
-
-              <View style={styles.inputWrapper}>
-                <TextInput
-                  style={styles.playerInput}
-                  value={player.name}
-                  onChangeText={text => handleNameChange(player.id, text)}
-                  onFocus={() => setFocusedId(player.id)}
-                  onBlur={() => setFocusedId(null)}
-                  placeholder={`${t('game.player')} ${index + 1}`}
-                  placeholderTextColor={colors.textMuted}
-                  maxLength={20}
-                  returnKeyType="done"
-                  selectTextOnFocus
-                />
-                <Icon
-                  name="pencil"
-                  size={14}
-                  color={isFocused ? colors.accentPrimary : colors.textMuted}
-                />
-              </View>
-
-              <TouchableOpacity
-                style={[styles.removeButton, isAtMin && styles.buttonDimmed]}
-                hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
-                onPress={() => handleRemovePlayer(player.id)}
+            return (
+              <GlassCard
+                key={player.id}
+                active={isFocused}
+                style={styles.playerCard}
               >
-                <Icon name="trash-outline" size={18} color={colors.danger} />
-              </TouchableOpacity>
-            </View>
-          );
-        })}
+                <PlayerAvatar name={player.name} index={index} size={44} />
 
-        {/* Oyuncu Ekle Butonu */}
-        <TouchableOpacity
-          style={[styles.addPlayerButton, isAtMax && styles.buttonDimmed]}
-          activeOpacity={0.7}
-          onPress={handleAddPlayer}
-        >
-          <View style={styles.addPlayerIcon}>
-            <Icon name="add" size={22} color={colors.textPrimary} />
+                <View style={styles.inputWrapper}>
+                  <TextInput
+                    style={styles.playerInput}
+                    value={player.name}
+                    onChangeText={text => handleNameChange(player.id, text)}
+                    onFocus={() => setFocusedId(player.id)}
+                    onBlur={() => setFocusedId(null)}
+                    placeholder={`${t('game.player')} ${index + 1}`}
+                    placeholderTextColor={colors.textMuted}
+                    maxLength={20}
+                    returnKeyType="done"
+                    selectTextOnFocus
+                  />
+                  <Icon
+                    name="pencil"
+                    size={14}
+                    color={isFocused ? colors.accentSecondary : colors.textMuted}
+                  />
+                </View>
+
+                <IconButton
+                  name="trash-outline"
+                  variant="danger"
+                  size={38}
+                  iconSize={17}
+                  style={isAtMin && styles.buttonDimmed}
+                  onPress={() => handleRemovePlayer(player.id)}
+                />
+              </GlassCard>
+            );
+          })}
+
+          {/* Oyuncu Ekle Butonu */}
+          <PressableScale
+            style={[styles.addPlayerButton, isAtMax && styles.buttonDimmed]}
+            onPress={handleAddPlayer}
+          >
+            <LinearGradient
+              colors={gradients.primary}
+              style={styles.addPlayerIcon}
+            >
+              <Icon name="add" size={22} color={colors.textPrimary} />
+            </LinearGradient>
+            <Text style={styles.addPlayerText}>{t('playerSetup.addPlayer')}</Text>
+          </PressableScale>
+
+          <View style={styles.hintRow}>
+            <Icon
+              name="information-circle-outline"
+              size={16}
+              color={colors.textMuted}
+            />
+            <Text style={styles.hintText}>{t('playerSetup.hint')}</Text>
           </View>
-          <Text style={styles.addPlayerText}>{t('playerSetup.addPlayer')}</Text>
-        </TouchableOpacity>
+        </ScrollView>
 
-        <View style={styles.hintRow}>
-          <Icon
-            name="information-circle-outline"
-            size={16}
-            color={colors.textMuted}
+        {/* Kaydet */}
+        <View style={[styles.footer, { paddingBottom: insets.bottom + 16 }]}>
+          <GradientButton
+            title={t('playerSetup.save')}
+            icon="checkmark"
+            onPress={handleSave}
           />
-          <Text style={styles.hintText}>{t('playerSetup.hint')}</Text>
         </View>
-      </ScrollView>
-
-      {/* Kaydet */}
-      <View style={[styles.footer, { paddingBottom: insets.bottom + 16 }]}>
-        <TouchableOpacity
-          style={styles.saveButton}
-          activeOpacity={0.85}
-          onPress={handleSave}
-        >
-          <Icon name="checkmark" size={22} color={colors.textPrimary} />
-          <Text style={styles.saveButtonText}>{t('playerSetup.save')}</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+      </KeyboardAvoidingView>
+    </ScreenBackground>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.bgPrimary,
-  },
-  bgGlow: {
-    position: 'absolute',
-    width: 260,
-    height: 260,
-    borderRadius: 130,
-    backgroundColor: 'rgba(139, 92, 246, 0.12)',
-    top: -90,
-    right: -90,
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingVertical: 14,
-  },
-  backButton: {
-    width: 42,
-    height: 42,
-    borderRadius: 21,
-    backgroundColor: colors.bgCard,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: colors.border,
-  },
-  headerTitle: {
-    fontSize: 20,
-    fontWeight: '800',
-    color: colors.textPrimary,
-  },
-  headerSpacer: {
-    width: 42,
   },
   summaryCard: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.bgCard,
     marginHorizontal: 20,
     marginBottom: 16,
     padding: 16,
-    borderRadius: 18,
-    borderWidth: 1,
-    borderColor: colors.border,
   },
-  summaryIcon: {
-    width: 44,
-    height: 44,
-    borderRadius: 14,
-    backgroundColor: 'rgba(139, 92, 246, 0.15)',
-    justifyContent: 'center',
+  summaryTop: {
+    flexDirection: 'row',
     alignItems: 'center',
-    marginRight: 14,
+    justifyContent: 'space-between',
+    marginBottom: 14,
   },
-  summaryInfo: {
-    flex: 1,
+  summaryCount: {
+    fontSize: 30,
+    fontWeight: '900',
+    color: colors.textPrimary,
   },
-  summaryTitle: {
+  summaryMax: {
     fontSize: 16,
     fontWeight: '700',
-    color: colors.textPrimary,
-    marginBottom: 8,
+    color: colors.textMuted,
+  },
+  summaryLabel: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: colors.textSecondary,
+  },
+  summaryAvatars: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  summaryAvatar: {
+    borderColor: colors.bgCard,
+    borderWidth: 2,
+  },
+  overlap: {
+    marginLeft: -10,
+  },
+  moreBubble: {
+    width: 30,
+    height: 30,
+    borderRadius: 15,
+    backgroundColor: colors.bgCardLight,
+    borderWidth: 2,
+    borderColor: colors.bgCard,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  moreText: {
+    fontSize: 11,
+    fontWeight: '800',
+    color: colors.textSecondary,
   },
   progressTrack: {
     height: 6,
     borderRadius: 3,
-    backgroundColor: colors.bgCardLight,
+    backgroundColor: 'rgba(255, 255, 255, 0.08)',
     overflow: 'hidden',
   },
   progressFill: {
     height: '100%',
     borderRadius: 3,
-    backgroundColor: colors.accentPrimary,
-  },
-  summaryCount: {
-    fontSize: 22,
-    fontWeight: '800',
-    color: colors.textPrimary,
-    marginLeft: 14,
-  },
-  summaryMax: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: colors.textMuted,
   },
   scrollView: {
     flex: 1,
@@ -348,54 +327,23 @@ const styles = StyleSheet.create({
   playerCard: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: colors.bgCard,
-    borderRadius: 18,
     paddingVertical: 10,
     paddingHorizontal: 12,
     marginBottom: 10,
-    borderWidth: 1.5,
-    borderColor: colors.border,
-  },
-  playerCardFocused: {
-    borderColor: colors.accentPrimary,
-    backgroundColor: 'rgba(139, 92, 246, 0.08)',
-  },
-  avatar: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 12,
-  },
-  avatarText: {
-    fontSize: 18,
-    fontWeight: '800',
-    color: colors.textPrimary,
+    gap: 12,
   },
   inputWrapper: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: colors.bgCardLight,
-    borderRadius: 12,
-    paddingHorizontal: 12,
-    marginRight: 10,
+    paddingRight: 4,
   },
   playerInput: {
     flex: 1,
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: '700',
     color: colors.textPrimary,
-    paddingVertical: 10,
-  },
-  removeButton: {
-    width: 38,
-    height: 38,
-    borderRadius: 12,
-    backgroundColor: 'rgba(239, 68, 68, 0.12)',
-    justifyContent: 'center',
-    alignItems: 'center',
+    paddingVertical: 8,
   },
   buttonDimmed: {
     opacity: 0.35,
@@ -408,22 +356,21 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     marginTop: 4,
     borderWidth: 1.5,
-    borderColor: colors.accentPrimary,
+    borderColor: withAlpha(colors.accentPrimary, 0.6),
     borderStyle: 'dashed',
-    backgroundColor: 'rgba(139, 92, 246, 0.06)',
+    backgroundColor: withAlpha(colors.accentPrimary, 0.08),
     gap: 10,
   },
   addPlayerIcon: {
     width: 32,
     height: 32,
     borderRadius: 16,
-    backgroundColor: colors.accentPrimary,
     justifyContent: 'center',
     alignItems: 'center',
   },
   addPlayerText: {
     fontSize: 16,
-    fontWeight: '700',
+    fontWeight: '800',
     color: colors.accentSecondary,
   },
   hintRow: {
@@ -441,28 +388,6 @@ const styles = StyleSheet.create({
   footer: {
     paddingHorizontal: 20,
     paddingTop: 12,
-    borderTopWidth: 1,
-    borderTopColor: colors.border,
-    backgroundColor: colors.bgPrimary,
-  },
-  saveButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 8,
-    backgroundColor: colors.accentPrimary,
-    paddingVertical: 16,
-    borderRadius: 16,
-    shadowColor: colors.accentPrimary,
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.4,
-    shadowRadius: 12,
-    elevation: 8,
-  },
-  saveButtonText: {
-    fontSize: 17,
-    fontWeight: '800',
-    color: colors.textPrimary,
   },
 });
 

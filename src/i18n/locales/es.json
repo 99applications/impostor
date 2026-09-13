@@ -102,7 +102,9 @@
     "theQuestionWas": "La pregunta era",
     "playAgain": "Jugar de nuevo",
     "backToMenu": "Menú principal",
-    "allPlayers": "Todos los jugadores"
+    "allPlayers": "Todos los jugadores",
+    "normalQuestion": "Pregunta normal",
+    "imposterQuestion": "Pregunta del impostor"
   },
   "categories": {
     "christmas": "Navidad",

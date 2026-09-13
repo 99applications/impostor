@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  ScrollView,
-} from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { colors } from '../theme/colors';
+import { colors, gradients, withAlpha } from '../theme/colors';
 import { useGame } from '../context/GameContext';
 import { usePremium } from '../context/PremiumContext';
 import { showInterstitialAd } from '../utils/adManager';
@@ -19,28 +14,48 @@ import RatingModal, {
   markRatingPromptShown,
   incrementGamesPlayed,
 } from '../components/RatingModal';
+import {
+  FadeInView,
+  GlassCard,
+  GradientButton,
+  IconTile,
+  PlayerAvatar,
+  ScreenBackground,
+  SectionLabel,
+} from '../components/ui';
 
 const VERDICT_STYLES = {
   groupWins: {
     icon: 'shield-checkmark',
     color: colors.success,
-    bg: 'rgba(16, 185, 129, 0.15)',
+    gradient: gradients.success,
+    glow: 'success',
   },
   innocentEliminated: {
     icon: 'skull',
     color: colors.danger,
-    bg: 'rgba(239, 68, 68, 0.15)',
+    gradient: gradients.danger,
+    glow: 'danger',
   },
   tie: {
     icon: 'git-compare',
     color: colors.warning,
-    bg: 'rgba(245, 158, 11, 0.15)',
+    gradient: gradients.warning,
+    glow: 'warning',
   },
   troll: {
     icon: 'happy',
     color: colors.accentPrimary,
-    bg: 'rgba(139, 92, 246, 0.15)',
+    gradient: gradients.brand,
+    glow: 'violet',
   },
+};
+
+const NO_VOTE_STYLE = {
+  icon: 'trophy',
+  color: colors.warning,
+  gradient: gradients.warning,
+  glow: 'warning',
 };
 
 const GameEndScreen = ({ navigation, route }) => {
@@ -51,6 +66,7 @@ const GameEndScreen = ({ navigation, route }) => {
   const [showRatingModal, setShowRatingModal] = useState(false);
 
   const imposters = state.players.filter(p => p.isImposter);
+  const indexOf = player => state.players.findIndex(p => p.id === player.id);
 
   // Oylama yapıldıysa sonucu hesapla; atlandıysa sadece açıklama gösterilir.
   const votes = route?.params?.votes;
@@ -95,7 +111,8 @@ const GameEndScreen = ({ navigation, route }) => {
   };
 
   const verdict = getVerdictText();
-  const verdictStyle = result ? VERDICT_STYLES[result.outcome] : null;
+  const verdictStyle = result ? VERDICT_STYLES[result.outcome] : NO_VOTE_STYLE;
+  const maxVotes = result ? Math.max(1, ...Object.values(result.counts)) : 1;
 
   useEffect(() => {
     // Wait until premium status is known so subscribers don't see a flash ad
@@ -130,352 +147,383 @@ const GameEndScreen = ({ navigation, route }) => {
   };
 
   return (
-    <View style={[styles.container, { paddingTop: insets.top }]}>
-      <RatingModal
-        visible={showRatingModal}
-        onClose={() => setShowRatingModal(false)}
-      />
-      {/* Arka plan efektleri */}
-      <View style={styles.bgCircle1} />
-      <View style={styles.bgCircle2} />
+    <ScreenBackground glow={verdictStyle.glow}>
+      <View style={[styles.container, { paddingTop: insets.top }]}>
+        <RatingModal
+          visible={showRatingModal}
+          onClose={() => setShowRatingModal(false)}
+        />
 
-      <ScrollView
-        style={styles.scrollView}
-        contentContainerStyle={styles.scrollContent}
-        showsVerticalScrollIndicator={false}
-      >
-        {/* Başlık: oylama yapıldıysa kazananı açıkça göster */}
-        {verdict ? (
-          <View
-            style={[
-              styles.verdictCard,
-              {
-                backgroundColor: verdictStyle.bg,
-                borderColor: verdictStyle.color,
-              },
-            ]}
-          >
-            <Icon
-              name={verdictStyle.icon}
-              size={56}
-              color={verdictStyle.color}
-            />
-            <Text style={[styles.verdictTitle, { color: verdictStyle.color }]}>
-              {verdict.title}
-            </Text>
-            <Text style={styles.verdictDesc}>{verdict.desc}</Text>
-          </View>
-        ) : (
-          <View style={styles.header}>
-            <View style={styles.headerIconWrapper}>
-              <Icon name="trophy" size={52} color={colors.warning} />
-            </View>
-            <Text style={styles.title}>{t('reveal.title')}</Text>
-          </View>
-        )}
-
-        {/* Sahtekarlar */}
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>{t('reveal.impostersWere')}</Text>
-          <View style={styles.impostersList}>
-            {imposters.map(imposter => (
-              <View key={imposter.id} style={styles.imposterCard}>
-                <View style={styles.imposterIcon}>
-                  <Icon name="skull" size={24} color={colors.textPrimary} />
-                </View>
-                <Text style={styles.imposterName}>
-                  {getPlayerName(imposter, t)}
-                </Text>
-              </View>
-            ))}
-          </View>
-        </View>
-
-        {/* Kelime/Soru */}
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>
-            {state.gameMode === 'word'
-              ? t('reveal.theWordWas')
-              : t('reveal.theQuestionWas')}
-          </Text>
-          <View style={styles.answerCard}>
-            {state.gameMode === 'word' ? (
-              <>
-                <Icon
-                  name="sparkles"
-                  size={40}
-                  color={colors.success}
-                  style={styles.answerIcon}
+        <ScrollView
+          style={styles.scrollView}
+          contentContainerStyle={styles.scrollContent}
+          showsVerticalScrollIndicator={false}
+        >
+          {/* Başlık: oylama yapıldıysa kazananı açıkça göster */}
+          <FadeInView offset={24}>
+            <LinearGradient
+              colors={[
+                withAlpha(verdictStyle.color, 0.32),
+                withAlpha(verdictStyle.color, 0.06),
+              ]}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 0.6, y: 1 }}
+              style={[
+                styles.verdictCard,
+                { borderColor: withAlpha(verdictStyle.color, 0.55) },
+              ]}
+            >
+              <View
+                style={[
+                  styles.verdictHalo,
+                  { backgroundColor: withAlpha(verdictStyle.color, 0.14) },
+                ]}
+              >
+                <IconTile
+                  name={verdictStyle.icon}
+                  size={84}
+                  gradient={verdictStyle.gradient}
+                  round
                 />
+              </View>
+              <Text
+                style={[
+                  styles.verdictTitle,
+                  { textShadowColor: withAlpha(verdictStyle.color, 0.8) },
+                ]}
+              >
+                {verdict ? verdict.title : t('reveal.title')}
+              </Text>
+              {!!verdict && (
+                <Text style={styles.verdictDesc}>{verdict.desc}</Text>
+              )}
+            </LinearGradient>
+          </FadeInView>
+
+          {/* Sahtekarlar */}
+          <FadeInView delay={120} style={styles.section}>
+            <SectionLabel
+              icon="skull"
+              iconColor={colors.danger}
+              title={t('reveal.impostersWere')}
+            />
+            <View style={styles.impostersList}>
+              {imposters.map(imposter => (
+                <GlassCard
+                  key={imposter.id}
+                  active
+                  activeColor={colors.danger}
+                  style={styles.imposterChip}
+                >
+                  <PlayerAvatar
+                    name={getPlayerName(imposter, t)}
+                    index={indexOf(imposter)}
+                    size={40}
+                  />
+                  <Text style={styles.imposterName} numberOfLines={1}>
+                    {getPlayerName(imposter, t)}
+                  </Text>
+                  <Icon name="skull" size={16} color={colors.danger} />
+                </GlassCard>
+              ))}
+            </View>
+          </FadeInView>
+
+          {/* Kelime/Soru */}
+          <FadeInView delay={200} style={styles.section}>
+            <SectionLabel
+              icon={state.gameMode === 'word' ? 'sparkles' : 'help-circle'}
+              iconColor={colors.success}
+              title={
+                state.gameMode === 'word'
+                  ? t('reveal.theWordWas')
+                  : t('reveal.theQuestionWas')
+              }
+            />
+            <GlassCard style={styles.answerCard}>
+              {state.gameMode === 'word' || state.currentWord ? (
                 <Text style={styles.answerText}>
                   {state.currentWord || t(state.currentWordKey)}
                 </Text>
-              </>
-            ) : (
-              <>
-                <Icon
-                  name="help-circle"
-                  size={40}
-                  color={colors.accentPrimary}
-                  style={styles.answerIcon}
-                />
-                {state.currentWord ? (
-                  <Text style={styles.answerText}>{state.currentWord}</Text>
-                ) : (
-                  <>
-                    <View style={styles.questionBox}>
-                      <Text style={styles.questionLabel}>Normal:</Text>
-                      <Text style={styles.questionText}>
-                        {t(`${state.currentQuestionKey}.normal`)}
-                      </Text>
-                    </View>
-                    <View style={styles.questionBox}>
-                      <Text
-                        style={[styles.questionLabel, styles.imposterLabel]}
-                      >
-                        Sahtekar:
-                      </Text>
-                      <Text style={styles.questionText}>
-                        {t(`${state.currentQuestionKey}.imposter`)}
-                      </Text>
-                    </View>
-                  </>
-                )}
-              </>
-            )}
-          </View>
-        </View>
-
-        {/* Oyuncular: oylama yapıldıysa oy sayılarıyla sıralı */}
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>
-            {result ? t('result.voteResults') : t('reveal.allPlayers')}
-          </Text>
-          <View style={styles.playersList}>
-            {(result ? result.ranking : state.players).map(player => (
-              <View
-                key={player.id}
-                style={[
-                  styles.playerItem,
-                  player.isImposter && styles.playerItemImposter,
-                ]}
-              >
-                <View style={styles.playerInfo}>
-                  <Text style={styles.playerNumber}>
-                    {getPlayerName(player, t)}
-                  </Text>
-                  {result && (
-                    <View style={styles.tagRow}>
-                      {result.eliminated?.id === player.id && (
-                        <View style={[styles.tag, styles.tagEliminated]}>
-                          <Text style={styles.tagText}>
-                            {t('result.eliminated')}
-                          </Text>
-                        </View>
-                      )}
-                      {result.isTie && result.topIds.includes(player.id) && (
-                        <View style={[styles.tag, styles.tagTie]}>
-                          <Text style={styles.tagText}>{t('result.tie')}</Text>
-                        </View>
-                      )}
-                    </View>
-                  )}
-                </View>
-                {result && (
-                  <Text style={styles.voteCount}>
-                    {t('result.votes', { count: result.counts[player.id] })}
-                  </Text>
-                )}
-                {player.isImposter && (
-                  <View style={styles.imposterBadge}>
-                    <Text style={styles.imposterBadgeText}>🎭</Text>
+              ) : (
+                <>
+                  <View style={styles.questionBox}>
+                    <Text style={styles.questionLabel}>
+                      {t('reveal.normalQuestion')}
+                    </Text>
+                    <Text style={styles.questionText}>
+                      {t(`${state.currentQuestionKey}.normal`)}
+                    </Text>
                   </View>
-                )}
-              </View>
-            ))}
-          </View>
+                  <View style={[styles.questionBox, styles.questionBoxImposter]}>
+                    <Text style={[styles.questionLabel, styles.imposterLabel]}>
+                      {t('reveal.imposterQuestion')}
+                    </Text>
+                    <Text style={styles.questionText}>
+                      {t(`${state.currentQuestionKey}.imposter`)}
+                    </Text>
+                  </View>
+                </>
+              )}
+            </GlassCard>
+          </FadeInView>
+
+          {/* Oyuncular: oylama yapıldıysa oy sayılarıyla sıralı */}
+          <FadeInView delay={280} style={styles.section}>
+            <SectionLabel
+              icon={result ? 'bar-chart' : 'people'}
+              title={result ? t('result.voteResults') : t('reveal.allPlayers')}
+            />
+            <GlassCard style={styles.playersList}>
+              {(result ? result.ranking : state.players).map(
+                (player, index, list) => {
+                  const count = result ? result.counts[player.id] : 0;
+                  const isEliminated = result?.eliminated?.id === player.id;
+                  const isTied =
+                    result?.isTie && result.topIds.includes(player.id);
+
+                  return (
+                    <View
+                      key={player.id}
+                      style={[
+                        styles.playerItem,
+                        index < list.length - 1 && styles.playerItemBorder,
+                      ]}
+                    >
+                      <PlayerAvatar
+                        name={getPlayerName(player, t)}
+                        index={indexOf(player)}
+                        size={38}
+                      />
+                      <View style={styles.playerInfo}>
+                        <View style={styles.playerNameRow}>
+                          <Text style={styles.playerName} numberOfLines={1}>
+                            {getPlayerName(player, t)}
+                          </Text>
+                          {player.isImposter && (
+                            <View style={styles.imposterBadge}>
+                              <Icon
+                                name="skull"
+                                size={11}
+                                color={colors.textPrimary}
+                              />
+                            </View>
+                          )}
+                          {isEliminated && (
+                            <View style={[styles.tag, styles.tagEliminated]}>
+                              <Text style={styles.tagText}>
+                                {t('result.eliminated')}
+                              </Text>
+                            </View>
+                          )}
+                          {isTied && (
+                            <View style={[styles.tag, styles.tagTie]}>
+                              <Text style={styles.tagText}>
+                                {t('result.tie')}
+                              </Text>
+                            </View>
+                          )}
+                        </View>
+                        {result && (
+                          <View style={styles.voteTrack}>
+                            <LinearGradient
+                              colors={
+                                player.isImposter
+                                  ? gradients.danger
+                                  : gradients.primary
+                              }
+                              start={{ x: 0, y: 0 }}
+                              end={{ x: 1, y: 0 }}
+                              style={[
+                                styles.voteFill,
+                                { width: `${(count / maxVotes) * 100}%` },
+                              ]}
+                            />
+                          </View>
+                        )}
+                      </View>
+                      {result && (
+                        <Text style={styles.voteCount}>
+                          {t('result.votes', { count })}
+                        </Text>
+                      )}
+                    </View>
+                  );
+                },
+              )}
+            </GlassCard>
+          </FadeInView>
+        </ScrollView>
+
+        {/* Butonlar */}
+        <View style={[styles.footer, { paddingBottom: insets.bottom + 16 }]}>
+          <GradientButton
+            title={t('reveal.playAgain')}
+            icon="refresh"
+            variant="brand"
+            onPress={handlePlayAgain}
+          />
+          <GradientButton
+            title={t('reveal.backToMenu')}
+            icon="home"
+            variant="secondary"
+            size="md"
+            onPress={handleBackToMenu}
+          />
         </View>
-      </ScrollView>
-
-      {/* Butonlar */}
-      <View style={[styles.footer, { paddingBottom: insets.bottom + 20 }]}>
-        <TouchableOpacity
-          style={styles.primaryButton}
-          activeOpacity={0.8}
-          onPress={handlePlayAgain}
-        >
-          <Text style={styles.primaryButtonText}>{t('reveal.playAgain')}</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.secondaryButton}
-          activeOpacity={0.8}
-          onPress={handleBackToMenu}
-        >
-          <Text style={styles.secondaryButtonText}>
-            {t('reveal.backToMenu')}
-          </Text>
-        </TouchableOpacity>
       </View>
-    </View>
+    </ScreenBackground>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.bgPrimary,
-  },
-  bgCircle1: {
-    position: 'absolute',
-    width: 250,
-    height: 250,
-    borderRadius: 125,
-    backgroundColor: colors.accentGlow,
-    top: -80,
-    right: -80,
-  },
-  bgCircle2: {
-    position: 'absolute',
-    width: 180,
-    height: 180,
-    borderRadius: 90,
-    backgroundColor: 'rgba(239, 68, 68, 0.15)',
-    bottom: 150,
-    left: -60,
   },
   scrollView: {
     flex: 1,
   },
   scrollContent: {
     paddingHorizontal: 20,
-    paddingTop: 20,
+    paddingTop: 16,
     paddingBottom: 20,
   },
-  header: {
+  verdictCard: {
     alignItems: 'center',
-    marginBottom: 32,
+    borderWidth: 1.5,
+    borderRadius: 28,
+    paddingTop: 28,
+    paddingBottom: 26,
+    paddingHorizontal: 20,
+    marginBottom: 28,
   },
-  headerIconWrapper: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    backgroundColor: 'rgba(251, 191, 36, 0.15)',
+  verdictHalo: {
+    width: 128,
+    height: 128,
+    borderRadius: 64,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 16,
   },
-  title: {
+  verdictTitle: {
     fontSize: 32,
-    fontWeight: '800',
+    fontWeight: '900',
     color: colors.textPrimary,
+    marginTop: 16,
+    textAlign: 'center',
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 20,
+  },
+  verdictDesc: {
+    fontSize: 16,
+    color: colors.textSecondary,
+    textAlign: 'center',
+    lineHeight: 23,
+    marginTop: 8,
   },
   section: {
     marginBottom: 24,
   },
-  sectionTitle: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: colors.textSecondary,
-    marginBottom: 12,
-    textAlign: 'center',
-  },
   impostersList: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'center',
-    gap: 12,
+    gap: 10,
   },
-  imposterCard: {
-    backgroundColor: 'rgba(239, 68, 68, 0.15)',
-    borderWidth: 2,
-    borderColor: colors.danger,
-    borderRadius: 16,
-    padding: 16,
+  imposterChip: {
+    flexDirection: 'row',
     alignItems: 'center',
-    minWidth: 120,
-  },
-  imposterIcon: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: colors.danger,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 8,
+    gap: 10,
+    paddingVertical: 8,
+    paddingLeft: 8,
+    paddingRight: 14,
+    borderRadius: 999,
+    maxWidth: '100%',
   },
   imposterName: {
     fontSize: 16,
-    fontWeight: '700',
+    fontWeight: '800',
     color: colors.textPrimary,
+    flexShrink: 1,
   },
   answerCard: {
-    backgroundColor: colors.bgCard,
-    borderRadius: 16,
-    padding: 24,
+    padding: 20,
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: colors.border,
-  },
-  answerIcon: {
-    marginBottom: 12,
   },
   answerText: {
-    fontSize: 28,
-    fontWeight: '800',
-    color: colors.success,
+    fontSize: 32,
+    fontWeight: '900',
+    color: colors.textPrimary,
     textAlign: 'center',
+    textShadowColor: withAlpha(colors.success, 0.7),
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 16,
   },
   questionBox: {
-    width: '100%',
-    marginTop: 12,
+    alignSelf: 'stretch',
+    padding: 14,
+    borderRadius: 14,
+    backgroundColor: withAlpha(colors.success, 0.1),
+    borderLeftWidth: 3,
+    borderLeftColor: colors.success,
+  },
+  questionBoxImposter: {
+    marginTop: 10,
+    backgroundColor: withAlpha(colors.danger, 0.1),
+    borderLeftColor: colors.danger,
   },
   questionLabel: {
     fontSize: 12,
     color: colors.success,
-    fontWeight: '600',
+    fontWeight: '800',
     marginBottom: 4,
   },
   imposterLabel: {
-    color: colors.danger,
+    color: '#fb7185',
   },
   questionText: {
     fontSize: 16,
+    fontWeight: '600',
     color: colors.textPrimary,
     lineHeight: 22,
   },
   playersList: {
-    backgroundColor: colors.bgCard,
-    borderRadius: 16,
-    overflow: 'hidden',
+    paddingHorizontal: 14,
   },
   playerItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
     paddingVertical: 12,
-    paddingHorizontal: 16,
+    gap: 12,
+  },
+  playerItemBorder: {
     borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-  },
-  playerItemImposter: {
-    backgroundColor: 'rgba(239, 68, 68, 0.1)',
-  },
-  playerNumber: {
-    fontSize: 16,
-    color: colors.textPrimary,
+    borderBottomColor: 'rgba(255, 255, 255, 0.06)',
   },
   playerInfo: {
     flex: 1,
   },
-  tagRow: {
+  playerNameRow: {
     flexDirection: 'row',
+    alignItems: 'center',
+    flexWrap: 'wrap',
     gap: 6,
-    marginTop: 4,
+  },
+  playerName: {
+    fontSize: 15,
+    fontWeight: '800',
+    color: colors.textPrimary,
+    flexShrink: 1,
+  },
+  imposterBadge: {
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    backgroundColor: colors.danger,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   tag: {
     borderRadius: 6,
-    paddingHorizontal: 8,
+    paddingHorizontal: 7,
     paddingVertical: 2,
   },
   tagEliminated: {
@@ -485,74 +533,32 @@ const styles = StyleSheet.create({
     backgroundColor: colors.warning,
   },
   tagText: {
-    fontSize: 11,
-    fontWeight: '700',
+    fontSize: 10,
+    fontWeight: '900',
     color: colors.textPrimary,
+  },
+  voteTrack: {
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: 'rgba(255, 255, 255, 0.08)',
+    marginTop: 8,
+    overflow: 'hidden',
+  },
+  voteFill: {
+    height: '100%',
+    borderRadius: 3,
   },
   voteCount: {
-    fontSize: 15,
-    fontWeight: '700',
-    color: colors.textSecondary,
-    marginHorizontal: 10,
-  },
-  verdictCard: {
-    alignItems: 'center',
-    borderWidth: 2,
-    borderRadius: 20,
-    paddingVertical: 24,
-    paddingHorizontal: 20,
-    marginBottom: 28,
-  },
-  verdictTitle: {
-    fontSize: 30,
+    fontSize: 13,
     fontWeight: '800',
-    marginTop: 12,
-    marginBottom: 8,
-    textAlign: 'center',
-  },
-  verdictDesc: {
-    fontSize: 16,
-    color: colors.textPrimary,
-    textAlign: 'center',
-    lineHeight: 22,
-  },
-  imposterBadge: {
-    backgroundColor: colors.danger,
-    paddingVertical: 4,
-    paddingHorizontal: 8,
-    borderRadius: 8,
-  },
-  imposterBadgeText: {
-    fontSize: 14,
+    color: colors.textSecondary,
+    minWidth: 44,
+    textAlign: 'right',
   },
   footer: {
     paddingHorizontal: 20,
-    paddingTop: 16,
-    gap: 12,
-  },
-  primaryButton: {
-    backgroundColor: colors.accentPrimary,
-    paddingVertical: 16,
-    borderRadius: 16,
-    alignItems: 'center',
-  },
-  primaryButtonText: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: colors.textPrimary,
-  },
-  secondaryButton: {
-    backgroundColor: colors.bgCard,
-    paddingVertical: 14,
-    borderRadius: 16,
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: colors.border,
-  },
-  secondaryButtonText: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: colors.textSecondary,
+    paddingTop: 12,
+    gap: 10,
   },
 });
 

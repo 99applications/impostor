@@ -1,207 +1,176 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { colors } from '../theme/colors';
+import { colors, withAlpha } from '../theme/colors';
+import {
+  AppLogo,
+  FadeInView,
+  GradientButton,
+  IconButton,
+  ScreenBackground,
+} from '../components/ui';
 
 const HomeScreen = ({ navigation }) => {
   const { t } = useTranslation();
   const insets = useSafeAreaInsets();
 
+  const modes = [
+    { icon: 'text', label: t('setup.wordGame'), color: colors.success },
+    {
+      icon: 'help-circle',
+      label: t('setup.questionGame'),
+      color: colors.warning,
+    },
+  ];
+
   return (
-    <View style={[styles.container, { paddingTop: insets.top }]}>
-      {/* Arka plan efektleri */}
-      <View style={styles.bgCircle1} />
-      <View style={styles.bgCircle2} />
-      <View style={styles.bgCircle3} />
+    <ScreenBackground>
+      <View style={[styles.container, { paddingTop: insets.top }]}>
+        {/* Üst bar */}
+        <View style={styles.topBar}>
+          <IconButton
+            name="settings-outline"
+            onPress={() => navigation.navigate('Settings')}
+          />
+        </View>
 
-      {/* Ayarlar Butonu - Sağ Üst */}
-      <TouchableOpacity
-        style={styles.settingsButton}
-        onPress={() => navigation.navigate('Settings')}
-      >
-        <Icon name="settings-outline" size={24} color={colors.textPrimary} />
-      </TouchableOpacity>
+        {/* Hero */}
+        <View style={styles.hero}>
+          <FadeInView>
+            <AppLogo size={124} />
+          </FadeInView>
 
-      {/* İçerik */}
-      <View style={styles.content}>
-        {/* Logo */}
-        <View style={styles.logoSection}>
-          <View style={styles.logoContainer}>
-            <Icon name="search" size={48} color={colors.textPrimary} />
-          </View>
-          <Text style={styles.title}>{t('app.name')}</Text>
-          <Text style={styles.tagline}>{t('app.tagline')}</Text>
+          <FadeInView delay={120} style={styles.titleBlock}>
+            <Text style={styles.title}>{t('app.name')}</Text>
+            <View style={styles.taglinePill}>
+              <Icon name="sparkles" size={14} color={colors.accentSecondary} />
+              <Text style={styles.tagline}>{t('app.tagline')}</Text>
+            </View>
+          </FadeInView>
+
+          <FadeInView delay={220} style={styles.modesRow}>
+            {modes.map(mode => (
+              <View key={mode.icon} style={styles.modeChip}>
+                <View
+                  style={[
+                    styles.modeDot,
+                    { backgroundColor: withAlpha(mode.color, 0.18) },
+                  ]}
+                >
+                  <Icon name={mode.icon} size={14} color={mode.color} />
+                </View>
+                <Text style={styles.modeText} numberOfLines={1}>
+                  {mode.label}
+                </Text>
+              </View>
+            ))}
+          </FadeInView>
         </View>
 
         {/* Butonlar */}
-        <View style={styles.buttonsSection}>
-          {/* Oyuna Başla */}
-          <TouchableOpacity
-            style={styles.primaryButton}
-            activeOpacity={0.8}
+        <FadeInView
+          delay={320}
+          style={[styles.buttons, { paddingBottom: insets.bottom + 24 }]}
+        >
+          <GradientButton
+            title={t('home.playGame')}
+            icon="play"
+            variant="brand"
             onPress={() => navigation.navigate('GameSetup')}
-          >
-            <View style={styles.buttonIcon}>
-              <Icon name="game-controller" size={22} color={colors.textPrimary} />
-            </View>
-            <Text style={styles.primaryButtonText}>{t('home.playGame')}</Text>
-          </TouchableOpacity>
-
-          {/* Nasıl Oynanır */}
-          <TouchableOpacity
-            style={styles.secondaryButton}
-            activeOpacity={0.8}
+          />
+          <GradientButton
+            title={t('home.howToPlay')}
+            icon="help-circle-outline"
+            variant="secondary"
+            size="md"
             onPress={() => navigation.navigate('HowToPlay')}
-          >
-            <View style={styles.buttonIconSmall}>
-              <Icon name="help-circle-outline" size={20} color={colors.textSecondary} />
-            </View>
-            <Text style={styles.secondaryButtonText}>
-              {t('home.howToPlay')}
-            </Text>
-          </TouchableOpacity>
-        </View>
+          />
+        </FadeInView>
       </View>
-    </View>
+    </ScreenBackground>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.bgPrimary,
   },
-  bgCircle1: {
-    position: 'absolute',
-    width: 250,
-    height: 250,
-    borderRadius: 125,
-    backgroundColor: colors.accentGlow,
-    top: -80,
-    right: -80,
+  topBar: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    paddingHorizontal: 20,
+    paddingTop: 12,
   },
-  bgCircle2: {
-    position: 'absolute',
-    width: 180,
-    height: 180,
-    borderRadius: 90,
-    backgroundColor: 'rgba(139, 92, 246, 0.12)',
-    bottom: 150,
-    left: -60,
-  },
-  bgCircle3: {
-    position: 'absolute',
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    backgroundColor: 'rgba(139, 92, 246, 0.08)',
-    top: '40%',
-    right: 30,
-  },
-  settingsButton: {
-    position: 'absolute',
-    top: 60,
-    right: 20,
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: colors.bgCard,
-    justifyContent: 'center',
-    alignItems: 'center',
-    zIndex: 10,
-    borderWidth: 1,
-    borderColor: colors.border,
-  },
-  content: {
+  hero: {
     flex: 1,
+    alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 24,
   },
-  logoSection: {
+  titleBlock: {
     alignItems: 'center',
-    marginBottom: 60,
-  },
-  logoContainer: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    backgroundColor: colors.accentPrimary,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 20,
-    shadowColor: colors.accentPrimary,
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.5,
-    shadowRadius: 15,
-    elevation: 8,
+    marginTop: 32,
   },
   title: {
-    fontSize: 32,
-    fontWeight: '800',
+    fontSize: 60,
+    fontWeight: '900',
     color: colors.textPrimary,
-    marginBottom: 8,
+    letterSpacing: 1,
+    textShadowColor: withAlpha(colors.accentPink, 0.55),
+    textShadowOffset: { width: 0, height: 4 },
+    textShadowRadius: 22,
+  },
+  taglinePill: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginTop: 12,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderRadius: 999,
+    backgroundColor: withAlpha(colors.accentPrimary, 0.14),
+    borderWidth: 1,
+    borderColor: withAlpha(colors.accentPrimary, 0.3),
   },
   tagline: {
-    fontSize: 16,
-    color: colors.textSecondary,
-  },
-  buttonsSection: {
-    gap: 16,
-  },
-  primaryButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: colors.accentPrimary,
-    paddingVertical: 18,
-    paddingHorizontal: 24,
-    borderRadius: 16,
-    gap: 12,
-    shadowColor: colors.accentPrimary,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 5,
-  },
-  buttonIcon: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: 'rgba(255,255,255,0.2)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  primaryButtonText: {
-    fontSize: 18,
+    fontSize: 15,
     fontWeight: '700',
-    color: colors.textPrimary,
+    color: colors.accentSecondary,
   },
-  secondaryButton: {
+  modesRow: {
+    flexDirection: 'row',
+    gap: 10,
+    marginTop: 36,
+  },
+  modeChip: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: colors.bgCard,
-    paddingVertical: 16,
-    paddingHorizontal: 24,
-    borderRadius: 16,
+    gap: 8,
+    paddingVertical: 8,
+    paddingLeft: 8,
+    paddingRight: 14,
+    borderRadius: 999,
+    backgroundColor: 'rgba(255, 255, 255, 0.05)',
     borderWidth: 1,
-    borderColor: colors.border,
-    gap: 12,
+    borderColor: 'rgba(255, 255, 255, 0.08)',
   },
-  buttonIconSmall: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    backgroundColor: colors.bgCardLight,
+  modeDot: {
+    width: 26,
+    height: 26,
+    borderRadius: 13,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  secondaryButtonText: {
-    fontSize: 16,
-    fontWeight: '600',
+  modeText: {
+    fontSize: 13,
+    fontWeight: '700',
     color: colors.textSecondary,
+  },
+  buttons: {
+    paddingHorizontal: 20,
+    gap: 12,
   },
 });
 

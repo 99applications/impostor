@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, Animated } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Icon from 'react-native-vector-icons/Ionicons';
-import { colors } from '../theme/colors';
+import { colors, withAlpha } from '../theme/colors';
+import { AppLogo, ScreenBackground } from '../components/ui';
 import { checkOnboardingStatus } from './Onboardingscreen';
 
 const LANGUAGE_SELECTED_KEY = '@language_selected';
@@ -66,59 +66,50 @@ const SplashScreen = ({ navigation }) => {
   }, [navigation, fadeAnim, scaleAnim]);
 
   return (
-    <View style={styles.container}>
-      <Animated.View
-        style={[
-          styles.content,
-          {
-            opacity: fadeAnim,
-            transform: [{ scale: scaleAnim }],
-          },
-        ]}
-      >
-        <View style={styles.iconContainer}>
-          <Icon name="search" size={48} color={colors.textPrimary} />
-        </View>
-        <Text style={styles.title}>Imposter Party</Text>
-        <Text style={styles.subtitle}>{t('splash.subtitle')}</Text>
-      </Animated.View>
-    </View>
+    <ScreenBackground>
+      <View style={styles.container}>
+        <Animated.View
+          style={[
+            styles.content,
+            {
+              opacity: fadeAnim,
+              transform: [{ scale: scaleAnim }],
+            },
+          ]}
+        >
+          <AppLogo size={128} />
+          <Text style={styles.title}>Imposter Party</Text>
+          <Text style={styles.subtitle}>{t('splash.subtitle')}</Text>
+        </Animated.View>
+      </View>
+    </ScreenBackground>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.bgPrimary,
     justifyContent: 'center',
     alignItems: 'center',
   },
   content: {
     alignItems: 'center',
   },
-  iconContainer: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    backgroundColor: colors.accentPrimary,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 24,
-    shadowColor: colors.accentPrimary,
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.4,
-    shadowRadius: 16,
-    elevation: 12,
-  },
   title: {
-    fontSize: 32,
-    fontWeight: '800',
+    fontSize: 38,
+    fontWeight: '900',
     color: colors.textPrimary,
+    marginTop: 36,
     marginBottom: 8,
+    letterSpacing: 0.5,
+    textShadowColor: withAlpha(colors.accentPink, 0.5),
+    textShadowOffset: { width: 0, height: 4 },
+    textShadowRadius: 20,
   },
   subtitle: {
     fontSize: 16,
-    color: colors.textSecondary,
+    fontWeight: '600',
+    color: colors.accentSecondary,
   },
 });
 
