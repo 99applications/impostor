@@ -2372,6 +2372,11 @@
   "splash": {
     "subtitle": "¡Encuentra al impostor!"
   },
+  "languageSelect": {
+    "title": "Seleccionar idioma",
+    "subtitle": "Elige tu idioma",
+    "continue": "Continuar"
+  },
   "rating": {
     "title": "¿Qué te pareció?",
     "subtitle": "Si te gustó el juego, ¡apóyanos!",

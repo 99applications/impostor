@@ -2372,6 +2372,11 @@
   "splash": {
     "subtitle": "Finde den Betrüger!"
   },
+  "languageSelect": {
+    "title": "Sprache wählen",
+    "subtitle": "Wähle deine Sprache",
+    "continue": "Weiter"
+  },
   "rating": {
     "title": "Wie gefällt es dir?",
     "subtitle": "Wenn dir das Spiel gefällt, unterstütze uns!",

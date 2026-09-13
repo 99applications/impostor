@@ -2372,6 +2372,11 @@
   "splash": {
     "subtitle": "Sahtekarı Bul!"
   },
+  "languageSelect": {
+    "title": "Dil Seç",
+    "subtitle": "Dilini Seç",
+    "continue": "Devam Et"
+  },
   "rating": {
     "title": "Nasıl buldun?",
     "subtitle": "Oyunu beğendiysen bize destek ol!",

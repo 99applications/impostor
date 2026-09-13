@@ -10,8 +10,9 @@ import fr from './locales/fr.json';
 import es from './locales/es.json';
 
 const LANGUAGE_KEY = '@app_language';
+export const LANGUAGE_SELECTED_KEY = '@language_selected';
 
-// Desteklenen diller
+// Supported languages
 export const SUPPORTED_LANGUAGES = [
   { code: 'tr', name: 'Türkçe', flag: '🇹🇷' },
   { code: 'en', name: 'English', flag: '🇬🇧' },
@@ -20,64 +21,51 @@ export const SUPPORTED_LANGUAGES = [
   { code: 'es', name: 'Español', flag: '🇪🇸' },
 ];
 
-// Cihazın dilini al
-const getDeviceLanguage = () => {
-  let deviceLanguage = 'en';
+const getDeviceLocaleString = () => {
+  const candidates = [];
 
-  if (Platform.OS === 'ios') {
-    deviceLanguage =
-      NativeModules.SettingsManager?.settings?.AppleLocale ||
-      NativeModules.SettingsManager?.settings?.AppleLanguages?.[0] ||
-      'en';
-  } else {
-    deviceLanguage = NativeModules.I18nManager?.localeIdentifier || 'en';
+  try {
+    const intlLocale = Intl.DateTimeFormat().resolvedOptions().locale;
+    if (intlLocale) {
+      candidates.push(intlLocale);
+    }
+  } catch (error) {
+    // Intl locale is unavailable
   }
 
-  // Dil kodunu al (örn: "tr_TR" -> "tr", "en_US" -> "en")
-  const languageCode = deviceLanguage.split(/[-_]/)[0];
+  if (Platform.OS === 'ios') {
+    const settings = NativeModules.SettingsManager?.settings;
+    candidates.push(settings?.AppleLocale, settings?.AppleLanguages?.[0]);
+  } else {
+    candidates.push(NativeModules.I18nManager?.localeIdentifier);
+  }
 
-  // Desteklenen dil mi kontrol et
+  return (
+    candidates.find(value => typeof value === 'string' && value.length > 0) || ''
+  );
+};
+
+// Returns the device language if it is supported; otherwise null
+export const getSupportedDeviceLanguage = () => {
+  const languageCode = getDeviceLocaleString()
+    .split(/[-_]/)[0]
+    ?.toLowerCase();
   const isSupported = SUPPORTED_LANGUAGES.some(
     lang => lang.code === languageCode,
   );
 
-  const result = isSupported ? languageCode : 'en';
-  console.log('Cihaz dili:', deviceLanguage, '-> Algılanan:', result);
-  return result;
-
-
-
+  return isSupported ? languageCode : null;
 };
 
+export const getDeviceLanguage = () => getSupportedDeviceLanguage() || 'en';
 
-// Dil algılayıcı
+// Start the app in the device language immediately
 const languageDetector = {
   type: 'languageDetector',
-  async: true,
-  detect: async callback => {
-    try {
-      // Önce kullanıcının kaydettiği dili kontrol et
-      const savedLanguage = await AsyncStorage.getItem(LANGUAGE_KEY);
-      if (savedLanguage) {
-        callback(savedLanguage);
-        return;
-      }
-    } catch (error) {
-      console.log('Error reading language', error);
-    }
-
-    // Kayıtlı dil yoksa cihazın dilini kullan
-    const deviceLang = getDeviceLanguage();
-    callback(deviceLang);
-  },
+  async: false,
+  detect: () => getDeviceLanguage(),
   init: () => {},
-  cacheUserLanguage: async language => {
-    try {
-      await AsyncStorage.setItem(LANGUAGE_KEY, language);
-    } catch (error) {
-      console.log('Error saving language', error);
-    }
-  },
+  cacheUserLanguage: () => {},
 };
 
 i18n
@@ -100,7 +88,23 @@ i18n
     },
   });
 
-// Dil değiştirme fonksiyonu (export et)
+// After the user has confirmed a language, apply that saved choice
+(async () => {
+  try {
+    const languageSelected = await AsyncStorage.getItem(LANGUAGE_SELECTED_KEY);
+    if (!languageSelected) {
+      return;
+    }
+    const savedLanguage = await AsyncStorage.getItem(LANGUAGE_KEY);
+    if (savedLanguage) {
+      await i18n.changeLanguage(savedLanguage);
+    }
+  } catch (error) {
+    console.log('Error reading language', error);
+  }
+})();
+
+// Persist and apply a language change
 export const changeLanguage = async languageCode => {
   try {
     await AsyncStorage.setItem(LANGUAGE_KEY, languageCode);
@@ -110,7 +114,7 @@ export const changeLanguage = async languageCode => {
   }
 };
 
-// Mevcut dili al
+// Current language
 export const getCurrentLanguage = () => i18n.language;
 
 export default i18n;

@@ -6,24 +6,36 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { colors } from '../theme/colors';
-import { SUPPORTED_LANGUAGES, changeLanguage } from '../i18n';
+import {
+  LANGUAGE_SELECTED_KEY,
+  SUPPORTED_LANGUAGES,
+  changeLanguage,
+  getSupportedDeviceLanguage,
+} from '../i18n';
 import { checkOnboardingStatus } from './Onboardingscreen';
-
-const LANGUAGE_SELECTED_KEY = '@language_selected';
 
 const LanguageSelectScreen = ({ navigation }) => {
   const insets = useSafeAreaInsets();
-  const [selected, setSelected] = useState(null);
+  const { t, i18n } = useTranslation();
+  const [selected, setSelected] = useState(getSupportedDeviceLanguage());
   const [loading, setLoading] = useState(false);
 
-  const handleSelect = async langCode => {
+  const handleSelect = langCode => {
     setSelected(langCode);
+    i18n.changeLanguage(langCode);
+  };
+
+  const handleContinue = async () => {
+    if (!selected || loading) {
+      return;
+    }
     setLoading(true);
-    await changeLanguage(langCode);
+    await changeLanguage(selected);
     await AsyncStorage.setItem(LANGUAGE_SELECTED_KEY, 'true');
     const hasOnboarded = await checkOnboardingStatus();
     setLoading(false);
@@ -34,6 +46,8 @@ const LanguageSelectScreen = ({ navigation }) => {
     }
   };
 
+  const canContinue = Boolean(selected) && !loading;
+
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
       <View style={styles.bgCircle1} />
@@ -43,8 +57,8 @@ const LanguageSelectScreen = ({ navigation }) => {
         <View style={styles.iconWrapper}>
           <Icon name="language" size={40} color={colors.textPrimary} />
         </View>
-        <Text style={styles.title}>Select Language</Text>
-        <Text style={styles.subtitle}>Dil Seçin / Choose Your Language</Text>
+        <Text style={styles.title}>{t('languageSelect.title')}</Text>
+        <Text style={styles.subtitle}>{t('languageSelect.subtitle')}</Text>
       </View>
 
       <ScrollView
@@ -87,6 +101,23 @@ const LanguageSelectScreen = ({ navigation }) => {
           );
         })}
       </ScrollView>
+
+      <View style={[styles.footer, { paddingBottom: insets.bottom + 16 }]}>
+        <TouchableOpacity
+          style={[
+            styles.continueButton,
+            !canContinue && styles.continueButtonDisabled,
+          ]}
+          activeOpacity={0.8}
+          disabled={!canContinue}
+          onPress={handleContinue}
+        >
+          <Text style={styles.continueButtonText}>
+            {t('languageSelect.continue')}
+          </Text>
+          <Icon name="arrow-forward" size={20} color={colors.textPrimary} />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -150,8 +181,36 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     paddingHorizontal: 20,
-    paddingBottom: 40,
+    paddingBottom: 16,
     gap: 12,
+  },
+  footer: {
+    paddingHorizontal: 20,
+    paddingTop: 12,
+  },
+  continueButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.accentPrimary,
+    paddingVertical: 16,
+    borderRadius: 16,
+    gap: 10,
+    shadowColor: colors.accentPrimary,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 5,
+  },
+  continueButtonDisabled: {
+    opacity: 0.4,
+    shadowOpacity: 0,
+    elevation: 0,
+  },
+  continueButtonText: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: colors.textPrimary,
   },
   langCard: {
     flexDirection: 'row',

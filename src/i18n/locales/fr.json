@@ -2372,6 +2372,11 @@
   "splash": {
     "subtitle": "Trouvez l'imposteur !"
   },
+  "languageSelect": {
+    "title": "Choisir la langue",
+    "subtitle": "Choisissez votre langue",
+    "continue": "Continuer"
+  },
   "rating": {
     "title": "Ça t'a plu ?",
     "subtitle": "Si tu aimes le jeu, soutiens-nous !",

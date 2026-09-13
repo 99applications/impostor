@@ -2372,6 +2372,11 @@
   "splash": {
     "subtitle": "Find the Impostor!"
   },
+  "languageSelect": {
+    "title": "Select Language",
+    "subtitle": "Choose Your Language",
+    "continue": "Continue"
+  },
   "rating": {
     "title": "How did you like it?",
     "subtitle": "If you enjoyed the game, support us!",

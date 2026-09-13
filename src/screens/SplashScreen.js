@@ -4,9 +4,8 @@ import { useTranslation } from 'react-i18next';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { colors } from '../theme/colors';
+import { LANGUAGE_SELECTED_KEY } from '../i18n';
 import { checkOnboardingStatus } from './Onboardingscreen';
-
-const LANGUAGE_SELECTED_KEY = '@language_selected';
 
 const SplashScreen = ({ navigation }) => {
   const { t } = useTranslation();
