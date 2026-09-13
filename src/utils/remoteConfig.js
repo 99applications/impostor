@@ -1,5 +1,8 @@
 import remoteConfig from '@react-native-firebase/remote-config';
-import { REMOTE_CONFIG_DEFAULTS } from '../config/remoteConfigParams';
+import {
+  REMOTE_CONFIG_DEFAULTS,
+  REMOTE_CONFIG_KEYS,
+} from '../config/remoteConfigParams';
 
 const getAllParameters = () => {
   const entries = remoteConfig().getAll();
@@ -15,7 +18,9 @@ const getAllParameters = () => {
   );
 };
 
-export const fetchRemoteConfig = async () => {
+let fetchPromise = null;
+
+const loadRemoteConfig = async () => {
   try {
     await remoteConfig().setDefaults(REMOTE_CONFIG_DEFAULTS);
     await remoteConfig().setConfigSettings({
@@ -30,4 +35,17 @@ export const fetchRemoteConfig = async () => {
       error: error?.message ?? String(error),
     });
   }
+};
+
+export const fetchRemoteConfig = () => {
+  if (!fetchPromise) {
+    fetchPromise = loadRemoteConfig();
+  }
+  return fetchPromise;
+};
+
+export const shouldShowPaywallAfterOnboarding = () => {
+  return remoteConfig()
+    .getValue(REMOTE_CONFIG_KEYS.onbToPaywall)
+    .asBoolean();
 };

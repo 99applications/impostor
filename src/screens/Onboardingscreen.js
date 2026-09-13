@@ -12,6 +12,10 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { colors } from '../theme/colors';
+import {
+  fetchRemoteConfig,
+  shouldShowPaywallAfterOnboarding,
+} from '../utils/remoteConfig';
 
 const { width } = Dimensions.get('window');
 
@@ -110,8 +114,12 @@ const OnboardingScreen = ({ navigation }) => {
     } catch (error) {
       console.log('Error saving onboarding status:', error);
     }
-    // Onboarding sonrası paywall; paywall kapatılınca Home'a geçer.
-    navigation.replace('Paywall');
+    await fetchRemoteConfig();
+    if (shouldShowPaywallAfterOnboarding()) {
+      navigation.replace('Paywall');
+      return;
+    }
+    navigation.replace('Home');
   };
 
   const onViewableItemsChanged = useRef(({ viewableItems }) => {
