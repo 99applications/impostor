@@ -14,7 +14,6 @@ import VotingScreen from '../screens/VotingScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import PlayerSetupScreen from '../screens/PlayerSetupScreen';
 import CategorySelectScreen from '../screens/CategorySelectScreen';
-import PremiumScreen from '../screens/PremiumScreen';
 import PaywallScreen from '../screens/PaywallScreen';
 import CustomCategoryScreen from '../screens/CustomCategoryScreen';
 import MyCategoriesScreen from '../screens/MyCategoriesScreen';
@@ -34,7 +33,11 @@ const AppNavigator = () => {
       <Stack.Screen name="Splash" component={SplashScreen} />
       <Stack.Screen name="LanguageSelect" component={LanguageSelectScreen} />
       <Stack.Screen name="Onboarding" component={OnboardingScreen} />
-      <Stack.Screen name="Paywall" component={PaywallScreen} />
+      <Stack.Screen
+        name="Paywall"
+        component={PaywallScreen}
+        options={{ cardStyle: { backgroundColor: '#000000' } }}
+      />
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="HowToPlay" component={HowToPlayScreen} />
       <Stack.Screen name="GameSetup" component={GameSetupScreen} />
@@ -44,7 +47,6 @@ const AppNavigator = () => {
       <Stack.Screen name="Settings" component={SettingsScreen} />
       <Stack.Screen name="PlayerSetup" component={PlayerSetupScreen} />
       <Stack.Screen name="CategorySelect" component={CategorySelectScreen} />
-      <Stack.Screen name="Premium" component={PremiumScreen} />
       <Stack.Screen name="CustomCategory" component={CustomCategoryScreen} />
       <Stack.Screen name="MyCategories" component={MyCategoriesScreen} />
     </Stack.Navigator>
