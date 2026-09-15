@@ -36,7 +36,7 @@ const AppNavigator = () => {
       <Stack.Screen
         name="Paywall"
         component={PaywallScreen}
-        options={{ cardStyle: { backgroundColor: '#000000' } }}
+        options={{ cardStyle: { backgroundColor: '#08050E' } }}
       />
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="HowToPlay" component={HowToPlayScreen} />

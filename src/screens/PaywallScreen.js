@@ -11,7 +11,7 @@ import {
   Linking,
   BackHandler,
   Easing,
-  ImageBackground,
+  Image,
   Dimensions,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
@@ -23,9 +23,34 @@ import { colors } from '../theme/colors';
 import { usePremium } from '../context/PremiumContext';
 
 const PAYWALL_BACK = require('../assets/png/paywallBack.png');
+// paywallBack.png'nin düz zemin rengi; küçültülen görselin kenarları belli olmasın.
+const PAYWALL_BG = '#08050E';
+const PAYWALL_BACK_RATIO = 800 / 380;
+// Çizim görselin üst %45'inde, altı düz zemin.
+const PAYWALL_ART_BOTTOM = 0.45;
 
-const { height: WINDOW_HEIGHT } = Dimensions.get('window');
+const { width: WINDOW_WIDTH, height: WINDOW_HEIGHT } = Dimensions.get('window');
 const IS_COMPACT = WINDOW_HEIGHT < 720;
+
+const HERO_HEIGHT = Math.round(WINDOW_HEIGHT * (IS_COMPACT ? 0.2 : 0.26));
+const HERO_IMAGE_WIDTH = Math.min(
+  WINDOW_WIDTH,
+  Math.round(HERO_HEIGHT / (PAYWALL_ART_BOTTOM * PAYWALL_BACK_RATIO)),
+);
+
+// Reklamsız kartının altında listelenen avantajlar.
+const FEATURES = [
+  {
+    icon: 'grid-outline',
+    titleKey: 'premium.feature2Title',
+    descKey: 'premium.feature2Desc',
+  },
+  {
+    icon: 'create-outline',
+    titleKey: 'premium.feature1Title',
+    descKey: 'premium.feature1Desc',
+  },
+];
 
 // Paketler yüklenmezse ekranda takılı kalmamak için üst sınır (ms).
 // Geliştirmede önizlemeye hızlı düşmek için daha kısa tutulur.
@@ -57,10 +82,6 @@ const PREVIEW_PACKAGES = {
     },
   },
 };
-
-// premium.feature2* metinlerindeki rakamlarla birebir aynı olmalı.
-const PREMIUM_CATEGORY_COUNT = '22+';
-const PREMIUM_WORD_COUNT = '2500+';
 
 // Yıllık planın aylığa göre tasarrufunu yüzde olarak döndürür.
 const getSavingsPercent = (monthlyPkg, yearlyPkg) => {
@@ -343,14 +364,7 @@ const PaywallScreen = ({ navigation, route }) => {
   const titleAfter = t('paywall.titleAfter', { defaultValue: '' });
 
   const renderBackground = children => (
-    <ImageBackground
-      source={PAYWALL_BACK}
-      style={styles.background}
-      imageStyle={styles.backgroundImage}
-      resizeMode="cover"
-    >
-      {children}
-    </ImageBackground>
+    <View style={styles.background}>{children}</View>
   );
 
   // Paketler yüklenirken kısa bir bekleme ekranı.
@@ -378,23 +392,26 @@ const PaywallScreen = ({ navigation, route }) => {
       <Animated.View style={[styles.flex, { opacity: contentFade }]}>
         <ScrollView
           style={styles.scrollView}
-          contentContainerStyle={styles.scrollContent}
+          contentContainerStyle={[
+            styles.scrollContent,
+            { paddingBottom: Math.max(insets.bottom, 12) + 8 },
+          ]}
           showsVerticalScrollIndicator={false}
           bounces={false}
         >
-          <LinearGradient
-            colors={[
-              'rgba(0,0,0,0)',
-              'rgba(0,0,0,0.72)',
-              'rgba(0,0,0,0.96)',
-              '#000000',
-            ]}
-            locations={[0, 0.28, 0.55, 1]}
-            style={[
-              styles.sheet,
-              { paddingBottom: Math.max(insets.bottom, 12) + 8 },
-            ]}
-          >
+          <View style={[styles.hero, { height: insets.top + HERO_HEIGHT }]}>
+            <Image
+              source={PAYWALL_BACK}
+              style={[styles.heroImage, { top: insets.top }]}
+              resizeMode="cover"
+            />
+            <LinearGradient
+              colors={['rgba(8,5,14,0)', PAYWALL_BG]}
+              style={styles.heroFade}
+            />
+          </View>
+
+          <View style={styles.sheet}>
             {isPreview && (
               <View style={styles.previewBanner}>
                 <Icon name="construct" size={14} color={colors.warning} />
@@ -416,12 +433,37 @@ const PaywallScreen = ({ navigation, route }) => {
               {titleAfter ? ` ${titleAfter}` : ''}
             </Text>
 
-            <Text style={styles.heroSubtitle}>
-              {t('paywall.subtitle', {
-                words: PREMIUM_WORD_COUNT,
-                categories: PREMIUM_CATEGORY_COUNT,
-              })}
-            </Text>
+            <LinearGradient
+              colors={['rgba(236,72,153,0.26)', 'rgba(168,85,247,0.10)']}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 1 }}
+              style={styles.adFreeCard}
+            >
+              <View style={styles.adFreeIcon}>
+                <Icon name="ban" size={26} color="#ffffff" />
+              </View>
+              <View style={styles.featureCopy}>
+                <Text style={styles.adFreeTitle}>
+                  {t('premium.feature4Title')}
+                </Text>
+                <Text style={styles.adFreeDesc}>{t('premium.feature4Desc')}</Text>
+              </View>
+              <Icon name="checkmark-circle" size={26} color="#EC4899" />
+            </LinearGradient>
+
+            <View style={styles.featureList}>
+              {FEATURES.map(feature => (
+                <View key={feature.titleKey} style={styles.featureRow}>
+                  <View style={styles.featureIcon}>
+                    <Icon name={feature.icon} size={18} color="#C084FC" />
+                  </View>
+                  <View style={styles.featureCopy}>
+                    <Text style={styles.featureTitle}>{t(feature.titleKey)}</Text>
+                    <Text style={styles.featureDesc}>{t(feature.descKey)}</Text>
+                  </View>
+                </View>
+              ))}
+            </View>
 
             <View style={styles.plansColumn}>
               {plans.map(plan => {
@@ -507,7 +549,7 @@ const PaywallScreen = ({ navigation, route }) => {
                 <Text style={styles.linkText}>{t('paywall.privacy')}</Text>
               </TouchableOpacity>
             </View>
-          </LinearGradient>
+          </View>
         </ScrollView>
       </Animated.View>
     </View>,
@@ -520,11 +562,7 @@ const styles = StyleSheet.create({
   },
   background: {
     flex: 1,
-    backgroundColor: '#000000',
-  },
-  backgroundImage: {
-    width: '100%',
-    height: '100%',
+    backgroundColor: PAYWALL_BG,
   },
   loadingContainer: {
     flex: 1,
@@ -553,12 +591,25 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     flexGrow: 1,
-    justifyContent: 'flex-end',
-    paddingTop: Math.round(WINDOW_HEIGHT * 0.34),
+  },
+  hero: {
+    overflow: 'hidden',
+  },
+  heroImage: {
+    position: 'absolute',
+    left: Math.round((WINDOW_WIDTH - HERO_IMAGE_WIDTH) / 2),
+    width: HERO_IMAGE_WIDTH,
+    height: Math.round(HERO_IMAGE_WIDTH * PAYWALL_BACK_RATIO),
+  },
+  heroFade: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    height: 56,
   },
   sheet: {
     paddingHorizontal: 22,
-    paddingTop: IS_COMPACT ? 36 : 56,
   },
   previewBanner: {
     flexDirection: 'row',
@@ -588,24 +639,76 @@ const styles = StyleSheet.create({
     marginBottom: IS_COMPACT ? 10 : 14,
   },
   heroTitle: {
-    fontSize: IS_COMPACT ? 30 : 34,
+    fontSize: IS_COMPACT ? 28 : 32,
     fontWeight: '800',
     color: '#ffffff',
     textAlign: 'center',
-    lineHeight: IS_COMPACT ? 36 : 40,
+    lineHeight: IS_COMPACT ? 34 : 38,
     letterSpacing: -0.6,
+    marginBottom: IS_COMPACT ? 14 : 18,
   },
   heroTitleAccent: {
     color: '#EC4899',
   },
-  heroSubtitle: {
-    marginTop: 10,
+  adFreeCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 14,
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: 'rgba(236,72,153,0.6)',
+    paddingVertical: IS_COMPACT ? 12 : 14,
+    paddingHorizontal: 14,
+    marginBottom: 12,
+  },
+  adFreeIcon: {
+    width: 46,
+    height: 46,
+    borderRadius: 23,
+    backgroundColor: '#EC4899',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  adFreeTitle: {
+    fontSize: 19,
+    fontWeight: '800',
+    color: '#ffffff',
+  },
+  adFreeDesc: {
+    marginTop: 2,
     fontSize: 14,
-    lineHeight: 20,
-    color: 'rgba(255,255,255,0.48)',
-    textAlign: 'center',
-    paddingHorizontal: 8,
-    marginBottom: IS_COMPACT ? 18 : 24,
+    color: 'rgba(255,255,255,0.72)',
+  },
+  featureList: {
+    gap: IS_COMPACT ? 8 : 10,
+    paddingHorizontal: 4,
+    marginBottom: IS_COMPACT ? 14 : 18,
+  },
+  featureRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 14,
+  },
+  featureIcon: {
+    width: 36,
+    height: 36,
+    borderRadius: 12,
+    backgroundColor: 'rgba(168, 85, 247, 0.16)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  featureCopy: {
+    flex: 1,
+  },
+  featureTitle: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#ffffff',
+  },
+  featureDesc: {
+    marginTop: 1,
+    fontSize: 13,
+    color: 'rgba(255,255,255,0.5)',
   },
   plansColumn: {
     gap: 10,
