@@ -112,7 +112,16 @@
     "sports": "Sports",
     "countries": "Pays",
     "professions": "Professions",
-    "technology": "Technologie"
+    "technology": "Technologie",
+    "celebrities": "Célébrités",
+    "cities": "Villes",
+    "bodyHealth": "Corps et santé",
+    "brands": "Marques",
+    "hollywood": "Hollywood",
+    "games": "Jeux",
+    "locations": "Lieux",
+    "anime": "Animé",
+    "schoolEducation": "École et éducation"
   },
   "words": {
     "christmas": {
@@ -321,7 +330,73 @@
       "oppenheimer": "Oppenheimer",
       "castAway": "Seul au monde",
       "theNotebook": "N'oublie jamais",
-      "prettyWoman": "Pretty Woman"
+      "prettyWoman": "Pretty Woman",
+      "parasite": "Parasite",
+      "oldboy": "Oldboy",
+      "memoriesOfMurder": "Memories of Murder",
+      "amelie": "Le Fabuleux Destin d’Amélie Poulain",
+      "theIntouchables": "Intouchables",
+      "cinemaParadiso": "Cinema Paradiso",
+      "lifeIsBeautiful": "La vie est belle",
+      "spiritedAway": "Le Voyage de Chihiro",
+      "yourName": "Your Name",
+      "princessMononoke": "Princesse Mononoke",
+      "theGodfather": "Le Parrain",
+      "goodfellas": "Les Affranchis",
+      "pulpFiction": "Pulp Fiction",
+      "reservoirDogs": "Reservoir Dogs",
+      "killBill": "Kill Bill",
+      "djangoUnchained": "Django Unchained",
+      "inglouriousBasterds": "Inglourious Basterds",
+      "interstellar": "Interstellar",
+      "inception": "Inception",
+      "thePrestige": "Le Prestige",
+      "memento": "Memento",
+      "theDarkKnight": "The Dark Knight",
+      "theMatrix": "Matrix",
+      "fightClub": "Fight Club",
+      "noCountryForOldMen": "Non, ce pays n’est pas pour le vieil homme",
+      "thereWillBeBlood": "There Will Be Blood",
+      "theRevenant": "The Revenant",
+      "moonlight": "Moonlight",
+      "everythingEverywhere": "Everything Everywhere All at Once",
+      "poorThings": "Pauvres Créatures",
+      "anatomyOfAFall": "Anatomie d’une chute",
+      "triangleOfSadness": "Sans filtre",
+      "bansheesOfInisherin": "Les Banshees d’Inisherin",
+      "nomadland": "Nomadland",
+      "her": "Her",
+      "exMachina": "Ex Machina",
+      "arrival": "Premier Contact",
+      "sicario": "Sicario",
+      "nightcrawler": "Night Call",
+      "drive": "Drive",
+      "knivesOut": "À couteaux tirés",
+      "grandBudapestHotel": "The Grand Budapest Hotel",
+      "moonriseKingdom": "Moonrise Kingdom",
+      "jojoRabbit": "Jojo Rabbit",
+      "goneGirl": "Gone Girl",
+      "prisoners": "Prisoners",
+      "zodiac": "Zodiac",
+      "joker": "Joker",
+      "birdman": "Birdman",
+      "twelveYearsASlave": "12 Years a Slave",
+      "slumdogMillionaire": "Slumdog Millionaire",
+      "lifeOfPi": "L’Odyssée de Pi",
+      "pansLabyrinth": "Le Labyrinthe de Pan",
+      "theShapeOfWater": "La Forme de l’eau",
+      "hereditary": "Hérédité",
+      "midsommar": "Midsommar",
+      "theLighthouse": "The Lighthouse",
+      "theWitch": "The Witch",
+      "trainToBusan": "Train to Busan",
+      "theHandmaiden": "Mademoiselle",
+      "callMeByYourName": "Call Me by Your Name",
+      "ladyBird": "Lady Bird",
+      "portraitOfALadyOnFire": "Portrait de la jeune fille en feu",
+      "decisionToLeave": "Decision to Leave",
+      "burning": "Burning",
+      "us": "Us"
     },
     "sports": {
       "squash": "Squash",
@@ -425,7 +500,142 @@
       "cambodia": "Cambodge",
       "myanmar": "Myanmar",
       "fiji": "Fidji",
-      "maldives": "Maldives"
+      "maldives": "Maldives",
+      "portugal": "Portugal",
+      "greece": "Grèce",
+      "norway": "Norvège",
+      "sweden": "Suède",
+      "switzerland": "Suisse",
+      "austria": "Autriche",
+      "belgium": "Belgique",
+      "netherlands": "Pays-Bas",
+      "poland": "Pologne",
+      "ukraine": "Ukraine",
+      "morocco": "Maroc",
+      "egypt": "Égypte",
+      "kenya": "Kenya",
+      "nigeria": "Nigéria",
+      "southAfrica": "Afrique du Sud",
+      "argentina": "Argentine",
+      "chile": "Chili",
+      "peru": "Pérou",
+      "colombia": "Colombie",
+      "thailand": "Thaïlande",
+      "vietnam": "Viêt Nam",
+      "indonesia": "Indonésie",
+      "philippines": "Philippines",
+      "malaysia": "Malaisie",
+      "newZealand": "Nouvelle-Zélande",
+      "canada": "Canada",
+      "mexico": "Mexique",
+      "southKorea": "Corée du Sud",
+      "saudiArabia": "Arabie saoudite",
+      "unitedArabEmirates": "Émirats arabes unis",
+      "france": "France",
+      "germany": "Allemagne",
+      "italy": "Italie",
+      "spain": "Espagne",
+      "unitedKingdom": "Royaume-Uni",
+      "unitedStates": "États-Unis",
+      "turkey": "Turquie",
+      "japan": "Japon",
+      "china": "Chine",
+      "brazil": "Brésil",
+      "india": "Inde",
+      "australia": "Australie",
+      "russia": "Russie",
+      "botswana": "Botswana",
+      "namibia": "Namibie",
+      "rwanda": "Rwanda",
+      "uganda": "Ouganda",
+      "malawi": "Malawi",
+      "zambia": "Zambie",
+      "zimbabwe": "Zimbabwe",
+      "mozambique": "Mozambique",
+      "angola": "Angola",
+      "ivoryCoast": "Côte d’Ivoire",
+      "cameroon": "Cameroun",
+      "ethiopia": "Éthiopie",
+      "eritrea": "Érythrée",
+      "djibouti": "Djibouti",
+      "somalia": "Somalie",
+      "mauritania": "Mauritanie",
+      "mali": "Mali",
+      "burkinaFaso": "Burkina Faso",
+      "niger": "Niger",
+      "chad": "Tchad",
+      "gabon": "Gabon",
+      "guinea": "Guinée",
+      "sierraLeone": "Sierra Leone",
+      "liberia": "Libéria",
+      "gambia": "Gambie",
+      "togo": "Togo",
+      "benin": "Bénin",
+      "lesotho": "Lesotho",
+      "eswatini": "Eswatini",
+      "comoros": "Comores",
+      "seychelles": "Seychelles",
+      "mauritius": "Maurice",
+      "capeVerde": "Cap-Vert",
+      "libya": "Libye",
+      "sudan": "Soudan",
+      "southSudan": "Soudan du Sud",
+      "congo": "République du Congo",
+      "drCongo": "RD Congo",
+      "equatorialGuinea": "Guinée équatoriale",
+      "guineaBissau": "Guinée-Bissau",
+      "bhutan": "Bhoutan",
+      "brunei": "Brunei",
+      "laos": "Laos",
+      "northKorea": "Corée du Nord",
+      "kyrgyzstan": "Kirghizistan",
+      "tajikistan": "Tadjikistan",
+      "turkmenistan": "Turkménistan",
+      "afghanistan": "Afghanistan",
+      "pakistan": "Pakistan",
+      "bangladesh": "Bangladesh",
+      "yemen": "Yémen",
+      "iraq": "Irak",
+      "iran": "Iran",
+      "syria": "Syrie",
+      "kuwait": "Koweït",
+      "bahrain": "Bahreïn",
+      "israel": "Israël",
+      "palestine": "Palestine",
+      "eastTimor": "Timor oriental",
+      "papuaNewGuinea": "Papouasie-Nouvelle-Guinée",
+      "solomonIslands": "Îles Salomon",
+      "vanuatu": "Vanuatu",
+      "samoa": "Samoa",
+      "tonga": "Tonga",
+      "kiribati": "Kiribati",
+      "palau": "Palaos",
+      "nauru": "Nauru",
+      "tuvalu": "Tuvalu",
+      "taiwan": "Taïwan",
+      "singaporeCountry": "Singapour",
+      "belarus": "Biélorussie",
+      "moldova": "Moldavie",
+      "northMacedonia": "Macédoine du Nord",
+      "bosnia": "Bosnie-Herzégovine",
+      "kosovo": "Kosovo",
+      "andorra": "Andorre",
+      "liechtenstein": "Liechtenstein",
+      "sanMarino": "Saint-Marin",
+      "vatican": "Vatican",
+      "cyprus": "Chypre",
+      "armenia": "Arménie",
+      "honduras": "Honduras",
+      "guatemala": "Guatemala",
+      "elSalvador": "Salvador",
+      "nicaragua": "Nicaragua",
+      "belize": "Belize",
+      "haiti": "Haïti",
+      "cuba": "Cuba",
+      "trinidadTobago": "Trinité-et-Tobago",
+      "barbados": "Barbade",
+      "bahamas": "Bahamas",
+      "guyana": "Guyana"
     },
     "professions": {
       "surgeon": "Chirurgien",
@@ -477,7 +687,18 @@
       "barista": "Barista",
       "personalTrainer": "Coach sportif",
       "nanny": "Nounou",
-      "meteorologist": "Météorologue"
+      "meteorologist": "Météorologue",
+      "actuary": "Actuaire",
+      "paleontologist": "Paléontologue",
+      "cartographer": "Cartographe",
+      "archivist": "Archiviste",
+      "seismologist": "Sismologue",
+      "volcanologist": "Volcanologue",
+      "oceanographer": "Océanographe",
+      "epidemiologist": "Épidémiologiste",
+      "arborist": "Arboriste",
+      "glassblower": "Souffleur de verre",
+      "etymologist": "Étymologiste"
     },
     "technology": {
       "snapchat": "Snapchat",
@@ -530,6 +751,835 @@
       "linux": "Linux",
       "android": "Android",
       "windows": "Windows"
+    },
+    "celebrities": {
+      "adele": "Adele",
+      "rihanna": "Rihanna",
+      "zendaya": "Zendaya",
+      "timotheeChalamet": "Timothée Chalamet",
+      "ryanGosling": "Ryan Gosling",
+      "margotRobbie": "Margot Robbie",
+      "keanuReeves": "Keanu Reeves",
+      "scarlettJohansson": "Scarlett Johansson",
+      "cillianMurphy": "Cillian Murphy",
+      "florencePugh": "Florence Pugh",
+      "pedroPascal": "Pedro Pascal",
+      "anyaTaylorJoy": "Anya Taylor-Joy",
+      "saoirseRonan": "Saoirse Ronan",
+      "tildaSwinton": "Tilda Swinton",
+      "lupitaNyongo": "Lupita Nyong’o",
+      "mahershalaAli": "Mahershala Ali",
+      "idrisElba": "Idris Elba",
+      "benedictCumberbatch": "Benedict Cumberbatch",
+      "oscarIsaac": "Oscar Isaac",
+      "austinButler": "Austin Butler",
+      "jennaOrtega": "Jenna Ortega",
+      "nataliePortman": "Natalie Portman",
+      "emmaStone": "Emma Stone",
+      "jenniferLawrence": "Jennifer Lawrence",
+      "merylStreep": "Meryl Streep",
+      "kateWinslet": "Kate Winslet",
+      "charlizeTheron": "Charlize Theron",
+      "violaDavis": "Viola Davis",
+      "helenMirren": "Helen Mirren",
+      "danielKaluuya": "Daniel Kaluuya",
+      "andrewGarfield": "Andrew Garfield",
+      "tomHiddleston": "Tom Hiddleston",
+      "michaelFassbender": "Michael Fassbender",
+      "rachelMcadams": "Rachel McAdams",
+      "emilyBlunt": "Emily Blunt",
+      "jessicaChastain": "Jessica Chastain",
+      "amyAdams": "Amy Adams",
+      "octaviaSpencer": "Octavia Spencer",
+      "billieEilish": "Billie Eilish",
+      "theWeeknd": "The Weeknd",
+      "florenceWelch": "Florence Welch",
+      "hansZimmer": "Hans Zimmer",
+      "johnWilliams": "John Williams",
+      "ennioMorricone": "Ennio Morricone",
+      "pharrellWilliams": "Pharrell Williams",
+      "sza": "SZA",
+      "mitski": "Mitski",
+      "lanaDelRey": "Lana Del Rey",
+      "harryStyles": "Harry Styles",
+      "duaLipa": "Dua Lipa",
+      "usainBolt": "Usain Bolt",
+      "serenaWilliams": "Serena Williams",
+      "lewisHamilton": "Lewis Hamilton",
+      "simoneBiles": "Simone Biles",
+      "naomiOsaka": "Naomi Osaka",
+      "novakDjokovic": "Novak Djokovic",
+      "erlingHaaland": "Erling Haaland",
+      "shoheiOhtani": "Shohei Ohtani",
+      "rafaelNadal": "Rafael Nadal",
+      "katieLedecky": "Katie Ledecky",
+      "gretaThunberg": "Greta Thunberg",
+      "malalaYousafzai": "Malala Yousafzai",
+      "davidAttenborough": "David Attenborough",
+      "oprahWinfrey": "Oprah Winfrey",
+      "quentinTarantino": "Quentin Tarantino",
+      "christopherNolan": "Christopher Nolan",
+      "gretaGerwig": "Greta Gerwig",
+      "hayaoMiyazaki": "Hayao Miyazaki",
+      "bongJoonHo": "Bong Joon-ho",
+      "denisVilleneuve": "Denis Villeneuve",
+      "wesAnderson": "Wes Anderson",
+      "sofiaCoppola": "Sofia Coppola",
+      "jordanPeele": "Jordan Peele",
+      "parkChanWook": "Park Chan-wook",
+      "pedroAlmodovar": "Pedro Almodóvar",
+      "wongKarWai": "Wong Kar-wai",
+      "janeGoodall": "Jane Goodall",
+      "yuvalNoahHarari": "Yuval Noah Harari",
+      "margaretAtwood": "Margaret Atwood",
+      "chimamandaAdichie": "Chimamanda Ngozi Adichie"
+    },
+    "cities": {
+      "barcelona": "Barcelona",
+      "amsterdam": "Amsterdam",
+      "prague": "Prague",
+      "vienna": "Vienne",
+      "budapest": "Budapest",
+      "lisbon": "Lisbonne",
+      "edinburgh": "Édimbourg",
+      "stockholm": "Stockholm",
+      "copenhagen": "Copenhague",
+      "oslo": "Oslo",
+      "helsinki": "Helsinki",
+      "warsaw": "Varsovie",
+      "krakow": "Cracovie",
+      "athens": "Athènes",
+      "istanbul": "Istanbul",
+      "marrakech": "Marrakech",
+      "capeTown": "Le Cap",
+      "nairobi": "Nairobi",
+      "lagos": "Lagos",
+      "mumbai": "Mumbai",
+      "bangalore": "Bengaluru",
+      "kolkata": "Calcutta",
+      "bangkok": "Bangkok",
+      "singapore": "Singapour",
+      "kualaLumpur": "Kuala Lumpur",
+      "jakarta": "Jakarta",
+      "manila": "Manila",
+      "hanoi": "Hanoï",
+      "seoul": "Séoul",
+      "busan": "Busan",
+      "osaka": "Osaka",
+      "kyoto": "Kyoto",
+      "taipei": "Taipei",
+      "hongKong": "Hong Kong",
+      "shanghai": "Shanghai",
+      "melbourne": "Melbourne",
+      "auckland": "Auckland",
+      "vancouver": "Vancouver",
+      "montreal": "Montréal",
+      "chicago": "Chicago",
+      "seattle": "Seattle",
+      "newOrleans": "La Nouvelle-Orléans",
+      "mexicoCity": "Mexico",
+      "guadalajara": "Guadalajara",
+      "bogota": "Bogotá",
+      "lima": "Lima",
+      "santiago": "Santiago",
+      "buenosAires": "Buenos Aires",
+      "rioDeJaneiro": "Rio de Janeiro",
+      "havana": "La Havane",
+      "reykjavik": "Reykjavík",
+      "tallinn": "Tallinn",
+      "riga": "Riga",
+      "vilnius": "Vilnius",
+      "bratislava": "Bratislava",
+      "ljubljana": "Ljubljana",
+      "zagreb": "Zagreb",
+      "belgrade": "Belgrade",
+      "sarajevo": "Sarajevo",
+      "sofia": "Sofia",
+      "bucharest": "Bucarest",
+      "tbilisi": "Tbilissi",
+      "yerevan": "Erevan",
+      "baku": "Bakou",
+      "tashkent": "Tachkent",
+      "almaty": "Almaty",
+      "kathmandu": "Katmandou",
+      "colombo": "Colombo",
+      "yangon": "Yangon",
+      "phnomPenh": "Phnom Penh",
+      "chiangMai": "Chiang Mai",
+      "medellin": "Medellín",
+      "cusco": "Cusco",
+      "valparaiso": "Valparaíso",
+      "montevideo": "Montevideo",
+      "cartagena": "Cartagena",
+      "fez": "Fès",
+      "tunis": "Tunis",
+      "addisAbaba": "Addis-Abeba",
+      "accra": "Accra",
+      "dakar": "Dakar",
+      "perth": "Perth",
+      "wellington": "Wellington",
+      "quebecCity": "Québec",
+      "calgary": "Calgary",
+      "portland": "Portland",
+      "austin": "Austin",
+      "denver": "Denver",
+      "philadelphia": "Philadelphie",
+      "marseille": "Marseille",
+      "lyon": "Lyon",
+      "porto": "Porto",
+      "valencia": "Valence",
+      "seville": "Séville",
+      "florence": "Florence",
+      "venice": "Venise"
+    },
+    "bodyHealth": {
+      "cerebellum": "Cervelet",
+      "pancreas": "Pancréas",
+      "pituitaryGland": "Glande pituitaire",
+      "thyroid": "Thyroïde",
+      "adrenalGland": "Glande surrénale",
+      "lymphaticSystem": "Système lymphatique",
+      "boneMarrow": "Moelle osseuse",
+      "spinalCord": "Moelle épinière",
+      "sciaticNerve": "Nerf sciatique",
+      "rotatorCuff": "Coiffe des rotateurs",
+      "meniscus": "Ménisque",
+      "achillesTendon": "Tendon d’Achille",
+      "carpalTunnel": "Canal carpien",
+      "plantarFasciitis": "Fasciite plantaire",
+      "tinnitus": "Acouphène",
+      "vertigo": "Vertige",
+      "insomnia": "Insomnie",
+      "sleepApnea": "Apnée du sommeil",
+      "migraine": "Migraine",
+      "concussion": "Commotion cérébrale",
+      "asthma": "Asthme",
+      "eczema": "Eczéma",
+      "psoriasis": "Psoriasis",
+      "anemia": "Anémie",
+      "cholesterol": "Cholestérol",
+      "metabolism": "Métabolisme",
+      "insulin": "Insuline",
+      "melatonin": "Mélatonine",
+      "dopamine": "Dopamine",
+      "serotonin": "Sérotonine",
+      "adrenaline": "Adrénaline",
+      "cortisol": "Cortisol",
+      "collagen": "Collagène",
+      "probiotics": "Probiotiques",
+      "electrolytes": "Électrolytes",
+      "placebo": "Placebo",
+      "quarantine": "Quarantaine",
+      "antibody": "Anticorps",
+      "antigen": "Antigène",
+      "vaccine": "Vaccin",
+      "boosterShot": "Rappel vaccinal",
+      "immuneSystem": "Système immunitaire",
+      "lymphNode": "Ganglion lymphatique",
+      "tonsils": "Amygdales",
+      "appendix": "Appendice",
+      "gallbladder": "Vésicule biliaire",
+      "spleen": "Rate",
+      "kidneyStone": "Calcul rénal",
+      "gastricUlcer": "Ulcère gastrique",
+      "acidReflux": "Reflux gastrique",
+      "irritableBowel": "Côlon irritable",
+      "glutenIntolerance": "Intolérance au gluten",
+      "lactoseIntolerance": "Intolérance au lactose",
+      "defibrillator": "Défibrillateur",
+      "stethoscope": "Stéthoscope",
+      "endoscope": "Endoscope",
+      "mriScan": "IRM",
+      "bloodPressure": "Tension artérielle",
+      "oxygenSaturation": "Saturation en oxygène",
+      "whiteBloodCell": "Globule blanc",
+      "platelet": "Plaquette",
+      "heatstroke": "Coup de chaleur",
+      "hypothermia": "Hypothermie",
+      "frostbite": "Engelure",
+      "dehydration": "Déshydratation",
+      "jetLag": "Décalage horaire",
+      "hangover": "Gueule de bois",
+      "firstAid": "Premiers secours",
+      "acupuncture": "Acupuncture",
+      "chiropractor": "Chiropraticien",
+      "physiotherapy": "Kinésithérapie",
+      "intermittentFasting": "Jeûne intermittent",
+      "calorieDeficit": "Déficit calorique",
+      "hiitWorkout": "Entraînement HIIT",
+      "foamRoller": "Rouleau de massage",
+      "creatine": "Créatine",
+      "omega3": "Oméga-3",
+      "vitaminD": "Vitamine D",
+      "ironDeficiency": "Carence en fer",
+      "wisdomTooth": "Dent de sagesse",
+      "rootCanal": "Traitement de canal",
+      "gingivitis": "Gingivite",
+      "hearingAid": "Appareil auditif",
+      "contactLens": "Lentille de contact",
+      "retainer": "Gouttière de contention",
+      "crutches": "Béquilles",
+      "wheelchair": "Fauteuil roulant",
+      "stitches": "Points de suture",
+      "plasterCast": "Plâtre",
+      "restlessLegs": "Jambes sans repos",
+      "seasonalAllergies": "Allergies saisonnières",
+      "hayFever": "Rhume des foins",
+      "sinusitis": "Sinusite",
+      "bronchitis": "Bronchite",
+      "pneumonia": "Pneumonie",
+      "shingles": "Zona",
+      "chickenpox": "Varicelle",
+      "foodPoisoning": "Intoxication alimentaire",
+      "motionSickness": "Mal des transports",
+      "altitudeSickness": "Mal des montagnes",
+      "circadianRhythm": "Rythme circadien",
+      "gutMicrobiome": "Microbiote intestinal",
+      "inflammation": "Inflammation"
+    },
+    "brands": {
+      "ikea": "IKEA",
+      "lego": "LEGO",
+      "patagonia": "Patagonia",
+      "theNorthFace": "The North Face",
+      "uniqlo": "Uniqlo",
+      "zara": "Zara",
+      "hermes": "Hermès",
+      "louisVuitton": "Louis Vuitton",
+      "chanel": "Chanel",
+      "prada": "Prada",
+      "gucci": "Gucci",
+      "rolex": "Rolex",
+      "omega": "Omega",
+      "cartier": "Cartier",
+      "tiffany": "Tiffany & Co.",
+      "dyson": "Dyson",
+      "nespresso": "Nespresso",
+      "kitchenAid": "KitchenAid",
+      "bosch": "Bosch",
+      "siemens": "Siemens",
+      "philips": "Philips",
+      "panasonic": "Panasonic",
+      "sony": "Sony",
+      "samsung": "Samsung",
+      "canon": "Canon",
+      "nikon": "Nikon",
+      "bose": "Bose",
+      "logitech": "Logitech",
+      "redBull": "Red Bull",
+      "nestle": "Nestlé",
+      "ferrero": "Ferrero",
+      "lindt": "Lindt",
+      "loreal": "L'Oréal",
+      "nivea": "Nivea",
+      "gillette": "Gillette",
+      "colgate": "Colgate",
+      "sephora": "Sephora",
+      "starbucks": "Starbucks",
+      "chipotle": "Chipotle",
+      "subway": "Subway",
+      "toyota": "Toyota",
+      "honda": "Honda",
+      "bmw": "BMW",
+      "mercedes": "Mercedes-Benz",
+      "audi": "Audi",
+      "volkswagen": "Volkswagen",
+      "ferrari": "Ferrari",
+      "lamborghini": "Lamborghini",
+      "porsche": "Porsche",
+      "volvo": "Volvo",
+      "hyundai": "Hyundai",
+      "tesla": "Tesla",
+      "netflix": "Netflix",
+      "spotify": "Spotify",
+      "airbnb": "Airbnb",
+      "uber": "Uber",
+      "booking": "Booking.com",
+      "amazon": "Amazon",
+      "playstation": "PlayStation",
+      "xbox": "Xbox",
+      "visa": "Visa",
+      "mastercard": "Mastercard",
+      "paypal": "PayPal",
+      "americanExpress": "American Express",
+      "fedex": "FedEx",
+      "dhl": "DHL",
+      "emirates": "Emirates",
+      "lufthansa": "Lufthansa",
+      "ryanair": "Ryanair",
+      "primark": "Primark",
+      "mango": "Mango",
+      "balenciaga": "Balenciaga",
+      "versace": "Versace",
+      "dior": "Dior",
+      "ysl": "Yves Saint Laurent",
+      "fendi": "Fendi",
+      "swatch": "Swatch",
+      "casio": "Casio",
+      "underArmour": "Under Armour",
+      "newBalance": "New Balance",
+      "columbia": "Columbia",
+      "adidas": "Adidas",
+      "nike": "Nike",
+      "puma": "Puma",
+      "hAndM": "H&M",
+      "dunkin": "Dunkin'",
+      "monsterEnergy": "Monster Energy",
+      "hershey": "Hershey",
+      "unilever": "Unilever",
+      "oralB": "Oral-B",
+      "macCosmetics": "MAC Cosmetics",
+      "easyjet": "easyJet",
+      "shein": "SHEIN",
+      "aliexpress": "AliExpress",
+      "ebay": "eBay",
+      "jbl": "JBL"
+    },
+    "hollywood": {
+      "academyAwards": "Oscars",
+      "goldenGlobes": "Golden Globes",
+      "emmyAwards": "Emmy Awards",
+      "cannesFestival": "Festival de Cannes",
+      "sundance": "Sundance",
+      "veniceFilmFestival": "Mostra de Venise",
+      "redCarpet": "Tapis rouge",
+      "paparazzi": "Paparazzi",
+      "walkOfFame": "Walk of Fame",
+      "hollywoodSign": "Panneau Hollywood",
+      "chineseTheatre": "TCL Chinese Theatre",
+      "dolbyTheatre": "Dolby Theatre",
+      "paramountPictures": "Paramount Pictures",
+      "warnerBros": "Warner Bros.",
+      "universalStudios": "Universal Studios",
+      "columbiaPictures": "Columbia Pictures",
+      "mgmStudios": "MGM",
+      "pixar": "Pixar",
+      "dreamworks": "DreamWorks",
+      "marvelStudios": "Marvel Studios",
+      "a24": "A24",
+      "blumhouse": "Blumhouse",
+      "blockbusterHit": "Blockbuster",
+      "boxOffice": "Box-office",
+      "openingWeekend": "Week-end de sortie",
+      "sequel": "Suite",
+      "prequel": "Prequelle",
+      "reboot": "Reboot",
+      "remake": "Remake",
+      "spinOff": "Spin-off",
+      "directorsCut": "Director’s cut",
+      "stuntDouble": "Cascadeur",
+      "cameo": "Caméo",
+      "screenplay": "Scénario",
+      "storyboard": "Storyboard",
+      "greenScreen": "Fond vert",
+      "motionCapture": "Capture de mouvement",
+      "methodActing": "Méthode de l’Actor’s Studio",
+      "typecasting": "Typecasting",
+      "aList": "A-list",
+      "bMovie": "Série B",
+      "cultClassic": "Film culte",
+      "indieFilm": "Film indépendant",
+      "biopic": "Biopic",
+      "mockumentary": "Faux documentaire",
+      "filmNoir": "Film noir",
+      "romanticComedy": "Comédie romantique",
+      "slasherFilm": "Slasher",
+      "foundFootage": "Found footage",
+      "premiere": "Première",
+      "afterparty": "Afterparty",
+      "castingDirector": "Directeur de casting",
+      "cinematographer": "Directeur de la photo",
+      "gaffer": "Chef électricien",
+      "boomOperator": "Perchman",
+      "soundstage": "Plateau de tournage",
+      "backlot": "Backlot",
+      "studioLot": "Terrain des studios",
+      "callSheet": "Feuille de service",
+      "tableRead": "Lecture de table",
+      "screenTest": "Essai caméra",
+      "headshot": "Portrait d’acteur",
+      "wrapParty": "Wrap party",
+      "residuals": "Redevances",
+      "sagAftra": "SAG-AFTRA",
+      "craftServices": "Régie plat",
+      "fourthWall": "Quatrième mur",
+      "plotTwist": "Twist narratif",
+      "cliffhanger": "Cliffhanger",
+      "macguffin": "MacGuffin",
+      "montage": "Montage",
+      "flashback": "Flash-back",
+      "productPlacement": "Placement de produit",
+      "easterEgg": "Easter egg",
+      "postCreditsScene": "Scène post-générique",
+      "imax": "IMAX",
+      "driveInTheater": "Ciné-parc",
+      "multiplex": "Multiplexe",
+      "arthouseCinema": "Cinéma d’art et d’essai",
+      "voiceover": "Voix off",
+      "blooperReel": "Bêtisier",
+      "extraActor": "Figurant",
+      "standIn": "Doublure lumière",
+      "chemistryTest": "Test d’alchimie",
+      "callback": "Rappel de casting",
+      "monologue": "Monologue",
+      "improvisation": "Improvisation",
+      "teaserTrailer": "Teaser",
+      "filmScore": "Musique de film",
+      "soundtrack": "Bande originale",
+      "openingCredits": "Générique d’ouverture",
+      "closingCredits": "Générique de fin",
+      "filmFestival": "Festival de cinéma",
+      "lifetimeAchievement": "Prix d’honneur",
+      "bestPicture": "Meilleur film",
+      "oscarBait": "Film fait pour les Oscars",
+      "summerBlockbuster": "Blockbuster d’été",
+      "awardsSeason": "Saison des prix",
+      "pressJunket": "Tournée presse",
+      "photoCall": "Photocall",
+      "vanityCard": "Carte de production",
+      "testScreening": "Projection test",
+      "reshoots": "Reprises de tournage",
+      "finalCut": "Montage final"
+    },
+    "games": {
+      "theLastOfUs": "The Last of Us",
+      "godOfWar": "God of War",
+      "redDeadRedemption": "Red Dead Redemption",
+      "eldenRing": "Elden Ring",
+      "darkSouls": "Dark Souls",
+      "bloodborne": "Bloodborne",
+      "sekiro": "Sekiro",
+      "hollowKnight": "Hollow Knight",
+      "hades": "Hades",
+      "stardewValley": "Stardew Valley",
+      "discoElysium": "Disco Elysium",
+      "outerWilds": "Outer Wilds",
+      "returnal": "Returnal",
+      "control": "Control",
+      "deathStranding": "Death Stranding",
+      "nierAutomata": "Nier: Automata",
+      "persona5": "Persona 5",
+      "xenoblade": "Xenoblade Chronicles",
+      "monsterHunter": "Monster Hunter",
+      "baldursGate": "Baldur's Gate",
+      "cyberpunk2077": "Cyberpunk 2077",
+      "theWitcher": "The Witcher",
+      "skyrim": "Skyrim",
+      "bioshock": "BioShock",
+      "portal": "Portal",
+      "halfLife": "Half-Life",
+      "massEffect": "Mass Effect",
+      "metalGearSolid": "Metal Gear Solid",
+      "silentHill": "Silent Hill",
+      "residentEvil": "Resident Evil",
+      "deadSpace": "Dead Space",
+      "untilDawn": "Until Dawn",
+      "detroitBecomeHuman": "Detroit: Become Human",
+      "lifeIsStrange": "Life is Strange",
+      "firewatch": "Firewatch",
+      "inside": "Inside",
+      "cuphead": "Cuphead",
+      "oriAndTheBlindForest": "Ori and the Blind Forest",
+      "deadCells": "Dead Cells",
+      "slayTheSpire": "Slay the Spire",
+      "valheim": "Valheim",
+      "seaOfThieves": "Sea of Thieves",
+      "itTakesTwo": "It Takes Two",
+      "helldivers": "Helldivers",
+      "palworld": "Palworld",
+      "lethalCompany": "Lethal Company",
+      "splatoon": "Splatoon",
+      "superSmashBros": "Super Smash Bros.",
+      "zeldaTears": "Zelda: Tears of the Kingdom",
+      "marioOdyssey": "Super Mario Odyssey",
+      "metroidDread": "Metroid Dread",
+      "animalCrossing": "Animal Crossing",
+      "civilization": "Civilization",
+      "ageOfEmpires": "Age of Empires",
+      "starcraft": "StarCraft",
+      "warcraft": "Warcraft",
+      "leagueOfLegends": "League of Legends",
+      "dota2": "Dota 2",
+      "valorant": "Valorant",
+      "counterStrike": "Counter-Strike",
+      "overwatch": "Overwatch",
+      "apexLegends": "Apex Legends",
+      "streetFighter": "Street Fighter",
+      "mortalKombat": "Mortal Kombat",
+      "tekken": "Tekken",
+      "granTurismo": "Gran Turismo",
+      "forzaHorizon": "Forza Horizon",
+      "rocketLeague": "Rocket League",
+      "assassinCreed": "Assassin's Creed",
+      "farCry": "Far Cry",
+      "fallout": "Fallout",
+      "destiny2": "Destiny 2",
+      "gearsOfWar": "Gears of War"
+    },
+    "locations": {
+      "machuPicchu": "Machu Picchu",
+      "petra": "Petra",
+      "angkorWat": "Angkor Wat",
+      "tajMahal": "Taj Mahal",
+      "greatWall": "Grande Muraille",
+      "colosseum": "Colisée",
+      "acropolis": "Acropole",
+      "stonehenge": "Stonehenge",
+      "easterIsland": "Île de Pâques",
+      "chichenItza": "Chichén Itzá",
+      "sagradaFamilia": "Sagrada Família",
+      "neuschwanstein": "Neuschwanstein",
+      "versailles": "Versailles",
+      "alhambra": "Alhambra",
+      "montSaintMichel": "Mont-Saint-Michel",
+      "cliffsOfMoher": "Falaises de Moher",
+      "giantsCauseway": "Chaussée des Géants",
+      "salarDeUyuni": "Salar de Uyuni",
+      "antelopeCanyon": "Antelope Canyon",
+      "zhangyeDanxia": "Zhangye Danxia",
+      "lakeBled": "Lac de Bled",
+      "plitviceLakes": "Lacs de Plitvice",
+      "hallstatt": "Hallstatt",
+      "cinqueTerre": "Cinque Terre",
+      "amalfiCoast": "Côte amalfitaine",
+      "santorini": "Santorini",
+      "cappadocia": "Cappadoce",
+      "pamukkale": "Pamukkale",
+      "gobekliTepe": "Göbekli Tepe",
+      "ephesus": "Éphèse",
+      "wadiRum": "Wadi Rum",
+      "deadSea": "Mer Morte",
+      "masada": "Masada",
+      "socotra": "Socotra",
+      "banff": "Banff",
+      "yosemite": "Yosemite",
+      "yellowstone": "Yellowstone",
+      "zionCanyon": "Canyon de Zion",
+      "monumentValley": "Monument Valley",
+      "deathValley": "Vallée de la Mort",
+      "grandCanyon": "Grand Canyon",
+      "niagaraFalls": "Chutes du Niagara",
+      "iguazuFalls": "Chutes d’Iguazú",
+      "angelFalls": "Salto Ángel",
+      "victoriaFalls": "Chutes Victoria",
+      "tableMountain": "Montagne de la Table",
+      "serengeti": "Serengeti",
+      "ngorongoro": "Ngorongoro",
+      "okavangoDelta": "Delta de l’Okavango",
+      "namibDesert": "Désert du Namib",
+      "kilimanjaro": "Kilimanjaro",
+      "mountFuji": "Mont Fuji",
+      "mountEverest": "Mont Everest",
+      "saharaDesert": "Désert du Sahara",
+      "amazonRainforest": "Forêt amazonienne",
+      "greatBarrierReef": "Grande Barrière de corail",
+      "haLongBay": "Baie d’Ha Long",
+      "palawan": "Palawan",
+      "komodoIsland": "Île de Komodo",
+      "boraBora": "Bora Bora",
+      "uluru": "Uluru",
+      "fiordland": "Fiordland",
+      "patagonia": "Patagonie",
+      "torresDelPaine": "Torres del Paine",
+      "alcatraz": "Alcatraz",
+      "goldenGate": "Golden Gate Bridge",
+      "lasVegasStrip": "Las Vegas Strip",
+      "broadway": "Broadway",
+      "siliconValley": "Silicon Valley",
+      "wallStreet": "Wall Street",
+      "route66": "Route 66",
+      "louvre": "Louvre",
+      "buckinghamPalace": "Palais de Buckingham",
+      "towerBridge": "Tower Bridge",
+      "christRedeemer": "Christ Rédempteur",
+      "sydneyOpera": "Opéra de Sydney",
+      "burjKhalifa": "Burj Khalifa",
+      "petronasTowers": "Tours Petronas",
+      "marinaBaySands": "Marina Bay Sands",
+      "forbiddenCity": "Cité interdite",
+      "terracottaArmy": "Armée de terre cuite",
+      "jejuIsland": "Île de Jeju",
+      "northernLights": "Aurores boréales",
+      "svalbard": "Svalbard",
+      "galapagos": "Galápagos",
+      "frenchQuarter": "Vieux Carré",
+      "hollywoodBoulevard": "Hollywood Boulevard",
+      "parkGuell": "Park Güell",
+      "matterhorn": "Cervin",
+      "norwegianFjords": "Fjords norvégiens",
+      "blueLagoon": "Lagon bleu",
+      "tuscany": "Toscane",
+      "provence": "Provence",
+      "greatOceanRoad": "Great Ocean Road",
+      "chefchaouen": "Chefchaouen",
+      "sigiriya": "Sigiriya",
+      "borobudur": "Borobudur",
+      "bagan": "Bagan",
+      "tikal": "Tikal",
+      "nazcaLines": "Géoglyphes de Nazca",
+      "teotihuacan": "Teotihuacan",
+      "rajaAmpat": "Raja Ampat",
+      "riceTerraces": "Rizières de Banaue"
+    },
+    "anime": {
+      "attackOnTitan": "L’Attaque des Titans",
+      "deathNote": "Death Note",
+      "fullmetalAlchemist": "Fullmetal Alchemist",
+      "demonSlayer": "Demon Slayer",
+      "jujutsuKaisen": "Jujutsu Kaisen",
+      "hunterXHunter": "Hunter x Hunter",
+      "steinsGate": "Steins;Gate",
+      "cowboyBebop": "Cowboy Bebop",
+      "neonGenesisEvangelion": "Neon Genesis Evangelion",
+      "akira": "Akira",
+      "ghostInTheShell": "Ghost in the Shell",
+      "spiritedAway": "Le Voyage de Chihiro",
+      "princessMononoke": "Princesse Mononoke",
+      "yourName": "Your Name",
+      "aSilentVoice": "A Silent Voice",
+      "violetEvergarden": "Violet Evergarden",
+      "madeInAbyss": "Made in Abyss",
+      "vinlandSaga": "Vinland Saga",
+      "berserk": "Berserk",
+      "monster": "Monster",
+      "pluto": "Pluto",
+      "parasyte": "Parasite",
+      "codeGeass": "Code Geass",
+      "psychoPass": "Psycho-Pass",
+      "erased": "Erased",
+      "reZero": "Re:Zero",
+      "frieren": "Frieren",
+      "chainsawMan": "Chainsaw Man",
+      "spyXFamily": "Spy x Family",
+      "haikyuu": "Haikyuu!!",
+      "jojosBizarre": "JoJo's Bizarre Adventure",
+      "onePunchMan": "One-Punch Man",
+      "mobPsycho": "Mob Psycho 100",
+      "tokyoGhoul": "Tokyo Ghoul",
+      "myHeroAcademia": "My Hero Academia",
+      "naruto": "Naruto",
+      "onePiece": "One Piece",
+      "dragonBall": "Dragon Ball",
+      "bleach": "Bleach",
+      "sailorMoon": "Sailor Moon",
+      "inuyasha": "Inuyasha",
+      "clannad": "Clannad",
+      "weatherWithYou": "Les Enfants du temps",
+      "howlsMovingCastle": "Le Château ambulant",
+      "myNeighborTotoro": "Mon voisin Totoro",
+      "kikisDelivery": "Kiki la petite sorcière",
+      "dandadan": "Dandadan",
+      "oshiNoKo": "Oshi no Ko",
+      "hellsParadise": "Hell's Paradise"
+    },
+    "schoolEducation": {
+      "thesis": "Mémoire",
+      "dissertation": "Thèse",
+      "sabbatical": "Année sabbatique",
+      "tenure": "Titularisation",
+      "valedictorian": "Major de promo",
+      "salutatorian": "Second de promo",
+      "deansList": "Tableau d’honneur",
+      "gradePointAverage": "Moyenne générale",
+      "prerequisite": "Prérequis",
+      "electiveCourse": "Cours optionnel",
+      "syllabus": "Syllabus",
+      "rubric": "Grille d’évaluation",
+      "plagiarism": "Plagiat",
+      "citation": "Citation",
+      "bibliography": "Bibliographie",
+      "peerReview": "Évaluation par les pairs",
+      "officeHours": "Heures de permanence",
+      "teachingAssistant": "Assistant d’enseignement",
+      "adjunctProfessor": "Chargé de cours",
+      "chancellor": "Chancelier",
+      "registrar": "Scolarité",
+      "bursar": "Intendance",
+      "dormitory": "Résidence universitaire",
+      "fraternity": "Fraternité",
+      "sorority": "Sororité",
+      "commencement": "Remise des diplômes",
+      "convocation": "Cérémonie universitaire",
+      "orientationWeek": "Semaine d’intégration",
+      "midtermExam": "Examen de mi-semestre",
+      "oralExam": "Examen oral",
+      "curveGrading": "Notation en courbe",
+      "extraCredit": "Points bonus",
+      "apprenticeship": "Apprentissage",
+      "vocationalSchool": "Lycée professionnel",
+      "communityCollege": "Collège communautaire",
+      "ivyLeague": "Ivy League",
+      "boardingSchool": "Internat",
+      "montessori": "Montessori",
+      "detention": "Heure de colle",
+      "suspension": "Exclusion temporaire",
+      "expulsion": "Exclusion définitive",
+      "hallPass": "Mot de sortie",
+      "studyHall": "Heure d’étude",
+      "scienceFair": "Foire scientifique",
+      "debateClub": "Club de débat",
+      "studentCouncil": "Conseil des élèves",
+      "yearbook": "Annuaire",
+      "homecoming": "Homecoming",
+      "pepRally": "Meeting d’encouragement",
+      "honorRoll": "Tableau d’honneur",
+      "scholarship": "Bourse",
+      "studentLoan": "Prêt étudiant",
+      "tuition": "Frais de scolarité",
+      "lectureHall": "Amphithéâtre",
+      "seminar": "Séminaire",
+      "symposium": "Symposium",
+      "colloquium": "Colloque",
+      "exchangeStudent": "Étudiant d’échange",
+      "gapYear": "Année de césure",
+      "studyAbroad": "Études à l’étranger",
+      "ibDiploma": "Diplôme de l’IB",
+      "advancedPlacement": "Cours AP",
+      "honorsClass": "Cours avancé",
+      "substituteTeacher": "Professeur remplaçant",
+      "guidanceCounselor": "Conseiller d’orientation",
+      "trigonometry": "Trigonométrie",
+      "calculus": "Calcul infinitésimal",
+      "organicChemistry": "Chimie organique",
+      "quantumPhysics": "Physique quantique",
+      "epistemology": "Épistémologie",
+      "etymology": "Étymologie",
+      "paleontology": "Paléontologie",
+      "archaeology": "Archéologie",
+      "anthropology": "Anthropologie",
+      "sociology": "Sociologie",
+      "criminology": "Criminologie",
+      "jurisprudence": "Jurisprudence",
+      "rhetoric": "Rhétorique",
+      "phonetics": "Phonétique",
+      "morphology": "Morphologie",
+      "syntax": "Syntaxe",
+      "semantics": "Sémantique",
+      "cartography": "Cartographie",
+      "topography": "Topographie",
+      "climatology": "Climatologie",
+      "astronomy": "Astronomie",
+      "cosmology": "Cosmologie",
+      "genetics": "Génétique",
+      "microbiology": "Microbiologie",
+      "biochemistry": "Biochimie",
+      "pharmacology": "Pharmacologie",
+      "anatomy": "Anatomie",
+      "physiology": "Physiologie",
+      "freshmanYear": "Première année",
+      "sophomore": "Deuxième année",
+      "alumni": "Anciens élèves",
+      "campus": "Campus",
+      "intern": "Stagiaire",
+      "grant": "Subvention",
+      "popQuiz": "Interro surprise",
+      "takeHomeExam": "Examen à la maison",
+      "fieldTrip": "Sortie scolaire",
+      "lockers": "Casiers",
+      "auditorium": "Auditorium",
+      "laboratory": "Laboratoire",
+      "recess": "Récréation",
+      "homeschool": "École à la maison"
     }
   },
   "hints": {
@@ -572,6 +1622,51 @@
       "hint1": "Monde numérique",
       "hint2": "Quelque chose d'électronique",
       "hint3": "Invention moderne"
+    },
+    "celebrities": {
+      "hint1": "Quelqu’un de célèbre",
+      "hint2": "Souvent vu dans les médias",
+      "hint3": "Connu dans le monde entier"
+    },
+    "cities": {
+      "hint1": "Une ville",
+      "hint2": "On la trouve sur une carte",
+      "hint3": "Les gens y vivent et travaillent"
+    },
+    "bodyHealth": {
+      "hint1": "Lié au corps",
+      "hint2": "Santé ou médecine",
+      "hint3": "Quelque chose que les médecins citent"
+    },
+    "brands": {
+      "hint1": "Une marque connue",
+      "hint2": "Tu as peut-être vu son logo",
+      "hint3": "Vendue dans les magasins"
+    },
+    "hollywood": {
+      "hint1": "Lié à l’industrie du cinéma",
+      "hint2": "Culture cinéma ou récompenses",
+      "hint3": "Quelque chose d’Hollywood"
+    },
+    "games": {
+      "hint1": "Un jeu vidéo",
+      "hint2": "Joué sur console ou PC",
+      "hint3": "Connu des joueurs"
+    },
+    "locations": {
+      "hint1": "Un lieu célèbre",
+      "hint2": "On pourrait y voyager",
+      "hint3": "On le trouve sur une carte"
+    },
+    "anime": {
+      "hint1": "Issu de l’animation japonaise",
+      "hint2": "Une série ou un film",
+      "hint3": "Populaire chez les fans d’animé"
+    },
+    "schoolEducation": {
+      "hint1": "Lié à l’école",
+      "hint2": "Lié à l’apprentissage",
+      "hint3": "Quelque chose de l’éducation"
     }
   },
   "questions": {
@@ -2190,6 +3285,744 @@
         "normal": "À quoi ressemblerait la vie sans Internet ?",
         "imposter": "À quoi ressemblerait la vie sans électricité ?"
       }
+    },
+    "celebrities": {
+      "q1": {
+        "normal": "Avec quelle célébrité aimerais-tu dîner ?",
+        "imposter": "Avec quel personnage historique aimerais-tu dîner ?"
+      },
+      "q2": {
+        "normal": "Qui est le plus surcoté en ce moment ?",
+        "imposter": "Quelle marque est la plus surcotée en ce moment ?"
+      },
+      "q3": {
+        "normal": "L’image de qui semble la plus construite ?",
+        "imposter": "Le concept de restaurant de qui semble le plus construit ?"
+      },
+      "q4": {
+        "normal": "Qui serait le pire colocataire ?",
+        "imposter": "Quel animal serait le pire colocataire ?"
+      },
+      "q5": {
+        "normal": "Le style de qui respectes-tu vraiment ?",
+        "imposter": "Le décor de qui respectes-tu vraiment ?"
+      },
+      "q6": {
+        "normal": "Qui a atteint son sommet trop tôt ?",
+        "imposter": "Quel restaurant a atteint son sommet trop tôt ?"
+      },
+      "q7": {
+        "normal": "Qui a la voix la plus distinctive ?",
+        "imposter": "Quel instrument a le son le plus distinctif ?"
+      },
+      "q8": {
+        "normal": "Le documentaire de qui terminerais-tu vraiment ?",
+        "imposter": "L’émission de cuisine de qui terminerais-tu vraiment ?"
+      },
+      "q9": {
+        "normal": "À qui confierais-tu un secret ?",
+        "imposter": "À quel ami confierais-tu un secret ?"
+      },
+      "q10": {
+        "normal": "Qui est le plus polyvalent ?",
+        "imposter": "Quel ustensile est le plus polyvalent ?"
+      },
+      "q11": {
+        "normal": "Qui tiendrait le plus longtemps dans une télé-réalité ?",
+        "imposter": "Quelle plante tiendrait le plus longtemps sans soin ?"
+      },
+      "q12": {
+        "normal": "Le retour de qui était le plus impressionnant ?",
+        "imposter": "La renaissance de quelle ville était la plus impressionnante ?"
+      },
+      "q13": {
+        "normal": "Qui est secrètement le plus drôle ?",
+        "imposter": "Quel prof est secrètement le plus drôle ?"
+      },
+      "q14": {
+        "normal": "Qui ferait le discours de remerciement le plus chaotique ?",
+        "imposter": "Qui ferait le discours de mariage le plus chaotique ?"
+      },
+      "q15": {
+        "normal": "Qui est trop exposé ?",
+        "imposter": "Quelle chanson est trop entendue ?"
+      },
+      "q16": {
+        "normal": "Qui embaucherais-tu comme directeur créatif ?",
+        "imposter": "Qui embaucherais-tu comme décorateur ?"
+      },
+      "q17": {
+        "normal": "Les choix de carrière de qui te déroutent ?",
+        "imposter": "Les choix de menu de qui te déroutent ?"
+      },
+      "q18": {
+        "normal": "Qui a le mieux vieilli ?",
+        "imposter": "Quel bâtiment a le mieux vieilli ?"
+      },
+      "q19": {
+        "normal": "Qui serait insupportable en long-courrier ?",
+        "imposter": "Quel enfant serait insupportable en long-courrier ?"
+      },
+      "q20": {
+        "normal": "Qui mérite une célébrité plus discrète ?",
+        "imposter": "Quelle invention mérite plus de crédit ?"
+      }
+    },
+    "cities": {
+      "q1": {
+        "normal": "Dans quelle ville t’installerais-tu un an ?",
+        "imposter": "Dans quel village t’installerais-tu un an ?"
+      },
+      "q2": {
+        "normal": "Quelle ville a la scène culinaire la plus surcotée ?",
+        "imposter": "Quel restaurant a le menu le plus surcoté ?"
+      },
+      "q3": {
+        "normal": "Où aimerais-tu te perdre exprès ?",
+        "imposter": "Dans quel musée aimerais-tu te perdre exprès ?"
+      },
+      "q4": {
+        "normal": "Quelle ville est la plus cinématographique ?",
+        "imposter": "Quelle forêt est la plus cinématographique ?"
+      },
+      "q5": {
+        "normal": "Où la vie nocturne te fatiguerait-elle en premier ?",
+        "imposter": "Quel festival te fatiguerait en premier ?"
+      },
+      "q6": {
+        "normal": "Quelle ville a les transports les plus confus ?",
+        "imposter": "Quel aéroport a le plan le plus confus ?"
+      },
+      "q7": {
+        "normal": "Où ne conduirais-tu jamais ?",
+        "imposter": "Sur quelle montagne ne conduirais-tu jamais ?"
+      },
+      "q8": {
+        "normal": "Quelle ville a l’odeur la plus distinctive ?",
+        "imposter": "Quelle épice a l’odeur la plus distinctive ?"
+      },
+      "q9": {
+        "normal": "Où une semaine de pluie vaudrait encore le coup ?",
+        "imposter": "Où un pique-nique sous la pluie vaudrait encore le coup ?"
+      },
+      "q10": {
+        "normal": "Quelle ville viderait ton portefeuille le plus vite ?",
+        "imposter": "Quel hobby viderait ton portefeuille le plus vite ?"
+      },
+      "q11": {
+        "normal": "Où les habitants semblent-ils les plus impatients ?",
+        "imposter": "Quelle file rend les gens les plus impatients ?"
+      },
+      "q12": {
+        "normal": "Quelle skyline est la plus surcotée ?",
+        "imposter": "Quel monument est le plus surcoté ?"
+      },
+      "q13": {
+        "normal": "Où irais-tu disparaître un mois ?",
+        "imposter": "Quelle cabane choisirais-tu pour disparaître un mois ?"
+      },
+      "q14": {
+        "normal": "Quelle ville a les taxis les plus impolis ?",
+        "imposter": "Quelle compagnie a le personnel le plus impoli ?"
+      },
+      "q15": {
+        "normal": "Où la street food te décevrait-elle le moins ?",
+        "imposter": "Où la nourriture d’hôpital te décevrait-elle le moins ?"
+      },
+      "q16": {
+        "normal": "Pour quelle ville est-il le plus dur de faire sa valise ?",
+        "imposter": "Pour quel voyage est-il le plus dur de faire sa valise ?"
+      },
+      "q17": {
+        "normal": "Où ne réserverais-tu jamais un Airbnb en sous-sol ?",
+        "imposter": "Où ne réserverais-tu jamais une chambre sans fenêtre ?"
+      },
+      "q18": {
+        "normal": "Quelle ville change de personnalité après minuit ?",
+        "imposter": "Qui change de personnalité après minuit ?"
+      },
+      "q19": {
+        "normal": "Où apprendrais-tu la langue le plus vite ?",
+        "imposter": "Où apprendrais-tu à cuisiner le plus vite ?"
+      },
+      "q20": {
+        "normal": "Quelle ville est secrètement la plus épuisante ?",
+        "imposter": "Quel parent est secrètement le plus épuisant ?"
+      }
+    },
+    "bodyHealth": {
+      "q1": {
+        "normal": "Quel trouble est le plus sous-estimé ?",
+        "imposter": "Quelle corvée est la plus sous-estimée ?"
+      },
+      "q2": {
+        "normal": "De quoi aimerais-tu ne jamais avoir à t’occuper ?",
+        "imposter": "De quel désastre en cuisine aimerais-tu ne jamais t’occuper ?"
+      },
+      "q3": {
+        "normal": "Quelle convalescence demande plus de patience qu’on ne le dit ?",
+        "imposter": "Quel hobby demande plus de patience qu’on ne le dit ?"
+      },
+      "q4": {
+        "normal": "Que cherchent trop les gens à 2 h du matin ?",
+        "imposter": "Quelle recette ratent trop les gens à 2 h du matin ?"
+      },
+      "q5": {
+        "normal": "Qu’est-ce qui paraît plus grave que ça l’est ?",
+        "imposter": "Quel insecte paraît plus grave que ça l’est ?"
+      },
+      "q6": {
+        "normal": "Qu’est-ce qui te ferait appeler un médecin tout de suite ?",
+        "imposter": "Qu’est-ce qui te ferait appeler un plombier tout de suite ?"
+      },
+      "q7": {
+        "normal": "Quelle habitude use les gens en silence ?",
+        "imposter": "Quelle en-cas use les gens en silence ?"
+      },
+      "q8": {
+        "normal": "Quoi est le plus dur à expliquer à un hypocondriaque ?",
+        "imposter": "Quoi est le plus dur à expliquer à un difficile ?"
+      },
+      "q9": {
+        "normal": "Qu’est-ce qui relève plus du mode de vie que du diagnostic ?",
+        "imposter": "Quel régime est plus une mode que de la science ?"
+      },
+      "q10": {
+        "normal": "Que devrait-on comprendre avant 30 ans ?",
+        "imposter": "Quelle recette devrait-on maîtriser avant 30 ans ?"
+      },
+      "q11": {
+        "normal": "Quel traitement paraît médiéval mais marche ?",
+        "imposter": "Quelle astuce de ménage paraît médiévale mais marche ?"
+      },
+      "q12": {
+        "normal": "Que ignorent les gens jusqu’à ce que ce soit urgent ?",
+        "imposter": "Quelle facture ignorent-ils jusqu’à ce que ce soit urgent ?"
+      },
+      "q13": {
+        "normal": "Qu’est-ce qui est le plus surdiagnostiqué ?",
+        "imposter": "Quel type de personnalité est le plus surdiagnostiqué ?"
+      },
+      "q14": {
+        "normal": "Quoi voudrais-tu le moins comme problème chronique ?",
+        "imposter": "Quelle habitude de coloc voudrais-tu le moins ?"
+      },
+      "q15": {
+        "normal": "Quel symptôme est le plus facile à mal lire ?",
+        "imposter": "Quel message est le plus facile à mal lire ?"
+      },
+      "q16": {
+        "normal": "Qu’est-ce qui mérite plus de financement ?",
+        "imposter": "Quel dessert mérite plus de place au menu ?"
+      },
+      "q17": {
+        "normal": "Qu’est-ce qui changerait le plus le quotidien ?",
+        "imposter": "Quel gadget changerait le plus le quotidien ?"
+      },
+      "q18": {
+        "normal": "Quoi est le plus pénible à gérer sur la durée ?",
+        "imposter": "Quel abonnement est le plus pénible sur la durée ?"
+      },
+      "q19": {
+        "normal": "Quel terme les gens utilisent-ils sans le comprendre ?",
+        "imposter": "Quel terme de cuisine utilisent-ils sans le comprendre ?"
+      },
+      "q20": {
+        "normal": "Que bannirais-tu du marketing bien-être ?",
+        "imposter": "Que bannirais-tu des pubs fast-food ?"
+      }
+    },
+    "brands": {
+      "q1": {
+        "normal": "Quelle marque vit sur son ancienne réputation ?",
+        "imposter": "Quel restaurant vit sur son ancienne réputation ?"
+      },
+      "q2": {
+        "normal": "Le logo de qui ne porterais-tu jamais ?",
+        "imposter": "Le slogan de qui ne répéterais-tu jamais ?"
+      },
+      "q3": {
+        "normal": "Quelle marque semble la plus hors de prix ?",
+        "imposter": "Quel petit-déj d’hôtel semble le plus hors de prix ?"
+      },
+      "q4": {
+        "normal": "Qui fabrique les produits les plus jetables ?",
+        "imposter": "Qui organise les fêtes les plus jetables ?"
+      },
+      "q5": {
+        "normal": "Quelle marque survivrait à un scandale ?",
+        "imposter": "Quel politicien survivrait à un scandale ?"
+      },
+      "q6": {
+        "normal": "Le service client de qui testerait ta patience en premier ?",
+        "imposter": "La famille de qui testerait ta patience en premier ?"
+      },
+      "q7": {
+        "normal": "Qui mise plus sur le style que sur le fond ?",
+        "imposter": "Quel influenceur mise plus sur le style que sur le fond ?"
+      },
+      "q8": {
+        "normal": "Que boycotterais-tu sans hésiter ?",
+        "imposter": "Quel aliment boycotterais-tu sans hésiter ?"
+      },
+      "q9": {
+        "normal": "Quelle marque reste un symbole de statut ?",
+        "imposter": "Quel quartier reste un symbole de statut ?"
+      },
+      "q10": {
+        "normal": "Qui brille plus en pub que dans le produit ?",
+        "imposter": "Qui brille plus dans la bande-annonce que dans le film ?"
+      },
+      "q11": {
+        "normal": "Que garderais-tu pendant une panne ?",
+        "imposter": "Quel outil garderais-tu pendant une panne ?"
+      },
+      "q12": {
+        "normal": "Le restylage de qui a tout empiré ?",
+        "imposter": "La coupe de qui a tout empiré ?"
+      },
+      "q13": {
+        "normal": "Pour quelle marque les touristes paient-ils trop ?",
+        "imposter": "Pour quel monument les touristes paient-ils trop ?"
+      },
+      "q14": {
+        "normal": "Qui a l’emballage le plus mensonger ?",
+        "imposter": "Qui a le profil de rencontre le plus mensonger ?"
+      },
+      "q15": {
+        "normal": "Quelle collab était totalement inutile ?",
+        "imposter": "Quel travail de groupe était totalement inutile ?"
+      },
+      "q16": {
+        "normal": "Que offrirais-tu à quelqu’un que tu aimes un peu moins ?",
+        "imposter": "Quel dessert offrirais-tu à quelqu’un que tu aimes un peu moins ?"
+      },
+      "q17": {
+        "normal": "Quelle marque semble faite pour les aéroports ?",
+        "imposter": "Quel plat semble fait pour les aéroports ?"
+      },
+      "q18": {
+        "normal": "Qui a perdu son âme en devenant mainstream ?",
+        "imposter": "Quel groupe a perdu son âme en devenant mainstream ?"
+      },
+      "q19": {
+        "normal": "Dans quoi investirais-tu sans le porter ?",
+        "imposter": "Quelle action achèterais-tu sans t’en vanter ?"
+      },
+      "q20": {
+        "normal": "Le nom de qui sonne encore luxe sans raison ?",
+        "imposter": "L’accent de qui sonne encore chic sans raison ?"
+      }
+    },
+    "hollywood": {
+      "q1": {
+        "normal": "Quel prix semble le moins honnête ?",
+        "imposter": "Quel prix scolaire semble le moins honnête ?"
+      },
+      "q2": {
+        "normal": "Quelle partie d’une prod t’épuiserait en premier ?",
+        "imposter": "Quelle partie d’un mariage t’épuiserait en premier ?"
+      },
+      "q3": {
+        "normal": "Quelle tendance devrait déjà prendre sa retraite ?",
+        "imposter": "Quelle mode devrait déjà prendre sa retraite ?"
+      },
+      "q4": {
+        "normal": "Quel ressort narratif est le plus usé ?",
+        "imposter": "Quelle phrase d’approche est la plus usée ?"
+      },
+      "q5": {
+        "normal": "Quel métier sur le plateau paraît glamour mais ne l’est pas ?",
+        "imposter": "Quel métier en resto paraît glamour mais ne l’est pas ?"
+      },
+      "q6": {
+        "normal": "Que bannirais-tu des cérémonies ?",
+        "imposter": "Que bannirais-tu des dîners de famille ?"
+      },
+      "q7": {
+        "normal": "Quel format est créativement épuisé ?",
+        "imposter": "Quel reste est créativement épuisé ?"
+      },
+      "q8": {
+        "normal": "Où l’industrie ment-elle le plus ?",
+        "imposter": "Où les brochures de voyage mentent-elles le plus ?"
+      },
+      "q9": {
+        "normal": "Qu’est-ce qui fait tout de suite cheap un film ?",
+        "imposter": "Qu’est-ce qui fait tout de suite cheap un hôtel ?"
+      },
+      "q10": {
+        "normal": "Quel rituel n’est que du théâtre ?",
+        "imposter": "Quel rituel de bureau n’est que du théâtre ?"
+      },
+      "q11": {
+        "normal": "De quoi le public devrait-il plus se méfier ?",
+        "imposter": "De quoi les clients devraient-ils plus se méfier ?"
+      },
+      "q12": {
+        "normal": "Qu’est-ce qui a le plus mal vieilli ?",
+        "imposter": "Quel mot d’argot a le plus mal vieilli ?"
+      },
+      "q13": {
+        "normal": "Quoi est le plus dur à faker à la caméra ?",
+        "imposter": "Quoi est le plus dur à faker à un dîner ?"
+      },
+      "q14": {
+        "normal": "Quel générique ignore-t-on à tort ?",
+        "imposter": "Quel avertissement ignore-t-on à tort ?"
+      },
+      "q15": {
+        "normal": "Que couperais-tu d’un blockbuster trop long ?",
+        "imposter": "Que couperais-tu d’un buffet trop chargé ?"
+      },
+      "q16": {
+        "normal": "Quel rôle est le plus ingrat ?",
+        "imposter": "Quel rôle en famille est le plus ingrat ?"
+      },
+      "q17": {
+        "normal": "Que les critiques encensent-ils trop ?",
+        "imposter": "Que les food bloggers encensent-ils trop ?"
+      },
+      "q18": {
+        "normal": "Quelle phrase de ce milieu est la plus prétentieuse ?",
+        "imposter": "Quelle phrase sur le vin est la plus prétentieuse ?"
+      },
+      "q19": {
+        "normal": "Qu’est-ce qui te ferait quitter une première ?",
+        "imposter": "Qu’est-ce qui te ferait quitter un dîner ?"
+      },
+      "q20": {
+        "normal": "Qu’est-ce qui est plus du marketing que du cinéma ?",
+        "imposter": "Qu’est-ce qui est plus de l’emballage que de la nourriture ?"
+      }
+    },
+    "games": {
+      "q1": {
+        "normal": "Quel jeu est brillant mais trop punitif ?",
+        "imposter": "Quel prof est brillant mais trop punitif ?"
+      },
+      "q2": {
+        "normal": "Que ne jouerais-tu jamais à un premier rencard ?",
+        "imposter": "Quel film ne mettrais-tu jamais à un premier rencard ?"
+      },
+      "q3": {
+        "normal": "Quel combat est le plus surcoté ?",
+        "imposter": "Quel steak est le plus surcoté ?"
+      },
+      "q4": {
+        "normal": "Où les quêtes secondaires deviennent-elles un second job ?",
+        "imposter": "Où les corvées deviennent-elles un second job ?"
+      },
+      "q5": {
+        "normal": "Quelle fin te mettrait en colère ?",
+        "imposter": "Quel final de saison te mettrait en colère ?"
+      },
+      "q6": {
+        "normal": "Quelle communauté est la plus prétentieuse ?",
+        "imposter": "Quelle commande de café est la plus prétentieuse ?"
+      },
+      "q7": {
+        "normal": "Quel jeu est plus beau à jouer qu’à voir ?",
+        "imposter": "Quel gâteau est meilleur que son look ?"
+      },
+      "q8": {
+        "normal": "Que supprimerais-tu après un week-end ?",
+        "imposter": "Quel reste jetterais-tu après un week-end ?"
+      },
+      "q9": {
+        "normal": "Quel boss est plus du spectacle que du skill ?",
+        "imposter": "Quel concert est plus du spectacle que de la musique ?"
+      },
+      "q10": {
+        "normal": "Où l’histoire porte-t-elle un jeu faible ?",
+        "imposter": "Où le dressage porte-t-il un plat faible ?"
+      },
+      "q11": {
+        "normal": "Quel multi ruine les amitiés le plus vite ?",
+        "imposter": "Quel jeu de société ruine les amitiés le plus vite ?"
+      },
+      "q12": {
+        "normal": "Quoi mérite le moins un remake ?",
+        "imposter": "Quel resto mérite le moins un reboot ?"
+      },
+      "q13": {
+        "normal": "Quel tutoriel parle trop ?",
+        "imposter": "Quel parent parle trop ?"
+      },
+      "q14": {
+        "normal": "Que jouerais-tu seulement en sourdine ?",
+        "imposter": "Quel film regarderais-tu seulement en sourdine ?"
+      },
+      "q15": {
+        "normal": "Quel monde ouvert n’est qu’un espace vide ?",
+        "imposter": "Quel musée n’est qu’un espace vide ?"
+      },
+      "q16": {
+        "normal": "Quoi a le fandom le plus pénible ?",
+        "imposter": "Quelle cuisine a le fandom le plus pénible ?"
+      },
+      "q17": {
+        "normal": "Quel jeu les gens louent-ils sans le finir ?",
+        "imposter": "Quel livre les gens louent-ils sans le finir ?"
+      },
+      "q18": {
+        "normal": "Que streamerais-tu même en étant nul ?",
+        "imposter": "Quel sport ferais-tu même en étant nul ?"
+      },
+      "q19": {
+        "normal": "Quelle mécanique a mal vieilli ?",
+        "imposter": "Quel mot d’argot a mal vieilli ?"
+      },
+      "q20": {
+        "normal": "Quoi est secrètement un walking sim avec des étapes en plus ?",
+        "imposter": "Quelle réunion est secrètement un walking sim ?"
+      }
+    },
+    "locations": {
+      "q1": {
+        "normal": "Quel lieu est plus beau en photo qu’en vrai ?",
+        "imposter": "Quel dessert est plus beau en photo qu’en vrai ?"
+      },
+      "q2": {
+        "normal": "Où la foule gâcherait-elle l’expérience en premier ?",
+        "imposter": "Où un bébé qui pleure gâcherait-elle l’expérience en premier ?"
+      },
+      "q3": {
+        "normal": "Quel lieu est trop hype par les influenceurs voyage ?",
+        "imposter": "Quel café est trop hype par les influenceurs ?"
+      },
+      "q4": {
+        "normal": "Où irais-tu pour te sentir tout petit ?",
+        "imposter": "Quel concert te ferait te sentir tout petit ?"
+      },
+      "q5": {
+        "normal": "Quel lieu te ferait plus peur la nuit ?",
+        "imposter": "Quelle cave te ferait plus peur la nuit ?"
+      },
+      "q6": {
+        "normal": "Où le trajet est-il mieux que la destination ?",
+        "imposter": "Où la cuisine est-elle mieux que le dressage ?"
+      },
+      "q7": {
+        "normal": "Quel monument n’est qu’une file avec une vue ?",
+        "imposter": "Quel club n’est qu’une file avec de la musique ?"
+      },
+      "q8": {
+        "normal": "Où refuserais-tu une visite guidée ?",
+        "imposter": "Où refuserais-tu un menu dégustation ?"
+      },
+      "q9": {
+        "normal": "Quel lieu paraît sacré même sans religion ?",
+        "imposter": "Quelle cuisine paraît sacrée même si tu ne cuisines pas ?"
+      },
+      "q10": {
+        "normal": "Où la météo gâcherait-elle le voyage le plus vite ?",
+        "imposter": "Où une panne gâcherait-elle le dîner le plus vite ?"
+      },
+      "q11": {
+        "normal": "Quoi impressionne une fois et plus jamais ?",
+        "imposter": "Quel film impressionne une fois et plus jamais ?"
+      },
+      "q12": {
+        "normal": "Où irais-tu avec quelqu’un que tu commences à voir ?",
+        "imposter": "Où mangerais-tu avec quelqu’un que tu commences à voir ?"
+      },
+      "q13": {
+        "normal": "Quel site devrait limiter les visiteurs ?",
+        "imposter": "Quel resto devrait limiter les réservations ?"
+      },
+      "q14": {
+        "normal": "Où la boutique de souvenirs est-elle la vraie attraction ?",
+        "imposter": "Où le dessert est-il le vrai plat ?"
+      },
+      "q15": {
+        "normal": "Quel paysage calmerait d’abord un touriste bruyant ?",
+        "imposter": "Quelle bibliothèque calmerait d’abord un touriste bruyant ?"
+      },
+      "q16": {
+        "normal": "Où n’irais-tu jamais en haute saison ?",
+        "imposter": "Où ne mangerais-tu jamais à l’heure de pointe ?"
+      },
+      "q17": {
+        "normal": "Quel lieu semble inventé pour les cartes postales ?",
+        "imposter": "Quel dessert semble inventé pour les cartes postales ?"
+      },
+      "q18": {
+        "normal": "Que sauterais-tu même en étant déjà sur place ?",
+        "imposter": "Quel plat sauterais-tu même déjà payé ?"
+      },
+      "q19": {
+        "normal": "Quoi est plus une histoire qu’une vue ?",
+        "imposter": "Quel vin est plus une histoire qu’un goût ?"
+      },
+      "q20": {
+        "normal": "Où une tempête soudaine serait-elle un peu parfaite ?",
+        "imposter": "Où une panne serait-elle un peu parfaite ?"
+      }
+    },
+    "anime": {
+      "q1": {
+        "normal": "Quoi est brillant jusqu’à la fin ?",
+        "imposter": "Quelle série est brillante jusqu’à la fin ?"
+      },
+      "q2": {
+        "normal": "Quoi a le nombre d’épisodes le plus épuisant ?",
+        "imposter": "Quel cours a le nombre de séances le plus épuisant ?"
+      },
+      "q3": {
+        "normal": "Quel fandom se dispute pour les trucs les plus cons ?",
+        "imposter": "Quel fandom sportif se dispute pour les trucs les plus cons ?"
+      },
+      "q4": {
+        "normal": "Que montrerais-tu à quelqu’un qui “n’aime pas l’animé” ?",
+        "imposter": "Quel plat montrerais-tu à quelqu’un qui “n’aime pas épicé” ?"
+      },
+      "q5": {
+        "normal": "Quel opening est meilleur que la série ?",
+        "imposter": "Quelle bande-annonce est meilleure que le film ?"
+      },
+      "q6": {
+        "normal": "Quoi a atteint son sommet dès la saison 1 ?",
+        "imposter": "Quel resto a atteint son sommet dès la première année ?"
+      },
+      "q7": {
+        "normal": "Quel système de pouvoir est le plus tordu ?",
+        "imposter": "Quel formulaire fiscal est le plus tordu ?"
+      },
+      "q8": {
+        "normal": "Quoi est secrètement un animé sportif déguisé ?",
+        "imposter": "Quelle réunion est secrètement un animé sportif ?"
+      },
+      "q9": {
+        "normal": "Quel type de perso devrait prendre sa retraite ?",
+        "imposter": "Quel type de perso de sitcom devrait prendre sa retraite ?"
+      },
+      "q10": {
+        "normal": "Quoi est loué pour le dessin mais porté par la musique ?",
+        "imposter": "Quel resto est loué pour le dressage mais porté par le sel ?"
+      },
+      "q11": {
+        "normal": "Quelle adaptation a insulté l’œuvre ?",
+        "imposter": "Quelle suite a insulté l’original ?"
+      },
+      "q12": {
+        "normal": "Que revoirais-tu en salle d’attente ?",
+        "imposter": "Quel en-cas voudrais-tu en salle d’attente ?"
+      },
+      "q13": {
+        "normal": "Quoi n’est que du feeling, sans intrigue ?",
+        "imposter": "Quel parfum n’est que du feeling, sans fond ?"
+      },
+      "q14": {
+        "normal": "Où le filler a-t-il fait le plus de dégâts ?",
+        "imposter": "Où les pubs ont-elles fait le plus de dégâts ?"
+      },
+      "q15": {
+        "normal": "Le style de quel studio reconnais-tu tout de suite ?",
+        "imposter": "Le style de quelle boulangerie reconnais-tu tout de suite ?"
+      },
+      "q16": {
+        "normal": "Quoi aurait dû rester une saison ?",
+        "imposter": "Quel concept de resto aurait dû rester un pop-up ?"
+      },
+      "q17": {
+        "normal": "Quel combat mise plus sur le style que sur la clarté ?",
+        "imposter": "Quel film d’action mise plus sur le style que sur la clarté ?"
+      },
+      "q18": {
+        "normal": "Quelle réplique est la plus ressassée ?",
+        "imposter": "Quelle réplique de film est la plus ressassée ?"
+      },
+      "q19": {
+        "normal": "Quoi est en fait une tragédie aux couleurs vives ?",
+        "imposter": "Quel livre pour enfants est en fait une tragédie colorée ?"
+      },
+      "q20": {
+        "normal": "Quoi garderais-tu un peu pour toi, honnêtement ?",
+        "imposter": "Quelle recette garderais-tu un peu pour toi ?"
+      }
+    },
+    "schoolEducation": {
+      "q1": {
+        "normal": "Quel terme les élèves font-ils semblant de comprendre ?",
+        "imposter": "Quel terme de vin fait-on semblant de comprendre ?"
+      },
+      "q2": {
+        "normal": "Quel cerceau est le plus inutile ?",
+        "imposter": "Quel cerceau de bureau est le plus inutile ?"
+      },
+      "q3": {
+        "normal": "Quoi crée plus d’anxiété que d’apprentissage ?",
+        "imposter": "Quelle tradition familiale crée plus d’anxiété que de joie ?"
+      },
+      "q4": {
+        "normal": "Que devrait-on abolir demain ?",
+        "imposter": "Quelle règle à la maison devrait-on abolir demain ?"
+      },
+      "q5": {
+        "normal": "Quel rôle a le travail le plus ingrat ?",
+        "imposter": "Quel rôle en cuisine a le travail le plus ingrat ?"
+      },
+      "q6": {
+        "normal": "Quoi n’est que du statut déguisé en éducation ?",
+        "imposter": "Quoi n’est que du statut déguisé en hospitalité ?"
+      },
+      "q7": {
+        "normal": "Quel format d’examen est le moins juste ?",
+        "imposter": "Quel format de concours est le moins juste ?"
+      },
+      "q8": {
+        "normal": "Où gâche-t-on le plus de potentiel ?",
+        "imposter": "Où gâche-t-on le plus de restes ?"
+      },
+      "q9": {
+        "normal": "Quoi impressionne sur un CV et nulle part ailleurs ?",
+        "imposter": "Quoi impressionne sur un menu et nulle part ailleurs ?"
+      },
+      "q10": {
+        "normal": "Quelle tradition est de la nostalgie, pas de l’éducation ?",
+        "imposter": "Quel plat de fête est de la nostalgie, pas du goût ?"
+      },
+      "q11": {
+        "normal": "Que rendrais-tu obligatoire, et pourquoi ça fait peur ?",
+        "imposter": "Quelle corvée rendrais-tu obligatoire ?"
+      },
+      "q12": {
+        "normal": "Quelle phrase de prof est la plus vide ?",
+        "imposter": "Quelle phrase de manager est la plus vide ?"
+      },
+      "q13": {
+        "normal": "Quoi coûte trop cher pour ce que c’est ?",
+        "imposter": "Quel brunch coûte trop cher pour ce que c’est ?"
+      },
+      "q14": {
+        "normal": "Quelle matière est enseignée le plus sans vie ?",
+        "imposter": "Quel musée est le plus sans vie ?"
+      },
+      "q15": {
+        "normal": "Où le privilège se voit-il en premier ?",
+        "imposter": "Où le privilège se voit-il en premier sur un menu ?"
+      },
+      "q16": {
+        "normal": "Que garderais-tu en refaisant l’école de zéro ?",
+        "imposter": "Que garderais-tu en refaisant les restos de zéro ?"
+      },
+      "q17": {
+        "normal": "Quelle punition est du théâtre, pas de la discipline ?",
+        "imposter": "Quelle règle de régime est du théâtre, pas de la santé ?"
+      },
+      "q18": {
+        "normal": "Que les adultes romantisent-ils et que les élèves redoutent-ils ?",
+        "imposter": "Que les critiques romantisent-ils et que les cuisiniers redoutent-ils ?"
+      },
+      "q19": {
+        "normal": "Quelle étape est surtout pour les photos ?",
+        "imposter": "Quel dessert est surtout pour les photos ?"
+      },
+      "q20": {
+        "normal": "Comment dire poliment qu’un cours était inutile ?",
+        "imposter": "Comment dire poliment qu’un dîner était inutile ?"
+      }
     }
   },
   "settings": {
@@ -2372,6 +4205,11 @@
   "splash": {
     "subtitle": "Trouvez l'imposteur !"
   },
+  "languageSelect": {
+    "title": "Choisir la langue",
+    "subtitle": "Choisissez votre langue",
+    "continue": "Continuer"
+  },
   "rating": {
     "title": "Ça t'a plu ?",
     "subtitle": "Si tu aimes le jeu, soutiens-nous !",
@@ -2379,20 +4217,26 @@
     "later": "Plus tard"
   },
   "paywall": {
-    "proLabel": "PRO",
-    "title": "Que la fête ne s'arrête jamais",
-    "subtitle": "Débloque toutes les catégories, les mots exclusifs et le jeu sans pub en un seul clic.",
+    "proLabel": "IMPOSTER PRO",
+    "title": "Personne ne te trouve",
+    "titleMid": "",
+    "titleHighlight": "impréparé",
+    "titleAfter": "",
+    "subtitle": "{{words}} mots dans {{categories}} catégories premium. Sans pub. Decks illimités.",
     "statCategories": "Catégories premium",
     "statWords": "Mots exclusifs",
     "statCustom": "Tes catégories",
-    "yearlyTitle": "Annuel",
+    "yearlyTitle": "12 mois",
     "yearlySubtitle": "Accès complet pendant 12 mois",
-    "monthlyTitle": "Mensuel",
+    "monthlyTitle": "1 mois",
     "perMonth": "{{price}} / mois",
-    "savePercent": "{{percent}} % D'ÉCONOMIE",
+    "savePercent": "-{{percent}} %",
     "bestValue": "MEILLEURE OFFRE",
-    "cta": "PASSER À PRO",
+    "cta": "Tout débloquer",
     "cancelAnytime": "Annulable à tout moment",
+    "restore": "Restaurer",
+    "terms": "Conditions",
+    "privacy": "Confidentialité",
     "legalText": "Ton abonnement est facturé sur ton compte Google Play. Il se renouvelle automatiquement sauf résiliation au moins 24 heures avant la fin de la période en cours. Tu peux le gérer ou le résilier dans Google Play > Abonnements."
   },
   "voting": {

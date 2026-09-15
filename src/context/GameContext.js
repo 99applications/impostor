@@ -104,6 +104,109 @@ const pickRoundContent = (
   };
 };
 
+const LAST_ROUND_WEIGHT = 0.1;
+const NEVER_IMPOSTER_RECENCY = 2.5;
+const MIN_SELECTION_WEIGHT = 0.05;
+
+const getImposterWeight = (player, currentRound, maxTimes) => {
+  const times = player.imposterCount || 0;
+  const frequencyWeight = maxTimes - times + 1;
+
+  let recencyWeight = NEVER_IMPOSTER_RECENCY;
+  if (player.lastImposterRound != null) {
+    const roundsSince = currentRound - player.lastImposterRound;
+    if (roundsSince <= 1) {
+      recencyWeight = LAST_ROUND_WEIGHT;
+    } else if (roundsSince === 2) {
+      recencyWeight = 0.45;
+    } else {
+      recencyWeight = 0.75 + Math.min(roundsSince, 12) * 0.4;
+    }
+  }
+
+  return Math.max(frequencyWeight * recencyWeight, MIN_SELECTION_WEIGHT);
+};
+
+const pickWeightedIndex = weights => {
+  const total = weights.reduce((sum, weight) => sum + weight, 0);
+  if (total <= 0) {
+    return Math.floor(Math.random() * weights.length);
+  }
+
+  let ticket = Math.random() * total;
+  for (let i = 0; i < weights.length; i++) {
+    ticket -= weights[i];
+    if (ticket <= 0) {
+      return i;
+    }
+  }
+
+  return weights.length - 1;
+};
+
+const selectFairImposterIndices = (players, count, currentRound) => {
+  const selected = [];
+  const remaining = players.map((_, index) => index);
+  const pickCount = Math.min(count, players.length);
+
+  while (selected.length < pickCount && remaining.length > 0) {
+    const maxTimes = remaining.reduce(
+      (max, index) => Math.max(max, players[index].imposterCount || 0),
+      0,
+    );
+    const weights = remaining.map(index =>
+      getImposterWeight(players[index], currentRound, maxTimes),
+    );
+    const pickedOffset = pickWeightedIndex(weights);
+    selected.push(remaining[pickedOffset]);
+    remaining.splice(pickedOffset, 1);
+  }
+
+  return selected;
+};
+
+const markImposter = (player, currentRound) => ({
+  ...player,
+  isImposter: true,
+  imposterCount: (player.imposterCount || 0) + 1,
+  lastImposterRound: currentRound,
+});
+
+const assignImposters = (
+  players,
+  { imposterCount, currentRound, isTrollRound },
+) => {
+  if (isTrollRound) {
+    return players.map(player => markImposter(player, currentRound));
+  }
+
+  const selected = new Set(
+    selectFairImposterIndices(players, imposterCount, currentRound),
+  );
+
+  return players.map((player, index) =>
+    selected.has(index)
+      ? markImposter(player, currentRound)
+      : { ...player, isImposter: false },
+  );
+};
+
+const preparePlayersForRound = (players, playerCount) =>
+  players.length > 0
+    ? players.map(player => ({
+        ...player,
+        isImposter: false,
+        imposterCount: player.imposterCount || 0,
+        lastImposterRound: player.lastImposterRound ?? null,
+      }))
+    : Array.from({ length: playerCount }, (_, i) => ({
+        id: i + 1,
+        name: `Oyuncu ${i + 1}`,
+        isImposter: false,
+        imposterCount: 0,
+        lastImposterRound: null,
+      }));
+
 const initialState = {
   playerCount: 4,
   imposterCount: 1,
@@ -124,6 +227,7 @@ const initialState = {
   // Oyun durumu
   isGameStarted: false,
   isTrollRound: false, // Bu tur trol turu mu?
+  roundNumber: 0,
   currentPlayerIndex: 0,
   currentWordKey: null,
   currentQuestionKey: null,
@@ -219,33 +323,16 @@ const gameReducer = (state, action) => {
         customCategories,
       } = state;
 
+      const currentRound = (state.roundNumber || 0) + 1;
+
       // Trol modu kontrolü
       const isTrollRound =
         trollModeEnabled && Math.random() * 100 < trollModeChance;
 
-      let gamePlayers =
-        players.length > 0
-          ? players.map(p => ({ ...p, isImposter: false }))
-          : Array.from({ length: playerCount }, (_, i) => ({
-              id: i + 1,
-              name: `Oyuncu ${i + 1}`,
-              isImposter: false,
-            }));
-
-      if (isTrollRound) {
-        // TROL MODU: Herkes sahtekar!
-        gamePlayers = gamePlayers.map(p => ({ ...p, isImposter: true }));
-      } else {
-        // Normal mod: Rastgele sahtekarları seç
-        const imposterIndices = [];
-        while (imposterIndices.length < imposterCount) {
-          const randomIndex = Math.floor(Math.random() * gamePlayers.length);
-          if (!imposterIndices.includes(randomIndex)) {
-            imposterIndices.push(randomIndex);
-            gamePlayers[randomIndex].isImposter = true;
-          }
-        }
-      }
+      const gamePlayers = assignImposters(
+        preparePlayersForRound(players, playerCount),
+        { imposterCount, currentRound, isTrollRound },
+      );
 
       const {
         currentCategory,
@@ -259,6 +346,7 @@ const gameReducer = (state, action) => {
         ...state,
         isGameStarted: true,
         isTrollRound,
+        roundNumber: currentRound,
         currentPlayerIndex: 0,
         players: gamePlayers,
         currentWordKey,
@@ -290,31 +378,16 @@ const gameReducer = (state, action) => {
         customCategories,
       } = state;
 
+      const currentRound = (state.roundNumber || 0) + 1;
+
       // Trol modu kontrolü
       const isTrollRound =
         trollModeEnabled && Math.random() * 100 < trollModeChance;
 
-      let gamePlayers =
-        players.length > 0
-          ? players.map(p => ({ ...p, isImposter: false }))
-          : Array.from({ length: playerCount }, (_, i) => ({
-              id: i + 1,
-              name: `Oyuncu ${i + 1}`,
-              isImposter: false,
-            }));
-
-      if (isTrollRound) {
-        gamePlayers = gamePlayers.map(p => ({ ...p, isImposter: true }));
-      } else {
-        const imposterIndices = [];
-        while (imposterIndices.length < imposterCount) {
-          const randomIndex = Math.floor(Math.random() * gamePlayers.length);
-          if (!imposterIndices.includes(randomIndex)) {
-            imposterIndices.push(randomIndex);
-            gamePlayers[randomIndex].isImposter = true;
-          }
-        }
-      }
+      const gamePlayers = assignImposters(
+        preparePlayersForRound(players, playerCount),
+        { imposterCount, currentRound, isTrollRound },
+      );
 
       const {
         currentCategory,
@@ -339,6 +412,7 @@ const gameReducer = (state, action) => {
         players: gamePlayers,
         isGameStarted: true,
         isTrollRound,
+        roundNumber: currentRound,
         currentPlayerIndex: 0,
         currentWordKey,
         currentQuestionKey,

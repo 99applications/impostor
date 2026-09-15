@@ -7,6 +7,7 @@ import { PremiumProvider } from './src/context/PremiumContext';
 // i18n'i import et (side effect olarak çalışır)
 import './src/i18n';
 import { preloadInterstitialAd } from './src/utils/adManager';
+import { fetchRemoteConfig } from './src/utils/remoteConfig';
 
 // Context
 import { GameProvider } from './src/context/GameContext';
@@ -19,6 +20,7 @@ import { colors } from './src/theme/colors';
 
 const App = () => {
   useEffect(() => {
+    fetchRemoteConfig();
     // Uygulama açılırken ilk reklamı önceden yükle
     preloadInterstitialAd();
   }, []);

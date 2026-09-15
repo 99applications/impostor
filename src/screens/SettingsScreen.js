@@ -30,7 +30,7 @@ const TERMS_URL = 'https://codeva.com.tr/imposter/terms';
 const SettingsScreen = ({ navigation }) => {
   const { t, i18n } = useTranslation();
   const insets = useSafeAreaInsets();
-  const { isPremium, premiumType, getDaysRemaining } = usePremium();
+  const { isPremium } = usePremium();
 
   const handleLanguageChange = async langCode => {
     await changeLanguage(langCode);
@@ -86,12 +86,8 @@ const SettingsScreen = ({ navigation }) => {
     });
   };
 
-  // Premium durumu metni
-  const getPremiumStatusText = () => {
-    if (!isPremium) return t('settings.getPremium');
-    if (premiumType === 'lifetime') return t('settings.lifetimeMember');
-    const days = getDaysRemaining();
-    return t('settings.daysLeft', { days });
+  const handlePremiumPress = () => {
+    navigation.navigate('Paywall', { onboarding: false });
   };
 
   return (
@@ -113,43 +109,30 @@ const SettingsScreen = ({ navigation }) => {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        {/* Premium Kartı */}
-        <TouchableOpacity
-          style={[styles.premiumCard, isPremium && styles.premiumCardActive]}
-          activeOpacity={0.8}
-          onPress={() => navigation.navigate('Premium')}
-        >
-          <View style={styles.premiumCardLeft}>
-            <View
-              style={[
-                styles.premiumIcon,
-                isPremium && styles.premiumIconActive,
-              ]}
-            >
-              <Icon
-                name={isPremium ? 'diamond' : 'diamond-outline'}
-                size={28}
-                color={isPremium ? colors.warning : colors.textSecondary}
-              />
+        {!isPremium && (
+          <TouchableOpacity
+            style={styles.premiumCard}
+            activeOpacity={0.8}
+            onPress={handlePremiumPress}
+          >
+            <View style={styles.premiumCardLeft}>
+              <View style={styles.premiumIcon}>
+                <Icon
+                  name="diamond-outline"
+                  size={28}
+                  color={colors.textSecondary}
+                />
+              </View>
+              <View style={styles.premiumInfo}>
+                <Text style={styles.premiumTitle}>{t('settings.premium')}</Text>
+                <Text style={styles.premiumStatus}>
+                  {t('settings.getPremium')}
+                </Text>
+              </View>
             </View>
-            <View style={styles.premiumInfo}>
-              <Text style={styles.premiumTitle}>
-                {isPremium
-                  ? t('settings.premiumActive')
-                  : t('settings.premium')}
-              </Text>
-              <Text
-                style={[
-                  styles.premiumStatus,
-                  isPremium && styles.premiumStatusActive,
-                ]}
-              >
-                {getPremiumStatusText()}
-              </Text>
-            </View>
-          </View>
-          <Icon name="chevron-forward" size={22} color={colors.textMuted} />
-        </TouchableOpacity>
+            <Icon name="chevron-forward" size={22} color={colors.textMuted} />
+          </TouchableOpacity>
+        )}
 
         {/* Dil Seçimi */}
         <View style={styles.section}>
@@ -400,10 +383,6 @@ const styles = StyleSheet.create({
     borderWidth: 1.5,
     borderColor: colors.border,
   },
-  premiumCardActive: {
-    borderColor: colors.warning,
-    backgroundColor: 'rgba(251, 191, 36, 0.08)',
-  },
   premiumCardLeft: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -418,9 +397,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginRight: 14,
   },
-  premiumIconActive: {
-    backgroundColor: 'rgba(251, 191, 36, 0.2)',
-  },
   premiumInfo: {
     flex: 1,
   },
@@ -433,10 +409,6 @@ const styles = StyleSheet.create({
   premiumStatus: {
     fontSize: 14,
     color: colors.textMuted,
-  },
-  premiumStatusActive: {
-    color: colors.warning,
-    fontWeight: '600',
   },
   // Bölümler
   section: {

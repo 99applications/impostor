@@ -112,7 +112,16 @@
     "sports": "Sporlar",
     "countries": "Ülkeler",
     "professions": "Meslekler",
-    "technology": "Teknoloji"
+    "technology": "Teknoloji",
+    "celebrities": "Ünlüler",
+    "cities": "Şehirler",
+    "bodyHealth": "Vücut ve Sağlık",
+    "brands": "Markalar",
+    "hollywood": "Hollywood",
+    "games": "Oyunlar",
+    "locations": "Mekânlar",
+    "anime": "Anime",
+    "schoolEducation": "Okul ve Eğitim"
   },
   "words": {
     "christmas": {
@@ -321,7 +330,73 @@
       "oppenheimer": "Oppenheimer",
       "castAway": "Yeni Hayat",
       "theNotebook": "Not Defteri",
-      "prettyWoman": "Özel Bir Kadın"
+      "prettyWoman": "Özel Bir Kadın",
+      "parasite": "Parazit",
+      "oldboy": "Oldboy",
+      "memoriesOfMurder": "Cinayet Anıları",
+      "amelie": "Amélie",
+      "theIntouchables": "Dokunulmazlar",
+      "cinemaParadiso": "Sinema Cenneti",
+      "lifeIsBeautiful": "Hayat Güzeldir",
+      "spiritedAway": "Ruhların Kaçışı",
+      "yourName": "Adın Senin",
+      "princessMononoke": "Prenses Mononoke",
+      "theGodfather": "Baba",
+      "goodfellas": "Sıkı Dostlar",
+      "pulpFiction": "Pulp Fiction",
+      "reservoirDogs": "Rezervuar Köpekleri",
+      "killBill": "Kill Bill",
+      "djangoUnchained": "Zincirsiz",
+      "inglouriousBasterds": "Soysuzlar Çetesi",
+      "interstellar": "Yıldızlararası",
+      "inception": "Başlangıç",
+      "thePrestige": "Prestij",
+      "memento": "Memento",
+      "theDarkKnight": "Kara Şövalye",
+      "theMatrix": "Matrix",
+      "fightClub": "Dövüş Kulübü",
+      "noCountryForOldMen": "İhtiyarlara Yer Yok",
+      "thereWillBeBlood": "Kan Dökülecek",
+      "theRevenant": "Diriliş",
+      "moonlight": "Moonlight",
+      "everythingEverywhere": "Her Şey Her Yerde Hep Aynı Anda",
+      "poorThings": "Zavallılar",
+      "anatomyOfAFall": "Bir Düşüşün Anatomisi",
+      "triangleOfSadness": "Hüzün Üçgeni",
+      "bansheesOfInisherin": "Inisherin’in Perileri",
+      "nomadland": "Göçebe Ülke",
+      "her": "Aşk",
+      "exMachina": "Ex Machina",
+      "arrival": "Geliş",
+      "sicario": "Sicario",
+      "nightcrawler": "Gece Vurgunu",
+      "drive": "Sürücü",
+      "knivesOut": "Bıçaklar Çekildi",
+      "grandBudapestHotel": "Büyük Budapeşte Oteli",
+      "moonriseKingdom": "Moonrise Kingdom",
+      "jojoRabbit": "Jojo Rabbit",
+      "goneGirl": "Kayıp Kız",
+      "prisoners": "Tutsak",
+      "zodiac": "Zodyak",
+      "joker": "Joker",
+      "birdman": "Birdman",
+      "twelveYearsASlave": "12 Yıllık Esaret",
+      "slumdogMillionaire": "Milyoner",
+      "lifeOfPi": "Pi’nin Yaşamı",
+      "pansLabyrinth": "Pan’ın Labirenti",
+      "theShapeOfWater": "Suyun Sesi",
+      "hereditary": "Kalıtsal",
+      "midsommar": "Midsommar",
+      "theLighthouse": "Deniz Feneri",
+      "theWitch": "Cadı",
+      "trainToBusan": "Busan’a Giden Tren",
+      "theHandmaiden": "Hizmetçi",
+      "callMeByYourName": "Beni Adınla Çağır",
+      "ladyBird": "Lady Bird",
+      "portraitOfALadyOnFire": "Alev Almış Bir Kadının Portresi",
+      "decisionToLeave": "Ayrılık Kararı",
+      "burning": "Yanmak",
+      "us": "Biz"
     },
     "sports": {
       "squash": "Squash",
@@ -425,7 +500,142 @@
       "cambodia": "Kamboçya",
       "myanmar": "Myanmar",
       "fiji": "Fiji",
-      "maldives": "Maldivler"
+      "maldives": "Maldivler",
+      "portugal": "Portekiz",
+      "greece": "Yunanistan",
+      "norway": "Norveç",
+      "sweden": "İsveç",
+      "switzerland": "İsviçre",
+      "austria": "Avusturya",
+      "belgium": "Belçika",
+      "netherlands": "Hollanda",
+      "poland": "Polonya",
+      "ukraine": "Ukrayna",
+      "morocco": "Fas",
+      "egypt": "Mısır",
+      "kenya": "Kenya",
+      "nigeria": "Nijerya",
+      "southAfrica": "Güney Afrika",
+      "argentina": "Arjantin",
+      "chile": "Şili",
+      "peru": "Peru",
+      "colombia": "Kolombiya",
+      "thailand": "Tayland",
+      "vietnam": "Vietnam",
+      "indonesia": "Endonezya",
+      "philippines": "Filipinler",
+      "malaysia": "Malezya",
+      "newZealand": "Yeni Zelanda",
+      "canada": "Kanada",
+      "mexico": "Meksika",
+      "southKorea": "Güney Kore",
+      "saudiArabia": "Suudi Arabistan",
+      "unitedArabEmirates": "Birleşik Arap Emirlikleri",
+      "france": "Fransa",
+      "germany": "Almanya",
+      "italy": "İtalya",
+      "spain": "İspanya",
+      "unitedKingdom": "Birleşik Krallık",
+      "unitedStates": "Amerika Birleşik Devletleri",
+      "turkey": "Türkiye",
+      "japan": "Japonya",
+      "china": "Çin",
+      "brazil": "Brezilya",
+      "india": "Hindistan",
+      "australia": "Avustralya",
+      "russia": "Rusya",
+      "botswana": "Botsvana",
+      "namibia": "Namibya",
+      "rwanda": "Ruanda",
+      "uganda": "Uganda",
+      "malawi": "Malavi",
+      "zambia": "Zambiya",
+      "zimbabwe": "Zimbabve",
+      "mozambique": "Mozambik",
+      "angola": "Angola",
+      "ivoryCoast": "Fildişi Sahili",
+      "cameroon": "Kamerun",
+      "ethiopia": "Etiyopya",
+      "eritrea": "Eritre",
+      "djibouti": "Cibuti",
+      "somalia": "Somali",
+      "mauritania": "Moritanya",
+      "mali": "Mali",
+      "burkinaFaso": "Burkina Faso",
+      "niger": "Nijer",
+      "chad": "Çad",
+      "gabon": "Gabon",
+      "guinea": "Gine",
+      "sierraLeone": "Sierra Leone",
+      "liberia": "Liberya",
+      "gambia": "Gambiya",
+      "togo": "Togo",
+      "benin": "Benin",
+      "lesotho": "Lesotho",
+      "eswatini": "Esvatini",
+      "comoros": "Komorlar",
+      "seychelles": "Seyşeller",
+      "mauritius": "Mauritius",
+      "capeVerde": "Yeşil Burun Adaları",
+      "libya": "Libya",
+      "sudan": "Sudan",
+      "southSudan": "Güney Sudan",
+      "congo": "Kongo Cumhuriyeti",
+      "drCongo": "Kongo DC",
+      "equatorialGuinea": "Ekvator Ginesi",
+      "guineaBissau": "Gine-Bissau",
+      "bhutan": "Bhutan",
+      "brunei": "Brunei",
+      "laos": "Laos",
+      "northKorea": "Kuzey Kore",
+      "kyrgyzstan": "Kırgızistan",
+      "tajikistan": "Tacikistan",
+      "turkmenistan": "Türkmenistan",
+      "afghanistan": "Afganistan",
+      "pakistan": "Pakistan",
+      "bangladesh": "Bangladeş",
+      "yemen": "Yemen",
+      "iraq": "Irak",
+      "iran": "İran",
+      "syria": "Suriye",
+      "kuwait": "Kuveyt",
+      "bahrain": "Bahreyn",
+      "israel": "İsrail",
+      "palestine": "Filistin",
+      "eastTimor": "Doğu Timor",
+      "papuaNewGuinea": "Papua Yeni Gine",
+      "solomonIslands": "Solomon Adaları",
+      "vanuatu": "Vanuatu",
+      "samoa": "Samoa",
+      "tonga": "Tonga",
+      "kiribati": "Kiribati",
+      "palau": "Palau",
+      "nauru": "Nauru",
+      "tuvalu": "Tuvalu",
+      "taiwan": "Tayvan",
+      "singaporeCountry": "Singapur",
+      "belarus": "Belarus",
+      "moldova": "Moldova",
+      "northMacedonia": "Kuzey Makedonya",
+      "bosnia": "Bosna-Hersek",
+      "kosovo": "Kosova",
+      "andorra": "Andorra",
+      "liechtenstein": "Lihtenştayn",
+      "sanMarino": "San Marino",
+      "vatican": "Vatikan",
+      "cyprus": "Kıbrıs",
+      "armenia": "Ermenistan",
+      "honduras": "Honduras",
+      "guatemala": "Guatemala",
+      "elSalvador": "El Salvador",
+      "nicaragua": "Nikaragua",
+      "belize": "Belize",
+      "haiti": "Haiti",
+      "cuba": "Küba",
+      "trinidadTobago": "Trinidad ve Tobago",
+      "barbados": "Barbados",
+      "bahamas": "Bahamalar",
+      "guyana": "Guyana"
     },
     "professions": {
       "surgeon": "Cerrah",
@@ -477,7 +687,18 @@
       "barista": "Barista",
       "personalTrainer": "Kişisel Antrenör",
       "nanny": "Dadı",
-      "meteorologist": "Meteorolog"
+      "meteorologist": "Meteorolog",
+      "actuary": "Aktüer",
+      "paleontologist": "Paleontolog",
+      "cartographer": "Haritacı",
+      "archivist": "Arşivci",
+      "seismologist": "Sismolog",
+      "volcanologist": "Volkanolog",
+      "oceanographer": "Oşinograf",
+      "epidemiologist": "Epidemiyolog",
+      "arborist": "Ağaç bakım uzmanı",
+      "glassblower": "Cam üfleyici",
+      "etymologist": "Köken bilimci"
     },
     "technology": {
       "snapchat": "Snapchat",
@@ -530,6 +751,835 @@
       "linux": "Linux",
       "android": "Android",
       "windows": "Windows"
+    },
+    "celebrities": {
+      "adele": "Adele",
+      "rihanna": "Rihanna",
+      "zendaya": "Zendaya",
+      "timotheeChalamet": "Timothée Chalamet",
+      "ryanGosling": "Ryan Gosling",
+      "margotRobbie": "Margot Robbie",
+      "keanuReeves": "Keanu Reeves",
+      "scarlettJohansson": "Scarlett Johansson",
+      "cillianMurphy": "Cillian Murphy",
+      "florencePugh": "Florence Pugh",
+      "pedroPascal": "Pedro Pascal",
+      "anyaTaylorJoy": "Anya Taylor-Joy",
+      "saoirseRonan": "Saoirse Ronan",
+      "tildaSwinton": "Tilda Swinton",
+      "lupitaNyongo": "Lupita Nyong’o",
+      "mahershalaAli": "Mahershala Ali",
+      "idrisElba": "Idris Elba",
+      "benedictCumberbatch": "Benedict Cumberbatch",
+      "oscarIsaac": "Oscar Isaac",
+      "austinButler": "Austin Butler",
+      "jennaOrtega": "Jenna Ortega",
+      "nataliePortman": "Natalie Portman",
+      "emmaStone": "Emma Stone",
+      "jenniferLawrence": "Jennifer Lawrence",
+      "merylStreep": "Meryl Streep",
+      "kateWinslet": "Kate Winslet",
+      "charlizeTheron": "Charlize Theron",
+      "violaDavis": "Viola Davis",
+      "helenMirren": "Helen Mirren",
+      "danielKaluuya": "Daniel Kaluuya",
+      "andrewGarfield": "Andrew Garfield",
+      "tomHiddleston": "Tom Hiddleston",
+      "michaelFassbender": "Michael Fassbender",
+      "rachelMcadams": "Rachel McAdams",
+      "emilyBlunt": "Emily Blunt",
+      "jessicaChastain": "Jessica Chastain",
+      "amyAdams": "Amy Adams",
+      "octaviaSpencer": "Octavia Spencer",
+      "billieEilish": "Billie Eilish",
+      "theWeeknd": "The Weeknd",
+      "florenceWelch": "Florence Welch",
+      "hansZimmer": "Hans Zimmer",
+      "johnWilliams": "John Williams",
+      "ennioMorricone": "Ennio Morricone",
+      "pharrellWilliams": "Pharrell Williams",
+      "sza": "SZA",
+      "mitski": "Mitski",
+      "lanaDelRey": "Lana Del Rey",
+      "harryStyles": "Harry Styles",
+      "duaLipa": "Dua Lipa",
+      "usainBolt": "Usain Bolt",
+      "serenaWilliams": "Serena Williams",
+      "lewisHamilton": "Lewis Hamilton",
+      "simoneBiles": "Simone Biles",
+      "naomiOsaka": "Naomi Osaka",
+      "novakDjokovic": "Novak Djokovic",
+      "erlingHaaland": "Erling Haaland",
+      "shoheiOhtani": "Shohei Ohtani",
+      "rafaelNadal": "Rafael Nadal",
+      "katieLedecky": "Katie Ledecky",
+      "gretaThunberg": "Greta Thunberg",
+      "malalaYousafzai": "Malala Yousafzai",
+      "davidAttenborough": "David Attenborough",
+      "oprahWinfrey": "Oprah Winfrey",
+      "quentinTarantino": "Quentin Tarantino",
+      "christopherNolan": "Christopher Nolan",
+      "gretaGerwig": "Greta Gerwig",
+      "hayaoMiyazaki": "Hayao Miyazaki",
+      "bongJoonHo": "Bong Joon-ho",
+      "denisVilleneuve": "Denis Villeneuve",
+      "wesAnderson": "Wes Anderson",
+      "sofiaCoppola": "Sofia Coppola",
+      "jordanPeele": "Jordan Peele",
+      "parkChanWook": "Park Chan-wook",
+      "pedroAlmodovar": "Pedro Almodóvar",
+      "wongKarWai": "Wong Kar-wai",
+      "janeGoodall": "Jane Goodall",
+      "yuvalNoahHarari": "Yuval Noah Harari",
+      "margaretAtwood": "Margaret Atwood",
+      "chimamandaAdichie": "Chimamanda Ngozi Adichie"
+    },
+    "cities": {
+      "barcelona": "Barcelona",
+      "amsterdam": "Amsterdam",
+      "prague": "Prag",
+      "vienna": "Viyana",
+      "budapest": "Budapest",
+      "lisbon": "Lizbon",
+      "edinburgh": "Edinburgh",
+      "stockholm": "Stockholm",
+      "copenhagen": "Kopenhag",
+      "oslo": "Oslo",
+      "helsinki": "Helsinki",
+      "warsaw": "Varşova",
+      "krakow": "Krakow",
+      "athens": "Atina",
+      "istanbul": "İstanbul",
+      "marrakech": "Marrakeş",
+      "capeTown": "Cape Town",
+      "nairobi": "Nairobi",
+      "lagos": "Lagos",
+      "mumbai": "Mumbai",
+      "bangalore": "Bengaluru",
+      "kolkata": "Kalküta",
+      "bangkok": "Bangkok",
+      "singapore": "Singapur",
+      "kualaLumpur": "Kuala Lumpur",
+      "jakarta": "Jakarta",
+      "manila": "Manila",
+      "hanoi": "Hanoi",
+      "seoul": "Seul",
+      "busan": "Busan",
+      "osaka": "Osaka",
+      "kyoto": "Kyoto",
+      "taipei": "Taipei",
+      "hongKong": "Hong Kong",
+      "shanghai": "Şanghay",
+      "melbourne": "Melbourne",
+      "auckland": "Auckland",
+      "vancouver": "Vancouver",
+      "montreal": "Montreal",
+      "chicago": "Chicago",
+      "seattle": "Seattle",
+      "newOrleans": "New Orleans",
+      "mexicoCity": "Meksiko",
+      "guadalajara": "Guadalajara",
+      "bogota": "Bogotá",
+      "lima": "Lima",
+      "santiago": "Santiago",
+      "buenosAires": "Buenos Aires",
+      "rioDeJaneiro": "Rio de Janeiro",
+      "havana": "Havana",
+      "reykjavik": "Reykjavík",
+      "tallinn": "Tallinn",
+      "riga": "Riga",
+      "vilnius": "Vilnius",
+      "bratislava": "Bratislava",
+      "ljubljana": "Ljubljana",
+      "zagreb": "Zagreb",
+      "belgrade": "Belgrad",
+      "sarajevo": "Sarajevo",
+      "sofia": "Sofya",
+      "bucharest": "Bükreş",
+      "tbilisi": "Tiflis",
+      "yerevan": "Erivan",
+      "baku": "Bakü",
+      "tashkent": "Taşkent",
+      "almaty": "Almaty",
+      "kathmandu": "Katmandu",
+      "colombo": "Colombo",
+      "yangon": "Yangon",
+      "phnomPenh": "Phnom Penh",
+      "chiangMai": "Chiang Mai",
+      "medellin": "Medellín",
+      "cusco": "Cusco",
+      "valparaiso": "Valparaíso",
+      "montevideo": "Montevideo",
+      "cartagena": "Cartagena",
+      "fez": "Fes",
+      "tunis": "Tunus",
+      "addisAbaba": "Addis Ababa",
+      "accra": "Accra",
+      "dakar": "Dakar",
+      "perth": "Perth",
+      "wellington": "Wellington",
+      "quebecCity": "Quebec",
+      "calgary": "Calgary",
+      "portland": "Portland",
+      "austin": "Austin",
+      "denver": "Denver",
+      "philadelphia": "Philadelphia",
+      "marseille": "Marsilya",
+      "lyon": "Lyon",
+      "porto": "Porto",
+      "valencia": "Valensiya",
+      "seville": "Sevilla",
+      "florence": "Floransa",
+      "venice": "Venedik"
+    },
+    "bodyHealth": {
+      "cerebellum": "Beyincik",
+      "pancreas": "Pankreas",
+      "pituitaryGland": "Hipofiz bezi",
+      "thyroid": "Tiroid",
+      "adrenalGland": "Böbreküstü bezi",
+      "lymphaticSystem": "Lenf sistemi",
+      "boneMarrow": "Kemik iliği",
+      "spinalCord": "Omurilik",
+      "sciaticNerve": "Siyatik sinir",
+      "rotatorCuff": "Rotator manşet",
+      "meniscus": "Menisküs",
+      "achillesTendon": "Aşil tendonu",
+      "carpalTunnel": "Karpal tünel",
+      "plantarFasciitis": "Plantar fasiit",
+      "tinnitus": "Kulak çınlaması",
+      "vertigo": "Vertigo",
+      "insomnia": "Uykusuzluk",
+      "sleepApnea": "Uyku apnesi",
+      "migraine": "Migren",
+      "concussion": "Beyin sarsıntısı",
+      "asthma": "Astım",
+      "eczema": "Egzama",
+      "psoriasis": "Sedef hastalığı",
+      "anemia": "Anemi",
+      "cholesterol": "Kolesterol",
+      "metabolism": "Metabolizma",
+      "insulin": "İnsülin",
+      "melatonin": "Melatonin",
+      "dopamine": "Dopamin",
+      "serotonin": "Serotonin",
+      "adrenaline": "Adrenalin",
+      "cortisol": "Kortizol",
+      "collagen": "Kolajen",
+      "probiotics": "Probiyotik",
+      "electrolytes": "Elektrolit",
+      "placebo": "Plasebo",
+      "quarantine": "Karantina",
+      "antibody": "Antikor",
+      "antigen": "Antijen",
+      "vaccine": "Aşı",
+      "boosterShot": "Hatırlatma dozu",
+      "immuneSystem": "Bağışıklık sistemi",
+      "lymphNode": "Lenf düğümü",
+      "tonsils": "Bademcik",
+      "appendix": "Apandis",
+      "gallbladder": "Safra kesesi",
+      "spleen": "Dalak",
+      "kidneyStone": "Böbrek taşı",
+      "gastricUlcer": "Mide ülseri",
+      "acidReflux": "Reflü",
+      "irritableBowel": "İrritabl bağırsak",
+      "glutenIntolerance": "Gluten intoleransı",
+      "lactoseIntolerance": "Laktoz intoleransı",
+      "defibrillator": "Defibrilatör",
+      "stethoscope": "Stetoskop",
+      "endoscope": "Endoskop",
+      "mriScan": "MR görüntüleme",
+      "bloodPressure": "Tansiyon",
+      "oxygenSaturation": "Oksijen satürasyonu",
+      "whiteBloodCell": "Akyuvar",
+      "platelet": "Trombosit",
+      "heatstroke": "Güneş çarpması",
+      "hypothermia": "Hipotermi",
+      "frostbite": "Donma",
+      "dehydration": "Dehidrasyon",
+      "jetLag": "Jet lag",
+      "hangover": "Akşamdan kalma",
+      "firstAid": "İlk yardım",
+      "acupuncture": "Akupunktur",
+      "chiropractor": "Kayropraktör",
+      "physiotherapy": "Fizyoterapi",
+      "intermittentFasting": "Aralıklı oruç",
+      "calorieDeficit": "Kalori açığı",
+      "hiitWorkout": "HIIT antrenmanı",
+      "foamRoller": "Köpük rulo",
+      "creatine": "Kreatin",
+      "omega3": "Omega-3",
+      "vitaminD": "D vitamini",
+      "ironDeficiency": "Demir eksikliği",
+      "wisdomTooth": "Yirmi yaş dişi",
+      "rootCanal": "Kanal tedavisi",
+      "gingivitis": "Diş eti iltihabı",
+      "hearingAid": "İşitme cihazı",
+      "contactLens": "Kontakt lens",
+      "retainer": "Pekiştirme plağı",
+      "crutches": "Koltuk değneği",
+      "wheelchair": "Tekerlekli sandalye",
+      "stitches": "Dikiş",
+      "plasterCast": "Alçı",
+      "restlessLegs": "Huzursuz bacak",
+      "seasonalAllergies": "Mevsimsel alerji",
+      "hayFever": "Saman nezlesi",
+      "sinusitis": "Sinüzit",
+      "bronchitis": "Bronşit",
+      "pneumonia": "Zatürre",
+      "shingles": "Zona",
+      "chickenpox": "Suçiçeği",
+      "foodPoisoning": "Gıda zehirlenmesi",
+      "motionSickness": "Hareket hastalığı",
+      "altitudeSickness": "Yükseklik hastalığı",
+      "circadianRhythm": "Sirkadiyen ritim",
+      "gutMicrobiome": "Bağırsak florası",
+      "inflammation": "İltihap"
+    },
+    "brands": {
+      "ikea": "IKEA",
+      "lego": "LEGO",
+      "patagonia": "Patagonia",
+      "theNorthFace": "The North Face",
+      "uniqlo": "Uniqlo",
+      "zara": "Zara",
+      "hermes": "Hermès",
+      "louisVuitton": "Louis Vuitton",
+      "chanel": "Chanel",
+      "prada": "Prada",
+      "gucci": "Gucci",
+      "rolex": "Rolex",
+      "omega": "Omega",
+      "cartier": "Cartier",
+      "tiffany": "Tiffany & Co.",
+      "dyson": "Dyson",
+      "nespresso": "Nespresso",
+      "kitchenAid": "KitchenAid",
+      "bosch": "Bosch",
+      "siemens": "Siemens",
+      "philips": "Philips",
+      "panasonic": "Panasonic",
+      "sony": "Sony",
+      "samsung": "Samsung",
+      "canon": "Canon",
+      "nikon": "Nikon",
+      "bose": "Bose",
+      "logitech": "Logitech",
+      "redBull": "Red Bull",
+      "nestle": "Nestlé",
+      "ferrero": "Ferrero",
+      "lindt": "Lindt",
+      "loreal": "L'Oréal",
+      "nivea": "Nivea",
+      "gillette": "Gillette",
+      "colgate": "Colgate",
+      "sephora": "Sephora",
+      "starbucks": "Starbucks",
+      "chipotle": "Chipotle",
+      "subway": "Subway",
+      "toyota": "Toyota",
+      "honda": "Honda",
+      "bmw": "BMW",
+      "mercedes": "Mercedes-Benz",
+      "audi": "Audi",
+      "volkswagen": "Volkswagen",
+      "ferrari": "Ferrari",
+      "lamborghini": "Lamborghini",
+      "porsche": "Porsche",
+      "volvo": "Volvo",
+      "hyundai": "Hyundai",
+      "tesla": "Tesla",
+      "netflix": "Netflix",
+      "spotify": "Spotify",
+      "airbnb": "Airbnb",
+      "uber": "Uber",
+      "booking": "Booking.com",
+      "amazon": "Amazon",
+      "playstation": "PlayStation",
+      "xbox": "Xbox",
+      "visa": "Visa",
+      "mastercard": "Mastercard",
+      "paypal": "PayPal",
+      "americanExpress": "American Express",
+      "fedex": "FedEx",
+      "dhl": "DHL",
+      "emirates": "Emirates",
+      "lufthansa": "Lufthansa",
+      "ryanair": "Ryanair",
+      "primark": "Primark",
+      "mango": "Mango",
+      "balenciaga": "Balenciaga",
+      "versace": "Versace",
+      "dior": "Dior",
+      "ysl": "Yves Saint Laurent",
+      "fendi": "Fendi",
+      "swatch": "Swatch",
+      "casio": "Casio",
+      "underArmour": "Under Armour",
+      "newBalance": "New Balance",
+      "columbia": "Columbia",
+      "adidas": "Adidas",
+      "nike": "Nike",
+      "puma": "Puma",
+      "hAndM": "H&M",
+      "dunkin": "Dunkin'",
+      "monsterEnergy": "Monster Energy",
+      "hershey": "Hershey",
+      "unilever": "Unilever",
+      "oralB": "Oral-B",
+      "macCosmetics": "MAC Cosmetics",
+      "easyjet": "easyJet",
+      "shein": "SHEIN",
+      "aliexpress": "AliExpress",
+      "ebay": "eBay",
+      "jbl": "JBL"
+    },
+    "hollywood": {
+      "academyAwards": "Oscar Ödülleri",
+      "goldenGlobes": "Altın Küre",
+      "emmyAwards": "Emmy Ödülleri",
+      "cannesFestival": "Cannes Festivali",
+      "sundance": "Sundance",
+      "veniceFilmFestival": "Venedik Film Festivali",
+      "redCarpet": "Kırmızı halı",
+      "paparazzi": "Paparazzi",
+      "walkOfFame": "Şöhretler Kaldırımı",
+      "hollywoodSign": "Hollywood Tabelası",
+      "chineseTheatre": "Chinese Theatre",
+      "dolbyTheatre": "Dolby Tiyatrosu",
+      "paramountPictures": "Paramount Pictures",
+      "warnerBros": "Warner Bros.",
+      "universalStudios": "Universal Studios",
+      "columbiaPictures": "Columbia Pictures",
+      "mgmStudios": "MGM",
+      "pixar": "Pixar",
+      "dreamworks": "DreamWorks",
+      "marvelStudios": "Marvel Studios",
+      "a24": "A24",
+      "blumhouse": "Blumhouse",
+      "blockbusterHit": "Gişe rekortmeni",
+      "boxOffice": "Gişe",
+      "openingWeekend": "Açılış hafta sonu",
+      "sequel": "Devam filmi",
+      "prequel": "Önceki hikâye",
+      "reboot": "Yeniden başlatma",
+      "remake": "Yeniden çevrim",
+      "spinOff": "Yan ürün",
+      "directorsCut": "Yönetmen kurgusu",
+      "stuntDouble": "Dublör",
+      "cameo": "Cameo",
+      "screenplay": "Senaryo",
+      "storyboard": "Hikâye panosu",
+      "greenScreen": "Yeşil perde",
+      "motionCapture": "Hareket yakalama",
+      "methodActing": "Metot oyunculuğu",
+      "typecasting": "Kalıp rol",
+      "aList": "A-list",
+      "bMovie": "B filmi",
+      "cultClassic": "Kült film",
+      "indieFilm": "Bağımsız film",
+      "biopic": "Biyografik film",
+      "mockumentary": "Sahte belgesel",
+      "filmNoir": "Kara film",
+      "romanticComedy": "Romantik komedi",
+      "slasherFilm": "Katliam filmi",
+      "foundFootage": "Bulunmuş kayıt",
+      "premiere": "Galâ",
+      "afterparty": "Galâ sonrası parti",
+      "castingDirector": "Casting yönetmeni",
+      "cinematographer": "Görüntü yönetmeni",
+      "gaffer": "Işık şefi",
+      "boomOperator": "Mikrofancı",
+      "soundstage": "Ses stüdyosu",
+      "backlot": "Açık stüdyo alanı",
+      "studioLot": "Stüdyo arazisi",
+      "callSheet": "Çekim çizelgesi",
+      "tableRead": "Masa okuması",
+      "screenTest": "Kamera denemesi",
+      "headshot": "Oyuncu fotoğrafı",
+      "wrapParty": "Çekim kapanış partisi",
+      "residuals": "Telif payı",
+      "sagAftra": "SAG-AFTRA",
+      "craftServices": "Set ikramı",
+      "fourthWall": "Dördüncü duvar",
+      "plotTwist": "Olay örgüsü dönüşü",
+      "cliffhanger": "Merak uyandıran son",
+      "macguffin": "MacGuffin",
+      "montage": "Montaj",
+      "flashback": "Geriye dönüş",
+      "productPlacement": "Ürün yerleştirme",
+      "easterEgg": "Gizli gönderme",
+      "postCreditsScene": "Jenerik sonrası sahne",
+      "imax": "IMAX",
+      "driveInTheater": "Arabalı sinema",
+      "multiplex": "Çok salonlu sinema",
+      "arthouseCinema": "Sanat sineması",
+      "voiceover": "Dış ses",
+      "blooperReel": "Hata kareleri",
+      "extraActor": "Figüran",
+      "standIn": "Işık dublörü",
+      "chemistryTest": "Kimya denemesi",
+      "callback": "İkinci seçme",
+      "monologue": "Monolog",
+      "improvisation": "Doğaçlama",
+      "teaserTrailer": "Teaser fragman",
+      "filmScore": "Film müziği",
+      "soundtrack": "Soundtrack",
+      "openingCredits": "Açılış jeneriği",
+      "closingCredits": "Kapanış jeneriği",
+      "filmFestival": "Film festivali",
+      "lifetimeAchievement": "Yaşam boyu başarı",
+      "bestPicture": "En İyi Film",
+      "oscarBait": "Oscar avı filmi",
+      "summerBlockbuster": "Yaz gişe filmi",
+      "awardsSeason": "Ödül sezonu",
+      "pressJunket": "Basın turu",
+      "photoCall": "Fotoğraf çağrısı",
+      "vanityCard": "Yapımcı logosu",
+      "testScreening": "Deneme gösterimi",
+      "reshoots": "Yeniden çekimler",
+      "finalCut": "Nihai kurgu"
+    },
+    "games": {
+      "theLastOfUs": "The Last of Us",
+      "godOfWar": "God of War",
+      "redDeadRedemption": "Red Dead Redemption",
+      "eldenRing": "Elden Ring",
+      "darkSouls": "Dark Souls",
+      "bloodborne": "Bloodborne",
+      "sekiro": "Sekiro",
+      "hollowKnight": "Hollow Knight",
+      "hades": "Hades",
+      "stardewValley": "Stardew Valley",
+      "discoElysium": "Disco Elysium",
+      "outerWilds": "Outer Wilds",
+      "returnal": "Returnal",
+      "control": "Control",
+      "deathStranding": "Death Stranding",
+      "nierAutomata": "Nier: Automata",
+      "persona5": "Persona 5",
+      "xenoblade": "Xenoblade Chronicles",
+      "monsterHunter": "Monster Hunter",
+      "baldursGate": "Baldur's Gate",
+      "cyberpunk2077": "Cyberpunk 2077",
+      "theWitcher": "The Witcher",
+      "skyrim": "Skyrim",
+      "bioshock": "BioShock",
+      "portal": "Portal",
+      "halfLife": "Half-Life",
+      "massEffect": "Mass Effect",
+      "metalGearSolid": "Metal Gear Solid",
+      "silentHill": "Silent Hill",
+      "residentEvil": "Resident Evil",
+      "deadSpace": "Dead Space",
+      "untilDawn": "Until Dawn",
+      "detroitBecomeHuman": "Detroit: Become Human",
+      "lifeIsStrange": "Life is Strange",
+      "firewatch": "Firewatch",
+      "inside": "Inside",
+      "cuphead": "Cuphead",
+      "oriAndTheBlindForest": "Ori and the Blind Forest",
+      "deadCells": "Dead Cells",
+      "slayTheSpire": "Slay the Spire",
+      "valheim": "Valheim",
+      "seaOfThieves": "Sea of Thieves",
+      "itTakesTwo": "It Takes Two",
+      "helldivers": "Helldivers",
+      "palworld": "Palworld",
+      "lethalCompany": "Lethal Company",
+      "splatoon": "Splatoon",
+      "superSmashBros": "Super Smash Bros.",
+      "zeldaTears": "Zelda: Tears of the Kingdom",
+      "marioOdyssey": "Super Mario Odyssey",
+      "metroidDread": "Metroid Dread",
+      "animalCrossing": "Animal Crossing",
+      "civilization": "Civilization",
+      "ageOfEmpires": "Age of Empires",
+      "starcraft": "StarCraft",
+      "warcraft": "Warcraft",
+      "leagueOfLegends": "League of Legends",
+      "dota2": "Dota 2",
+      "valorant": "Valorant",
+      "counterStrike": "Counter-Strike",
+      "overwatch": "Overwatch",
+      "apexLegends": "Apex Legends",
+      "streetFighter": "Street Fighter",
+      "mortalKombat": "Mortal Kombat",
+      "tekken": "Tekken",
+      "granTurismo": "Gran Turismo",
+      "forzaHorizon": "Forza Horizon",
+      "rocketLeague": "Rocket League",
+      "assassinCreed": "Assassin's Creed",
+      "farCry": "Far Cry",
+      "fallout": "Fallout",
+      "destiny2": "Destiny 2",
+      "gearsOfWar": "Gears of War"
+    },
+    "locations": {
+      "machuPicchu": "Machu Picchu",
+      "petra": "Petra",
+      "angkorWat": "Angkor Wat",
+      "tajMahal": "Taj Mahal",
+      "greatWall": "Çin Seddi",
+      "colosseum": "Kolezyum",
+      "acropolis": "Akropol",
+      "stonehenge": "Stonehenge",
+      "easterIsland": "Paskalya Adası",
+      "chichenItza": "Chichén Itzá",
+      "sagradaFamilia": "Sagrada Família",
+      "neuschwanstein": "Neuschwanstein",
+      "versailles": "Versay",
+      "alhambra": "Elhamra",
+      "montSaintMichel": "Mont-Saint-Michel",
+      "cliffsOfMoher": "Moher Kayalıkları",
+      "giantsCauseway": "Devler Yolu",
+      "salarDeUyuni": "Salar de Uyuni",
+      "antelopeCanyon": "Antelope Canyon",
+      "zhangyeDanxia": "Zhangye Danxia",
+      "lakeBled": "Bled Gölü",
+      "plitviceLakes": "Plitvice Gölleri",
+      "hallstatt": "Hallstatt",
+      "cinqueTerre": "Cinque Terre",
+      "amalfiCoast": "Amalfi Sahili",
+      "santorini": "Santorini",
+      "cappadocia": "Kapadokya",
+      "pamukkale": "Pamukkale",
+      "gobekliTepe": "Göbekli Tepe",
+      "ephesus": "Efes",
+      "wadiRum": "Wadi Rum",
+      "deadSea": "Ölü Deniz",
+      "masada": "Masada",
+      "socotra": "Sokotra",
+      "banff": "Banff",
+      "yosemite": "Yosemite",
+      "yellowstone": "Yellowstone",
+      "zionCanyon": "Zion Kanyonu",
+      "monumentValley": "Anıt Vadisi",
+      "deathValley": "Ölüm Vadisi",
+      "grandCanyon": "Büyük Kanyon",
+      "niagaraFalls": "Niagara Şelalesi",
+      "iguazuFalls": "Iguazú Şelaleleri",
+      "angelFalls": "Melek Şelalesi",
+      "victoriaFalls": "Victoria Şelalesi",
+      "tableMountain": "Masa Dağı",
+      "serengeti": "Serengeti",
+      "ngorongoro": "Ngorongoro",
+      "okavangoDelta": "Okavango Deltası",
+      "namibDesert": "Namib Çölü",
+      "kilimanjaro": "Kilimanjaro",
+      "mountFuji": "Fuji Dağı",
+      "mountEverest": "Everest Dağı",
+      "saharaDesert": "Sahra Çölü",
+      "amazonRainforest": "Amazon Ormanı",
+      "greatBarrierReef": "Büyük Set Resifi",
+      "haLongBay": "Ha Long Körfezi",
+      "palawan": "Palawan",
+      "komodoIsland": "Komodo Adası",
+      "boraBora": "Bora Bora",
+      "uluru": "Uluru",
+      "fiordland": "Fiordland",
+      "patagonia": "Patagonya",
+      "torresDelPaine": "Torres del Paine",
+      "alcatraz": "Alcatraz",
+      "goldenGate": "Golden Gate Köprüsü",
+      "lasVegasStrip": "Las Vegas Strip",
+      "broadway": "Broadway",
+      "siliconValley": "Silikon Vadisi",
+      "wallStreet": "Wall Street",
+      "route66": "Route 66",
+      "louvre": "Louvre",
+      "buckinghamPalace": "Buckingham Sarayı",
+      "towerBridge": "Tower Bridge",
+      "christRedeemer": "Kurtarıcı İsa",
+      "sydneyOpera": "Sidney Opera Binası",
+      "burjKhalifa": "Burj Khalifa",
+      "petronasTowers": "Petronas Kuleleri",
+      "marinaBaySands": "Marina Bay Sands",
+      "forbiddenCity": "Yasak Şehir",
+      "terracottaArmy": "Terrakota Ordusu",
+      "jejuIsland": "Jeju Adası",
+      "northernLights": "Kuzey Işıkları",
+      "svalbard": "Svalbard",
+      "galapagos": "Galápagos",
+      "frenchQuarter": "Fransız Mahallesi",
+      "hollywoodBoulevard": "Hollywood Boulevard",
+      "parkGuell": "Park Güell",
+      "matterhorn": "Matterhorn",
+      "norwegianFjords": "Norveç fiyortları",
+      "blueLagoon": "Mavi Lagün",
+      "tuscany": "Toskana",
+      "provence": "Provence",
+      "greatOceanRoad": "Great Ocean Road",
+      "chefchaouen": "Chefchaouen",
+      "sigiriya": "Sigiriya",
+      "borobudur": "Borobudur",
+      "bagan": "Bagan",
+      "tikal": "Tikal",
+      "nazcaLines": "Nazca Çizgileri",
+      "teotihuacan": "Teotihuacan",
+      "rajaAmpat": "Raja Ampat",
+      "riceTerraces": "Banaue Terasları"
+    },
+    "anime": {
+      "attackOnTitan": "Attack on Titan",
+      "deathNote": "Death Note",
+      "fullmetalAlchemist": "Fullmetal Alchemist",
+      "demonSlayer": "Demon Slayer",
+      "jujutsuKaisen": "Jujutsu Kaisen",
+      "hunterXHunter": "Hunter x Hunter",
+      "steinsGate": "Steins;Gate",
+      "cowboyBebop": "Cowboy Bebop",
+      "neonGenesisEvangelion": "Neon Genesis Evangelion",
+      "akira": "Akira",
+      "ghostInTheShell": "Ghost in the Shell",
+      "spiritedAway": "Ruhların Kaçışı",
+      "princessMononoke": "Prenses Mononoke",
+      "yourName": "Adın Senin",
+      "aSilentVoice": "Sessiz Bir Ses",
+      "violetEvergarden": "Violet Evergarden",
+      "madeInAbyss": "Made in Abyss",
+      "vinlandSaga": "Vinland Saga",
+      "berserk": "Berserk",
+      "monster": "Monster",
+      "pluto": "Pluto",
+      "parasyte": "Parasyte",
+      "codeGeass": "Code Geass",
+      "psychoPass": "Psycho-Pass",
+      "erased": "Erased",
+      "reZero": "Re:Zero",
+      "frieren": "Frieren",
+      "chainsawMan": "Chainsaw Man",
+      "spyXFamily": "Spy x Family",
+      "haikyuu": "Haikyuu!!",
+      "jojosBizarre": "JoJo's Bizarre Adventure",
+      "onePunchMan": "One-Punch Man",
+      "mobPsycho": "Mob Psycho 100",
+      "tokyoGhoul": "Tokyo Ghoul",
+      "myHeroAcademia": "My Hero Academia",
+      "naruto": "Naruto",
+      "onePiece": "One Piece",
+      "dragonBall": "Dragon Ball",
+      "bleach": "Bleach",
+      "sailorMoon": "Sailor Moon",
+      "inuyasha": "Inuyasha",
+      "clannad": "Clannad",
+      "weatherWithYou": "Hava Durumuyla Seninle",
+      "howlsMovingCastle": "Yürüyen Şato",
+      "myNeighborTotoro": "Komşum Totoro",
+      "kikisDelivery": "Kiki’nin Teslimat Servisi",
+      "dandadan": "Dandadan",
+      "oshiNoKo": "Oshi no Ko",
+      "hellsParadise": "Hell's Paradise"
+    },
+    "schoolEducation": {
+      "thesis": "Tez",
+      "dissertation": "Doktora tezi",
+      "sabbatical": "Sabbatical",
+      "tenure": "Kadrolu akademik unvan",
+      "valedictorian": "Birincilikle mezun",
+      "salutatorian": "İkincilikle mezun",
+      "deansList": "Onur listesi",
+      "gradePointAverage": "Not ortalaması",
+      "prerequisite": "Ön koşul ders",
+      "electiveCourse": "Seçmeli ders",
+      "syllabus": "Ders izlencesi",
+      "rubric": "Değerlendirme ölçeği",
+      "plagiarism": "İntihal",
+      "citation": "Alıntı gösterme",
+      "bibliography": "Kaynakça",
+      "peerReview": "Hakem değerlendirmesi",
+      "officeHours": "Ofis saati",
+      "teachingAssistant": "Öğretim asistanı",
+      "adjunctProfessor": "Yarı zamanlı öğretim üyesi",
+      "chancellor": "Rektör",
+      "registrar": "Öğrenci işleri",
+      "bursar": "Mali işler",
+      "dormitory": "Yurt",
+      "fraternity": "Erkek öğrenci kulübü",
+      "sorority": "Kız öğrenci kulübü",
+      "commencement": "Mezuniyet töreni",
+      "convocation": "Açılış töreni",
+      "orientationWeek": "Oryantasyon haftası",
+      "midtermExam": "Vize sınavı",
+      "oralExam": "Sözlü sınav",
+      "curveGrading": "Eğriye göre not",
+      "extraCredit": "Ek puan",
+      "apprenticeship": "Çıraklık",
+      "vocationalSchool": "Meslek lisesi",
+      "communityCollege": "Topluluk koleji",
+      "ivyLeague": "Ivy League",
+      "boardingSchool": "Yatılı okul",
+      "montessori": "Montessori",
+      "detention": "Ceza çalışması",
+      "suspension": "Uzaklaştırma",
+      "expulsion": "Okuldan atılma",
+      "hallPass": "Koridor izni",
+      "studyHall": "Etüt saati",
+      "scienceFair": "Bilim şenliği",
+      "debateClub": "Münazara kulübü",
+      "studentCouncil": "Öğrenci konseyi",
+      "yearbook": "Yıllık",
+      "homecoming": "Mezunlar günü",
+      "pepRally": "Moral mitingi",
+      "honorRoll": "Onur derecesi",
+      "scholarship": "Burs",
+      "studentLoan": "Öğrenci kredisi",
+      "tuition": "Öğrenim ücreti",
+      "lectureHall": "Amfi",
+      "seminar": "Seminer",
+      "symposium": "Sempozyum",
+      "colloquium": "Kolokyum",
+      "exchangeStudent": "Değişim öğrencisi",
+      "gapYear": "Ara yıl",
+      "studyAbroad": "Yurt dışında eğitim",
+      "ibDiploma": "IB diploması",
+      "advancedPlacement": "AP dersi",
+      "honorsClass": "Onur sınıfı",
+      "substituteTeacher": "Vekil öğretmen",
+      "guidanceCounselor": "Rehber öğretmen",
+      "trigonometry": "Trigonometri",
+      "calculus": "Analiz",
+      "organicChemistry": "Organik kimya",
+      "quantumPhysics": "Kuantum fiziği",
+      "epistemology": "Bilgi felsefesi",
+      "etymology": "Köken bilimi",
+      "paleontology": "Paleontoloji",
+      "archaeology": "Arkeoloji",
+      "anthropology": "Antropoloji",
+      "sociology": "Sosyoloji",
+      "criminology": "Kriminoloji",
+      "jurisprudence": "Hukuk bilimi",
+      "rhetoric": "Retorik",
+      "phonetics": "Ses bilgisi",
+      "morphology": "Biçim bilgisi",
+      "syntax": "Sözdizimi",
+      "semantics": "Anlam bilimi",
+      "cartography": "Haritacılık",
+      "topography": "Yerşekilleri",
+      "climatology": "İklim bilimi",
+      "astronomy": "Astronomi",
+      "cosmology": "Kozmoloji",
+      "genetics": "Genetik",
+      "microbiology": "Mikrobiyoloji",
+      "biochemistry": "Biyokimya",
+      "pharmacology": "Farmakoloji",
+      "anatomy": "Anatomi",
+      "physiology": "Fizyoloji",
+      "freshmanYear": "Birinci sınıf",
+      "sophomore": "İkinci sınıf",
+      "alumni": "Mezunlar",
+      "campus": "Kampüs",
+      "intern": "Stajyer",
+      "grant": "Hibe",
+      "popQuiz": "Sürpriz sınav",
+      "takeHomeExam": "Ev sınavı",
+      "fieldTrip": "Gezi",
+      "lockers": "Dolaplar",
+      "auditorium": "Konferans salonu",
+      "laboratory": "Laboratuvar",
+      "recess": "Teneffüs",
+      "homeschool": "Evde eğitim"
     }
   },
   "hints": {
@@ -572,6 +1622,51 @@
       "hint1": "Modern teknoloji ile ilgili",
       "hint2": "Dijital veya elektronik",
       "hint3": "Günümüzde yaygın kullanılan"
+    },
+    "celebrities": {
+      "hint1": "Ünlü biri",
+      "hint2": "Medyada sık görülür",
+      "hint3": "Dünyaca tanınır"
+    },
+    "cities": {
+      "hint1": "Bir şehir",
+      "hint2": "Haritada bulunur",
+      "hint3": "İnsanlar orada yaşar"
+    },
+    "bodyHealth": {
+      "hint1": "Vücutla ilgili",
+      "hint2": "Sağlık veya tıp hakkında",
+      "hint3": "Doktorların bahsettiği bir şey"
+    },
+    "brands": {
+      "hint1": "Tanıdık bir marka",
+      "hint2": "Logosunu görmüş olabilirsin",
+      "hint3": "Dünyada mağazalarda satılır"
+    },
+    "hollywood": {
+      "hint1": "Sinema sektörüyle ilgili",
+      "hint2": "Sinema kültürü veya ödüller",
+      "hint3": "Hollywood’dan bir şey"
+    },
+    "games": {
+      "hint1": "Bir video oyunu",
+      "hint2": "Konsol veya bilgisayarda oynanır",
+      "hint3": "Oyuncular arasında bilinir"
+    },
+    "locations": {
+      "hint1": "Ünlü bir yer",
+      "hint2": "Oraya seyahat edilebilir",
+      "hint3": "Haritada bulunur"
+    },
+    "anime": {
+      "hint1": "Japon animasyonundan",
+      "hint2": "Bir dizi veya film",
+      "hint3": "Anime hayranları bilir"
+    },
+    "schoolEducation": {
+      "hint1": "Okulla ilgili",
+      "hint2": "Öğrenmeyle ilgili",
+      "hint3": "Eğitimden bir şey"
     }
   },
   "questions": {
@@ -2190,6 +3285,744 @@
         "normal": "İnternet olmasaydı hayat nasıl görünürdü?",
         "imposter": "Elektrik olmasaydı hayat nasıl görünürdü?"
       }
+    },
+    "celebrities": {
+      "q1": {
+        "normal": "Hangi ünlüyle akşam yemeği yemek isterdin?",
+        "imposter": "Hangi tarihi kişiyle akşam yemeği yemek isterdin?"
+      },
+      "q2": {
+        "normal": "Sence şu an en şişirilmiş ünlü kim?",
+        "imposter": "Sence şu an en şişirilmiş marka hangisi?"
+      },
+      "q3": {
+        "normal": "Kimin imajı en hesaplı kurulmuş gibi?",
+        "imposter": "Kimin restoran konsepti en hesaplı kurulmuş gibi?"
+      },
+      "q4": {
+        "normal": "Kim en kötü ev arkadaşı olurdu?",
+        "imposter": "Hangi evcil hayvan en kötü ev arkadaşı olurdu?"
+      },
+      "q5": {
+        "normal": "Kimin tarzına gerçekten saygı duyarsın?",
+        "imposter": "Kimin ev dekoruna gerçekten saygı duyarsın?"
+      },
+      "q6": {
+        "normal": "Kim çok erken zirve yaptı?",
+        "imposter": "Hangi restoran çok erken zirve yaptı?"
+      },
+      "q7": {
+        "normal": "Kimin sesi en ayırt edici?",
+        "imposter": "Hangi enstrümanın sesi en ayırt edici?"
+      },
+      "q8": {
+        "normal": "Kimin belgeselini sonuna kadar izlerdin?",
+        "imposter": "Kimin yemek programını sonuna kadar izlerdin?"
+      },
+      "q9": {
+        "normal": "Sırrını kime emanet ederdin?",
+        "imposter": "Sırrını hangi arkadaşına emanet ederdin?"
+      },
+      "q10": {
+        "normal": "Kim en çok yönlü?",
+        "imposter": "Hangi mutfak aleti en çok yönlü?"
+      },
+      "q11": {
+        "normal": "Kim bir yarışmada en uzun dayanır?",
+        "imposter": "Hangi bitki ihmale en uzun dayanır?"
+      },
+      "q12": {
+        "normal": "Kimin dönüşü en etkileyiciydi?",
+        "imposter": "Hangi şehrin toparlanması en etkileyiciydi?"
+      },
+      "q13": {
+        "normal": "Kim gizliden en komik?",
+        "imposter": "Hangi öğretmen gizliden en komik?"
+      },
+      "q14": {
+        "normal": "Kim en kaotik ödül konuşması yapardı?",
+        "imposter": "Kim en kaotik düğün konuşması yapardı?"
+      },
+      "q15": {
+        "normal": "Kim fazla göz önünde?",
+        "imposter": "Hangi şarkı fazla çalınıyor?"
+      },
+      "q16": {
+        "normal": "Kimi yaratıcı yönetmen olarak işe alırdın?",
+        "imposter": "Kimi iç mimar olarak işe alırdın?"
+      },
+      "q17": {
+        "normal": "Kimin kariyer seçimleri kafa karıştırıyor?",
+        "imposter": "Kimin menü seçimleri kafa karıştırıyor?"
+      },
+      "q18": {
+        "normal": "Kim en zarif şekilde yaşlandı?",
+        "imposter": "Hangi bina en zarif şekilde yaşlandı?"
+      },
+      "q19": {
+        "normal": "Uzun uçuşta kim çekilmez olurdu?",
+        "imposter": "Uzun uçuşta hangi çocuk çekilmez olurdu?"
+      },
+      "q20": {
+        "normal": "Kim daha sakin bir üne layık?",
+        "imposter": "Hangi icat daha fazla takdir hak ediyor?"
+      }
+    },
+    "cities": {
+      "q1": {
+        "normal": "Bir yıllığına hangi şehre taşınırdın?",
+        "imposter": "Bir yıllığına hangi köye taşınırdın?"
+      },
+      "q2": {
+        "normal": "Hangi şehrin yemek kültürü şişirilmiş?",
+        "imposter": "Hangi restoranın menüsü şişirilmiş?"
+      },
+      "q3": {
+        "normal": "Nerede bilerek kaybolmak isterdin?",
+        "imposter": "Hangi müzede bilerek kaybolmak isterdin?"
+      },
+      "q4": {
+        "normal": "Hangi şehir en sinematik duruyor?",
+        "imposter": "Hangi orman en sinematik duruyor?"
+      },
+      "q5": {
+        "normal": "Nerede gece hayatı seni ilk yorar?",
+        "imposter": "Hangi festival seni ilk yorar?"
+      },
+      "q6": {
+        "normal": "Hangi şehrin ulaşımı en kafa karıştırıcı?",
+        "imposter": "Hangi havalimanının düzeni en kafa karıştırıcı?"
+      },
+      "q7": {
+        "normal": "Nerede asla araba kullanmazdın?",
+        "imposter": "Hangi dağda asla araba kullanmazdın?"
+      },
+      "q8": {
+        "normal": "Hangi şehrin kokusu en ayırt edici?",
+        "imposter": "Hangi baharatın kokusu en ayırt edici?"
+      },
+      "q9": {
+        "normal": "Nerede yağmurlu bir hafta yine de değer?",
+        "imposter": "Nerede yağmurlu bir piknik yine de değer?"
+      },
+      "q10": {
+        "normal": "Hangi şehir paranı en çabuk bitirir?",
+        "imposter": "Hangi hobi paranı en çabuk bitirir?"
+      },
+      "q11": {
+        "normal": "Nerede yerliler en sabırsız görünür?",
+        "imposter": "Hangi kuyruk insanları en sabırsız yapar?"
+      },
+      "q12": {
+        "normal": "Hangi siluet en şişirilmiş?",
+        "imposter": "Hangi anıt en şişirilmiş?"
+      },
+      "q13": {
+        "normal": "Bir aylığına kaybolmak için nereye giderdin?",
+        "imposter": "Bir aylığına kaybolmak için hangi kulübeyi seçerdin?"
+      },
+      "q14": {
+        "normal": "Hangi şehirde taksiler en kaba?",
+        "imposter": "Hangi havayolunun personeli en kaba?"
+      },
+      "q15": {
+        "normal": "Nerede sokak yemeği en az hayal kırıklığı yaratır?",
+        "imposter": "Nerede hastane yemeği en az hayal kırıklığı yaratır?"
+      },
+      "q16": {
+        "normal": "Hangi şehir için bavul hazırlamak en zor?",
+        "imposter": "Hangi gezi için bavul hazırlamak en zor?"
+      },
+      "q17": {
+        "normal": "Nerede asla bodrum Airbnb almazdın?",
+        "imposter": "Nerede asla penceresiz oda almazdın?"
+      },
+      "q18": {
+        "normal": "Hangi şehir gece yarısından sonra kişilik değiştirir?",
+        "imposter": "Hangi kişi gece yarısından sonra kişilik değiştirir?"
+      },
+      "q19": {
+        "normal": "Nerede yerel dili en çabuk öğrenirdin?",
+        "imposter": "Nerede yemek yapmayı en çabuk öğrenirdin?"
+      },
+      "q20": {
+        "normal": "Hangi şehir gizliden en yorucu?",
+        "imposter": "Hangi akraba gizliden en yorucu?"
+      }
+    },
+    "bodyHealth": {
+      "q1": {
+        "normal": "Hangi rahatsızlık en çok küçümseniyor?",
+        "imposter": "Hangi ev işi en çok küçümseniyor?"
+      },
+      "q2": {
+        "normal": "Neyi asla yaşamak istemezdin?",
+        "imposter": "Hangi mutfak felaketini asla yaşamak istemezdin?"
+      },
+      "q3": {
+        "normal": "Hangisinin iyileşmesi sanıldığından uzun sürer?",
+        "imposter": "Hangi hobi sanıldığından daha çok sabır ister?"
+      },
+      "q4": {
+        "normal": "İnsanlar gece ikide bunu fazla aratıyor?",
+        "imposter": "İnsanlar gece ikide bu tarifi fazla mahvediyor?"
+      },
+      "q5": {
+        "normal": "Hangisi aslında olduğundan korkutucu duruyor?",
+        "imposter": "Hangi böcek aslında olduğundan korkutucu duruyor?"
+      },
+      "q6": {
+        "normal": "Ne olsa hemen doktora giderdin?",
+        "imposter": "Ne olsa hemen tesisatçı çağırırdın?"
+      },
+      "q7": {
+        "normal": "Hangi alışkanlık insanı usulca bozar?",
+        "imposter": "Hangi atıştırmalık insanı usulca bozar?"
+      },
+      "q8": {
+        "normal": "Bunu evhamlı birine anlatmak en zor?",
+        "imposter": "Bunu seçici birine anlatmak en zor?"
+      },
+      "q9": {
+        "normal": "Hangisi teşhisten çok yaşam tarzı?",
+        "imposter": "Hangi diyet bilimden çok moda?"
+      },
+      "q10": {
+        "normal": "30’dan önce herkes neyi anlamalı?",
+        "imposter": "30’dan önce herkes hangi tarifi bilmeli?"
+      },
+      "q11": {
+        "normal": "Hangi tedavi çağdışı durur ama işe yarar?",
+        "imposter": "Hangi temizlik yöntemi çağdışı durur ama işe yarar?"
+      },
+      "q12": {
+        "normal": "İnsanlar neyi acil olana kadar yok sayar?",
+        "imposter": "İnsanlar hangi faturayı acil olana kadar yok sayar?"
+      },
+      "q13": {
+        "normal": "Hangisi en çok fazla teşhis ediliyor?",
+        "imposter": "Hangi kişilik tipi en çok fazla yakıştırılıyor?"
+      },
+      "q14": {
+        "normal": "Kronik olarak neyi en az isterdin?",
+        "imposter": "Ev arkadaşı alışkanlığı olarak neyi en az isterdin?"
+      },
+      "q15": {
+        "normal": "Hangi belirti en kolay yanlış okunur?",
+        "imposter": "Hangi mesaj en kolay yanlış okunur?"
+      },
+      "q16": {
+        "normal": "Neyin daha çok araştırma bütçesi hak ettiğini düşünürsün?",
+        "imposter": "Hangi tatlı menüde daha çok yer hak ediyor?"
+      },
+      "q17": {
+        "normal": "Hangisi günlük hayatı en çok değiştirir?",
+        "imposter": "Hangi alet günlük hayatı en çok değiştirir?"
+      },
+      "q18": {
+        "normal": "Uzun vadede hangisini yönetmek en sinir bozucu?",
+        "imposter": "Uzun vadede hangi abonelik en sinir bozucu?"
+      },
+      "q19": {
+        "normal": "İnsanlar hangisini anlamadan kullanıyor?",
+        "imposter": "İnsanlar hangi yemek terimini anlamadan kullanıyor?"
+      },
+      "q20": {
+        "normal": "Sağlık pazarından neyi yasaklardın?",
+        "imposter": "Fast-food reklamlarından neyi yasaklardın?"
+      }
+    },
+    "brands": {
+      "q1": {
+        "normal": "Hangi marka eski namıyla idare ediyor?",
+        "imposter": "Hangi restoran eski namıyla idare ediyor?"
+      },
+      "q2": {
+        "normal": "Kimin logosunu asla giymezdin?",
+        "imposter": "Kimin sloganını asla tekrarlamazdın?"
+      },
+      "q3": {
+        "normal": "Hangi marka en şişirilmiş fiyatlı?",
+        "imposter": "Hangi otel kahvaltısı en şişirilmiş fiyatlı?"
+      },
+      "q4": {
+        "normal": "Kim en savurgan ürünleri yapıyor?",
+        "imposter": "Kim en savurgan partileri veriyor?"
+      },
+      "q5": {
+        "normal": "Hangi marka bir skandalı atlatır?",
+        "imposter": "Hangi politikacı bir skandalı atlatır?"
+      },
+      "q6": {
+        "normal": "Kimin müşteri hizmeti sabrını ilk tüketir?",
+        "imposter": "Kimin akrabaları sabrını ilk tüketir?"
+      },
+      "q7": {
+        "normal": "Hangisi özden çok imaj?",
+        "imposter": "Hangi fenomen özden çok imaj?"
+      },
+      "q8": {
+        "normal": "Neyi düşünmeden boykot ederdin?",
+        "imposter": "Hangi yemeği düşünmeden boykot ederdin?"
+      },
+      "q9": {
+        "normal": "Hangi marka hâlâ statü simgesi?",
+        "imposter": "Hangi mahalle hâlâ statü simgesi?"
+      },
+      "q10": {
+        "normal": "Kim üründe değil reklamda zirve yaptı?",
+        "imposter": "Kim filmde değil fragmanda zirve yaptı?"
+      },
+      "q11": {
+        "normal": "Elektrik kesilince hangisini yanına alırdın?",
+        "imposter": "Elektrik kesilince hangi aleti yanına alırdın?"
+      },
+      "q12": {
+        "normal": "Kimin yenilemesi her şeyi bozdu?",
+        "imposter": "Kimin saç kesimi her şeyi bozdu?"
+      },
+      "q13": {
+        "normal": "Turistler hangi markaya fazla ödüyor?",
+        "imposter": "Turistler hangi yere fazla ödüyor?"
+      },
+      "q14": {
+        "normal": "Kimin paketi en dürüst değil?",
+        "imposter": "Kimin tanışma profili en dürüst değil?"
+      },
+      "q15": {
+        "normal": "Hangi iş birliği tamamen anlamsızdı?",
+        "imposter": "Hangi grup ödevi tamamen anlamsızdı?"
+      },
+      "q16": {
+        "normal": "Az sevmediğin birine ne hediye ederdin?",
+        "imposter": "Az sevmediğin birine hangi tatlıyı hediye ederdin?"
+      },
+      "q17": {
+        "normal": "Hangi marka sanki sadece havalimanı için?",
+        "imposter": "Hangi yemek sanki sadece havalimanı için?"
+      },
+      "q18": {
+        "normal": "Kim popülerleşince ruhunu kaybetti?",
+        "imposter": "Hangi grup popülerleşince ruhunu kaybetti?"
+      },
+      "q19": {
+        "normal": "Hangisine yatırım yapar ama kullanmazdın?",
+        "imposter": "Hangi hisseyi alır ama övünmezdin?"
+      },
+      "q20": {
+        "normal": "Kimin adı nedensiz hâlâ lüks duruyor?",
+        "imposter": "Kimin aksanı nedensiz hâlâ havalı duruyor?"
+      }
+    },
+    "hollywood": {
+      "q1": {
+        "normal": "Hangi ödül en az samimi duruyor?",
+        "imposter": "Hangi okul ödülü en az samimi duruyor?"
+      },
+      "q2": {
+        "normal": "Bir yapımın nesi seni ilk yorar?",
+        "imposter": "Bir düğünün nesi seni ilk yorar?"
+      },
+      "q3": {
+        "normal": "Hangi trend artık emekli olmalı?",
+        "imposter": "Hangi moda trendi artık emekli olmalı?"
+      },
+      "q4": {
+        "normal": "En çok aşınmış anlatı hilesi nedir?",
+        "imposter": "En çok aşınmış açılış cümlesi nedir?"
+      },
+      "q5": {
+        "normal": "Sete hangi iş havalı durur ama değil?",
+        "imposter": "Restoranda hangi iş havalı durur ama değil?"
+      },
+      "q6": {
+        "normal": "Ödül törenlerinden neyi yasaklardın?",
+        "imposter": "Aile yemeklerinden neyi yasaklardın?"
+      },
+      "q7": {
+        "normal": "Hangi format yaratıcı olarak tükenmiş?",
+        "imposter": "Hangi artan yemek yaratıcı olarak tükenmiş?"
+      },
+      "q8": {
+        "normal": "Sektör en çok nerede yalan söyler?",
+        "imposter": "Seyahat broşürleri en çok nerede yalan söyler?"
+      },
+      "q9": {
+        "normal": "Bir filmi anında ucuz gösteren nedir?",
+        "imposter": "Bir oteli anında ucuz gösteren nedir?"
+      },
+      "q10": {
+        "normal": "Hangi ritüel tamamen gösteriş?",
+        "imposter": "Hangi ofis ritüeli tamamen gösteriş?"
+      },
+      "q11": {
+        "normal": "İzleyici neye daha şüpheci bakmalı?",
+        "imposter": "Alışverişte neye daha şüpheci bakmalı?"
+      },
+      "q12": {
+        "normal": "Hangisi en kötü yaşlandı?",
+        "imposter": "Hangi argo en kötü yaşlandı?"
+      },
+      "q13": {
+        "normal": "Kamerada neyi sahte yapmak en zor?",
+        "imposter": "Yemekte neyi sahte yapmak en zor?"
+      },
+      "q14": {
+        "normal": "İnsanlar hangi jeneriği boşuna atlıyor?",
+        "imposter": "İnsanlar hangi uyarıyı boşuna atlıyor?"
+      },
+      "q15": {
+        "normal": "Şişmiş bir gişe filminden neyi keserdin?",
+        "imposter": "Şişmiş bir büfeden neyi keserdin?"
+      },
+      "q16": {
+        "normal": "Hangi rol en nankör?",
+        "imposter": "Ailede hangi rol en nankör?"
+      },
+      "q17": {
+        "normal": "Eleştirmenler neyi fazla övüyor?",
+        "imposter": "Yemek bloggerları neyi fazla övüyor?"
+      },
+      "q18": {
+        "normal": "Bu dünyadan hangi ifade en ukala?",
+        "imposter": "Hangi şarap cümlesi en ukala?"
+      },
+      "q19": {
+        "normal": "Galadan ne olsa çıkardın?",
+        "imposter": "Yemekten ne olsa çıkardın?"
+      },
+      "q20": {
+        "normal": "Hangisi sinemadan çok pazarlama?",
+        "imposter": "Hangisi yemekten çok paket?"
+      }
+    },
+    "games": {
+      "q1": {
+        "normal": "Hangi oyun parlak ama fazla cezalandırıcı?",
+        "imposter": "Hangi öğretmen parlak ama fazla cezalandırıcı?"
+      },
+      "q2": {
+        "normal": "İlk buluşmada neyi asla oynamazdın?",
+        "imposter": "İlk buluşmada hangi filmi asla açmazdın?"
+      },
+      "q3": {
+        "normal": "Hangisinin dövüşü en şişirilmiş?",
+        "imposter": "Hangisinin bonfilesi en şişirilmiş?"
+      },
+      "q4": {
+        "normal": "Nerede yan görevler ikinci işe dönüşür?",
+        "imposter": "Nerede ev işleri ikinci işe dönüşür?"
+      },
+      "q5": {
+        "normal": "Hangi son seni kızdırırdı?",
+        "imposter": "Hangi sezon finali seni kızdırırdı?"
+      },
+      "q6": {
+        "normal": "Hangi topluluk en ukala?",
+        "imposter": "Hangi kahve siparişi en ukala?"
+      },
+      "q7": {
+        "normal": "Hangi oyun göründüğünden iyi oynanır?",
+        "imposter": "Hangi pasta göründüğünden iyi tadar?"
+      },
+      "q8": {
+        "normal": "Bir hafta sonunda neyi silerdin?",
+        "imposter": "Bir hafta sonunda hangi artanı atardın?"
+      },
+      "q9": {
+        "normal": "Hangi patron savaşı yetenekten çok gösteri?",
+        "imposter": "Hangi konser müzikten çok gösteri?"
+      },
+      "q10": {
+        "normal": "Nerede hikâye zayıf oyunu taşıyor?",
+        "imposter": "Nerede sunum zayıf yemeği taşıyor?"
+      },
+      "q11": {
+        "normal": "Hangi çok oyunculu arkadaşlığı en çabuk bozar?",
+        "imposter": "Hangi kutu oyunu arkadaşlığı en çabuk bozar?"
+      },
+      "q12": {
+        "normal": "Hangisi yeniden çevrimi en az hak ediyor?",
+        "imposter": "Hangi restoran yeniden açılmayı en az hak ediyor?"
+      },
+      "q13": {
+        "normal": "Hangi öğretici fazla konuşuyor?",
+        "imposter": "Hangi akraba fazla konuşuyor?"
+      },
+      "q14": {
+        "normal": "Hangisini sadece sessizde oynardın?",
+        "imposter": "Hangisini sadece sessizde izlerdin?"
+      },
+      "q15": {
+        "normal": "Hangi açık dünya sadece boşluk?",
+        "imposter": "Hangi müze sadece boşluk?"
+      },
+      "q16": {
+        "normal": "Hangisinin hayran kitlesi en yorucu?",
+        "imposter": "Hangi mutfağın hayran kitlesi en yorucu?"
+      },
+      "q17": {
+        "normal": "İnsanlar hangisini bitirmeden övüyor?",
+        "imposter": "İnsanlar hangi kitabı bitirmeden övüyor?"
+      },
+      "q18": {
+        "normal": "Kötü olsan bile hangisini yayınlardın?",
+        "imposter": "Kötü olsan bile hangi sporu yapardın?"
+      },
+      "q19": {
+        "normal": "Hangi mekanik süt gibi ekşidi?",
+        "imposter": "Hangi argo süt gibi ekşidi?"
+      },
+      "q20": {
+        "normal": "Hangisi aslında fazladan adımlı yürüyüş simülatörü?",
+        "imposter": "Hangi toplantı aslında fazladan adımlı yürüyüş simülatörü?"
+      }
+    },
+    "locations": {
+      "q1": {
+        "normal": "Hangi yer fotoğrafta gerçekten güzel?",
+        "imposter": "Hangi tatlı fotoğrafta gerçekten güzel?"
+      },
+      "q2": {
+        "normal": "Nerede kalabalık deneyimi ilk bozar?",
+        "imposter": "Nerede ağlayan bebek deneyimi ilk bozar?"
+      },
+      "q3": {
+        "normal": "Hangisini gezgin fenomenler şişirmiş?",
+        "imposter": "Hangi kafeyi fenomenler şişirmiş?"
+      },
+      "q4": {
+        "normal": "Nereye bilerek küçük hissetmek için giderdin?",
+        "imposter": "Hangi konserde bilerek küçük hissederdin?"
+      },
+      "q5": {
+        "normal": "Gece hangisi daha çok korkutur?",
+        "imposter": "Gece hangi bodrum daha çok korkutur?"
+      },
+      "q6": {
+        "normal": "Nerede yol varıştan güzel?",
+        "imposter": "Nerede pişirme sunumdan güzel?"
+      },
+      "q7": {
+        "normal": "Hangi yer aslında manzaralı kuyruk?",
+        "imposter": "Hangi kulüp aslında müzikli kuyruk?"
+      },
+      "q8": {
+        "normal": "Nerede rehberli turu reddederdin?",
+        "imposter": "Nerede tadım menüsünü reddederdin?"
+      },
+      "q9": {
+        "normal": "Dindar olmasan bile hangisi kutsal hissettirir?",
+        "imposter": "Aşçı olmasan bile hangi mutfak kutsal hissettirir?"
+      },
+      "q10": {
+        "normal": "Nerede hava gezisini en çabuk bozar?",
+        "imposter": "Nerede elektrik kesintisi yemeği en çabuk bozar?"
+      },
+      "q11": {
+        "normal": "Hangisi bir kez etkileyici, bir daha değil?",
+        "imposter": "Hangi film bir kez etkileyici, bir daha değil?"
+      },
+      "q12": {
+        "normal": "Yeni tanıştığın biriyle nereye giderdin?",
+        "imposter": "Yeni tanıştığın biriyle nerede yerdin?"
+      },
+      "q13": {
+        "normal": "Neresi ziyaretçi kotası koymalı?",
+        "imposter": "Hangi restoran rezervasyon kotası koymalı?"
+      },
+      "q14": {
+        "normal": "Nerede hediyelik dükkân asıl cazibe?",
+        "imposter": "Nerede tatlı asıl ana yemek?"
+      },
+      "q15": {
+        "normal": "Hangi manzara gürültülü turisti ilk susturur?",
+        "imposter": "Hangi kütüphane gürültülü turisti ilk susturur?"
+      },
+      "q16": {
+        "normal": "Nereye sezonun zirvesinde gitmezdin?",
+        "imposter": "Nerede yoğun saatte yemezdin?"
+      },
+      "q17": {
+        "normal": "Hangi yer kartpostal için uydurulmuş gibi?",
+        "imposter": "Hangi tatlı kartpostal için uydurulmuş gibi?"
+      },
+      "q18": {
+        "normal": "Orada olsan bile neyi atlaraydın?",
+        "imposter": "Ödenmiş olsa bile hangi yemeği atlaraydın?"
+      },
+      "q19": {
+        "normal": "Hangisi manzaradan çok hikâye?",
+        "imposter": "Hangi şarap tattan çok hikâye?"
+      },
+      "q20": {
+        "normal": "Nerede ani fırtına biraz mükemmel olurdu?",
+        "imposter": "Nerede elektrik kesintisi biraz mükemmel olurdu?"
+      }
+    },
+    "anime": {
+      "q1": {
+        "normal": "Hangisi sonuna kadar parlak, sonda değil?",
+        "imposter": "Hangi dizi sonuna kadar parlak, sonda değil?"
+      },
+      "q2": {
+        "normal": "Hangisinin bölüm sayısı en yorucu?",
+        "imposter": "Hangi ders dizisinin bölüm sayısı en yorucu?"
+      },
+      "q3": {
+        "normal": "Hangi hayran kitlesi en saçma şeyde kavga eder?",
+        "imposter": "Hangi spor taraftarı en saçma şeyde kavga eder?"
+      },
+      "q4": {
+        "normal": "Anime sevmem diyene neyi gösterirdin?",
+        "imposter": "Acı sevmem diyene hangi yemeği gösterirdin?"
+      },
+      "q5": {
+        "normal": "Hangi açılış diziden iyi?",
+        "imposter": "Hangi fragman filmden iyi?"
+      },
+      "q6": {
+        "normal": "Hangisi ilk sezonda zirve yaptı?",
+        "imposter": "Hangi restoran ilk yılda zirve yaptı?"
+      },
+      "q7": {
+        "normal": "Hangi güç sistemi en karmaşık?",
+        "imposter": "Hangi vergi formu en karmaşık?"
+      },
+      "q8": {
+        "normal": "Hangisi kılık değiştirmiş spor animesi?",
+        "imposter": "Hangi toplantı kılık değiştirmiş spor animesi?"
+      },
+      "q9": {
+        "normal": "Hangi karakter tipi emekli olmalı?",
+        "imposter": "Hangi sitcom karakter tipi emekli olmalı?"
+      },
+      "q10": {
+        "normal": "Hangisi çizim için övülür ama müzik taşır?",
+        "imposter": "Hangi restoran sunum için övülür ama tuz taşır?"
+      },
+      "q11": {
+        "normal": "Hangi uyarlama kaynağa hakaret etti?",
+        "imposter": "Hangi devam filmi aslına hakaret etti?"
+      },
+      "q12": {
+        "normal": "Hastane bekleme odasında neyi yeniden izlerdin?",
+        "imposter": "Hastane bekleme odasında hangi atıştırmalığı isterdin?"
+      },
+      "q13": {
+        "normal": "Hangisi tamamen hava, sıfır hikâye?",
+        "imposter": "Hangi parfüm tamamen hava, sıfır öz?"
+      },
+      "q14": {
+        "normal": "Nerede dolgu en çok zarar verdi?",
+        "imposter": "Nerede reklam en çok zarar verdi?"
+      },
+      "q15": {
+        "normal": "Hangi stüdyo tarzını anında tanırsın?",
+        "imposter": "Hangi fırın tarzını anında tanırsın?"
+      },
+      "q16": {
+        "normal": "Hangisi tek sezonluk kalmalıydı?",
+        "imposter": "Hangi restoran konsepti pop-up kalmalıydı?"
+      },
+      "q17": {
+        "normal": "Hangi dövüş sahnede netlik yok, hava var?",
+        "imposter": "Hangi aksiyon filmde netlik yok, hava var?"
+      },
+      "q18": {
+        "normal": "En çok tekrarlanan replik hangisi?",
+        "imposter": "En çok tekrarlanan film repliği hangisi?"
+      },
+      "q19": {
+        "normal": "Hangisi parlak renkli bir trajedi?",
+        "imposter": "Hangi çocuk kitabı parlak renkli bir trajedi?"
+      },
+      "q20": {
+        "normal": "Dürüst ol, hangisini biraz sakınırdın?",
+        "imposter": "Dürüst ol, hangi tarifi biraz sakınırdın?"
+      }
+    },
+    "schoolEducation": {
+      "q1": {
+        "normal": "Öğrenciler hangisini anlıyormuş gibi yapar?",
+        "imposter": "İnsanlar hangi şarap terimini anlıyormuş gibi yapar?"
+      },
+      "q2": {
+        "normal": "En gereksiz engel hangisi?",
+        "imposter": "Ofisteki en gereksiz engel hangisi?"
+      },
+      "q3": {
+        "normal": "Hangisi öğrenmeden çok kaygı yaratır?",
+        "imposter": "Hangi aile geleneği sevinçten çok kaygı yaratır?"
+      },
+      "q4": {
+        "normal": "Yarın neyi kaldırmalısın?",
+        "imposter": "Yarın hangi ev kuralını kaldırmalısın?"
+      },
+      "q5": {
+        "normal": "Hangi rolün işi en nankör?",
+        "imposter": "Mutfakta hangi rolün işi en nankör?"
+      },
+      "q6": {
+        "normal": "Hangisi eğitim kılığında statü?",
+        "imposter": "Hangisi misafirperverlik kılığında statü?"
+      },
+      "q7": {
+        "normal": "Hangi sınav biçimi en adaletsiz?",
+        "imposter": "Hangi yarışma biçimi en adaletsiz?"
+      },
+      "q8": {
+        "normal": "İnsanlar potansiyeli en çok nerede boşa harcar?",
+        "imposter": "Artan yemek en çok nerede boşa gider?"
+      },
+      "q9": {
+        "normal": "Özgeçmişte havalı, başka yerde değil olan nedir?",
+        "imposter": "Menüde havalı, başka yerde değil olan nedir?"
+      },
+      "q10": {
+        "normal": "Hangi gelenek eğitim değil nostalji?",
+        "imposter": "Hangi bayram yemeği lezzet değil nostalji?"
+      },
+      "q11": {
+        "normal": "Neyi zorunlu yapardın ve bu neden korkutur?",
+        "imposter": "Hangi ev işini zorunlu yapardın ve bu neden korkutur?"
+      },
+      "q12": {
+        "normal": "Öğretmenlerin hangi cümlesi en boş?",
+        "imposter": "Yöneticilerin hangi cümlesi en boş?"
+      },
+      "q13": {
+        "normal": "Aslında olduğundan pahalı olan nedir?",
+        "imposter": "Aslında olduğundan pahalı olan brunch nedir?"
+      },
+      "q14": {
+        "normal": "Hangi ders en cansız anlatılır?",
+        "imposter": "Hangi müze en cansız düzenlenir?"
+      },
+      "q15": {
+        "normal": "Ayrıcalık ilk nerede belli olur?",
+        "imposter": "Menüde ayrıcalık ilk nerede belli olur?"
+      },
+      "q16": {
+        "normal": "Okulu baştan kursan neyi korurdun?",
+        "imposter": "Restoranları baştan kursan neyi korurdun?"
+      },
+      "q17": {
+        "normal": "Hangi ceza disiplin değil tiyatro?",
+        "imposter": "Hangi diyet kuralı sağlık değil tiyatro?"
+      },
+      "q18": {
+        "normal": "Yetişkinler neyi romantize eder, öğrenciler neden korkar?",
+        "imposter": "Eleştirmenler neyi romantize eder, aşçılar neden korkar?"
+      },
+      "q19": {
+        "normal": "Hangi dönüm noktası çoğunlukla fotoğraf için?",
+        "imposter": "Hangi tatlı çoğunlukla fotoğraf için?"
+      },
+      "q20": {
+        "normal": "Bir dersin boşa gittiğini en nazik nasıl dersin?",
+        "imposter": "Yemeğin boşa gittiğini en nazik nasıl dersin?"
+      }
     }
   },
   "settings": {
@@ -2372,6 +4205,11 @@
   "splash": {
     "subtitle": "Sahtekarı Bul!"
   },
+  "languageSelect": {
+    "title": "Dil Seç",
+    "subtitle": "Dilini Seç",
+    "continue": "Devam Et"
+  },
   "rating": {
     "title": "Nasıl buldun?",
     "subtitle": "Oyunu beğendiysen bize destek ol!",
@@ -2379,20 +4217,26 @@
     "later": "Daha Sonra"
   },
   "paywall": {
-    "proLabel": "PRO",
-    "title": "Partiyi Asla Bitirme",
-    "subtitle": "Tüm kategorileri, özel kelimeleri ve reklamsız oyunu tek dokunuşla aç.",
+    "proLabel": "IMPOSTER PRO",
+    "title": "Kimse seni",
+    "titleMid": "",
+    "titleHighlight": "hazırlıksız",
+    "titleAfter": "yakalamaz",
+    "subtitle": "{{words}} kelime, {{categories}} premium kategori. Reklamsız. Sınırsız desteler.",
     "statCategories": "Premium kategori",
     "statWords": "Özel kelime",
     "statCustom": "Kendi kategorin",
-    "yearlyTitle": "Yıllık",
+    "yearlyTitle": "12 ay",
     "yearlySubtitle": "12 ay tam erişim",
-    "monthlyTitle": "Aylık",
-    "perMonth": "{{price}} / ay",
-    "savePercent": "%{{percent}} TASARRUF",
+    "monthlyTitle": "1 ay",
+    "perMonth": "{{price}} / aylık",
+    "savePercent": "-%{{percent}}",
     "bestValue": "EN AVANTAJLI",
-    "cta": "PRO'YA GEÇ",
-    "cancelAnytime": "İstediğin an iptal edebilirsin",
+    "cta": "Hepsini aç",
+    "cancelAnytime": "İstediğin zaman iptal",
+    "restore": "Geri yükle",
+    "terms": "Şartlar",
+    "privacy": "Gizlilik",
     "legalText": "Abonelik ücreti Google Play hesabınızdan tahsil edilir. Mevcut dönem bitmeden en az 24 saat önce iptal edilmediği sürece otomatik olarak yenilenir. Aboneliğinizi Google Play > Abonelikler bölümünden yönetebilir veya iptal edebilirsiniz."
   },
   "voting": {

@@ -1,0 +1,51 @@
+import remoteConfig from '@react-native-firebase/remote-config';
+import {
+  REMOTE_CONFIG_DEFAULTS,
+  REMOTE_CONFIG_KEYS,
+} from '../config/remoteConfigParams';
+
+const getAllParameters = () => {
+  const entries = remoteConfig().getAll();
+
+  return Object.fromEntries(
+    Object.entries(entries).map(([key, value]) => [
+      key,
+      {
+        value: value.asString(),
+        source: value.getSource(),
+      },
+    ]),
+  );
+};
+
+let fetchPromise = null;
+
+const loadRemoteConfig = async () => {
+  try {
+    await remoteConfig().setDefaults(REMOTE_CONFIG_DEFAULTS);
+    await remoteConfig().setConfigSettings({
+      minimumFetchIntervalMillis: __DEV__ ? 0 : 12 * 60 * 60 * 1000,
+    });
+
+    await remoteConfig().fetchAndActivate();
+
+    console.log('REMOTE CONFIG PARAMETERS', getAllParameters());
+  } catch (error) {
+    console.log('REMOTE CONFIG PARAMETERS', {
+      error: error?.message ?? String(error),
+    });
+  }
+};
+
+export const fetchRemoteConfig = () => {
+  if (!fetchPromise) {
+    fetchPromise = loadRemoteConfig();
+  }
+  return fetchPromise;
+};
+
+export const shouldShowPaywallAfterOnboarding = () => {
+  return remoteConfig()
+    .getValue(REMOTE_CONFIG_KEYS.onbToPaywall)
+    .asBoolean();
+};
