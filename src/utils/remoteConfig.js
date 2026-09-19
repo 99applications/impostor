@@ -45,7 +45,14 @@ export const fetchRemoteConfig = () => {
 };
 
 export const shouldShowPaywallAfterOnboarding = () => {
-  return remoteConfig()
-    .getValue(REMOTE_CONFIG_KEYS.onbToPaywall)
-    .asBoolean();
+  // Native modül yoksa ya da okuma hata verirse onboarding akışı kırılmasın;
+  // yerel varsayılana düş.
+  try {
+    return remoteConfig()
+      .getValue(REMOTE_CONFIG_KEYS.onbToPaywall)
+      .asBoolean();
+  } catch (error) {
+    console.log('Remote config read error:', error?.message);
+    return REMOTE_CONFIG_DEFAULTS[REMOTE_CONFIG_KEYS.onbToPaywall];
+  }
 };
