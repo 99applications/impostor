@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useReducer } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { CATEGORIES } from '../data/gameData';
+import i18n from '../i18n';
 
 const GameContext = createContext();
 
@@ -201,7 +202,7 @@ const preparePlayersForRound = (players, playerCount) =>
       }))
     : Array.from({ length: playerCount }, (_, i) => ({
         id: i + 1,
-        name: `Oyuncu ${i + 1}`,
+        name: `${i18n.t('game.player')} ${i + 1}`,
         isImposter: false,
         imposterCount: 0,
         lastImposterRound: null,
