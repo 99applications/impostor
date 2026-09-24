@@ -40,12 +40,15 @@ const CharadesBanner = ({ variant = 'home', style }) => {
       <View style={styles.mainRow}>
         <Image
           source={require('../assets/png/charadesLogo.png')}
-          style={styles.logo}
+          style={[styles.logo, isHome && styles.logoHome]}
         />
 
         <View style={styles.content}>
           <View style={styles.titleRow}>
-            <Text style={styles.title} numberOfLines={1}>
+            <Text
+              style={[styles.title, isHome && styles.titleHome]}
+              numberOfLines={1}
+            >
               {isHome
                 ? t('charadesBanner.homeTitle')
                 : t('charadesBanner.settingsTitle')}
@@ -58,18 +61,27 @@ const CharadesBanner = ({ variant = 'home', style }) => {
               </View>
             )}
           </View>
-          <Text style={styles.subtitle} numberOfLines={2}>
+          <Text
+            style={[styles.subtitle, isHome && styles.subtitleHome]}
+            numberOfLines={2}
+          >
             {t('charadesBanner.homeSubtitle')}
           </Text>
         </View>
 
-        <View style={styles.playButton}>
-          <Text style={styles.playButtonText}>{t('charadesBanner.play')}</Text>
+        <View style={[styles.playButton, isHome && styles.playButtonHome]}>
+          <Text
+            style={[styles.playButtonText, isHome && styles.playButtonTextHome]}
+          >
+            {t('charadesBanner.play')}
+          </Text>
         </View>
       </View>
 
       {isHome && (
-        <Text style={styles.footer}>{t('charadesBanner.footer')}</Text>
+        <Text style={[styles.footer, styles.footerHome]}>
+          {t('charadesBanner.footer')}
+        </Text>
       )}
     </TouchableOpacity>
   );
@@ -88,7 +100,8 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   containerHome: {
-    marginHorizontal: 24,
+    padding: 12,
+    borderRadius: 16,
   },
   containerSettings: {
     marginBottom: 24,
@@ -112,6 +125,12 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginRight: 12,
   },
+  logoHome: {
+    width: 40,
+    height: 40,
+    borderRadius: 10,
+    marginRight: 10,
+  },
   content: {
     flex: 1,
     marginRight: 10,
@@ -128,6 +147,9 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#FFFFFF',
     flexShrink: 1,
+  },
+  titleHome: {
+    fontSize: 14,
   },
   newBadge: {
     backgroundColor: '#EF4444',
@@ -147,6 +169,10 @@ const styles = StyleSheet.create({
     color: 'rgba(255, 255, 255, 0.85)',
     lineHeight: 18,
   },
+  subtitleHome: {
+    fontSize: 12,
+    lineHeight: 16,
+  },
   playButton: {
     backgroundColor: '#FFFFFF',
     paddingHorizontal: 18,
@@ -158,12 +184,24 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#3B82F6',
   },
+  playButtonHome: {
+    paddingHorizontal: 14,
+    paddingVertical: 7,
+    borderRadius: 16,
+  },
+  playButtonTextHome: {
+    fontSize: 13,
+  },
   footer: {
     marginTop: 12,
     fontSize: 10,
     fontWeight: '600',
     color: 'rgba(255, 255, 255, 0.75)',
     letterSpacing: 0.8,
+  },
+  footerHome: {
+    marginTop: 8,
+    fontSize: 9,
   },
 });
 

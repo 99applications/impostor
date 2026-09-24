@@ -67,10 +67,7 @@ const HomeScreen = ({ navigation }) => {
             </Text>
           </TouchableOpacity>
 
-          <CharadesBanner
-            variant="home"
-            style={{ marginHorizontal: 0 }}
-          />
+          <CharadesBanner variant="home" style={styles.charadesBanner} />
         </View>
       </View>
     </View>
@@ -158,6 +155,9 @@ const styles = StyleSheet.create({
   },
   buttonsSection: {
     gap: 16,
+  },
+  charadesBanner: {
+    marginTop: 20,
   },
   primaryButton: {
     flexDirection: 'row',
