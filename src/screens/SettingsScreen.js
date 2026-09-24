@@ -17,6 +17,7 @@ import DeviceInfo from 'react-native-device-info';
 import { colors } from '../theme/colors';
 import { SUPPORTED_LANGUAGES, changeLanguage } from '../i18n';
 import { usePremium } from '../context/PremiumContext';
+import CharadesBanner from '../components/CharadesBanner';
 
 const APP_VERSION = DeviceInfo.getVersion();
 
@@ -133,6 +134,8 @@ const SettingsScreen = ({ navigation }) => {
             <Icon name="chevron-forward" size={22} color={colors.textMuted} />
           </TouchableOpacity>
         )}
+
+        <CharadesBanner variant="settings" />
 
         {/* Dil Seçimi */}
         <View style={styles.section}>
