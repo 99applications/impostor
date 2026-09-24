@@ -1,13 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { colors } from '../theme/colors';
-import CharadesBanner from '../components/CharadesBanner';
-
-const { height: SCREEN_HEIGHT } = Dimensions.get('window');
-const hp = value => (SCREEN_HEIGHT * value) / 100;
 
 const HomeScreen = ({ navigation }) => {
   const { t } = useTranslation();
@@ -66,8 +62,6 @@ const HomeScreen = ({ navigation }) => {
               {t('home.howToPlay')}
             </Text>
           </TouchableOpacity>
-
-          <CharadesBanner variant="home" style={styles.charadesBanner} />
         </View>
       </View>
     </View>
@@ -155,9 +149,6 @@ const styles = StyleSheet.create({
   },
   buttonsSection: {
     gap: 16,
-  },
-  charadesBanner: {
-    marginTop: 20,
   },
   primaryButton: {
     flexDirection: 'row',

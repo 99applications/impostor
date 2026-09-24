@@ -4048,15 +4048,6 @@
     "cantOpenLink": "No se pudo abrir el enlace",
     "shareMessage": "Impostor Party - ¡Juega con tus amigos! {{url}}"
   },
-  "charadesBanner": {
-    "homeTitle": "Charades Game",
-    "homeSubtitle": "100+ mazos · Describe la palabra, que adivine quien tienes enfrente",
-    "settingsTitle": "Prueba Charades Game",
-    "settingsSubtitle": "Del mismo equipo · 100+ mazos",
-    "newBadge": "NUEVO",
-    "play": "Jugar",
-    "footer": "DESCARGA GRATIS"
-  },
   "customCategory": {
     "title": "Crear categoría",
     "editTitle": "Editar categoría",

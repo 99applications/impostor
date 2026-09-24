@@ -4048,15 +4048,6 @@
     "cantOpenLink": "Link konnte nicht geöffnet werden",
     "shareMessage": "Imposter Party - Spiele mit deinen Freunden! {{url}}"
   },
-  "charadesBanner": {
-    "homeTitle": "Charades Game",
-    "homeSubtitle": "100+ Decks · Beschreibe das Wort, dein Gegenüber soll raten",
-    "settingsTitle": "Probiere Charades Game",
-    "settingsSubtitle": "Vom selben Team · 100+ Decks",
-    "newBadge": "NEU",
-    "play": "Spielen",
-    "footer": "KOSTENLOSER DOWNLOAD"
-  },
   "customCategory": {
     "title": "Kategorie erstellen",
     "editTitle": "Kategorie bearbeiten",

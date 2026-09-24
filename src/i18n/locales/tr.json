@@ -4048,15 +4048,6 @@
     "cantOpenLink": "Bağlantı açılamadı",
     "shareMessage": "Bu oyunu oynamalısın! {{url}}"
   },
-  "charadesBanner": {
-    "homeTitle": "Charades Game",
-    "homeSubtitle": "100+ deste · Kelimeyi anlat, karşındaki tahmin etsin",
-    "settingsTitle": "Charades Game'i dene",
-    "settingsSubtitle": "Aynı ekipten · 100+ deste",
-    "newBadge": "YENİ",
-    "play": "Oyna",
-    "footer": "ÜCRETSİZ İNDİR"
-  },
   "customCategory": {
     "title": "Özel Kategori",
     "editTitle": "Kategoriyi Düzenle",
